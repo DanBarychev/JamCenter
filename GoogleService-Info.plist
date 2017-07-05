@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>259113135232-rpcm2oq4epiem7notaebb82o71pvlv9l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.259113135232-rpcm2oq4epiem7notaebb82o71pvlv9l</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBJklfk37ljK9JLN-smm_4b-Zea1JWpVjw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>259113135232</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.jamhubapplication.JamHub</string>
+	<key>PROJECT_ID</key>
+	<string>jamhub-54eec</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jamhub-54eec.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:259113135232:ios:5ea59c44a34b3595</string>
+	<key>DATABASE_URL</key>
+	<string>https://jamhub-54eec.firebaseio.com</string>
+</dict>
+</plist>
