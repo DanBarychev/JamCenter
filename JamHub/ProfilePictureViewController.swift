@@ -39,7 +39,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
         if let profileImage = self.imageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
             storageRef.putData(uploadData, metadata: nil, completion:
                 {(metadata, error) in
-                    
                     if error != nil {
                         print(error!)
                         return
@@ -92,7 +91,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
         let usersRef = ref.child("users").child(uid!)
         let values = ["profileImageURL": profileImageLink]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            
             if error != nil {
                 print(error!)
                 return

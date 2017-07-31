@@ -110,6 +110,7 @@ class AdditionalInformationViewController: UIViewController {
                 print("User Data Successfully Updated")
                 
                 self.performSegue(withIdentifier: "Register", sender: nil)
+                
             }
         })
     }

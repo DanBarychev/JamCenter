@@ -10,13 +10,12 @@
 import UIKit
 import Firebase
 
+
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    
-    
     
     @IBOutlet weak var tableView: UITableView!
     let cellReuseIdentifier = "ProfileTableViewCell"
@@ -60,16 +59,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.nameLabel.text = (dictionary["name"] as? String)!
-                let genres = (dictionary["genres"] as? String)!
-                let instruments = (dictionary["instruments"] as? String)!
-                let profilePictureURL = (dictionary["profileImageURL"] as? String)!
+                self.nameLabel.text = (dictionary["name"] as! String)
+                let genres = dictionary["genres"] as! String
+                let instruments = dictionary["instruments"] as! String
+                let profilePictureURL = dictionary["profileImageURL"] as! String
+                let lastSession = dictionary["lastSession"] as! String
+                let numSessions = dictionary["numSessions"] as! String
                 self.setCurrentProfilePicture(profileImageURL: profilePictureURL)
                 
                 self.properties[0] = "Genres: " + genres
                 self.properties[1] = "Insruments: " + instruments
-                self.properties[2] = "Last Session: N/A"
-                self.properties[3] = "Number of Sessions: 0"
+                self.properties[2] = "Last Session: " + lastSession
+                self.properties[3] = "Number of Sessions: " + numSessions
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -96,6 +97,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }).resume()
     }
+    
+    // MARK: Logout
+    
+    func handleLogout () {
+        do {
+            try Auth.auth().signOut()
+            print("User logged out")
+        } catch let logoutError {
+            print(logoutError)
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -106,5 +118,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Actions
+    
+    @IBAction func logout(_ sender: Any) {
+        //dismiss(animated: true, completion: nil)
+        handleLogout()
+    }
+    
 
 }

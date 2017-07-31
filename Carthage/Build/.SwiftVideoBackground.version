@@ -1,0 +1,18 @@
+{
+  "iOS" : [
+    {
+      "hash" : "26b98bebb970de7e79bd5b4b28be22d5303bbfc81b500c90becad5ef73602ec8",
+      "name" : "SwiftVideoBackground"
+    }
+  ],
+  "commitish" : "0.06",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+
+  ]
+}

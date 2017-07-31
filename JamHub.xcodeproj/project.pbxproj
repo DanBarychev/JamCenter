@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7EFDF46FD4A937A9116DA70C /* Pods_JamHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037F392AABF2025691F07CD4 /* Pods_JamHub.framework */; };
+		5A68504F02B1E9201259BB5D /* libPods-JamHub-JamHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */; };
+		84520291D1BBA10F374AEF08 /* libPods-JamHub-JamHubUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */; };
 		B35E6F3376A14370D3557B25 /* Pods_JamHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */; };
+		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
+		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
+		D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */; };
 		D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */; };
 		D67EF5131ECDFFA100CA73B1 /* MySessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5121ECDFFA100CA73B1 /* MySessionsViewController.swift */; };
 		D67EF5151ECDFFE600CA73B1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */; };
@@ -17,6 +21,9 @@
 		D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51A1ECE063000CA73B1 /* SessionTableViewCell.swift */; };
 		D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */; };
 		D67EF51F1ECE42FA00CA73B1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51E1ECE42FA00CA73B1 /* Session.swift */; };
+		D6A9B0A11F2D57BE001E723D /* SwiftVideoBackground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */; };
+		D6A9B0A21F2D57BE001E723D /* SwiftVideoBackground.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */; };
 		D6D16C241F09D4B60079314B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C231F09D4B60079314B /* Extensions.swift */; };
 		D6D16C2E1F0A22E40079314B /* MonkBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D6D16C2D1F0A22E40079314B /* MonkBackground.mp4 */; };
 		D6D16C301F0A24B60079314B /* ColtraneBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D6D16C2F1F0A24B60079314B /* ColtraneBackground.mp4 */; };
@@ -24,6 +31,12 @@
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
 		D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */; };
 		D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */; };
+		D6DF31751F15D17D0070366A /* MyActiveSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */; };
+		D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */; };
+		D6DF317C1F15DC1A0070366A /* FBSDKLiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF317B1F15DC1A0070366A /* FBSDKLiveVideo.swift */; };
+		D6E56EB91F12B7E90021AE95 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */; };
+		D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */; };
+		D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */; };
 		D6EB494F1F083FCB00F82CDE /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */; };
 		D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */; };
 		D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */; };
@@ -35,6 +48,7 @@
 		D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */; };
 		D6FE85361ECCBD7B0020CEE6 /* JamHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85351ECCBD7B0020CEE6 /* JamHubTests.swift */; };
 		D6FE85411ECCBD7B0020CEE6 /* JamHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */; };
+		E09C3F3DF90A6CCBF7BA00BF /* libPods-JamHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96763F96C3A952FC9AA2723F /* libPods-JamHub.a */; };
 		E84AE0837B48B9F56310F7B5 /* Pods_JamHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,15 +69,38 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D6A9B0A01F2D5563001E723D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D6A9B0A21F2D57BE001E723D /* SwiftVideoBackground.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		037F392AABF2025691F07CD4 /* Pods_JamHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13A69522A4C9BF19E2355AE1 /* Pods-JamHub-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
+		329F28383A96345699C5859E /* Pods-JamHub-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36FF2DFD8768F62C515B51BD /* Pods-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubTests/Pods-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1E4728E728FBFD9CDEEEE0 /* Pods-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA9192FD34B3D3F741E2746 /* Pods-JamHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.release.xcconfig"; sourceTree = "<group>"; };
+		75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96763F96C3A952FC9AA2723F /* libPods-JamHub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9957267BCB38C9055C77A7AC /* Pods-JamHub-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C2673C61E5363F211F62EC5 /* Pods-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubTests/Pods-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
+		D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrentSessionViewController.swift; sourceTree = "<group>"; };
+		D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMusicianProfileViewController.swift; sourceTree = "<group>"; };
 		D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJamsViewController.swift; sourceTree = "<group>"; };
 		D67EF5121ECDFFA100CA73B1 /* MySessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySessionsViewController.swift; sourceTree = "<group>"; };
 		D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +109,10 @@
 		D67EF51A1ECE063000CA73B1 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JamTableViewCell.swift; sourceTree = "<group>"; };
 		D67EF51E1ECE42FA00CA73B1 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		D6A9B0981F2D50BC001E723D /* SwiftVideoBackground.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftVideoBackground.framework; path = Carthage/Build/iOS/SwiftVideoBackground.framework; sourceTree = "<group>"; };
+		D6A9B09B1F2D53A6001E723D /* SwiftVideoBackground.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftVideoBackground.framework.dSYM; path = Carthage/Build/iOS/SwiftVideoBackground.framework.dSYM; sourceTree = "<group>"; };
+		D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftVideoBackground.framework; sourceTree = "<group>"; };
+		D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAudioViewController.swift; sourceTree = "<group>"; };
 		D6D16C231F09D4B60079314B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "../../Documents/iOS Applications/BACeletFinal/BACelet/Extensions.swift"; sourceTree = "<group>"; };
 		D6D16C2D1F0A22E40079314B /* MonkBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MonkBackground.mp4; path = ../../../Downloads/MonkBackground.mp4; sourceTree = "<group>"; };
 		D6D16C2F1F0A24B60079314B /* ColtraneBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ColtraneBackground.mp4; path = "../../../JamHub Icons/ColtraneBackground.mp4"; sourceTree = "<group>"; };
@@ -79,6 +120,13 @@
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
 		D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamMusicianTableViewCell.swift; sourceTree = "<group>"; };
+		D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "facebook-live-ios-sample-Bridging-Header.h"; sourceTree = "<group>"; };
+		D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActiveSessionViewController.swift; sourceTree = "<group>"; };
+		D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLivestreamViewController.swift; sourceTree = "<group>"; };
+		D6DF317B1F15DC1A0070366A /* FBSDKLiveVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBSDKLiveVideo.swift; path = "../../../../facebook-live-ios/facebook-live-ios-sample/FBSDKLiveVideo.swift"; sourceTree = "<group>"; };
+		D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
 		D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInformationViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EFDF46FD4A937A9116DA70C /* Pods_JamHub.framework in Frameworks */,
+				D6A9B0A11F2D57BE001E723D /* SwiftVideoBackground.framework in Frameworks */,
+				E09C3F3DF90A6CCBF7BA00BF /* libPods-JamHub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E84AE0837B48B9F56310F7B5 /* Pods_JamHubTests.framework in Frameworks */,
+				5A68504F02B1E9201259BB5D /* libPods-JamHub-JamHubTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35E6F3376A14370D3557B25 /* Pods_JamHubUITests.framework in Frameworks */,
+				84520291D1BBA10F374AEF08 /* libPods-JamHub-JamHubUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,9 +181,14 @@
 		4912035B94D0BAF44B53E441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				037F392AABF2025691F07CD4 /* Pods_JamHub.framework */,
+				D6A9B09B1F2D53A6001E723D /* SwiftVideoBackground.framework.dSYM */,
+				D6A9B0981F2D50BC001E723D /* SwiftVideoBackground.framework */,
+				D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */,
 				A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */,
 				B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */,
+				96763F96C3A952FC9AA2723F /* libPods-JamHub.a */,
+				438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */,
+				75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +200,14 @@
 			);
 			name = Helpers;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D6DF317A1F15DBFA0070366A /* FBSDKLiveVideo */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF317B1F15DC1A0070366A /* FBSDKLiveVideo.swift */,
+			);
+			path = FBSDKLiveVideo;
 			sourceTree = "<group>";
 		};
 		D6FE85141ECCBD7A0020CEE6 = {
@@ -171,6 +235,7 @@
 		D6FE851F1ECCBD7A0020CEE6 /* JamHub */ = {
 			isa = PBXGroup;
 			children = (
+				D6DF317A1F15DBFA0070366A /* FBSDKLiveVideo */,
 				D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */,
 				D67EF51E1ECE42FA00CA73B1 /* Session.swift */,
 				D6D16C351F0C30760079314B /* Musician.swift */,
@@ -178,16 +243,26 @@
 				D67EF51A1ECE063000CA73B1 /* SessionTableViewCell.swift */,
 				D6F92FED1ED213AE00B3533F /* NewSessionViewController.swift */,
 				D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */,
+				D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */,
+				D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */,
+				D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */,
 				D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */,
 				D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */,
 				D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */,
 				D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */,
+				D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */,
+				D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */,
+				D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */,
+				D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */,
+				D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */,
+				D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */,
 				D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */,
 				D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
 				D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */,
 				D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */,
 				D67EF5181ECE015A00CA73B1 /* LoginViewController.swift */,
+				D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */,
 				D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */,
 				D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */,
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
@@ -227,6 +302,10 @@
 				9C2673C61E5363F211F62EC5 /* Pods-JamHubTests.release.xcconfig */,
 				6A1E4728E728FBFD9CDEEEE0 /* Pods-JamHubUITests.debug.xcconfig */,
 				C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */,
+				9957267BCB38C9055C77A7AC /* Pods-JamHub-JamHubTests.debug.xcconfig */,
+				13A69522A4C9BF19E2355AE1 /* Pods-JamHub-JamHubTests.release.xcconfig */,
+				329F28383A96345699C5859E /* Pods-JamHub-JamHubUITests.debug.xcconfig */,
+				AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -244,6 +323,7 @@
 				D6FE851B1ECCBD7A0020CEE6 /* Resources */,
 				111FCB73E07DBD3B7DB309F9 /* [CP] Embed Pods Frameworks */,
 				6FADF601ABF19C04BE0FEC12 /* [CP] Copy Pods Resources */,
+				D6A9B0A01F2D5563001E723D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -403,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHubTests/Pods-JamHubTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		322EEE0C752EDB3CEE085061 /* [CP] Check Pods Manifest.lock */ = {
@@ -463,7 +543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHubTests/Pods-JamHubTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBBE48A48F2CEAE9DE827832 /* [CP] Check Pods Manifest.lock */ = {
@@ -493,7 +573,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD186FA2648043C1BE3B3B61 /* [CP] Embed Pods Frameworks */ = {
@@ -508,7 +588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -518,22 +598,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */,
 				D67EF5191ECE015A00CA73B1 /* LoginViewController.swift in Sources */,
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,
+				D6E56EB91F12B7E90021AE95 /* VideoViewController.swift in Sources */,
 				D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */,
+				D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */,
 				D6D16C361F0C30760079314B /* Musician.swift in Sources */,
 				D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */,
+				D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */,
 				D67EF5131ECDFFA100CA73B1 /* MySessionsViewController.swift in Sources */,
+				D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */,
 				D6EB494F1F083FCB00F82CDE /* ProfileTableViewCell.swift in Sources */,
 				D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */,
 				D67EF5171ECE013900CA73B1 /* RegisterViewController.swift in Sources */,
+				D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */,
 				D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */,
 				D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */,
 				D67EF5151ECDFFE600CA73B1 /* ProfileViewController.swift in Sources */,
+				D6DF317C1F15DC1A0070366A /* FBSDKLiveVideo.swift in Sources */,
 				D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */,
 				D6FE85211ECCBD7A0020CEE6 /* AppDelegate.swift in Sources */,
 				D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */,
+				D6DF31751F15D17D0070366A /* MyActiveSessionViewController.swift in Sources */,
 				D6F92FEE1ED213AE00B3533F /* NewSessionViewController.swift in Sources */,
+				D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */,
+				D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */,
 				D67EF51F1ECE42FA00CA73B1 /* Session.swift in Sources */,
 				D6D16C241F09D4B60079314B /* Extensions.swift in Sources */,
 			);
@@ -703,10 +793,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JamHub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamhubapplication.JamHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-live-ios-sample-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -717,17 +814,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JamHub/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamhubapplication.JamHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-live-ios-sample-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		D6FE85491ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36FF2DFD8768F62C515B51BD /* Pods-JamHubTests.debug.xcconfig */;
+			baseConfigurationReference = 9957267BCB38C9055C77A7AC /* Pods-JamHub-JamHubTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -743,7 +847,7 @@
 		};
 		D6FE854A1ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C2673C61E5363F211F62EC5 /* Pods-JamHubTests.release.xcconfig */;
+			baseConfigurationReference = 13A69522A4C9BF19E2355AE1 /* Pods-JamHub-JamHubTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -759,7 +863,7 @@
 		};
 		D6FE854C1ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A1E4728E728FBFD9CDEEEE0 /* Pods-JamHubUITests.debug.xcconfig */;
+			baseConfigurationReference = 329F28383A96345699C5859E /* Pods-JamHub-JamHubUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
@@ -774,7 +878,7 @@
 		};
 		D6FE854D1ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */;
+			baseConfigurationReference = AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;

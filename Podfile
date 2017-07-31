@@ -3,7 +3,7 @@
 
 target 'JamHub' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
+  #use_frameworks!
 
   # Pods for JamHub
 
@@ -11,15 +11,19 @@ target 'JamHub' do
   pod 'Firebase/Database’
   pod 'Firebase/Auth’
   pod 'Firebase/Storage’
-  pod 'SwiftVideoBackground'
+  #pod 'SwiftVideoBackground'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
+  pod 'VideoCore'
+  pod 'Canvas', '~> 0.1'
 
   target 'JamHubTests' do
-    inherit! :search_paths
+      #inherit! :search_paths
     # Pods for testing
   end
 
   target 'JamHubUITests' do
-    inherit! :search_paths
+      #inherit! :search_paths
     # Pods for testing
   end
 

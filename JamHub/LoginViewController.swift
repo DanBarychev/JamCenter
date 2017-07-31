@@ -13,17 +13,29 @@ import SwiftVideoBackground
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
+    
     @IBOutlet weak var backgroundVideo: BackgroundVideo!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var noAccountButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         backgroundVideo.createBackgroundVideo(name: "MonkBackground", type: "mp4", alpha: 0.5)
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        // Do any additional setup after loading the view.
+        
+        loginButton.layer.cornerRadius = 20
+        noAccountButton.layer.cornerRadius = 20
+        
+        loginButton.layer.borderWidth = 2.0
+        noAccountButton.layer.borderWidth = 2.0
+        
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        noAccountButton.layer.borderColor = UIColor.white.cgColor
     }
     
     // MARK: UITextFieldDelegate
@@ -50,17 +62,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error!)
-                
                 let loginAlert = UIAlertController(title: "Invalid Login", message: "Incorrect Email or Password", preferredStyle: UIAlertControllerStyle.alert)
                 loginAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(loginAlert, animated: true, completion: nil)
                 
                 return
             }
-            
             else {
                 print("User Successfully Logged In")
-                
                 self.performSegue(withIdentifier: "Login", sender: nil)
             }
         })

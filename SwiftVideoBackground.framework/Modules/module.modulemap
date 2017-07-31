@@ -1,0 +1,11 @@
+framework module SwiftVideoBackground {
+  umbrella header "SwiftVideoBackground.h"
+
+  export *
+  module * { export * }
+}
+
+module SwiftVideoBackground.Swift {
+    header "SwiftVideoBackground-Swift.h"
+    requires objc
+}

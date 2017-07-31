@@ -9,8 +9,12 @@
 import Foundation
 
 class Musician {
+    var uid: String?
     var name: String?
     var instruments: String?
     var genres: String?
     var profileImageURL: String?
+    var numSessions: Int?
+    var lastSession: String?
+    var invitations: [String]?
 }

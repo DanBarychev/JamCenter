@@ -14,5 +14,10 @@ public class Session {
     var location: String?
     var host: String?
     var hostImageURL: String?
+    var audioRecordingURL: String?
+    var code: String?
+    var ID: String?
+    var hostUID: String?
     var musicians: [Musician]?
+    var isActive: Bool?
 }

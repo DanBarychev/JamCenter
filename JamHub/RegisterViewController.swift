@@ -5,6 +5,7 @@
 //  Created by Daniel Barychev on 5/18/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.
 //
+//  Back Icon from https://icons8.com/icon/39815/Go-Back
 
 import UIKit
 import Firebase
@@ -13,10 +14,12 @@ import SwiftVideoBackground
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
+    
     @IBOutlet weak var backgroundVideo: BackgroundVideo!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        registerButton.layer.cornerRadius = 20
+        registerButton.layer.borderWidth = 2
+        registerButton.layer.borderColor = UIColor.white.cgColor
     }
 
     // MARK: UITextFieldDelegate
@@ -95,7 +102,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         let ref = Database.database().reference()
         let usersRef = ref.child("users").child(uid)
-        let values = ["name": name, "email": email, "profileImageURL": profileImageLink]
+        let values = ["name": name, "email": email, "profileImageURL": profileImageLink, "numSessions": "0", "lastSession": ""]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
             if error != nil {
                 print(error!)

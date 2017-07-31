@@ -13,6 +13,7 @@ import Firebase
 class CurrentJamsViewController: UITableViewController {
     
     var sessions = [Session]()
+    typealias MusicianArrayClosure = ([Musician]?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +29,19 @@ class CurrentJamsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JamTableViewCell", for: indexPath) as! JamTableViewCell
 
-        let session = sessions[indexPath.row]
+        let session = sessions.reversed()[indexPath.row]
         
         cell.nameLabel?.text = session.name
         cell.genreLabel?.text = session.genre
-        cell.hostLabel?.text = session.host
+        if let hostImageURL = session.hostImageURL {
+            cell.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+        }
+        cell.hostImageView.layer.cornerRadius = cell.hostImageView.frame.size.width / 2
+        cell.hostImageView.clipsToBounds = true
         
         return cell
     }
@@ -53,19 +57,22 @@ class CurrentJamsViewController: UITableViewController {
                 newSession.location = dictionary["location"] as? String
                 newSession.host = dictionary["host"] as? String
                 newSession.hostImageURL = dictionary["hostImageURL"] as? String
+                newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
+                newSession.code = dictionary["code"] as? String
+                newSession.ID = dictionary["ID"] as? String
+                newSession.hostUID = dictionary["hostUID"] as? String
+                newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
                 let sessionRef = snapshot.ref
                 let musiciansRef = sessionRef.child("musicians")
                 
-                newSession.musicians = self.getMusicians(musiciansRef: musiciansRef)
-                
-                if newSession.musicians == nil {
-                    print("No musicians added")
-                } else {
-                    print(newSession.musicians!)
+                self.getMusicians(musiciansRef: musiciansRef) { (musicians) in
+                    newSession.musicians = musicians
                 }
                 
-                self.sessions.append(newSession)
+                if newSession.isActive ?? false {
+                  self.sessions.append(newSession)
+                }
                 
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
@@ -75,9 +82,9 @@ class CurrentJamsViewController: UITableViewController {
         }, withCancel: nil)
     }
     
-    func getMusicians(musiciansRef: DatabaseReference) -> [Musician] {
+    func getMusicians(musiciansRef: DatabaseReference, completionHandler: @escaping MusicianArrayClosure) {
         var musicians = [Musician]()
-        
+        print("Getting Musicians")
         musiciansRef.observe(.childAdded, with: {(musicianSnapshot) in
             print("Trying to add a musician")
             if let musicianDictionary = musicianSnapshot.value as? [String: AnyObject] {
@@ -87,32 +94,37 @@ class CurrentJamsViewController: UITableViewController {
                 sessionMusician.genres = musicianDictionary["genres"] as? String
                 sessionMusician.instruments = musicianDictionary["instruments"] as? String
                 sessionMusician.profileImageURL = musicianDictionary["profileImageURL"] as? String
+                sessionMusician.numSessions = Int((musicianDictionary["numSessions"] as? String) ?? "0")
+                sessionMusician.lastSession = musicianDictionary["lastSession"] as? String
                 
                 print("Adding \(sessionMusician.name!)")
                 
                 musicians.append(sessionMusician)
                 print(musicians.count)
             }
-        }, withCancel: nil)
-        print(musicians.count)
+            if musicians.isEmpty {
+                print("Nil completion handler")
+                completionHandler(nil)
+            } else {
+                print("Filled musicians completion handler")
+                completionHandler(musicians)
+            }
+        })
         
-        return musicians
+        print("Upon return from getMusicians(), there are \(musicians.count) musicians loaded")
     }
     
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "GoToCurrentSession" {
+        if segue.identifier == "GoToCurrentJam" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! CurrentJamViewController
             
             if let selectedJamCell = sender as? JamTableViewCell
             {
                 let indexPath = tableView.indexPath(for: selectedJamCell)!
-                let selectedJam = sessions[indexPath.row]
+                let selectedJam = sessions.reversed()[indexPath.row]
                 newViewController.currentSession = selectedJam
             }
         }
