@@ -22,9 +22,9 @@ public extension FBSDKLiveVideoDelegate {
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didChange sessionState: FBSDKLiveVideoSessionState) {}
     
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didAdd cameraSource: FBSDKLiveVideoSession) {}
-
+    
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didUpdate session: FBSDKLiveVideoSession) {}
-
+    
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didDelete session: FBSDKLiveVideoSession) {}
 }
 
@@ -34,7 +34,7 @@ enum FBSDKLiveVideoPrivacy : StringLiteralType {
     case me = "SELF"
     
     case friends = "FRIENDS"
-
+    
     case friendsOfFriends = "FRIENDS_OF_FRIENDS"
     
     case allFriends = "ALL_FRIENDS"
@@ -44,13 +44,13 @@ enum FBSDKLiveVideoPrivacy : StringLiteralType {
 
 enum FBSDKLiveVideoStatus: StringLiteralType {
     case unpublished = "UNPUBLISHED"
-
+    
     case liveNow = "LIVE_NOW"
-
+    
     case scheduledUnpublished = "SCHEDULED_UNPUBLISHED"
-
+    
     case scheduledLive = "SCHEDULED_LIVE"
-
+    
     case scheduledCanceled = "SCHEDULED_CANCELED"
 }
 
@@ -76,7 +76,7 @@ public enum FBSDKLiveVideoSessionState : IntegerLiteralType {
 
 struct FBSDKLiveVideoParameter {
     var key: String!
-
+    
     var value: String!
 }
 
@@ -180,11 +180,11 @@ open class FBSDKLiveVideo: NSObject {
     }
     
     // MARK: - Utility API's
-
+    
     var delegate: FBSDKLiveVideoDelegate!
-
+    
     var url: URL!
-
+    
     var id: String!
     
     var audience: String = "me"
@@ -194,17 +194,17 @@ open class FBSDKLiveVideo: NSObject {
     var bitRate: Int = 1000000
     
     var preview: UIView!
-
+    
     var isStreaming: Bool = false
-
+    
     // MARK: - Internal API's
-
+    
     private var session: FBSDKLiveVideoSession!
     
     private var createParameters: [String : Any] = [:]
-
+    
     private var updateParameters: [String : Any] = [:]
-
+    
     required public init(delegate: FBSDKLiveVideoDelegate, previewSize: CGRect, videoSize: CGSize) {
         super.init()
         
@@ -214,6 +214,8 @@ open class FBSDKLiveVideo: NSObject {
         self.session.previewView.frame = previewSize
         self.session.delegate = self
         
+        
+        
         self.preview = self.session.previewView
     }
     
@@ -221,7 +223,7 @@ open class FBSDKLiveVideo: NSObject {
         if self.session.rtmpSessionState != .ended {
             self.session.endRtmpSession()
         }
-
+        
         self.delegate = nil
         self.session.delegate = nil
         self.preview = nil
@@ -245,6 +247,9 @@ open class FBSDKLiveVideo: NSObject {
                 self.url = URL(string:(dict.value(forKey: "stream_url") as? String)!)
                 self.id = dict.value(forKey: "id") as? String
                 
+                print("STREAM URL")
+                print(self.url)
+                
                 guard let streamPath = self.url?.lastPathComponent, let query = self.url?.query else {
                     return self.delegate.liveVideo(self, didErrorWith: FBSDKLiveVideo.errorFromDescription(description: "The stream path is invalid"))
                 }
@@ -259,7 +264,7 @@ open class FBSDKLiveVideo: NSObject {
         guard FBSDKAccessToken.current().hasGranted("publish_actions") else {
             return self.delegate.liveVideo(self, didErrorWith: FBSDKLiveVideo.errorFromDescription(description: "The \"publish_actions\" permission has not been granted"))
         }
-
+        
         let graphRequest = FBSDKGraphRequest(graphPath: "/\(self.audience)/live_videos", parameters: ["end_live_video":  true], httpMethod: "POST")
         
         DispatchQueue.main.async {
@@ -303,7 +308,7 @@ open class FBSDKLiveVideo: NSObject {
                 guard error == nil else {
                     return self.delegate.liveVideo(self, didErrorWith: FBSDKLiveVideo.errorFromDescription(description: "Error deleting the live video session: \(String(describing: error?.localizedDescription))"))
                 }
-
+                
                 self.delegate.liveVideo(self, didDelete: self.session)
             }
         }
@@ -335,3 +340,4 @@ extension FBSDKLiveVideo : VCSessionDelegate {
         self.delegate.liveVideo(self, didAdd: session as! FBSDKLiveVideoSession)
     }
 }
+

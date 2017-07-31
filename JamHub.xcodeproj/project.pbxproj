@@ -10,6 +10,10 @@
 		5A68504F02B1E9201259BB5D /* libPods-JamHub-JamHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */; };
 		84520291D1BBA10F374AEF08 /* libPods-JamHub-JamHubUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */; };
 		B35E6F3376A14370D3557B25 /* Pods_JamHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */; };
+		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
+		D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */; };
+		D60DCB841F2EE0C4007E4010 /* ColtraneBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D60DCB831F2EE0C3007E4010 /* ColtraneBackground.mp4 */; };
+		D60DCB881F2EE17E007E4010 /* MonkBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D60DCB871F2EE17E007E4010 /* MonkBackground.mp4 */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
 		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
 		D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */; };
@@ -24,16 +28,12 @@
 		D6A9B0A11F2D57BE001E723D /* SwiftVideoBackground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */; };
 		D6A9B0A21F2D57BE001E723D /* SwiftVideoBackground.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */; };
-		D6D16C241F09D4B60079314B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C231F09D4B60079314B /* Extensions.swift */; };
-		D6D16C2E1F0A22E40079314B /* MonkBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D6D16C2D1F0A22E40079314B /* MonkBackground.mp4 */; };
-		D6D16C301F0A24B60079314B /* ColtraneBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D6D16C2F1F0A24B60079314B /* ColtraneBackground.mp4 */; };
 		D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */; };
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
 		D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */; };
 		D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */; };
 		D6DF31751F15D17D0070366A /* MyActiveSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */; };
 		D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */; };
-		D6DF317C1F15DC1A0070366A /* FBSDKLiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF317B1F15DC1A0070366A /* FBSDKLiveVideo.swift */; };
 		D6E56EB91F12B7E90021AE95 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */; };
 		D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */; };
 		D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */; };
@@ -98,6 +98,10 @@
 		AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSDKLiveVideo.swift; sourceTree = "<group>"; };
+		D60DCB831F2EE0C3007E4010 /* ColtraneBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ColtraneBackground.mp4; path = ../../Desktop/JamHub/JamHub/ColtraneBackground.mp4; sourceTree = "<group>"; };
+		D60DCB871F2EE17E007E4010 /* MonkBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MonkBackground.mp4; path = ../../Desktop/JamHub/JamHub/MonkBackground.mp4; sourceTree = "<group>"; };
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
 		D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrentSessionViewController.swift; sourceTree = "<group>"; };
 		D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMusicianProfileViewController.swift; sourceTree = "<group>"; };
@@ -113,9 +117,6 @@
 		D6A9B09B1F2D53A6001E723D /* SwiftVideoBackground.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftVideoBackground.framework.dSYM; path = Carthage/Build/iOS/SwiftVideoBackground.framework.dSYM; sourceTree = "<group>"; };
 		D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftVideoBackground.framework; sourceTree = "<group>"; };
 		D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAudioViewController.swift; sourceTree = "<group>"; };
-		D6D16C231F09D4B60079314B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "../../Documents/iOS Applications/BACeletFinal/BACelet/Extensions.swift"; sourceTree = "<group>"; };
-		D6D16C2D1F0A22E40079314B /* MonkBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MonkBackground.mp4; path = ../../../Downloads/MonkBackground.mp4; sourceTree = "<group>"; };
-		D6D16C2F1F0A24B60079314B /* ColtraneBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ColtraneBackground.mp4; path = "../../../JamHub Icons/ColtraneBackground.mp4"; sourceTree = "<group>"; };
 		D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamViewController.swift; sourceTree = "<group>"; };
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "facebook-live-ios-sample-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActiveSessionViewController.swift; sourceTree = "<group>"; };
 		D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLivestreamViewController.swift; sourceTree = "<group>"; };
-		D6DF317B1F15DC1A0070366A /* FBSDKLiveVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBSDKLiveVideo.swift; path = "../../../../facebook-live-ios/facebook-live-ios-sample/FBSDKLiveVideo.swift"; sourceTree = "<group>"; };
 		D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		D6D16C221F09D4980079314B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D6D16C231F09D4B60079314B /* Extensions.swift */,
+				D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -205,7 +205,7 @@
 		D6DF317A1F15DBFA0070366A /* FBSDKLiveVideo */ = {
 			isa = PBXGroup;
 			children = (
-				D6DF317B1F15DC1A0070366A /* FBSDKLiveVideo.swift */,
+				D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */,
 			);
 			path = FBSDKLiveVideo;
 			sourceTree = "<group>";
@@ -266,10 +266,10 @@
 				D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */,
 				D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */,
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
+				D60DCB831F2EE0C3007E4010 /* ColtraneBackground.mp4 */,
+				D60DCB871F2EE17E007E4010 /* MonkBackground.mp4 */,
 				D6FE852C1ECCBD7A0020CEE6 /* Info.plist */,
 				D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */,
-				D6D16C2F1F0A24B60079314B /* ColtraneBackground.mp4 */,
-				D6D16C2D1F0A22E40079314B /* MonkBackground.mp4 */,
 				D6D16C221F09D4980079314B /* Helpers */,
 			);
 			path = JamHub;
@@ -430,12 +430,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60DCB881F2EE17E007E4010 /* MonkBackground.mp4 in Resources */,
 				D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */,
 				D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */,
 				D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */,
-				D6D16C2E1F0A22E40079314B /* MonkBackground.mp4 in Resources */,
-				D6D16C301F0A24B60079314B /* ColtraneBackground.mp4 in Resources */,
 				D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */,
+				D60DCB841F2EE0C4007E4010 /* ColtraneBackground.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +602,7 @@
 				D67EF5191ECE015A00CA73B1 /* LoginViewController.swift in Sources */,
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,
 				D6E56EB91F12B7E90021AE95 /* VideoViewController.swift in Sources */,
+				D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */,
 				D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */,
 				D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */,
 				D6D16C361F0C30760079314B /* Musician.swift in Sources */,
@@ -616,7 +617,6 @@
 				D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */,
 				D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */,
 				D67EF5151ECDFFE600CA73B1 /* ProfileViewController.swift in Sources */,
-				D6DF317C1F15DC1A0070366A /* FBSDKLiveVideo.swift in Sources */,
 				D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */,
 				D6FE85211ECCBD7A0020CEE6 /* AppDelegate.swift in Sources */,
 				D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */,
@@ -625,7 +625,7 @@
 				D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */,
 				D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */,
 				D67EF51F1ECE42FA00CA73B1 /* Session.swift in Sources */,
-				D6D16C241F09D4B60079314B /* Extensions.swift in Sources */,
+				D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,14 @@
 //
 //  Extensions.swift
-//  BACelet
+//  JamHub
 //
-//  Created by Daniel Barychev on 8/5/16.
-//  Copyright © 2016 BACelet LLC. All rights reserved.
+//  Created by Daniel Barychev on 7/30/17.
+//  Copyright © 2017 Daniel Barychev. All rights reserved.
 //
 
 import UIKit
 
-let imageCache = NSCache()
+let imageCache = NSCache<AnyObject, AnyObject>()
 
 extension UIImageView {
     func loadImageUsingCacheWithURLString(urlString: String) {
@@ -17,29 +17,29 @@ extension UIImageView {
         self.image = nil
         
         //See if the cache has an image
-        if let cachedImage = imageCache.objectForKey(urlString) as? UIImage{
+        if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage{
             self.image = cachedImage
             return
         }
- 
+        
         //Otherwise
         let url = NSURL(string: urlString)
-        NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {(data, response, error) in
+        URLSession.shared.dataTask(with: url! as URL, completionHandler: {(data, response, error) in
             
             if error != nil {
-                print(error)
+                print(error!)
                 return
             }
                 
-            //Image download was successful
+                //Image download was successful
             else {
                 print("Successful Image Download")
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async {
                     if let downloadedImage = UIImage(data: data!) {
-                       imageCache.setObject(downloadedImage, forKey: urlString)
+                        imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
                         self.image = downloadedImage
                     }
-                })
+                }
             }
         }).resume()
     }
