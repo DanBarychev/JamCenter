@@ -66,8 +66,11 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
         if let session = mySession {
+            print("Setting session ID")
             sessionID = session.ID ?? ""
             sessionHostUID = session.hostUID ?? ""
+        } else {
+            print("Session nil!")
         }
     }
     

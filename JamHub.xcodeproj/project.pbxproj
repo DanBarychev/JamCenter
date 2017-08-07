@@ -32,9 +32,10 @@
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
 		D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */; };
 		D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */; };
+		D6D7E15C1F3801B600473399 /* InvitationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */; };
 		D6DF31751F15D17D0070366A /* MyActiveSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */; };
 		D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */; };
-		D6E56EB91F12B7E90021AE95 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */; };
+		D6E56EB91F12B7E90021AE95 /* LivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EB81F12B7E90021AE95 /* LivestreamViewController.swift */; };
 		D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */; };
 		D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */; };
 		D6EB494F1F083FCB00F82CDE /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */; };
@@ -42,6 +43,9 @@
 		D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */; };
 		D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */; };
 		D6F92FEE1ED213AE00B3533F /* NewSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F92FED1ED213AE00B3533F /* NewSessionViewController.swift */; };
+		D6FA3BC71F3671F1004E8B8F /* MySongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA3BC61F3671F1004E8B8F /* MySongsTableViewController.swift */; };
+		D6FA3BC91F36728E004E8B8F /* MySongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA3BC81F36728E004E8B8F /* MySongTableViewCell.swift */; };
+		D6FA3BCD1F36ACE3004E8B8F /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA3BCC1F36ACE3004E8B8F /* SongTableViewCell.swift */; };
 		D6FE85211ECCBD7A0020CEE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */; };
 		D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */; };
 		D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */; };
@@ -121,10 +125,11 @@
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
 		D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamMusicianTableViewCell.swift; sourceTree = "<group>"; };
+		D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTableViewCell.swift; sourceTree = "<group>"; };
 		D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "facebook-live-ios-sample-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActiveSessionViewController.swift; sourceTree = "<group>"; };
 		D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLivestreamViewController.swift; sourceTree = "<group>"; };
-		D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		D6E56EB81F12B7E90021AE95 /* LivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamViewController.swift; sourceTree = "<group>"; };
 		D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +137,9 @@
 		D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInformationViewController.swift; sourceTree = "<group>"; };
 		D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6F92FED1ED213AE00B3533F /* NewSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionViewController.swift; sourceTree = "<group>"; };
+		D6FA3BC61F3671F1004E8B8F /* MySongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySongsTableViewController.swift; sourceTree = "<group>"; };
+		D6FA3BC81F36728E004E8B8F /* MySongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySongTableViewCell.swift; sourceTree = "<group>"; };
+		D6FA3BCC1F36ACE3004E8B8F /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		D6FE851D1ECCBD7A0020CEE6 /* JamHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6FE85251ECCBD7A0020CEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -246,16 +254,20 @@
 				D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */,
 				D6DF31761F15D5C10070366A /* MyLivestreamViewController.swift */,
 				D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */,
+				D6FA3BC61F3671F1004E8B8F /* MySongsTableViewController.swift */,
+				D6FA3BC81F36728E004E8B8F /* MySongTableViewCell.swift */,
 				D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */,
 				D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */,
 				D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */,
 				D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */,
 				D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */,
 				D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */,
-				D6E56EB81F12B7E90021AE95 /* VideoViewController.swift */,
+				D6E56EB81F12B7E90021AE95 /* LivestreamViewController.swift */,
 				D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */,
 				D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */,
+				D6FA3BCC1F36ACE3004E8B8F /* SongTableViewCell.swift */,
 				D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */,
+				D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */,
 				D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */,
 				D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
@@ -601,21 +613,24 @@
 				D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */,
 				D67EF5191ECE015A00CA73B1 /* LoginViewController.swift in Sources */,
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,
-				D6E56EB91F12B7E90021AE95 /* VideoViewController.swift in Sources */,
+				D6E56EB91F12B7E90021AE95 /* LivestreamViewController.swift in Sources */,
 				D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */,
 				D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */,
 				D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */,
 				D6D16C361F0C30760079314B /* Musician.swift in Sources */,
+				D6FA3BCD1F36ACE3004E8B8F /* SongTableViewCell.swift in Sources */,
 				D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */,
 				D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */,
 				D67EF5131ECDFFA100CA73B1 /* MySessionsViewController.swift in Sources */,
 				D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */,
+				D6FA3BC91F36728E004E8B8F /* MySongTableViewCell.swift in Sources */,
 				D6EB494F1F083FCB00F82CDE /* ProfileTableViewCell.swift in Sources */,
 				D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */,
 				D67EF5171ECE013900CA73B1 /* RegisterViewController.swift in Sources */,
 				D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */,
 				D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */,
 				D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */,
+				D6D7E15C1F3801B600473399 /* InvitationTableViewCell.swift in Sources */,
 				D67EF5151ECDFFE600CA73B1 /* ProfileViewController.swift in Sources */,
 				D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */,
 				D6FE85211ECCBD7A0020CEE6 /* AppDelegate.swift in Sources */,
@@ -624,6 +639,7 @@
 				D6F92FEE1ED213AE00B3533F /* NewSessionViewController.swift in Sources */,
 				D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */,
 				D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */,
+				D6FA3BC71F3671F1004E8B8F /* MySongsTableViewController.swift in Sources */,
 				D67EF51F1ECE42FA00CA73B1 /* Session.swift in Sources */,
 				D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */,
 			);

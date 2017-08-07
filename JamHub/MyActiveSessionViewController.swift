@@ -68,12 +68,17 @@ class MyActiveSessionViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "GoToMyAudio" {
+        if segue.identifier == "GoToMyAudio" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! MyAudioViewController
             
             newViewController.mySession = mySession
-         }
+        } else if segue.identifier == "GoToMySongs" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! MySongsTableViewController
+            
+            newViewController.mySession = mySession
+        }
     }
     
     @IBAction func unwindToMyActiveSession(sender: UIStoryboardSegue) {

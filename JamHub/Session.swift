@@ -19,5 +19,6 @@ public class Session {
     var ID: String?
     var hostUID: String?
     var musicians: [Musician]?
+    var songs: [String]?
     var isActive: Bool?
 }

@@ -205,7 +205,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="VideoIconWhite"/>
                                 <connections>
-                                    <segue destination="FcP-Dz-iRb" kind="show" id="pkj-EE-Ah7"/>
+                                    <segue destination="FcP-Dz-iRb" kind="show" identifier="GoToLivestream" id="pkj-EE-Ah7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTo-1f-T8z">
@@ -213,7 +213,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="RecordIconWhite"/>
                                 <connections>
-                                    <segue destination="jUr-tF-N0s" kind="show" id="HgY-aq-0Dk"/>
+                                    <segue destination="jUr-tF-N0s" kind="show" identifier="GoToAudio" id="HgY-aq-0Dk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBi-GL-UPb">
@@ -221,7 +221,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="SheetMusicIconWhite"/>
                                 <connections>
-                                    <segue destination="Fky-Tz-9gB" kind="show" id="ZpX-6J-pi0"/>
+                                    <segue destination="Fky-Tz-9gB" kind="show" identifier="GoToSongs" id="ZpX-6J-pi0"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CircleIconWhite" translatesAutoresizingMaskIntoConstraints="NO" id="38t-ob-Pf6">
@@ -250,7 +250,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9P-6t-qfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yDa-1e-fYi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5469.6000000000004" y="300.89955022488761"/>
+            <point key="canvasLocation" x="5513" y="303"/>
         </scene>
         <!--Audio-->
         <scene sceneID="ALX-7J-9HL">
@@ -326,7 +326,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGC-tM-no4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cZr-MF-LAU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7436" y="980.95952023988013"/>
+            <point key="canvasLocation" x="6990" y="981"/>
         </scene>
         <!--Songs-->
         <scene sceneID="naf-ha-Mzf">
@@ -337,13 +337,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="Sza-xs-gsk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="Sza-xs-gsk" customClass="SongTableViewCell" customModule="JamHub" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sza-xs-gsk" id="uK5-z7-gkq">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMF-Er-JCb">
+                                            <rect key="frame" x="8" y="8" width="296" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAv-NQ-l40">
+                                            <rect key="frame" x="337" y="5" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="SearchIcon"/>
+                                            <connections>
+                                                <action selector="searchForSong:" destination="Sza-xs-gsk" eventType="touchUpInside" id="5di-No-0kE"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="searchButton" destination="gAv-NQ-l40" id="RuN-9y-a9i"/>
+                                    <outlet property="songLabel" destination="IMF-Er-JCb" id="byu-aG-65R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -362,12 +383,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snh-VY-jU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="reV-SN-RBg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7097" y="1648"/>
+            <point key="canvasLocation" x="6989.6000000000004" y="1647.5262368815593"/>
+        </scene>
+        <!--Songs-->
+        <scene sceneID="rSo-IH-rm2">
+            <objects>
+                <tableViewController id="PYc-l6-ovg" customClass="MySongsTableViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="AxE-PT-nH7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MySongCell" id="N2B-Yl-wxR" customClass="MySongTableViewCell" customModule="JamHub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N2B-Yl-wxR" id="HAl-25-ORE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-4n-E7j">
+                                            <rect key="frame" x="8" y="7" width="318" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMb-Cj-4vZ">
+                                            <rect key="frame" x="337" y="6" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="SearchIcon"/>
+                                            <connections>
+                                                <action selector="searchForSong:" destination="N2B-Yl-wxR" eventType="touchUpInside" id="vOO-aS-wr6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="searchButton" destination="mMb-Cj-4vZ" id="zR4-Z9-G5h"/>
+                                    <outlet property="songLabel" destination="iKd-4n-E7j" id="RTY-4K-cIV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PYc-l6-ovg" id="aWM-Kg-OY3"/>
+                            <outlet property="delegate" destination="PYc-l6-ovg" id="CuW-Ws-Dz9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Songs" id="nIX-9m-yqS">
+                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="HZB-A1-5w7">
+                            <connections>
+                                <segue destination="cKE-2M-Cb3" kind="unwind" unwindAction="unwindToMyActiveSessionWithSender:" id="a9y-II-0cl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mZp-0q-3lH">
+                            <connections>
+                                <action selector="addSong:" destination="PYc-l6-ovg" id="2lg-b9-h4v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3y-Zb-a39" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cKE-2M-Cb3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6989.6000000000004" y="-361.16941529235385"/>
         </scene>
         <!--Video-->
         <scene sceneID="sKu-1d-kDI">
             <objects>
-                <viewController id="xeY-nA-vQK" customClass="VideoViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xeY-nA-vQK" customClass="LivestreamViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aCK-86-1d9"/>
                         <viewControllerLayoutGuide type="bottom" id="Npu-Ri-BCF"/>
@@ -394,13 +477,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noLivestreamLabel" destination="Vzh-bZ-ZHf" id="UoT-Tv-eCw"/>
+                        <outlet property="noLivestreamLabel" destination="Vzh-bZ-ZHf" id="gTq-aN-gX8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFY-BU-RHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SEy-at-Qbc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7096.8000000000002" y="300.89955022488761"/>
+            <point key="canvasLocation" x="6990" y="310"/>
         </scene>
         <!--My Sessions-->
         <scene sceneID="Uk7-oH-ZEJ">
@@ -699,7 +782,7 @@
                                 <state key="normal" title="Button" image="VideoIconWhite"/>
                                 <state key="selected" image="VideoIconBlue"/>
                                 <connections>
-                                    <segue destination="WGh-rm-Apd" kind="show" id="TUi-aF-ImJ"/>
+                                    <segue destination="WGh-rm-Apd" kind="show" identifier="GoToMyLivestream" id="TUi-aF-ImJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfD-FO-CE4">
@@ -708,7 +791,7 @@
                                 <state key="normal" title="Button" image="RecordIconWhite"/>
                                 <state key="selected" image="RecordIconBlue"/>
                                 <connections>
-                                    <segue destination="5B2-DS-6Kp" kind="show" id="I3p-vz-5tT"/>
+                                    <segue destination="5B2-DS-6Kp" kind="show" identifier="GoToMyAudio" id="I3p-vz-5tT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msg-B7-wez">
@@ -716,6 +799,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="SheetMusicIconWhite"/>
                                 <state key="selected" image="SheetMusicIconBlue"/>
+                                <connections>
+                                    <segue destination="iwP-pg-9hz" kind="show" identifier="GoToMySongs" id="ci6-La-3Va"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1b-at-Qpf">
                                 <rect key="frame" x="222" y="474" width="104" height="21"/>
@@ -853,7 +939,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeR-06-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YOa-se-gIp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6989.6000000000004" y="-362.06896551724139"/>
+            <point key="canvasLocation" x="6990" y="-1042"/>
         </scene>
         <!--My Livestream View Controller-->
         <scene sceneID="yaU-Ms-VVX">
@@ -895,7 +981,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InZ-Gt-2Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Nqw-ES-ltI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6990" y="-1025"/>
+            <point key="canvasLocation" x="6990" y="-1701"/>
         </scene>
         <!--Current Jams-->
         <scene sceneID="Ktk-w9-Ce0">
@@ -1914,19 +2000,45 @@
         <!--Invitations-->
         <scene sceneID="BvT-X5-cps">
             <objects>
-                <tableViewController id="Tf0-UH-uc5" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nGb-xk-V0x">
+                <tableViewController id="Tf0-UH-uc5" customClass="InvitationsTableViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="nGb-xk-V0x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gGR-r4-F2j">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InvitationCell" rowHeight="90" id="gGR-r4-F2j" customClass="InvitationTableViewCell" customModule="JamHub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gGR-r4-F2j" id="yZj-Nr-Q16">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-U9-kYa">
+                                            <rect key="frame" x="16" y="8" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXR-Zt-kTZ">
+                                            <rect key="frame" x="54" y="13" width="296" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Host has invited you" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sag-iR-uWD">
+                                            <rect key="frame" x="16" y="45" width="313" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hostImageView" destination="cdb-U9-kYa" id="3XE-77-a4T"/>
+                                    <outlet property="messageLabel" destination="sag-iR-uWD" id="gKx-Jb-Av9"/>
+                                    <outlet property="sessionLabel" destination="BXR-Zt-kTZ" id="xIA-sa-ria"/>
+                                    <segue destination="C7x-iN-Qi6" kind="show" identifier="GoToCurrentJamFromInvitation" id="83f-04-jpY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1939,7 +2051,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08H-IF-DyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="981"/>
+            <point key="canvasLocation" x="2244" y="980.95952023988013"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4M6-t6-1Sz">
@@ -2029,7 +2141,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoC-GR-t4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4750.3999999999996" y="301.34932533733138"/>
+            <point key="canvasLocation" x="4798" y="303"/>
         </scene>
         <!--Other Musician Profile View Controller-->
         <scene sceneID="jHJ-QU-FAS">
@@ -2174,7 +2286,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvD-g4-uxv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6624.8000000000002" y="980.95952023988013"/>
+            <point key="canvasLocation" x="6286" y="981"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kkT-Uv-6ai">
@@ -2228,7 +2340,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kt-wJ-9dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6284.8000000000002" y="-361.61919040479762"/>
+            <point key="canvasLocation" x="6286" y="-1042"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qLP-CD-r1c">
@@ -2246,7 +2358,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aC-f7-pSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6284.8000000000002" y="-1024.5877061469266"/>
+            <point key="canvasLocation" x="6286" y="-1700"/>
         </scene>
         <!--Invitations-->
         <scene sceneID="JCX-bx-bbq">
@@ -2266,6 +2378,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZU8-xW-PKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1304" y="980.5097451274363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="o6x-j3-I3A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iwP-pg-9hz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dbY-Sc-Zmv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PYc-l6-ovg" kind="relationship" relationship="rootViewController" id="cEL-zA-ajv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppT-0a-2pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6286" y="-361"/>
         </scene>
     </scenes>
     <resources>
@@ -2329,6 +2459,7 @@
         <image name="SaxophoneBackground" width="480" height="720"/>
         <image name="SaxophoneIcon" width="25" height="25"/>
         <image name="SaxophoneIconBlue" width="25" height="25"/>
+        <image name="SearchIcon" width="25" height="25"/>
         <image name="SettingsIcon" width="25" height="25"/>
         <image name="SheetMusicIconBlue" width="50" height="50"/>
         <image name="SheetMusicIconWhite" width="50" height="50"/>
@@ -2347,7 +2478,7 @@
         <image name="ViolinIconBlue" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T3c-77-A8K"/>
+        <segue reference="83f-04-jpY"/>
         <segue reference="cVa-b4-raN"/>
         <segue reference="akC-yi-f1u"/>
     </inferredMetricsTieBreakers>

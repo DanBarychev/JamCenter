@@ -8,89 +8,141 @@
 //  Mail Icon from https://icons8.com/icon/2848/Message-Filled
 
 import UIKit
+import Firebase
 
 class InvitationsTableViewController: UITableViewController {
+    
+    var sessions = [Session]()
+    typealias SessionClosure = (Session?) -> Void
+    typealias MusicianArrayClosure = ([Musician]?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        getData()
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sessions.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InvitationCell", for: indexPath) as! InvitationTableViewCell
+        
+        let session = sessions.reversed()[indexPath.row]
 
-        // Configure the cell...
+        cell.sessionLabel.text = session.name
+        
+        if let sessionHost = session.host {
+            cell.messageLabel.text = "\(sessionHost) has invited you"
+        }
+        if let hostImageURL = session.hostImageURL {
+            cell.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+        }
+
+        cell.hostImageView.layer.cornerRadius = cell.hostImageView.frame.size.width / 2
+        cell.hostImageView.clipsToBounds = true
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    // MARK: Firebase Functions
+    
+    func getData() {
+        let ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        
+        let invitationsRef = ref.child("users").child(uid!).child("invitations")
+        
+        invitationsRef.observe(.childAdded, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let sessionID = dictionary["sessionID"] as? String
+                
+                if let sessionID = sessionID {
+                    self.getSession(sessionID: sessionID) { (session) in
+                        if let session = session {
+                            self.sessions.append(session)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        } else {
+                            print("Session is nil!")
+                        }
+                    }
+                }
+            }
+        }, withCancel: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func getSession(sessionID: String, completionHandler: @escaping SessionClosure) {
+        let session = Session()
+        
+        let ref = Database.database().reference()
+        let sessionRef = ref.child("all sessions").child(sessionID)
+        
+        sessionRef.observe(.value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                session.name = dictionary["name"] as? String
+                session.genre = dictionary["genre"] as? String
+                session.host = dictionary["host"] as? String
+                session.hostImageURL = dictionary["hostImageURL"] as? String
+                session.audioRecordingURL = dictionary["audioRecordingURL"] as? String
+                session.code = dictionary["code"] as? String
+                session.ID = sessionID
+                session.hostUID = dictionary["hostUID"] as? String
+                session.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
+                
+                self.getSessionMusicians(musiciansRef: sessionRef.child("musicians")) { (musicians) in
+                    session.musicians = musicians
+                }
+                
+                completionHandler(session)
+            }
+        })
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func getSessionMusicians(musiciansRef: DatabaseReference, completionHandler: @escaping MusicianArrayClosure) {
+        var musicians = [Musician]()
+        
+        musiciansRef.observe(.childAdded, with: {(musicianSnapshot) in
+            if let musicianDictionary = musicianSnapshot.value as? [String: AnyObject] {
+                let sessionMusician = Musician()
+                
+                sessionMusician.name = musicianDictionary["name"] as? String
+                sessionMusician.genres = musicianDictionary["genres"] as? String
+                sessionMusician.instruments = musicianDictionary["instruments"] as? String
+                sessionMusician.profileImageURL = musicianDictionary["profileImageURL"] as? String
+                sessionMusician.numSessions = Int((musicianDictionary["numSessions"] as? String) ?? "0")
+                sessionMusician.lastSession = musicianDictionary["lastSession"] as? String
+                
+                musicians.append(sessionMusician)
+            }
+            if musicians.isEmpty {
+                completionHandler(nil)
+            } else {
+                completionHandler(musicians)
+            }
+        })
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "GoToCurrentJamFromInvitation" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! CurrentJamViewController
+            
+            if let selectedJamCell = sender as? InvitationTableViewCell
+            {
+                let indexPath = tableView.indexPath(for: selectedJamCell)!
+                let selectedJam = sessions.reversed()[indexPath.row]
+                newViewController.currentSession = selectedJam
+            }
+        }
     }
-    */
 
 }

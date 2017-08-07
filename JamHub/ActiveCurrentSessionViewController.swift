@@ -26,12 +26,21 @@ class ActiveCurrentSessionViewController: UIViewController {
     // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToAudio" {
-            print("Going to audio view controller")
+        if segue.identifier == "GoToLivestream" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! LivestreamViewController
+            
+            newViewController.currentSession = currentSession
+        } else if segue.identifier == "GoToAudio" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! AudioViewController
             
             newViewController.currentSession = currentSession
+        } else if segue.identifier == "GoToSongs" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! SongsTableViewController
+            
+            newViewController.mySession = currentSession
         }
     }
     

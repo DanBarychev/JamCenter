@@ -1,5 +1,5 @@
 //
-//  VideosViewController.swift
+//  LivestreamViewController.swift
 //  JamHub
 //
 //  Created by Daniel Barychev on 7/9/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoViewController: UIViewController {
+class LivestreamViewController: UIViewController {
     
     // MARK: Properties
     var currentSession: Session?

@@ -84,9 +84,8 @@ class CurrentJamsViewController: UITableViewController {
     
     func getMusicians(musiciansRef: DatabaseReference, completionHandler: @escaping MusicianArrayClosure) {
         var musicians = [Musician]()
-        print("Getting Musicians")
+        
         musiciansRef.observe(.childAdded, with: {(musicianSnapshot) in
-            print("Trying to add a musician")
             if let musicianDictionary = musicianSnapshot.value as? [String: AnyObject] {
                 let sessionMusician = Musician()
                 
@@ -97,21 +96,15 @@ class CurrentJamsViewController: UITableViewController {
                 sessionMusician.numSessions = Int((musicianDictionary["numSessions"] as? String) ?? "0")
                 sessionMusician.lastSession = musicianDictionary["lastSession"] as? String
                 
-                print("Adding \(sessionMusician.name!)")
-                
                 musicians.append(sessionMusician)
                 print(musicians.count)
             }
             if musicians.isEmpty {
-                print("Nil completion handler")
                 completionHandler(nil)
             } else {
-                print("Filled musicians completion handler")
                 completionHandler(musicians)
             }
         })
-        
-        print("Upon return from getMusicians(), there are \(musicians.count) musicians loaded")
     }
     
     // MARK: Navigation
