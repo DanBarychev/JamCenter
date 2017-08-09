@@ -22,15 +22,14 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     @IBOutlet weak var musicianTableView: UITableView!
     var overallSession = Session()
-    var overallAllSessionsKey = DatabaseReference()
     var musicians = [Musician]()
     var selectedMusicians = [Musician]()
     var selectedMusicianNames = [String]()
     
     var genreOptions = ["Rock", "Rap/Hip-Hop", "Jazz/Blues", "Pop", "Country", "Classical"]
     
-    typealias CurrentUserMusicianClosure = (Musician?) -> Void
-    typealias CurrentSessionClosure = (Session?, DatabaseReference?) -> Void
+    typealias CurrentSessionClosure = (Session?) -> Void
+    typealias MusicianClosure = (Musician?) -> Void
     var currentUserMusician = Musician()
 
     override func viewDidLoad() {
@@ -48,9 +47,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         
         getData { (musician) in
             self.currentUserMusician = musician!
-            
-            print("Just assigned")
-            print("The current user is \(self.currentUserMusician.name ?? "the user")")
         }
     }
     
@@ -85,19 +81,21 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         
         let musician = musicians[indexPath.row]
         
-        if cell.okIcon.isHidden {
-            cell.okIcon.isHidden = false
-            
-            selectedMusicianNames.append(musician.name!)
-            selectedMusicians.append(musician)
-        } else {
-            cell.okIcon.isHidden = true
-            
-            if let index = selectedMusicianNames.index(of: musician.name!) {
-                selectedMusicianNames.remove(at: index)
-                selectedMusicians.remove(at: index)
+        if let musicianName = musician.name {
+            if cell.okIcon.isHidden {
+                cell.okIcon.isHidden = false
+                
+                selectedMusicianNames.append(musicianName)
+                selectedMusicians.append(musician)
+            } else {
+                cell.okIcon.isHidden = true
+                
+                if let index = selectedMusicianNames.index(of: musicianName) {
+                    selectedMusicianNames.remove(at: index)
+                    selectedMusicians.remove(at: index)
+                }
+                
             }
-            
         }
     }
     
@@ -138,27 +136,25 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     // MARK: Download Musicians From Firebase
-    func getData(completionHandler: @escaping CurrentUserMusicianClosure) {
+    func getData(completionHandler: @escaping MusicianClosure) {
         Database.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let musician = Musician()
+                let sessionMusician = Musician()
                 
-                musician.uid = snapshot.key
-                musician.name = dictionary["name"] as? String
-                musician.instruments = dictionary["instruments"] as? String
-                musician.genres = dictionary["genres"] as? String
-                musician.profileImageURL = dictionary["profileImageURL"] as? String
-                musician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
-                musician.lastSession = dictionary["lastSession"] as? String
+                sessionMusician.uid = snapshot.key
+                sessionMusician.name = dictionary["name"] as? String
+                sessionMusician.genres = dictionary["genres"] as? String
+                sessionMusician.instruments = dictionary["instruments"] as? String
+                sessionMusician.profileImageURL = dictionary["profileImageURL"] as? String
+                sessionMusician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
+                sessionMusician.lastSession = dictionary["lastSession"] as? String
                 
                 //We don't want to add the current user
-                if musician.name != Auth.auth().currentUser?.displayName ||
-                    musician.profileImageURL != Auth.auth().currentUser?.photoURL?.absoluteString{
-                    
-                    self.musicians.append(musician)
+                if sessionMusician.uid != Auth.auth().currentUser?.uid {
+                    self.musicians.append(sessionMusician)
                 } else {
-                    completionHandler(musician)
+                    completionHandler(sessionMusician)
                 }
                 
                 DispatchQueue.main.async {
@@ -169,7 +165,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     func createSessionCode() -> String {
-        
         let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" as NSString
         var sessionCode = ""
         
@@ -236,39 +231,62 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             }
         })
         
-        //Update current user session info
-        updateCurrentUserSessionInformation(session: mySession)
+        //Add the current user to musicians list
+        addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
+        overallSession.musicians?.append(currentUserMusician)
         
-        //Send invites before we add current user to list
+        //Send invites and add invitees to the invitees list
         sendInvites(musicians: selectedMusicians, session: mySession)
         
-        //Add the current user to musicians list
-        selectedMusicians.insert(currentUserMusician, at: 0)
-        mySession.musicians = selectedMusicians
-        
         for musician in selectedMusicians {
-            let allSessionsMusiciansKey = allSessionsKey.child("musicians").childByAutoId()
+            let allSessionsMusiciansKey = allSessionsKey.child("invitees").childByAutoId()
             
-            guard let musicianName = musician.name, let musicianGenres = musician.genres, let musicianInstruments = musician.instruments,
-                let musicianProfileImageURL = musician.profileImageURL
+            guard let musicianID = musician.uid
                 else {
                     return
             }
             
-            let musicianValues = ["name": musicianName, "genres": musicianGenres,
-                                  "instruments": musicianInstruments, "profileImageURL": musicianProfileImageURL]
+            let musicianValues = ["musicianID": musicianID]
             
             allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     print(error!)
                     return
                 } else {
-                    print("\(musicianName) added to public version of session")
+                    if let musicianName = musician.name {
+                        print("\(musicianName) added to invitees list")
+                    }
                 }
             })
         }
         
-        completionHandler(mySession, allSessionsKey)
+        completionHandler(mySession)
+    }
+    
+    func addCurrentUserToSession(allSessionsKey: DatabaseReference, session: Session) {
+        let allSessionsMusiciansKey = allSessionsKey.child("musicians").childByAutoId()
+        
+        let musician = currentUserMusician
+        
+        guard let musicianID = musician.uid
+            else {
+                return
+        }
+        
+        let musicianValues = ["musicianID": musicianID]
+        
+        allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                print(error!)
+                return
+            } else {
+                if let musicianName = musician.name {
+                    print("\(musicianName) added to session")
+                }
+                
+                self.updateCurrentUserSessionInformation(session: session)
+            }
+        })
     }
     
     func updateCurrentUserSessionInformation(session: Session) {
@@ -312,12 +330,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     @IBAction func beginSession(_ sender: UIBarButtonItem) {
         print("Beginning Session !!!!!")
-        createSession { (resultSession, resultAllSessionsKey) in
+        createSession { (resultSession) in
             self.overallSession = resultSession ?? Session()
-            self.overallAllSessionsKey = resultAllSessionsKey ?? DatabaseReference()
         }
         performSegue(withIdentifier: "GoToMyActiveSession", sender: nil)
     }
-    
-
 }

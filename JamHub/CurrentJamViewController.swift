@@ -13,9 +13,11 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var currentSession: Session?
     var musicians = [Musician]()
+    var invitees = [Musician]()
     var sessionCode = String()
     var sessionID = String()
     var sessionHostUID = String()
+    var currentUserMusician = Musician()
     
     @IBOutlet weak var hostNameLabel: UILabel!
     @IBOutlet weak var genreNameLabel: UILabel!
@@ -27,8 +29,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    typealias CurrentUserMusicianClosure = (Musician?) -> Void
-    var currentUserMusician = Musician()
+    typealias MusicianClosure = (Musician?) -> Void
+    typealias PresenceClosure = (Bool?) -> Void
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         self.genreImageView.layer.cornerRadius = self.genreImageView.frame.size.width / 2
         self.genreImageView.clipsToBounds = true
         
-        joinSessionButton.layer.cornerRadius = 15
+        joinSessionButton.layer.cornerRadius = 25
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
         
@@ -57,35 +59,37 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             sessionCode = currentJamSession.code ?? "unavailable"
             sessionID = currentJamSession.ID ?? "unavailable"
             sessionHostUID = currentJamSession.hostUID ?? "unavailable"
-            musicians = currentJamSession.musicians ?? []
             
             if genreNameLabel.text == "Rock" {
                 genreImageView.image = UIImage(named: "RockIcon")
-            }
-            if genreNameLabel.text == "Jazz/Blues" {
+            } else if genreNameLabel.text == "Jazz/Blues" {
                 genreImageView.image = UIImage(named: "JazzIcon")
-            }
-            if genreNameLabel.text == "Rap/Hip-Hop" {
+            } else if genreNameLabel.text == "Rap/Hip-Hop" {
                 genreImageView.image = UIImage(named: "RapIcon")
-            }
-            if genreNameLabel.text == "Pop" {
+            } else if genreNameLabel.text == "Pop" {
                 genreImageView.image = UIImage(named: "PopIcon")
-            }
-            if genreNameLabel.text == "Country" {
+            } else if genreNameLabel.text == "Country" {
                 genreImageView.image = UIImage(named: "CountryIcon")
-            }
-            if genreNameLabel.text == "Classical" {
+            } else if genreNameLabel.text == "Classical" {
                 genreImageView.image = UIImage(named: "ClassicalIcon")
             }
             
-            getUserInfo() { (musician) in
-                self.currentUserMusician = musician ?? Musician()
-            }
+            //Get Session Musicians
+            getMusicians(sessionID: sessionID)
             
-            checkIfMusicianIsInSession()
-            
-            if currentJamSession.hostUID == Auth.auth().currentUser?.uid {
-                manageButton.isEnabled = true
+            if let userID = Auth.auth().currentUser?.uid {
+                getMusician(musicianID: userID) { (musician) in
+                    if let musician = musician {
+                        self.currentUserMusician = musician
+                    }
+                }
+                
+                if currentJamSession.hostUID == userID {
+                    manageButton.isEnabled = true
+                    self.joinSessionButton.setTitle("View Media", for: UIControlState.normal)
+                } else {
+                    checkMusicianParticipation(musicianID: userID)
+                }
             }
         }
     }
@@ -172,56 +176,82 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func getUserInfo(completionHandler: @escaping CurrentUserMusicianClosure) {
-        Database.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
-            
+    // MARK: Firebase functions
+    
+    func getMusicians(sessionID: String) {
+        let ref = Database.database().reference()
+        let musiciansRef = ref.child("all sessions").child(sessionID).child("musicians")
+        
+        musiciansRef.observe(.childAdded, with: {(musicianSnapshot) in
+            if let dictionary = musicianSnapshot.value as? [String: AnyObject] {
+                if let musicianID = dictionary["musicianID"] as? String {
+                    self.getMusician(musicianID: musicianID) { (musician) in
+                        if let musician = musician {
+                            self.musicians.append(musician)
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        })
+    }
+    
+    func getMusician(musicianID: String, completionHandler: @escaping MusicianClosure) {
+        let ref = Database.database().reference()
+        let musicianRef = ref.child("users").child(musicianID)
+        
+        musicianRef.observe(.value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let musician = Musician()
-                
+
+                musician.uid = musicianID
                 musician.name = dictionary["name"] as? String
-                musician.instruments = dictionary["instruments"] as? String
                 musician.genres = dictionary["genres"] as? String
+                musician.instruments = dictionary["instruments"] as? String
                 musician.profileImageURL = dictionary["profileImageURL"] as? String
-                musician.lastSession = dictionary["lastSession"] as? String
                 musician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
+                musician.lastSession = dictionary["lastSession"] as? String
                 
-                //We want to get only the current user
-                if musician.name == Auth.auth().currentUser?.displayName &&
-                    musician.profileImageURL == Auth.auth().currentUser?.photoURL?.absoluteString{
-                    print("Found the user")
-                    
-                    completionHandler(musician)
-                }
+                completionHandler(musician)
             }
         }, withCancel: nil)
     }
     
-    func checkIfMusicianIsInSession() {
+    func checkMusicianParticipation(musicianID: String) {
         let ref = Database.database().reference()
         let sessionKey = ref.child("all sessions").child(sessionID)
-        
         let sessionMusiciansKey = sessionKey.child("musicians")
+        let sessionInviteesKey = sessionKey.child("invitees")
         
         sessionMusiciansKey.observe(.childAdded, with: {(snapshot) in
-            
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let musician = Musician()
                 
-                musician.name = dictionary["name"] as? String
-                musician.instruments = dictionary["instruments"] as? String
-                musician.genres = dictionary["genres"] as? String
-                musician.profileImageURL = dictionary["profileImageURL"] as? String
-                musician.lastSession = dictionary["lastSession"] as? String
-                musician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
+                let sessionMusicianID = dictionary["musicianID"] as? String
                 
-                //We want to get only the current user
-                if musician.name == Auth.auth().currentUser?.displayName &&
-                    musician.profileImageURL == Auth.auth().currentUser?.photoURL?.absoluteString{
-                    
+                if musicianID == sessionMusicianID {
                     self.joinSessionButton.setTitle("View Media", for: UIControlState.normal)
+                } else {
+                    checkIfMusicianIsInvited()
                 }
             }
         }, withCancel: nil)
+        
+        func checkIfMusicianIsInvited() {
+            print("Checking musician invitation")
+            sessionInviteesKey.observe(.childAdded, with: {(snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    let sessionMusicianID = dictionary["musicianID"] as? String
+                    
+                    if musicianID == sessionMusicianID {
+                        self.joinSessionButton.setTitle("Accept Invitation", for: UIControlState.normal)
+                    }
+                }
+            }, withCancel: nil)
+        }
     }
     
     func addMusicianToSession() {
@@ -238,16 +268,12 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let allSessionsMusiciansKey = allSessionsKey.child("musicians").childByAutoId()
         
-        guard let musicianName = currentUserMusician.name, let musicianGenres = currentUserMusician.genres,
-            let musicianInstruments = currentUserMusician.instruments, let musicianProfileImageURL = currentUserMusician.profileImageURL,
-                let musicianNumSessions = currentUserMusician.numSessions, let musicianLastSession = currentUserMusician.lastSession
+        guard let musicianID = Auth.auth().currentUser?.uid
             else {
                 return
         }
         
-        let musicianValues = ["name": musicianName, "genres": musicianGenres,
-                              "instruments": musicianInstruments, "profileImageURL": musicianProfileImageURL,
-                              "numSessions": String(musicianNumSessions), "lastSession": musicianLastSession]
+        let musicianValues = ["musicianID": musicianID]
         
         allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
             if error != nil {
@@ -255,7 +281,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 return
             } else {
-                print("\(musicianName) added to public version of session")
+                print("Cuurent user added to public version of session")
             }
         })
     }

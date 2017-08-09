@@ -14,6 +14,7 @@ class CurrentJamsViewController: UITableViewController {
     
     var sessions = [Session]()
     typealias MusicianArrayClosure = ([Musician]?) -> Void
+    typealias MusicianClosure = (Musician?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,13 +64,6 @@ class CurrentJamsViewController: UITableViewController {
                 newSession.hostUID = dictionary["hostUID"] as? String
                 newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
-                let sessionRef = snapshot.ref
-                let musiciansRef = sessionRef.child("musicians")
-                
-                self.getMusicians(musiciansRef: musiciansRef) { (musicians) in
-                    newSession.musicians = musicians
-                }
-                
                 if newSession.isActive ?? false {
                   self.sessions.append(newSession)
                 }
@@ -80,31 +74,6 @@ class CurrentJamsViewController: UITableViewController {
             }
             
         }, withCancel: nil)
-    }
-    
-    func getMusicians(musiciansRef: DatabaseReference, completionHandler: @escaping MusicianArrayClosure) {
-        var musicians = [Musician]()
-        
-        musiciansRef.observe(.childAdded, with: {(musicianSnapshot) in
-            if let musicianDictionary = musicianSnapshot.value as? [String: AnyObject] {
-                let sessionMusician = Musician()
-                
-                sessionMusician.name = musicianDictionary["name"] as? String
-                sessionMusician.genres = musicianDictionary["genres"] as? String
-                sessionMusician.instruments = musicianDictionary["instruments"] as? String
-                sessionMusician.profileImageURL = musicianDictionary["profileImageURL"] as? String
-                sessionMusician.numSessions = Int((musicianDictionary["numSessions"] as? String) ?? "0")
-                sessionMusician.lastSession = musicianDictionary["lastSession"] as? String
-                
-                musicians.append(sessionMusician)
-                print(musicians.count)
-            }
-            if musicians.isEmpty {
-                completionHandler(nil)
-            } else {
-                completionHandler(musicians)
-            }
-        })
     }
     
     // MARK: Navigation
