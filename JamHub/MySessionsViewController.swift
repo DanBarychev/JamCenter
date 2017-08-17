@@ -24,19 +24,12 @@ class MySessionsViewController: UITableViewController {
         
         getData()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: "load"), object: nil)
-    }
-    
-    func loadList() {
-        DispatchQueue.main.async(execute: {
-            self.tableView.reloadData()
-        })
+        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionTableViewCell", for: indexPath) as! SessionTableViewCell

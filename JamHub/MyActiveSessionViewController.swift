@@ -94,7 +94,8 @@ class MyActiveSessionViewController: UIViewController {
     
     @IBAction func endSessionTapped(_ sender: UIButton) {
         endSession()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
     }
     
     

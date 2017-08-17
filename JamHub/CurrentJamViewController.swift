@@ -35,6 +35,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("Loading session view")
+        
         manageButton.isEnabled = false
         
         tableView.delegate = self
@@ -50,6 +52,10 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
         
+        setupJamSesion()
+    }
+    
+    func setupJamSesion() {
         if let currentJamSession = currentSession {
             navigationItem.title = currentJamSession.name
             hostNameLabel.text = currentJamSession.host
@@ -103,6 +109,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(musicians)
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentJamMusicianCell", for: indexPath) as! CurrentJamMusicianTableViewCell
         
         // set the text from the data model
@@ -143,9 +151,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             if let field = alertController.textFields?[0] {
                 // store your data
                 if field.text == self.sessionCode {
-                    self.addMusicianToSession()
-                    self.updateUserInfo()
-                    self.performSegue(withIdentifier: "JoinSession", sender: nil)
+                    self.joinSessionFromCode()
                 } else {
                     self.presentIncorrectCodeAlert()
                 }
@@ -179,6 +185,9 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: Firebase functions
     
     func getMusicians(sessionID: String) {
+        print("Getting musicians")
+        self.musicians.removeAll()
+        
         let ref = Database.database().reference()
         let musiciansRef = ref.child("all sessions").child(sessionID).child("musicians")
         
@@ -197,6 +206,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         })
+        
+        musiciansRef.removeAllObservers()
     }
     
     func getMusician(musicianID: String, completionHandler: @escaping MusicianClosure) {
@@ -237,7 +248,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                     checkIfMusicianIsInvited()
                 }
             }
-        }, withCancel: nil)
+        })
         
         func checkIfMusicianIsInvited() {
             print("Checking musician invitation")
@@ -250,12 +261,16 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                         self.joinSessionButton.setTitle("Accept Invitation", for: UIControlState.normal)
                     }
                 }
-            }, withCancel: nil)
+            })
         }
+        
+        sessionKey.removeAllObservers()
+        sessionMusiciansKey.removeAllObservers()
+        sessionInviteesKey.removeAllObservers()
     }
     
     func addMusicianToSession() {
-        print("Correct Code")
+        print("Adding user to session")
         
         musicians.append(currentUserMusician)
         
@@ -281,9 +296,56 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 return
             } else {
-                print("Cuurent user added to public version of session")
+                print("Current user added to public version of session")
             }
         })
+        
+        allSessionsKey.removeAllObservers()
+        allSessionsMusiciansKey.removeAllObservers()
+    }
+    
+    func joinSessionFromCode() {
+        addMusicianToSession()
+        updateUserInfo()
+        performSegue(withIdentifier: "JoinSession", sender: nil)
+    }
+    
+    func joinSessionFromInvitation() {
+        addMusicianToSession()
+        updateUserInfo()
+        deleteInvitation()
+        performSegue(withIdentifier: "JoinSession", sender: nil)
+    }
+    
+    func deleteInvitation() {
+        let ref = Database.database().reference()
+        if let uid = Auth.auth().currentUser?.uid {
+            let invitationsRef = ref.child("users").child(uid).child("invitations")
+            
+            invitationsRef.observe(.childAdded, with: {(snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    if let invitationSessionID = dictionary["sessionID"] as? String {
+                        if invitationSessionID == self.sessionID {
+                            snapshot.ref.removeValue()
+                        }
+                    }
+                }
+            })
+            
+            let inviteesRef = ref.child("all sessions").child(sessionID).child("invitees")
+            inviteesRef.observe(.childAdded, with: {(snapshot) in
+                if let inviteesDictionary = snapshot.value as? [String: AnyObject] {
+                    if let inviteeUID = inviteesDictionary["musicianID"] as? String {
+                        if inviteeUID == uid {
+                            snapshot.ref.removeValue()
+                        }
+                    }
+                }
+            })
+            
+            inviteesRef.removeAllObservers()
+            invitationsRef.removeAllObservers()
+        }
     }
     
     func updateUserInfo() {
@@ -308,6 +370,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("\(self.currentUserMusician.name ?? "The User's") information updated")
             }
         })
+        
+        userKey.removeAllObservers()
     }
 
     
@@ -340,6 +404,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func unwindToCurrentJam(sender: UIStoryboardSegue) {
+        setupJamSesion()
     }
     
     // MARK: Actions
@@ -347,12 +412,20 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func joinSession(_ sender: Any) {
         if joinSessionButton.currentTitle == "Join Session" {
             requestSessionCode()
+        } else if joinSessionButton.currentTitle == "Accept Invitation" {
+            joinSessionFromInvitation()
         } else {
             performSegue(withIdentifier: "JoinSession", sender: nil)
         }
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        let ref = Database.database().reference()
+        
+        ref.removeAllObservers()
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
+        
         dismiss(animated: true, completion: nil)
     }
     

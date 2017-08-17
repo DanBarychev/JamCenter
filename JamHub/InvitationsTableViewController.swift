@@ -15,8 +15,11 @@ class InvitationsTableViewController: UITableViewController {
     var sessions = [Session]()
     typealias SessionClosure = (Session?) -> Void
     typealias MusicianArrayClosure = ([Musician]?) -> Void
+    typealias HasInvitationsClosure = (Bool?) -> Void
 
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
+        print("Invitations View Appeared")
+        
         super.viewDidLoad()
 
         getData()
@@ -51,33 +54,55 @@ class InvitationsTableViewController: UITableViewController {
     // MARK: Firebase Functions
     
     func getData() {
+        print("Getting data")
+        
+        sessions.removeAll()
+        
         let ref = Database.database().reference()
-        let uid = Auth.auth().currentUser?.uid
         
-        let invitationsRef = ref.child("users").child(uid!).child("invitations")
-        
-        invitationsRef.observe(.childAdded, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let sessionID = dictionary["sessionID"] as? String
-                
-                if let sessionID = sessionID {
-                    self.getSession(sessionID: sessionID) { (session) in
-                        if let session = session {
-                            self.sessions.append(session)
+        if let uid = Auth.auth().currentUser?.uid {
+            let userRef = ref.child("users").child(uid)
+            
+            checkIfUserHasInvitations(userRef: userRef) { (hasInvitations) in
+                guard let userHasInvitations = hasInvitations
+                    else {
+                    return
+                }
+                if userHasInvitations {
+                    let invitationsRef = userRef.child("invitations")
+                    invitationsRef.observe(.childAdded, with: { (snapshot) in
+                        print("Observing....")
+                        if let dictionary = snapshot.value as? [String: AnyObject] {
+                            let sessionID = dictionary["sessionID"] as? String
                             
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
+                            if let sessionID = sessionID {
+                                self.getSession(sessionID: sessionID) { (session) in
+                                    if let session = session {
+                                        self.sessions.append(session)
+                                        
+                                        print("Just appended a session")
+                                        
+                                        DispatchQueue.main.async {
+                                            self.tableView.reloadData()
+                                        }
+                                    } else {
+                                        print("Session is nil!")
+                                    }
+                                }
                             }
-                        } else {
-                            print("Session is nil!")
                         }
+                    })
+                } else {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 }
             }
-        }, withCancel: nil)
+        }
     }
     
     func getSession(sessionID: String, completionHandler: @escaping SessionClosure) {
+        print("Getting session")
         let session = Session()
         
         let ref = Database.database().reference()
@@ -87,6 +112,7 @@ class InvitationsTableViewController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 session.name = dictionary["name"] as? String
                 session.genre = dictionary["genre"] as? String
+                session.location = dictionary["location"] as? String
                 session.host = dictionary["host"] as? String
                 session.hostImageURL = dictionary["hostImageURL"] as? String
                 session.audioRecordingURL = dictionary["audioRecordingURL"] as? String
@@ -96,6 +122,18 @@ class InvitationsTableViewController: UITableViewController {
                 session.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
                 completionHandler(session)
+            }
+        })
+    }
+    
+    //Needed if we just accepted the last one and no longer have the invitations key
+    func checkIfUserHasInvitations(userRef: DatabaseReference, completionHandler: @escaping HasInvitationsClosure) {
+        userRef.observe(.value, with: {(snapshot) in
+            if snapshot.hasChild("invitations") {
+                print("Has invitations")
+                completionHandler(true)
+            } else {
+                completionHandler(false)
             }
         })
     }
