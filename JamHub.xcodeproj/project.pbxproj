@@ -12,8 +12,6 @@
 		B35E6F3376A14370D3557B25 /* Pods_JamHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
 		D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */; };
-		D60DCB841F2EE0C4007E4010 /* ColtraneBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D60DCB831F2EE0C3007E4010 /* ColtraneBackground.mp4 */; };
-		D60DCB881F2EE17E007E4010 /* MonkBackground.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D60DCB871F2EE17E007E4010 /* MonkBackground.mp4 */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
 		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
 		D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */; };
@@ -25,8 +23,6 @@
 		D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51A1ECE063000CA73B1 /* SessionTableViewCell.swift */; };
 		D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */; };
 		D67EF51F1ECE42FA00CA73B1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51E1ECE42FA00CA73B1 /* Session.swift */; };
-		D6A9B0A11F2D57BE001E723D /* SwiftVideoBackground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */; };
-		D6A9B0A21F2D57BE001E723D /* SwiftVideoBackground.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */; };
 		D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */; };
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
@@ -80,7 +76,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D6A9B0A21F2D57BE001E723D /* SwiftVideoBackground.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,8 +99,6 @@
 		C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSDKLiveVideo.swift; sourceTree = "<group>"; };
-		D60DCB831F2EE0C3007E4010 /* ColtraneBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ColtraneBackground.mp4; path = ../../Desktop/JamHub/JamHub/ColtraneBackground.mp4; sourceTree = "<group>"; };
-		D60DCB871F2EE17E007E4010 /* MonkBackground.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MonkBackground.mp4; path = ../../Desktop/JamHub/JamHub/MonkBackground.mp4; sourceTree = "<group>"; };
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
 		D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrentSessionViewController.swift; sourceTree = "<group>"; };
 		D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMusicianProfileViewController.swift; sourceTree = "<group>"; };
@@ -117,9 +110,6 @@
 		D67EF51A1ECE063000CA73B1 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JamTableViewCell.swift; sourceTree = "<group>"; };
 		D67EF51E1ECE42FA00CA73B1 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		D6A9B0981F2D50BC001E723D /* SwiftVideoBackground.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftVideoBackground.framework; path = Carthage/Build/iOS/SwiftVideoBackground.framework; sourceTree = "<group>"; };
-		D6A9B09B1F2D53A6001E723D /* SwiftVideoBackground.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftVideoBackground.framework.dSYM; path = Carthage/Build/iOS/SwiftVideoBackground.framework.dSYM; sourceTree = "<group>"; };
-		D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftVideoBackground.framework; sourceTree = "<group>"; };
 		D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAudioViewController.swift; sourceTree = "<group>"; };
 		D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamViewController.swift; sourceTree = "<group>"; };
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
@@ -160,7 +150,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A9B0A11F2D57BE001E723D /* SwiftVideoBackground.framework in Frameworks */,
 				E09C3F3DF90A6CCBF7BA00BF /* libPods-JamHub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,9 +178,6 @@
 		4912035B94D0BAF44B53E441 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6A9B09B1F2D53A6001E723D /* SwiftVideoBackground.framework.dSYM */,
-				D6A9B0981F2D50BC001E723D /* SwiftVideoBackground.framework */,
-				D6A9B09C1F2D53DF001E723D /* SwiftVideoBackground.framework */,
 				A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */,
 				B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */,
 				96763F96C3A952FC9AA2723F /* libPods-JamHub.a */,
@@ -278,8 +264,6 @@
 				D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */,
 				D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */,
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
-				D60DCB831F2EE0C3007E4010 /* ColtraneBackground.mp4 */,
-				D60DCB871F2EE17E007E4010 /* MonkBackground.mp4 */,
 				D6FE852C1ECCBD7A0020CEE6 /* Info.plist */,
 				D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */,
 				D6D16C221F09D4980079314B /* Helpers */,
@@ -333,7 +317,6 @@
 				D6FE85191ECCBD7A0020CEE6 /* Sources */,
 				D6FE851A1ECCBD7A0020CEE6 /* Frameworks */,
 				D6FE851B1ECCBD7A0020CEE6 /* Resources */,
-				111FCB73E07DBD3B7DB309F9 /* [CP] Embed Pods Frameworks */,
 				6FADF601ABF19C04BE0FEC12 /* [CP] Copy Pods Resources */,
 				D6A9B0A01F2D5563001E723D /* Embed Frameworks */,
 			);
@@ -354,7 +337,6 @@
 				D6FE852D1ECCBD7B0020CEE6 /* Sources */,
 				D6FE852E1ECCBD7B0020CEE6 /* Frameworks */,
 				D6FE852F1ECCBD7B0020CEE6 /* Resources */,
-				1ECAB6B6AD388588970BB027 /* [CP] Embed Pods Frameworks */,
 				95DB18963FD33FEACF3EF1E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -375,7 +357,6 @@
 				D6FE85381ECCBD7B0020CEE6 /* Sources */,
 				D6FE85391ECCBD7B0020CEE6 /* Frameworks */,
 				D6FE853A1ECCBD7B0020CEE6 /* Resources */,
-				FD186FA2648043C1BE3B3B61 /* [CP] Embed Pods Frameworks */,
 				F85C565D33692889426141E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -442,12 +423,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D60DCB881F2EE17E007E4010 /* MonkBackground.mp4 in Resources */,
 				D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */,
 				D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */,
 				D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */,
 				D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */,
-				D60DCB841F2EE0C4007E4010 /* ColtraneBackground.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,49 +447,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		111FCB73E07DBD3B7DB309F9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1ECAB6B6AD388588970BB027 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		322EEE0C752EDB3CEE085061 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamHub-JamHubUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5A01F56988E5B241F05EB41C /* [CP] Check Pods Manifest.lock */ = {
@@ -519,13 +471,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamHub-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6FADF601ABF19C04BE0FEC12 /* [CP] Copy Pods Resources */ = {
@@ -534,9 +489,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -549,9 +507,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -564,13 +525,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamHub-JamHubTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F85C565D33692889426141E9 /* [CP] Copy Pods Resources */ = {
@@ -579,28 +543,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FD186FA2648043C1BE3B3B61 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

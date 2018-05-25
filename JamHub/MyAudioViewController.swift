@@ -212,7 +212,14 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
                         return
                     }
                     else {
-                        if let recordingFirebaseURL = metadata?.downloadURL()?.absoluteString {
+                        /*if let recordingFirebaseURL = metadata?.downloadURL()?.absoluteString {
+                            self.userDataUpdateWithRecording(recordingLink: recordingFirebaseURL)
+                        }*/
+                        storageRef.downloadURL { (url, error) in
+                            guard let recordingFirebaseURL = url?.absoluteString else {
+                                // Uh-oh, an error occurred!
+                                return
+                            }
                             self.userDataUpdateWithRecording(recordingLink: recordingFirebaseURL)
                         }
                     }

@@ -44,7 +44,14 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
                         return
                     }
                     else {
-                        if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                        /*if let profileImageURL = storageRef.downloadURL()?.absoluteString {
+                            self.userDataUpdateWithProfileImage(profileImageLink: profileImageURL)
+                        }*/
+                        storageRef.downloadURL { (url, error) in
+                            guard let profileImageURL = url?.absoluteString else {
+                                // Uh-oh, an error occurred!
+                                return
+                            }
                             self.userDataUpdateWithProfileImage(profileImageLink: profileImageURL)
                         }
                     }

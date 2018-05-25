@@ -9,13 +9,11 @@
 
 import UIKit
 import Firebase
-import SwiftVideoBackground
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
-    @IBOutlet weak var backgroundVideo: BackgroundVideo!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,7 +22,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundVideo.createBackgroundVideo(name: "ColtraneBackground", type: "mp4", alpha: 0.5)
         nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -54,7 +51,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if error != nil {
                 print(error!)
                 
@@ -62,6 +59,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 registrationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(registrationAlert, animated: true, completion: nil)
             }
+            
+            let user = authResult?.user
             
             guard let uid = user?.uid else {
                 return
@@ -78,13 +77,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     else {
-                        if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                        /*if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                            self.finishRegistrationWithUserData(uid: uid, name: name, email: email, profileImageLink: profileImageURL)
+                        }*/
+                        storageRef.downloadURL { (url, error) in
+                            guard let profileImageURL = url?.absoluteString else {
+                                // Uh-oh, an error occurred!
+                                return
+                            }
                             self.finishRegistrationWithUserData(uid: uid, name: name, email: email, profileImageLink: profileImageURL)
                         }
                     }
                 })
             }
-        })
+        }
     }
     
     func finishRegistrationWithUserData(uid: String, name: String, email: String, profileImageLink: String) {

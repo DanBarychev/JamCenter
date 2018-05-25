@@ -11,7 +11,6 @@ target 'JamHub' do
   pod 'Firebase/Database’
   pod 'Firebase/Auth’
   pod 'Firebase/Storage’
-  #pod 'SwiftVideoBackground'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'VideoCore'

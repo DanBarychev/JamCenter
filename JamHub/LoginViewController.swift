@@ -8,13 +8,11 @@
 
 import UIKit
 import Firebase
-import SwiftVideoBackground
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
-    @IBOutlet weak var backgroundVideo: BackgroundVideo!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -24,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundVideo.createBackgroundVideo(name: "MonkBackground", type: "mp4", alpha: 0.5)
         emailTextField.delegate = self
         passwordTextField.delegate = self
         

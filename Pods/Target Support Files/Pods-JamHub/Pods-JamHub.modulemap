@@ -1,0 +1,6 @@
+module Pods_JamHub {
+  umbrella header "Pods-JamHub-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FD380F6CDBB657539F518CCB46115EE0'
-               BlueprintName = 'Canvas'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libCanvas.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CF9F85D637F4C70D125AC656A0ABC2BF"
+               BlueprintName = "Canvas"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libCanvas.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
