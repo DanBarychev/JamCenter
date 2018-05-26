@@ -440,22 +440,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMF-Er-JCb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMF-Er-JCb">
                                             <rect key="frame" x="8" y="8" width="296" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAv-NQ-l40">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAv-NQ-l40">
                                             <rect key="frame" x="337" y="5" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="Mae-6v-79t"/>
+                                            </constraints>
                                             <state key="normal" image="SearchIcon"/>
                                             <connections>
                                                 <action selector="searchForSong:" destination="Sza-xs-gsk" eventType="touchUpInside" id="5di-No-0kE"/>
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gAv-NQ-l40" secondAttribute="trailing" constant="-8" id="6CN-It-HUT"/>
+                                        <constraint firstItem="gAv-NQ-l40" firstAttribute="top" secondItem="uK5-z7-gkq" secondAttribute="topMargin" constant="-6" id="HNa-Ob-99K"/>
+                                        <constraint firstItem="gAv-NQ-l40" firstAttribute="leading" secondItem="IMF-Er-JCb" secondAttribute="trailing" constant="33" id="U68-6U-nL7"/>
+                                        <constraint firstItem="IMF-Er-JCb" firstAttribute="centerY" secondItem="uK5-z7-gkq" secondAttribute="centerY" id="iI3-nA-XEd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="IMF-Er-JCb" secondAttribute="bottom" constant="-3" id="mbd-rh-KGU"/>
+                                        <constraint firstItem="IMF-Er-JCb" firstAttribute="leading" secondItem="uK5-z7-gkq" secondAttribute="leadingMargin" constant="-8" id="o3y-k8-Ov9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gAv-NQ-l40" secondAttribute="bottom" constant="-2" id="rT7-sM-7qy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="searchButton" destination="gAv-NQ-l40" id="RuN-9y-a9i"/>
@@ -497,22 +507,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-4n-E7j">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKd-4n-E7j">
                                             <rect key="frame" x="8" y="7" width="318" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMb-Cj-4vZ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMb-Cj-4vZ">
                                             <rect key="frame" x="337" y="6" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="mnm-Rl-WWa"/>
+                                            </constraints>
                                             <state key="normal" image="SearchIcon"/>
                                             <connections>
                                                 <action selector="searchForSong:" destination="N2B-Yl-wxR" eventType="touchUpInside" id="vOO-aS-wr6"/>
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="iKd-4n-E7j" secondAttribute="bottom" constant="-2" id="83n-dc-vwF"/>
+                                        <constraint firstItem="iKd-4n-E7j" firstAttribute="centerY" secondItem="HAl-25-ORE" secondAttribute="centerY" id="T1N-Vi-1HE"/>
+                                        <constraint firstItem="iKd-4n-E7j" firstAttribute="leading" secondItem="HAl-25-ORE" secondAttribute="leadingMargin" constant="-8" id="XXK-bV-Pyw"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mMb-Cj-4vZ" secondAttribute="trailing" constant="-8" id="Zq2-WN-rJD"/>
+                                        <constraint firstItem="mMb-Cj-4vZ" firstAttribute="leading" secondItem="iKd-4n-E7j" secondAttribute="trailing" constant="11" id="hOi-LW-qgj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mMb-Cj-4vZ" secondAttribute="bottom" constant="-3" id="m1b-1m-TdM"/>
+                                        <constraint firstItem="iKd-4n-E7j" firstAttribute="centerY" secondItem="mMb-Cj-4vZ" secondAttribute="centerY" id="vmh-bz-nUn"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="searchButton" destination="mMb-Cj-4vZ" id="zR4-Z9-G5h"/>
