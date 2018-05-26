@@ -22,6 +22,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var hostNameLabel: UILabel!
     @IBOutlet weak var hostImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var manageButton: UIBarButtonItem!
     @IBOutlet weak var joinSessionButton: UIButton!
     
@@ -56,6 +57,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             hostNameLabel.text = currentJamSession.host
             setCurrentProfilePicture(profileImageURL: currentJamSession.hostImageURL ?? "gs://jamhub-54eec.appspot.com/profile_images/9B93A0B2-5A36-4607-BC48-BA3F2E6D31FF.jpg")
             locationLabel.text = currentJamSession.location
+            genreLabel.text = currentJamSession.genre
             sessionCode = currentJamSession.code ?? "unavailable"
             sessionID = currentJamSession.ID ?? "unavailable"
             sessionHostUID = currentJamSession.hostUID ?? "unavailable"
