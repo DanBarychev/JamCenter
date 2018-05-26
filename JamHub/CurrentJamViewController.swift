@@ -20,9 +20,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     var currentUserMusician = Musician()
     
     @IBOutlet weak var hostNameLabel: UILabel!
-    @IBOutlet weak var genreNameLabel: UILabel!
     @IBOutlet weak var hostImageView: UIImageView!
-    @IBOutlet weak var genreImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var manageButton: UIBarButtonItem!
     @IBOutlet weak var joinSessionButton: UIButton!
@@ -45,9 +43,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         self.hostImageView.layer.cornerRadius = self.hostImageView.frame.size.width / 2
         self.hostImageView.clipsToBounds = true
         
-        self.genreImageView.layer.cornerRadius = self.genreImageView.frame.size.width / 2
-        self.genreImageView.clipsToBounds = true
-        
         joinSessionButton.layer.cornerRadius = 25
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
@@ -59,26 +54,11 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         if let currentJamSession = currentSession {
             navigationItem.title = currentJamSession.name
             hostNameLabel.text = currentJamSession.host
-            genreNameLabel.text = currentJamSession.genre
             setCurrentProfilePicture(profileImageURL: currentJamSession.hostImageURL ?? "gs://jamhub-54eec.appspot.com/profile_images/9B93A0B2-5A36-4607-BC48-BA3F2E6D31FF.jpg")
             locationLabel.text = currentJamSession.location
             sessionCode = currentJamSession.code ?? "unavailable"
             sessionID = currentJamSession.ID ?? "unavailable"
             sessionHostUID = currentJamSession.hostUID ?? "unavailable"
-            
-            if genreNameLabel.text == "Rock" {
-                genreImageView.image = UIImage(named: "RockIcon")
-            } else if genreNameLabel.text == "Jazz/Blues" {
-                genreImageView.image = UIImage(named: "JazzIcon")
-            } else if genreNameLabel.text == "Rap/Hip-Hop" {
-                genreImageView.image = UIImage(named: "RapIcon")
-            } else if genreNameLabel.text == "Pop" {
-                genreImageView.image = UIImage(named: "PopIcon")
-            } else if genreNameLabel.text == "Country" {
-                genreImageView.image = UIImage(named: "CountryIcon")
-            } else if genreNameLabel.text == "Classical" {
-                genreImageView.image = UIImage(named: "ClassicalIcon")
-            }
             
             //Get Session Musicians
             getMusicians(sessionID: sessionID)
