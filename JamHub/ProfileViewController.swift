@@ -10,7 +10,6 @@
 import UIKit
 import Firebase
 
-
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK Properties
@@ -44,7 +43,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         print(properties)
         // set the text from the data model
         cell.textLabel?.text = self.properties[indexPath.row]
@@ -68,7 +67,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.setCurrentProfilePicture(profileImageURL: profilePictureURL)
                 
                 self.properties[0] = "Genres: " + genres
-                self.properties[1] = "Insruments: " + instruments
+                self.properties[1] = "Instruments: " + instruments
                 self.properties[2] = "Last Session: " + lastSession
                 self.properties[3] = "Number of Sessions: " + numSessions
                 

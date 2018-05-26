@@ -74,16 +74,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Navigation
-
     @IBAction func unwindToLoginScreen(sender: UIStoryboardSegue) {
     }
 
     // MARK: Actions
-    
     @IBAction func login(_ sender: UIButton) {
         handleLogin()
     }
     
-
 
 }

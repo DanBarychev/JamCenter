@@ -124,10 +124,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
 
     // MARK: Actions
-    
     @IBAction func register(_ sender: UIButton) {
         handleRegister()
     }
-    
-
 }

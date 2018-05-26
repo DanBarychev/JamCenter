@@ -6953,7 +6953,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Private\"",
-					"\"${PODS_ROOT}/Headers/Private/VideoCore\"",
+					"\"${PODS_ROOT}/Headers/Private/VideoCore\"/**",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/UriParser-cpp\"",
 					"\"${PODS_ROOT}/Headers/Public/VideoCore\"/**",
@@ -7107,7 +7107,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Private\"",
-					"\"${PODS_ROOT}/Headers/Private/VideoCore\"",
+					"\"${PODS_ROOT}/Headers/Private/VideoCore\"/**",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/UriParser-cpp\"",
 					"\"${PODS_ROOT}/Headers/Public/VideoCore\"/**",
