@@ -1628,15 +1628,16 @@
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GenericProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="3kP-Nl-3w2">
                                 <rect key="frame" x="67" y="100" width="240" height="240"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="3na-VO-Z1c"/>
+                                    <constraint firstAttribute="height" constant="240" id="Llw-1E-fme"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Zly-vp-SbC" appends="YES" id="YsH-0o-q2c"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the Image Above to Edit!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-bm-RKr">
-                                <rect key="frame" x="78" y="374" width="220" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Dho-3U-wKf"/>
-                                </constraints>
+                                <rect key="frame" x="75" y="372" width="225" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1644,12 +1645,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Udw-bm-RKr" firstAttribute="centerX" secondItem="lam-DR-fyn" secondAttribute="centerX" id="5gq-PZ-6Il"/>
-                            <constraint firstItem="Udw-bm-RKr" firstAttribute="top" secondItem="3kP-Nl-3w2" secondAttribute="bottom" constant="34" id="6lo-L1-Q3S"/>
-                            <constraint firstItem="3kP-Nl-3w2" firstAttribute="leading" secondItem="lam-DR-fyn" secondAttribute="leadingMargin" constant="51" id="Kie-X3-ywo"/>
-                            <constraint firstItem="3kP-Nl-3w2" firstAttribute="top" secondItem="SRT-xJ-L5w" secondAttribute="bottom" constant="36" id="iST-Eg-ujZ"/>
-                            <constraint firstItem="K4N-xx-b2R" firstAttribute="top" secondItem="Udw-bm-RKr" secondAttribute="bottom" constant="272" id="nU1-aC-kCm"/>
-                            <constraint firstItem="3kP-Nl-3w2" firstAttribute="centerX" secondItem="lam-DR-fyn" secondAttribute="centerX" id="rLN-5G-R5B"/>
+                            <constraint firstItem="3kP-Nl-3w2" firstAttribute="centerX" secondItem="Udw-bm-RKr" secondAttribute="centerX" id="CmH-2D-MiS"/>
+                            <constraint firstItem="3kP-Nl-3w2" firstAttribute="top" secondItem="SRT-xJ-L5w" secondAttribute="bottom" constant="36" id="CpP-fF-NAl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Udw-bm-RKr" secondAttribute="trailing" constant="59" id="EFu-An-kor"/>
+                            <constraint firstItem="Udw-bm-RKr" firstAttribute="leading" secondItem="lam-DR-fyn" secondAttribute="leadingMargin" constant="59" id="Fh1-Mc-ant"/>
+                            <constraint firstItem="Udw-bm-RKr" firstAttribute="top" secondItem="3kP-Nl-3w2" secondAttribute="bottom" constant="32" id="Xc0-es-V8d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Profile Picture" id="mCg-oL-62f">
@@ -1670,7 +1670,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-986" y="-806"/>
+            <point key="canvasLocation" x="-986.39999999999998" y="-806.44677661169419"/>
         </scene>
         <!--Additional Information-->
         <scene sceneID="xDS-ES-ktb">
