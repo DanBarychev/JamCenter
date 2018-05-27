@@ -360,49 +360,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Host has not Uploaded a Recording" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-wo-gEc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Host has not Uploaded a Recording" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-wo-gEc">
                                 <rect key="frame" x="77" y="295" width="220" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQ5-d7-hG7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQ5-d7-hG7">
                                 <rect key="frame" x="62" y="404" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3lq-l0-C0o"/>
+                                    <constraint firstAttribute="width" constant="50" id="Vbf-Be-fEf"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="PlayIconHollow"/>
                                 <state key="selected" image="PlayIconHollowBlue"/>
                                 <connections>
                                     <action selector="playRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="HjU-bq-LsA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5j-q5-0ZV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5j-q5-0ZV">
                                 <rect key="frame" x="164" y="404" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="tCq-DP-Cip"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="PauseIcon"/>
                                 <state key="selected" image="PauseIconBlue"/>
                                 <connections>
                                     <action selector="pauseRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="hri-2t-k56"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-DR-QUo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-DR-QUo">
                                 <rect key="frame" x="269" y="404" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="CancelIcon"/>
                                 <state key="selected" image="CancelIconBlue"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="Uvo-A1-sOr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-et-wGz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-et-wGz">
                                 <rect key="frame" x="77" y="234" width="220" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="trailing" secondItem="r2G-wo-gEc" secondAttribute="trailing" id="0Ye-85-pJk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lV4-DR-QUo" secondAttribute="trailing" constant="40" id="1Fl-VD-H69"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" constant="61" id="1W8-We-x0w"/>
+                            <constraint firstItem="B5j-q5-0ZV" firstAttribute="baseline" secondItem="lV4-DR-QUo" secondAttribute="baseline" id="8Ud-SP-W3Y"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="centerX" secondItem="1U5-IY-meI" secondAttribute="centerX" id="C6n-tS-DRf"/>
+                            <constraint firstItem="r2G-wo-gEc" firstAttribute="centerY" secondItem="1U5-IY-meI" secondAttribute="centerY" id="D3N-sy-qmU"/>
+                            <constraint firstItem="mQ5-d7-hG7" firstAttribute="top" secondItem="r2G-wo-gEc" secondAttribute="bottom" constant="32" id="ImM-EW-otP"/>
+                            <constraint firstItem="BSZ-e5-ipC" firstAttribute="top" secondItem="mQ5-d7-hG7" secondAttribute="bottom" constant="164" id="Nsl-8i-zJO"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" secondItem="r2G-wo-gEc" secondAttribute="leading" id="TtD-Ti-ghm"/>
+                            <constraint firstItem="mQ5-d7-hG7" firstAttribute="baseline" secondItem="B5j-q5-0ZV" secondAttribute="baseline" id="fx3-oq-4LT"/>
+                            <constraint firstItem="mQ5-d7-hG7" firstAttribute="leading" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" constant="46" id="hA6-sr-mS9"/>
+                            <constraint firstItem="B5j-q5-0ZV" firstAttribute="leading" secondItem="mQ5-d7-hG7" secondAttribute="trailing" constant="52" id="m2U-IN-0iA"/>
+                            <constraint firstItem="lV4-DR-QUo" firstAttribute="leading" secondItem="B5j-q5-0ZV" secondAttribute="trailing" constant="55" id="mvB-hZ-vRb"/>
+                            <constraint firstItem="r2G-wo-gEc" firstAttribute="top" secondItem="dfr-et-wGz" secondAttribute="bottom" constant="8" symbolic="YES" id="neC-4o-s57"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="top" secondItem="y62-Mv-Z3e" secondAttribute="bottom" constant="170" id="pZs-hO-ckF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="m8A-Yq-ySk">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="WOP-7o-Ka7">
@@ -575,15 +594,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Session Host has not Added a Livestream" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzh-bZ-ZHf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Session Host has not Added a Livestream" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzh-bZ-ZHf">
                                 <rect key="frame" x="79" y="307" width="217" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vzh-bZ-ZHf" firstAttribute="top" secondItem="aCK-86-1d9" secondAttribute="bottom" constant="243" id="PWT-7n-2Va"/>
+                            <constraint firstItem="Vzh-bZ-ZHf" firstAttribute="centerY" secondItem="La3-iR-bRz" secondAttribute="centerY" id="deT-7n-f9X"/>
+                            <constraint firstItem="Vzh-bZ-ZHf" firstAttribute="centerX" secondItem="La3-iR-bRz" secondAttribute="centerX" id="uUP-hu-ShT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video" id="eZC-ua-aTB">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="fA2-4a-UF8">
@@ -1053,16 +1076,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
                                 <rect key="frame" x="162" y="218" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="1re-5E-S7w"/>
+                                    <constraint firstAttribute="height" constant="50" id="jEc-FW-s6q"/>
+                                </constraints>
                                 <state key="normal" title="Record" image="MicrophoneRecordIcon"/>
                                 <state key="selected" image="MicrophoneRecordIconBlue"/>
                                 <state key="highlighted" image="MicrophoneRecordIconBlue"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
                                 <rect key="frame" x="93" y="345" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6fa-Wq-j8B"/>
+                                    <constraint firstAttribute="width" constant="50" id="o5M-H7-r5I"/>
+                                </constraints>
                                 <state key="normal" title="Play" image="PlayIconHollow"/>
                                 <state key="selected" image="PlayIconHollowBlue"/>
                                 <state key="highlighted" image="PlayIconHollowBlue"/>
@@ -1070,39 +1099,40 @@
                                     <action selector="playRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="Dst-Vf-iZE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
                                 <rect key="frame" x="134" y="626" width="107" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="Cx9-vv-fxq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.019891490399700618" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
                                 <rect key="frame" x="222" y="345" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="PauseIcon"/>
                                 <state key="selected" image="PauseIconBlue"/>
                                 <connections>
                                     <action selector="pauseRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="VHa-PH-Eb2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
                                 <rect key="frame" x="84" y="286" width="206" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0k9-gc-HjF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
                                 <rect key="frame" x="16" y="441" width="343" height="127"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
                                 <rect key="frame" x="113" y="566" width="149" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Recording"/>
                                 <connections>
                                     <action selector="uploadRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="GtX-1I-8lT"/>
@@ -1110,6 +1140,27 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="trailing" secondItem="YnD-Hn-R56" secondAttribute="trailingMargin" id="6cF-n6-UyD"/>
+                            <constraint firstItem="lY6-by-X0N" firstAttribute="top" secondItem="hA1-uw-kfA" secondAttribute="bottom" constant="8" id="Blq-Zo-a8c"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="68" id="DiV-dA-zSj"/>
+                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="dbI-Rc-FxX" secondAttribute="bottom" constant="22" id="DtP-Lw-PhE"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="top" secondItem="kbD-bR-cOw" secondAttribute="bottom" constant="46" id="Gbl-k1-pbC"/>
+                            <constraint firstItem="hBr-4h-7nh" firstAttribute="centerX" secondItem="5LH-oM-MMC" secondAttribute="centerX" id="I4z-Km-eOg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2xp-0z-6CS" secondAttribute="trailing" constant="87" id="Q9X-fR-S38"/>
+                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="centerX" secondItem="lY6-by-X0N" secondAttribute="centerX" id="T7H-uZ-zSs"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" id="TUG-Ur-Rq0"/>
+                            <constraint firstItem="kbD-bR-cOw" firstAttribute="top" secondItem="5LH-oM-MMC" secondAttribute="bottom" constant="38" id="hhE-a4-v1E"/>
+                            <constraint firstItem="hBr-4h-7nh" firstAttribute="top" secondItem="IJ4-xu-i14" secondAttribute="bottom" constant="154" id="iuH-bR-Kqv"/>
+                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="50" id="kG1-09-bSg"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="centerX" secondItem="dbI-Rc-FxX" secondAttribute="centerX" id="mjd-vb-bkN"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="top" secondItem="hBr-4h-7nh" secondAttribute="bottom" constant="18" id="owt-l1-ozE"/>
+                            <constraint firstItem="2xp-0z-6CS" firstAttribute="leading" secondItem="kbD-bR-cOw" secondAttribute="trailing" constant="79" id="r55-U5-g94"/>
+                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="97" id="uwC-uz-I5t"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="centerX" secondItem="OVB-TB-jMU" secondAttribute="centerX" id="vFt-FF-Zpg"/>
+                            <constraint firstItem="kbD-bR-cOw" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="77" id="x9N-ct-Q9o"/>
+                            <constraint firstItem="kbD-bR-cOw" firstAttribute="baseline" secondItem="2xp-0z-6CS" secondAttribute="baseline" id="z7z-pe-tyF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="OXc-gL-SZL">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="OMh-li-Evt">
@@ -1145,9 +1196,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9y-Fp-4TU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9y-Fp-4TU">
                                 <rect key="frame" x="162" y="609" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="py4-KV-2EX"/>
+                                </constraints>
                                 <state key="normal" title="Record" image="PlayIcon"/>
                                 <state key="selected" title="Recording" image="StopIcon"/>
                                 <connections>
@@ -1156,6 +1209,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f9y-Fp-4TU" firstAttribute="centerX" secondItem="ygs-LX-R9M" secondAttribute="centerX" id="JoQ-E5-xHj"/>
+                            <constraint firstItem="f9y-Fp-4TU" firstAttribute="top" secondItem="d3j-3e-6bC" secondAttribute="bottom" constant="35" id="fLC-US-EAA"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="jbF-iL-Shw">
