@@ -18,8 +18,6 @@
 
 #import "FBSDKSettings+Internal.h"
 
-#import "FBSDKAccessTokenCache.h"
-#import "FBSDKAccessTokenExpirer.h"
 #import "FBSDKCoreKit.h"
 
 #define FBSDKSETTINGS_PLIST_CONFIGURATION_SETTING_IMPL(TYPE, PLIST_KEY, GETTER, SETTER, DEFAULT_VALUE) \
@@ -46,14 +44,13 @@ NSString *const FBSDKLoggingBehaviorGraphAPIDebugWarning = @"graph_api_debug_war
 NSString *const FBSDKLoggingBehaviorGraphAPIDebugInfo = @"graph_api_debug_info";
 NSString *const FBSDKLoggingBehaviorNetworkRequests = @"network_requests";
 
-static NSObject<FBSDKAccessTokenCaching> *g_tokenCache;
+static FBSDKAccessTokenCache *g_tokenCache;
 static NSMutableSet *g_loggingBehavior;
 static NSString *g_legacyUserDefaultTokenInformationKeyName = @"FBAccessTokenInformationKey";
 static NSString *const FBSDKSettingsLimitEventAndDataUsage = @"com.facebook.sdk:FBSDKSettingsLimitEventAndDataUsage";
 static BOOL g_disableErrorRecovery;
 static NSString *g_userAgentSuffix;
 static NSString *g_defaultGraphAPIVersion;
-static FBSDKAccessTokenExpirer *g_accessTokenExpirer;
 
 @implementation FBSDKSettings
 
@@ -61,7 +58,6 @@ static FBSDKAccessTokenExpirer *g_accessTokenExpirer;
 {
   if (self == [FBSDKSettings class]) {
     g_tokenCache = [[FBSDKAccessTokenCache alloc] init];
-    g_accessTokenExpirer = [[FBSDKAccessTokenExpirer alloc] init];
   }
 }
 
@@ -181,12 +177,12 @@ FBSDKSETTINGS_PLIST_CONFIGURATION_SETTING_IMPL(NSNumber, FacebookAutoLogAppEvent
 
 #pragma mark - Internal
 
-+ (NSObject<FBSDKAccessTokenCaching> *)accessTokenCache
++ (FBSDKAccessTokenCache *)accessTokenCache
 {
   return g_tokenCache;
 }
 
-+ (void)setAccessTokenCache:(NSObject<FBSDKAccessTokenCaching> *)cache
+- (void)setAccessTokenCache:(FBSDKAccessTokenCache *)cache
 {
   if (g_tokenCache != cache) {
     g_tokenCache = cache;

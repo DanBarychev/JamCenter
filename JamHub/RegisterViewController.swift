@@ -51,7 +51,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
             if error != nil {
                 print(error!)
                 
@@ -59,8 +59,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 registrationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(registrationAlert, animated: true, completion: nil)
             }
-            
-            let user = authResult?.user
             
             guard let uid = user?.uid else {
                 return
@@ -77,20 +75,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     else {
-                        /*if let profileImageURL = metadata?.downloadURL()?.absoluteString {
-                            self.finishRegistrationWithUserData(uid: uid, name: name, email: email, profileImageLink: profileImageURL)
-                        }*/
-                        storageRef.downloadURL { (url, error) in
-                            guard let profileImageURL = url?.absoluteString else {
-                                // Uh-oh, an error occurred!
-                                return
-                            }
+                        if let profileImageURL = metadata?.downloadURL()?.absoluteString {
                             self.finishRegistrationWithUserData(uid: uid, name: name, email: email, profileImageLink: profileImageURL)
                         }
                     }
                 })
             }
-        }
+        })
     }
     
     func finishRegistrationWithUserData(uid: String, name: String, email: String, profileImageLink: String) {

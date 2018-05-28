@@ -1,6 +1,0 @@
-module Pods_JamHub_JamHubUITests {
-  umbrella header "Pods-JamHub-JamHubUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

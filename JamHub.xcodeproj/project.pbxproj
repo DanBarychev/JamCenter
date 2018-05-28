@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A68504F02B1E9201259BB5D /* libPods-JamHub-JamHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */; };
-		84520291D1BBA10F374AEF08 /* libPods-JamHub-JamHubUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */; };
-		B35E6F3376A14370D3557B25 /* Pods_JamHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */; };
+		8624A979F8D2EBB0DAF1E3ED /* libPods-JamHub-JamHubUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD213435B78818AC6490B20 /* libPods-JamHub-JamHubUITests.a */; };
+		9D1CA2F24B1701497C9BEAA5 /* libPods-JamHub-JamHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */; };
+		CED77756B68C120706C8C2A6 /* libPods-JamHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 539501567A4D4ABEEDEC209A /* libPods-JamHub.a */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
 		D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
@@ -48,8 +48,6 @@
 		D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */; };
 		D6FE85361ECCBD7B0020CEE6 /* JamHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85351ECCBD7B0020CEE6 /* JamHubTests.swift */; };
 		D6FE85411ECCBD7B0020CEE6 /* JamHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */; };
-		E09C3F3DF90A6CCBF7BA00BF /* libPods-JamHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96763F96C3A952FC9AA2723F /* libPods-JamHub.a */; };
-		E84AE0837B48B9F56310F7B5 /* Pods_JamHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,20 +81,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13A69522A4C9BF19E2355AE1 /* Pods-JamHub-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
-		329F28383A96345699C5859E /* Pods-JamHub-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		36FF2DFD8768F62C515B51BD /* Pods-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubTests/Pods-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A1E4728E728FBFD9CDEEEE0 /* Pods-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		6FA9192FD34B3D3F741E2746 /* Pods-JamHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.release.xcconfig"; sourceTree = "<group>"; };
-		75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96763F96C3A952FC9AA2723F /* libPods-JamHub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9957267BCB38C9055C77A7AC /* Pods-JamHub-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9C2673C61E5363F211F62EC5 /* Pods-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubTests/Pods-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
-		A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHubUITests/Pods-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3FD213435B78818AC6490B20 /* libPods-JamHub-JamHubUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		539501567A4D4ABEEDEC209A /* libPods-JamHub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
+		9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.debug.xcconfig"; sourceTree = "<group>"; };
+		AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.release.xcconfig"; sourceTree = "<group>"; };
+		D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSDKLiveVideo.swift; sourceTree = "<group>"; };
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +134,7 @@
 		D6FE853C1ECCBD7B0020CEE6 /* JamHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHubUITests.swift; sourceTree = "<group>"; };
 		D6FE85421ECCBD7B0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F012EBA8E29FDEDDB4AF39FC /* Pods-JamHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.debug.xcconfig"; sourceTree = "<group>"; };
+		FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E09C3F3DF90A6CCBF7BA00BF /* libPods-JamHub.a in Frameworks */,
+				CED77756B68C120706C8C2A6 /* libPods-JamHub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,8 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E84AE0837B48B9F56310F7B5 /* Pods_JamHubTests.framework in Frameworks */,
-				5A68504F02B1E9201259BB5D /* libPods-JamHub-JamHubTests.a in Frameworks */,
+				9D1CA2F24B1701497C9BEAA5 /* libPods-JamHub-JamHubTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,24 +158,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B35E6F3376A14370D3557B25 /* Pods_JamHubUITests.framework in Frameworks */,
-				84520291D1BBA10F374AEF08 /* libPods-JamHub-JamHubUITests.a in Frameworks */,
+				8624A979F8D2EBB0DAF1E3ED /* libPods-JamHub-JamHubUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4912035B94D0BAF44B53E441 /* Frameworks */ = {
+		12C3266D3188235E2AFB67B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A90F15737C7599FEEB30B280 /* Pods_JamHubTests.framework */,
-				B7A51E4EBF79A0A5966CAD53 /* Pods_JamHubUITests.framework */,
-				96763F96C3A952FC9AA2723F /* libPods-JamHub.a */,
-				438AB48F7966EF786B7318BD /* libPods-JamHub-JamHubTests.a */,
-				75D85AF994D1A386CDF4BB83 /* libPods-JamHub-JamHubUITests.a */,
+				539501567A4D4ABEEDEC209A /* libPods-JamHub.a */,
+				FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */,
+				3FD213435B78818AC6490B20 /* libPods-JamHub-JamHubUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4E4748466359A97DA39D3F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */,
+				AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */,
+				D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */,
+				6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */,
+				4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */,
+				AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D6D16C221F09D4980079314B /* Helpers */ = {
@@ -211,8 +212,8 @@
 				D6FE85341ECCBD7B0020CEE6 /* JamHubTests */,
 				D6FE853F1ECCBD7B0020CEE6 /* JamHubUITests */,
 				D6FE851E1ECCBD7A0020CEE6 /* Products */,
-				F0425AE09D243E7A63C2B255 /* Pods */,
-				4912035B94D0BAF44B53E441 /* Frameworks */,
+				D4E4748466359A97DA39D3F8 /* Pods */,
+				12C3266D3188235E2AFB67B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,23 +290,6 @@
 			path = JamHubUITests;
 			sourceTree = "<group>";
 		};
-		F0425AE09D243E7A63C2B255 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F012EBA8E29FDEDDB4AF39FC /* Pods-JamHub.debug.xcconfig */,
-				6FA9192FD34B3D3F741E2746 /* Pods-JamHub.release.xcconfig */,
-				36FF2DFD8768F62C515B51BD /* Pods-JamHubTests.debug.xcconfig */,
-				9C2673C61E5363F211F62EC5 /* Pods-JamHubTests.release.xcconfig */,
-				6A1E4728E728FBFD9CDEEEE0 /* Pods-JamHubUITests.debug.xcconfig */,
-				C488ADE639DB0F4048CB73B7 /* Pods-JamHubUITests.release.xcconfig */,
-				9957267BCB38C9055C77A7AC /* Pods-JamHub-JamHubTests.debug.xcconfig */,
-				13A69522A4C9BF19E2355AE1 /* Pods-JamHub-JamHubTests.release.xcconfig */,
-				329F28383A96345699C5859E /* Pods-JamHub-JamHubUITests.debug.xcconfig */,
-				AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,12 +297,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6FE85451ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHub" */;
 			buildPhases = (
-				5A01F56988E5B241F05EB41C /* [CP] Check Pods Manifest.lock */,
+				8E5CF65F7EB99179D9123C38 /* [CP] Check Pods Manifest.lock */,
 				D6FE85191ECCBD7A0020CEE6 /* Sources */,
 				D6FE851A1ECCBD7A0020CEE6 /* Frameworks */,
 				D6FE851B1ECCBD7A0020CEE6 /* Resources */,
-				6FADF601ABF19C04BE0FEC12 /* [CP] Copy Pods Resources */,
 				D6A9B0A01F2D5563001E723D /* Embed Frameworks */,
+				C165F072D5793D010666FBA0 /* [CP] Embed Pods Frameworks */,
+				8A4735A8A6071B62908E2C21 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,11 +318,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6FE85481ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHubTests" */;
 			buildPhases = (
-				EBBE48A48F2CEAE9DE827832 /* [CP] Check Pods Manifest.lock */,
+				42BE4B9FEFB37440344691F2 /* [CP] Check Pods Manifest.lock */,
 				D6FE852D1ECCBD7B0020CEE6 /* Sources */,
 				D6FE852E1ECCBD7B0020CEE6 /* Frameworks */,
 				D6FE852F1ECCBD7B0020CEE6 /* Resources */,
-				95DB18963FD33FEACF3EF1E3 /* [CP] Copy Pods Resources */,
+				280CBCDD34983431FC3FB5D6 /* [CP] Embed Pods Frameworks */,
+				16BBF891C025FF658517E0C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -353,11 +339,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6FE854B1ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHubUITests" */;
 			buildPhases = (
-				322EEE0C752EDB3CEE085061 /* [CP] Check Pods Manifest.lock */,
+				BB7554FF0DBFDA03B589C23F /* [CP] Check Pods Manifest.lock */,
 				D6FE85381ECCBD7B0020CEE6 /* Sources */,
 				D6FE85391ECCBD7B0020CEE6 /* Frameworks */,
 				D6FE853A1ECCBD7B0020CEE6 /* Resources */,
-				F85C565D33692889426141E9 /* [CP] Copy Pods Resources */,
+				4BE2C8DC4E888ADFAB409437 /* [CP] Embed Pods Frameworks */,
+				B674214C24496E18DC79EB75 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -447,61 +434,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		322EEE0C752EDB3CEE085061 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JamHub-JamHubUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A01F56988E5B241F05EB41C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JamHub-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6FADF601ABF19C04BE0FEC12 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-resources.sh",
-				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		95DB18963FD33FEACF3EF1E3 /* [CP] Copy Pods Resources */ = {
+		16BBF891C025FF658517E0C5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,7 +452,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBBE48A48F2CEAE9DE827832 /* [CP] Check Pods Manifest.lock */ = {
+		280CBCDD34983431FC3FB5D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42BE4B9FEFB37440344691F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -537,7 +485,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F85C565D33692889426141E9 /* [CP] Copy Pods Resources */ = {
+		4BE2C8DC4E888ADFAB409437 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A4735A8A6071B62908E2C21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E5CF65F7EB99179D9123C38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B674214C24496E18DC79EB75 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,6 +552,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB7554FF0DBFDA03B589C23F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamHub-JamHubUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C165F072D5793D010666FBA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -695,6 +727,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -702,6 +735,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 			};
 			name = Debug;
 		};
@@ -746,18 +780,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		D6FE85461ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F012EBA8E29FDEDDB4AF39FC /* Pods-JamHub.debug.xcconfig */;
+			baseConfigurationReference = 9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
@@ -766,6 +802,33 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"${PODS_ROOT}/boost",
+					"\"${PODS_ROOT}/boost\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Bolts\"",
+					"\"${PODS_ROOT}/Headers/Public/Canvas\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKLoginKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKShareKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/GTMSessionFetcher\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleToolboxForMac\"",
+					"\"${PODS_ROOT}/Headers/Public/UriParser-cpp\"",
+					"\"${PODS_ROOT}/Headers/Public/VideoCore\"",
+					"\"${PODS_ROOT}/Headers/Public/glm\"",
+					"\"${PODS_ROOT}/Headers/Public/leveldb-library\"",
+					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
+					"\"${PODS_ROOT}/VideoCore\"/**",
+				);
 				INFOPLIST_FILE = JamHub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -773,12 +836,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-live-ios-sample-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 			};
 			name = Debug;
 		};
 		D6FE85471ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FA9192FD34B3D3F741E2746 /* Pods-JamHub.release.xcconfig */;
+			baseConfigurationReference = AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
@@ -787,6 +851,33 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"${PODS_ROOT}/boost",
+					"\"${PODS_ROOT}/boost\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Bolts\"",
+					"\"${PODS_ROOT}/Headers/Public/Canvas\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKLoginKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSDKShareKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/GTMSessionFetcher\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleToolboxForMac\"",
+					"\"${PODS_ROOT}/Headers/Public/UriParser-cpp\"",
+					"\"${PODS_ROOT}/Headers/Public/VideoCore\"",
+					"\"${PODS_ROOT}/Headers/Public/glm\"",
+					"\"${PODS_ROOT}/Headers/Public/leveldb-library\"",
+					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
+					"\"${PODS_ROOT}/VideoCore\"/**",
+				);
 				INFOPLIST_FILE = JamHub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -794,12 +885,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-live-ios-sample-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 			};
 			name = Release;
 		};
 		D6FE85491ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9957267BCB38C9055C77A7AC /* Pods-JamHub-JamHubTests.debug.xcconfig */;
+			baseConfigurationReference = D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -815,7 +907,7 @@
 		};
 		D6FE854A1ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13A69522A4C9BF19E2355AE1 /* Pods-JamHub-JamHubTests.release.xcconfig */;
+			baseConfigurationReference = 6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -831,7 +923,7 @@
 		};
 		D6FE854C1ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 329F28383A96345699C5859E /* Pods-JamHub-JamHubUITests.debug.xcconfig */;
+			baseConfigurationReference = 4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
@@ -846,7 +938,7 @@
 		};
 		D6FE854D1ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF15DF454583140877FDA591 /* Pods-JamHub-JamHubUITests.release.xcconfig */;
+			baseConfigurationReference = AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
