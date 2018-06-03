@@ -1084,12 +1084,9 @@
                                 <state key="selected" image="MicrophoneRecordIconBlue"/>
                                 <state key="highlighted" image="MicrophoneRecordIconBlue"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
                                 <rect key="frame" x="93" y="345" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="EFE-iZ-NHI"/>
-                                    <constraint firstAttribute="width" constant="50" id="xy2-nD-GVN"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play" image="PlayIconHollow"/>
                                 <state key="selected" image="PlayIconHollowBlue"/>
                                 <state key="highlighted" image="PlayIconHollowBlue"/>
@@ -1106,12 +1103,9 @@
                                 <color key="textColor" red="1" green="0.019891490399700618" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
                                 <rect key="frame" x="222" y="345" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="456-og-N1r"/>
-                                    <constraint firstAttribute="width" constant="50" id="UVU-mG-glZ"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="PauseIcon"/>
                                 <state key="selected" image="PauseIconBlue"/>
                                 <connections>
@@ -1127,12 +1121,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
-                                <rect key="frame" x="16" y="441" width="343" height="127"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
                                 <rect key="frame" x="113" y="566" width="149" height="30"/>
                                 <state key="normal" title="Upload Recording"/>
@@ -1140,27 +1128,28 @@
                                     <action selector="uploadRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="GtX-1I-8lT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
+                                <rect key="frame" x="16" y="487" width="343" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5LH-oM-MMC" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="68" id="1fS-dn-XIr"/>
-                            <constraint firstItem="kbD-bR-cOw" firstAttribute="baseline" secondItem="2xp-0z-6CS" secondAttribute="baseline" id="2zP-YG-mTI"/>
                             <constraint firstItem="dbI-Rc-FxX" firstAttribute="centerX" secondItem="lY6-by-X0N" secondAttribute="centerX" id="7Or-y3-wQ6"/>
                             <constraint firstItem="OVB-TB-jMU" firstAttribute="centerX" secondItem="dbI-Rc-FxX" secondAttribute="centerX" id="7mj-oW-wPx"/>
-                            <constraint firstItem="kbD-bR-cOw" firstAttribute="top" secondItem="5LH-oM-MMC" secondAttribute="bottom" constant="38" id="892-QK-r6H"/>
                             <constraint firstItem="OVB-TB-jMU" firstAttribute="trailing" secondItem="YnD-Hn-R56" secondAttribute="trailingMargin" id="DqR-KJ-TDd"/>
-                            <constraint firstItem="kbD-bR-cOw" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="77" id="LPn-Y9-CPu"/>
                             <constraint firstItem="5LH-oM-MMC" firstAttribute="top" secondItem="hBr-4h-7nh" secondAttribute="bottom" constant="18" id="O9c-Bn-lOC"/>
                             <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="dbI-Rc-FxX" secondAttribute="bottom" constant="22" id="VNN-BT-6Bs"/>
                             <constraint firstItem="OVB-TB-jMU" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" id="cm6-Lp-rVw"/>
-                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="50" id="e5o-8W-CQm"/>
+                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="90" id="e5o-8W-CQm"/>
                             <constraint firstItem="dbI-Rc-FxX" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="97" id="iDy-Qq-Hbh"/>
-                            <constraint firstItem="2xp-0z-6CS" firstAttribute="leading" secondItem="kbD-bR-cOw" secondAttribute="trailing" constant="79" id="jtG-6H-EAf"/>
                             <constraint firstItem="5LH-oM-MMC" firstAttribute="centerX" secondItem="OVB-TB-jMU" secondAttribute="centerX" id="kDF-Tf-VeA"/>
                             <constraint firstItem="hBr-4h-7nh" firstAttribute="centerX" secondItem="5LH-oM-MMC" secondAttribute="centerX" id="mRa-8W-ou5"/>
                             <constraint firstItem="hBr-4h-7nh" firstAttribute="top" secondItem="IJ4-xu-i14" secondAttribute="bottom" constant="154" id="mVD-50-gtw"/>
                             <constraint firstItem="lY6-by-X0N" firstAttribute="top" secondItem="hA1-uw-kfA" secondAttribute="bottom" constant="8" id="op9-KZ-2kb"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="top" secondItem="kbD-bR-cOw" secondAttribute="bottom" constant="46" id="tod-Jq-nNf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="OXc-gL-SZL">
