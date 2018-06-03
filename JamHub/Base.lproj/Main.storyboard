@@ -360,67 +360,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Host has not Uploaded a Recording" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2G-wo-gEc">
-                                <rect key="frame" x="77" y="295" width="220" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQ5-d7-hG7">
-                                <rect key="frame" x="62" y="404" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3lq-l0-C0o"/>
-                                    <constraint firstAttribute="width" constant="50" id="Vbf-Be-fEf"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="PlayIconHollow"/>
-                                <state key="selected" image="PlayIconHollowBlue"/>
-                                <connections>
-                                    <action selector="playRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="HjU-bq-LsA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5j-q5-0ZV">
-                                <rect key="frame" x="164" y="404" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="tCq-DP-Cip"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="PauseIcon"/>
-                                <state key="selected" image="PauseIconBlue"/>
-                                <connections>
-                                    <action selector="pauseRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="hri-2t-k56"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV4-DR-QUo">
-                                <rect key="frame" x="269" y="404" width="50" height="50"/>
-                                <state key="normal" title="Button" image="CancelIcon"/>
-                                <state key="selected" image="CancelIconBlue"/>
-                                <connections>
-                                    <action selector="stopRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="Uvo-A1-sOr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-et-wGz">
-                                <rect key="frame" x="77" y="234" width="220" height="53"/>
+                                <rect key="frame" x="77" y="234" width="220" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Host has not Added a Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1I-Xs-5IT">
+                                <rect key="frame" x="31" y="323" width="312" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLE-a4-yIp">
+                                <rect key="frame" x="72" y="410" width="50" height="50"/>
+                                <state key="normal" image="PlayIconHollow">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" image="PlayIconHollowBlue"/>
+                                <state key="highlighted" image="PlayIconHollowBlue"/>
+                                <connections>
+                                    <action selector="playRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="1IC-Hs-wm4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfv-Nw-6y7">
+                                <rect key="frame" x="162" y="410" width="50" height="50"/>
+                                <state key="normal" image="PauseIcon">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" image="PauseIconBlue"/>
+                                <state key="highlighted" image="PauseIconBlue"/>
+                                <connections>
+                                    <action selector="pauseRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="EYl-mm-B6k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAY-Zk-3cY">
+                                <rect key="frame" x="247" y="410" width="50" height="50"/>
+                                <state key="normal" image="CancelIcon">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" image="CancelIconBlue"/>
+                                <state key="highlighted" image="CancelIconBlue"/>
+                                <connections>
+                                    <action selector="stopRecording:" destination="nrp-I2-op1" eventType="touchUpInside" id="lCW-Xb-KdN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dfr-et-wGz" firstAttribute="trailing" secondItem="r2G-wo-gEc" secondAttribute="trailing" id="0Ye-85-pJk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lV4-DR-QUo" secondAttribute="trailing" constant="40" id="1Fl-VD-H69"/>
-                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" constant="61" id="1W8-We-x0w"/>
-                            <constraint firstItem="B5j-q5-0ZV" firstAttribute="baseline" secondItem="lV4-DR-QUo" secondAttribute="baseline" id="8Ud-SP-W3Y"/>
-                            <constraint firstItem="dfr-et-wGz" firstAttribute="centerX" secondItem="1U5-IY-meI" secondAttribute="centerX" id="C6n-tS-DRf"/>
-                            <constraint firstItem="r2G-wo-gEc" firstAttribute="centerY" secondItem="1U5-IY-meI" secondAttribute="centerY" id="D3N-sy-qmU"/>
-                            <constraint firstItem="mQ5-d7-hG7" firstAttribute="top" secondItem="r2G-wo-gEc" secondAttribute="bottom" constant="32" id="ImM-EW-otP"/>
-                            <constraint firstItem="BSZ-e5-ipC" firstAttribute="top" secondItem="mQ5-d7-hG7" secondAttribute="bottom" constant="164" id="Nsl-8i-zJO"/>
-                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" secondItem="r2G-wo-gEc" secondAttribute="leading" id="TtD-Ti-ghm"/>
-                            <constraint firstItem="mQ5-d7-hG7" firstAttribute="baseline" secondItem="B5j-q5-0ZV" secondAttribute="baseline" id="fx3-oq-4LT"/>
-                            <constraint firstItem="mQ5-d7-hG7" firstAttribute="leading" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" constant="46" id="hA6-sr-mS9"/>
-                            <constraint firstItem="B5j-q5-0ZV" firstAttribute="leading" secondItem="mQ5-d7-hG7" secondAttribute="trailing" constant="52" id="m2U-IN-0iA"/>
-                            <constraint firstItem="lV4-DR-QUo" firstAttribute="leading" secondItem="B5j-q5-0ZV" secondAttribute="trailing" constant="55" id="mvB-hZ-vRb"/>
-                            <constraint firstItem="r2G-wo-gEc" firstAttribute="top" secondItem="dfr-et-wGz" secondAttribute="bottom" constant="8" symbolic="YES" id="neC-4o-s57"/>
-                            <constraint firstItem="dfr-et-wGz" firstAttribute="top" secondItem="y62-Mv-Z3e" secondAttribute="bottom" constant="170" id="pZs-hO-ckF"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="centerX" secondItem="1U5-IY-meI" secondAttribute="centerX" id="264-N8-Urh"/>
+                            <constraint firstItem="aAY-Zk-3cY" firstAttribute="trailing" secondItem="dfr-et-wGz" secondAttribute="trailing" id="2At-rS-7Yr"/>
+                            <constraint firstItem="E1I-Xs-5IT" firstAttribute="centerX" secondItem="dfr-et-wGz" secondAttribute="centerX" id="Lkm-St-qiM"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" constant="61" id="Phj-A1-RU2"/>
+                            <constraint firstItem="mLE-a4-yIp" firstAttribute="top" secondItem="Tfv-Nw-6y7" secondAttribute="top" id="SeD-jx-fdi"/>
+                            <constraint firstItem="E1I-Xs-5IT" firstAttribute="centerX" secondItem="Tfv-Nw-6y7" secondAttribute="centerX" id="SxS-UG-2fk"/>
+                            <constraint firstItem="mLE-a4-yIp" firstAttribute="top" secondItem="E1I-Xs-5IT" secondAttribute="bottom" constant="66" id="VLd-I7-Na8"/>
+                            <constraint firstItem="Tfv-Nw-6y7" firstAttribute="leading" secondItem="mLE-a4-yIp" secondAttribute="trailing" constant="40" id="esE-lO-XIv"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="top" secondItem="y62-Mv-Z3e" secondAttribute="bottom" constant="170" id="mFe-gL-zGb"/>
+                            <constraint firstItem="E1I-Xs-5IT" firstAttribute="centerY" secondItem="1U5-IY-meI" secondAttribute="centerY" id="tXv-BU-8xB"/>
+                            <constraint firstItem="Tfv-Nw-6y7" firstAttribute="top" secondItem="aAY-Zk-3cY" secondAttribute="top" id="uvw-FB-GqE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="m8A-Yq-ySk">
@@ -431,11 +429,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noRecordingLabel" destination="r2G-wo-gEc" id="vna-hm-wDP"/>
-                        <outlet property="pauseButton" destination="B5j-q5-0ZV" id="p1I-el-Scn"/>
-                        <outlet property="playButton" destination="mQ5-d7-hG7" id="J8t-F8-4Je"/>
+                        <outlet property="noRecordingLabel" destination="E1I-Xs-5IT" id="pIc-bP-CON"/>
+                        <outlet property="pauseButton" destination="Tfv-Nw-6y7" id="Fmb-Ok-pYX"/>
+                        <outlet property="playButton" destination="mLE-a4-yIp" id="xmu-6a-xuW"/>
                         <outlet property="recordingClockLabel" destination="dfr-et-wGz" id="t0n-Rk-KFA"/>
-                        <outlet property="stopButton" destination="lV4-DR-QUo" id="3gy-ZR-a5R"/>
+                        <outlet property="stopButton" destination="aAY-Zk-3cY" id="UYM-eL-8kY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGC-tM-no4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1079,8 +1077,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
                                 <rect key="frame" x="162" y="218" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="1re-5E-S7w"/>
-                                    <constraint firstAttribute="height" constant="50" id="jEc-FW-s6q"/>
+                                    <constraint firstAttribute="height" constant="50" id="3TI-1B-RBV"/>
+                                    <constraint firstAttribute="width" constant="50" id="79L-uO-Kn9"/>
                                 </constraints>
                                 <state key="normal" title="Record" image="MicrophoneRecordIcon"/>
                                 <state key="selected" image="MicrophoneRecordIconBlue"/>
@@ -1089,8 +1087,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
                                 <rect key="frame" x="93" y="345" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6fa-Wq-j8B"/>
-                                    <constraint firstAttribute="width" constant="50" id="o5M-H7-r5I"/>
+                                    <constraint firstAttribute="height" constant="50" id="EFE-iZ-NHI"/>
+                                    <constraint firstAttribute="width" constant="50" id="xy2-nD-GVN"/>
                                 </constraints>
                                 <state key="normal" title="Play" image="PlayIconHollow"/>
                                 <state key="selected" image="PlayIconHollowBlue"/>
@@ -1102,7 +1100,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
                                 <rect key="frame" x="134" y="626" width="107" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="Cx9-vv-fxq"/>
+                                    <constraint firstAttribute="width" constant="107" id="tTB-jA-iSr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.019891490399700618" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1110,6 +1108,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
                                 <rect key="frame" x="222" y="345" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="456-og-N1r"/>
+                                    <constraint firstAttribute="width" constant="50" id="UVU-mG-glZ"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="PauseIcon"/>
                                 <state key="selected" image="PauseIconBlue"/>
                                 <connections>
@@ -1119,7 +1121,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
                                 <rect key="frame" x="84" y="286" width="206" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="0k9-gc-HjF"/>
+                                    <constraint firstAttribute="height" constant="21" id="A8E-wt-CC6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -1141,25 +1143,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="trailing" secondItem="YnD-Hn-R56" secondAttribute="trailingMargin" id="6cF-n6-UyD"/>
-                            <constraint firstItem="lY6-by-X0N" firstAttribute="top" secondItem="hA1-uw-kfA" secondAttribute="bottom" constant="8" id="Blq-Zo-a8c"/>
-                            <constraint firstItem="5LH-oM-MMC" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="68" id="DiV-dA-zSj"/>
-                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="dbI-Rc-FxX" secondAttribute="bottom" constant="22" id="DtP-Lw-PhE"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="top" secondItem="kbD-bR-cOw" secondAttribute="bottom" constant="46" id="Gbl-k1-pbC"/>
-                            <constraint firstItem="hBr-4h-7nh" firstAttribute="centerX" secondItem="5LH-oM-MMC" secondAttribute="centerX" id="I4z-Km-eOg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2xp-0z-6CS" secondAttribute="trailing" constant="87" id="Q9X-fR-S38"/>
-                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="centerX" secondItem="lY6-by-X0N" secondAttribute="centerX" id="T7H-uZ-zSs"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" id="TUG-Ur-Rq0"/>
-                            <constraint firstItem="kbD-bR-cOw" firstAttribute="top" secondItem="5LH-oM-MMC" secondAttribute="bottom" constant="38" id="hhE-a4-v1E"/>
-                            <constraint firstItem="hBr-4h-7nh" firstAttribute="top" secondItem="IJ4-xu-i14" secondAttribute="bottom" constant="154" id="iuH-bR-Kqv"/>
-                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="50" id="kG1-09-bSg"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="centerX" secondItem="dbI-Rc-FxX" secondAttribute="centerX" id="mjd-vb-bkN"/>
-                            <constraint firstItem="5LH-oM-MMC" firstAttribute="top" secondItem="hBr-4h-7nh" secondAttribute="bottom" constant="18" id="owt-l1-ozE"/>
-                            <constraint firstItem="2xp-0z-6CS" firstAttribute="leading" secondItem="kbD-bR-cOw" secondAttribute="trailing" constant="79" id="r55-U5-g94"/>
-                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="97" id="uwC-uz-I5t"/>
-                            <constraint firstItem="5LH-oM-MMC" firstAttribute="centerX" secondItem="OVB-TB-jMU" secondAttribute="centerX" id="vFt-FF-Zpg"/>
-                            <constraint firstItem="kbD-bR-cOw" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="77" id="x9N-ct-Q9o"/>
-                            <constraint firstItem="kbD-bR-cOw" firstAttribute="baseline" secondItem="2xp-0z-6CS" secondAttribute="baseline" id="z7z-pe-tyF"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="68" id="1fS-dn-XIr"/>
+                            <constraint firstItem="kbD-bR-cOw" firstAttribute="baseline" secondItem="2xp-0z-6CS" secondAttribute="baseline" id="2zP-YG-mTI"/>
+                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="centerX" secondItem="lY6-by-X0N" secondAttribute="centerX" id="7Or-y3-wQ6"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="centerX" secondItem="dbI-Rc-FxX" secondAttribute="centerX" id="7mj-oW-wPx"/>
+                            <constraint firstItem="kbD-bR-cOw" firstAttribute="top" secondItem="5LH-oM-MMC" secondAttribute="bottom" constant="38" id="892-QK-r6H"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="trailing" secondItem="YnD-Hn-R56" secondAttribute="trailingMargin" id="DqR-KJ-TDd"/>
+                            <constraint firstItem="kbD-bR-cOw" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="77" id="LPn-Y9-CPu"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="top" secondItem="hBr-4h-7nh" secondAttribute="bottom" constant="18" id="O9c-Bn-lOC"/>
+                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="dbI-Rc-FxX" secondAttribute="bottom" constant="22" id="VNN-BT-6Bs"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" id="cm6-Lp-rVw"/>
+                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="50" id="e5o-8W-CQm"/>
+                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="97" id="iDy-Qq-Hbh"/>
+                            <constraint firstItem="2xp-0z-6CS" firstAttribute="leading" secondItem="kbD-bR-cOw" secondAttribute="trailing" constant="79" id="jtG-6H-EAf"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="centerX" secondItem="OVB-TB-jMU" secondAttribute="centerX" id="kDF-Tf-VeA"/>
+                            <constraint firstItem="hBr-4h-7nh" firstAttribute="centerX" secondItem="5LH-oM-MMC" secondAttribute="centerX" id="mRa-8W-ou5"/>
+                            <constraint firstItem="hBr-4h-7nh" firstAttribute="top" secondItem="IJ4-xu-i14" secondAttribute="bottom" constant="154" id="mVD-50-gtw"/>
+                            <constraint firstItem="lY6-by-X0N" firstAttribute="top" secondItem="hA1-uw-kfA" secondAttribute="bottom" constant="8" id="op9-KZ-2kb"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="top" secondItem="kbD-bR-cOw" secondAttribute="bottom" constant="46" id="tod-Jq-nNf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="OXc-gL-SZL">
