@@ -23,27 +23,27 @@
 
  */
 
-#import <videocore/api/iOS/VCSimpleSession.h>
-#import <videocore/api/iOS/VCPreviewView.h>
+#import <VideoCore/api/iOS/VCSimpleSession.h>
+#import <VideoCore/api/iOS/VCPreviewView.h>
 
-#include <videocore/rtmp/RTMPSession.h>
-#include <videocore/transforms/RTMP/AACPacketizer.h>
-#include <videocore/transforms/RTMP/H264Packetizer.h>
-#include <videocore/transforms/Split.h>
-#include <videocore/transforms/AspectTransform.h>
-#include <videocore/transforms/PositionTransform.h>
+#include <VideoCore/rtmp/RTMPSession.h>
+#include <VideoCore/transforms/RTMP/AACPacketizer.h>
+#include <VideoCore/transforms/RTMP/H264Packetizer.h>
+#include <VideoCore/transforms/Split.h>
+#include <VideoCore/transforms/AspectTransform.h>
+#include <VideoCore/transforms/PositionTransform.h>
 
 #ifdef __APPLE__
-#   include <videocore/mixers/Apple/AudioMixer.h>
-#   include <videocore/transforms/Apple/MP4Multiplexer.h>
-#   include <videocore/transforms/Apple/H264Encode.h>
-#   include <videocore/sources/Apple/PixelBufferSource.h>
+#   include <VideoCore/mixers/Apple/AudioMixer.h>
+#   include <VideoCore/transforms/Apple/MP4Multiplexer.h>
+#   include <VideoCore/transforms/Apple/H264Encode.h>
+#   include <VideoCore/sources/Apple/PixelBufferSource.h>
 #   ifdef TARGET_OS_IPHONE
-#       include <videocore/sources/iOS/CameraSource.h>
-#       include <videocore/sources/iOS/MicSource.h>
-#       include <videocore/mixers/iOS/GLESVideoMixer.h>
-#       include <videocore/transforms/iOS/AACEncode.h>
-#       include <videocore/transforms/iOS/H264Encode.h>
+#       include <VideoCore/sources/iOS/CameraSource.h>
+#       include <VideoCore/sources/iOS/MicSource.h>
+#       include <VideoCore/mixers/iOS/GLESVideoMixer.h>
+#       include <VideoCore/transforms/iOS/AACEncode.h>
+#       include <VideoCore/transforms/iOS/H264Encode.h>
 
 #   else /* OS X */
 
@@ -265,7 +265,7 @@ namespace videocore { namespace simpleApi {
 {
     _rtmpSessionState = rtmpSessionState;
     if(self.delegate) {
-        [self.delegate connectionStatusChanged:rtmpSessionState];
+        //[self.delegate connectionStatusChanged:rtmpSessionState];
     }
 }
 - (VCSessionState) rtmpSessionState

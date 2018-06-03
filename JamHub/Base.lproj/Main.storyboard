@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jEQ-xE-Bqx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jEQ-xE-Bqx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1196,22 +1196,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9y-Fp-4TU">
-                                <rect key="frame" x="162" y="609" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="py4-KV-2EX"/>
-                                </constraints>
-                                <state key="normal" title="Record" image="PlayIcon"/>
-                                <state key="selected" title="Recording" image="StopIcon"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekp-I8-EZ2">
+                                <rect key="frame" x="162" y="516" width="50" height="50"/>
+                                <state key="normal" image="PlayIcon"/>
+                                <state key="selected" image="StopIconRed"/>
                                 <connections>
-                                    <action selector="recordButtonTapped:" destination="cCp-yc-szH" eventType="touchUpInside" id="TLF-Fq-TBk"/>
+                                    <action selector="recordButtonTapped:" destination="cCp-yc-szH" eventType="touchUpInside" id="98L-eV-FZC"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f9y-Fp-4TU" firstAttribute="centerX" secondItem="ygs-LX-R9M" secondAttribute="centerX" id="JoQ-E5-xHj"/>
-                            <constraint firstItem="f9y-Fp-4TU" firstAttribute="top" secondItem="d3j-3e-6bC" secondAttribute="bottom" constant="35" id="fLC-US-EAA"/>
+                            <constraint firstItem="d3j-3e-6bC" firstAttribute="top" secondItem="Ekp-I8-EZ2" secondAttribute="bottom" constant="8" symbolic="YES" id="CI6-rs-iDt"/>
+                            <constraint firstItem="Ekp-I8-EZ2" firstAttribute="centerX" secondItem="ygs-LX-R9M" secondAttribute="centerX" id="Ei7-mZ-ltv"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -1224,7 +1221,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="recordButton" destination="f9y-Fp-4TU" id="IpU-jV-boJ"/>
+                        <outlet property="recordButton" destination="Ekp-I8-EZ2" id="gV8-fO-4Ka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InZ-Gt-2Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2900,7 +2897,7 @@
         <image name="SettingsIcon" width="25" height="25"/>
         <image name="SheetMusicIconBlue" width="50" height="50"/>
         <image name="SheetMusicIconWhite" width="50" height="50"/>
-        <image name="StopIcon" width="50" height="50"/>
+        <image name="StopIconRed" width="50" height="50"/>
         <image name="TromboneIcon" width="25" height="25"/>
         <image name="TromboneIconBlue" width="25" height="25"/>
         <image name="TrumpetBackground" width="474" height="960"/>

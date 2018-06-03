@@ -25,11 +25,13 @@ class MyLivestreamViewController: UIViewController {
     
     @IBOutlet weak var recordButton: UIButton!
     
-    @IBAction func recordButtonTapped(_ sender: Any) {
-        if !self.liveVideo.isStreaming {
+    @IBAction func recordButtonTapped(_ sender: UIButton) {
+        if self.recordButton.imageView?.image == UIImage(named: "PlayIcon") {
+            print("STAAAARTING")
             startStreaming()
             recordButton.isSelected = true
         } else {
+            print("STOPPING")
             stopStreaming()
             recordButton.isSelected = false
         }
@@ -45,7 +47,7 @@ class MyLivestreamViewController: UIViewController {
         )
         
         let myOverlay = UIView(frame: CGRect(x: 5, y: 5, width: self.view.bounds.size.width - 10, height: 30))
-        myOverlay.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 1.0, blue: 0.0, alpha: 0.5)
+        myOverlay.backgroundColor = UIColor.green
         
         self.liveVideo.privacy = .me
         self.liveVideo.audience = "me" // or your user-id, page-id, event-id, group-id, ...
@@ -58,7 +60,9 @@ class MyLivestreamViewController: UIViewController {
     
     func initializeUserInterface() {
         self.loader = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        self.loader.frame = CGRect(x: 15, y: 15, width: 40, height: 40)
+        /*self.loader.frame = CGRect(x: self.view.bounds.size.width / 2,
+                                   y: self.view.bounds.size.height / 2, width: 40, height: 40) */
+        self.loader.frame = CGRect(x: 14, y: 15, width: 40, height: 40)
         
         self.blurOverlay = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         self.blurOverlay.frame = self.view.bounds
@@ -77,7 +81,6 @@ class MyLivestreamViewController: UIViewController {
         if FBSDKAccessToken.current() == nil {
             self.view.insertSubview(self.blurOverlay, at: 1)
         } else {
-            print(FBSDKAccessToken.current().userID)
             self.recordButton.isHidden = false
         }
     }
@@ -102,7 +105,7 @@ extension MyLivestreamViewController : FBSDKLiveVideoDelegate {
         self.loader.removeFromSuperview()
         self.recordButton.isEnabled = true
         
-        self.recordButton.imageView?.image = UIImage(named: "StopIcon")
+        self.recordButton.imageView?.image = UIImage(named: "StopIconRed")
     }
     
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didChange sessionState: FBSDKLiveVideoSessionState) {
@@ -110,10 +113,12 @@ extension MyLivestreamViewController : FBSDKLiveVideoDelegate {
     }
     
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didStopWith session: FBSDKLiveVideoSession) {
+        print("SESSION STOP")
         self.recordButton.imageView?.image = UIImage(named: "PlayIcon")
     }
     
     func liveVideo(_ liveVideo: FBSDKLiveVideo, didErrorWith error: Error) {
+        print("SESSION ERROR")
         self.recordButton.imageView?.image = UIImage(named: "PlayIcon")
     }
 }
