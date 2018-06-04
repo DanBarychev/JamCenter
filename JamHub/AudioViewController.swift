@@ -22,7 +22,7 @@ class AudioViewController: UIViewController {
     
     var currentSession: Session?
     var recordingURL = String()
-    var audioPlayer: AVAudioPlayer!
+    var audioPlayer: AVPlayer!
     var seconds = 0
     var timer = Timer()
     var playTapped = false
@@ -63,7 +63,7 @@ class AudioViewController: UIViewController {
     }
     
     func updateTimer() {
-        if audioPlayer.isPlaying {
+        if audioPlayer != nil && audioPlayer.isPlaying {
             seconds += 1
             recordingClockLabel.text = timeString(time: TimeInterval(seconds))
         } else if !pauseTapped {
@@ -81,50 +81,26 @@ class AudioViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func playRecording(_ sender: UIButton) {
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        try! AVAudioSession.sharedInstance().setActive(true)
-        
         let remoteURL = NSURL(string: recordingURL)! as URL
         
         if audioPlayer == nil {
             recordingClockLabel.text = "00:00:00"
+            
+            audioPlayer = AVPlayer(url: remoteURL)
+            audioPlayer.volume = 1
+            audioPlayer.play()
         }
-        
-        print("About to download")
-        var downloadTask:URLSessionDownloadTask
-        downloadTask = URLSession.shared.downloadTask(with: remoteURL, completionHandler: { [weak self](downloadedURL, response, error) -> Void in
-            do {
-                if self?.audioPlayer == nil{
-                    if let downloadedURL = downloadedURL {
-                        self?.audioPlayer = try AVAudioPlayer(contentsOf: downloadedURL)
-                        self?.audioPlayer?.prepareToPlay()
-                        self?.audioPlayer?.play()
-                    } else {
-                        self?.displayPlayError()
-                    }
-                } else {
-                    print("In the else block")
-                    self?.audioPlayer?.prepareToPlay()
-                    self?.audioPlayer?.play()
-                }
-            } catch {
-                self?.displayPlayError()
-            }
-        })
-        print("exiting")
         
         if !playTapped {
             runTimer()
         }
-        
-        downloadTask.resume()
-        
+
         playTapped = true
         pauseTapped = false
     }
     
     @IBAction func pauseRecording(_ sender: UIButton) {
-        if audioPlayer.isPlaying {
+        if audioPlayer != nil && audioPlayer.isPlaying {
             audioPlayer.pause()
             
             pauseTapped = true
@@ -132,11 +108,13 @@ class AudioViewController: UIViewController {
     }
     
     @IBAction func stopRecording(_ sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer = nil
-        playTapped = false
-        
-        timer.invalidate()
-        seconds = 0
+        if audioPlayer != nil {
+            audioPlayer.pause()
+            audioPlayer = nil
+            playTapped = false
+            
+            timer.invalidate()
+            seconds = 0
+        }
     }
 }

@@ -174,12 +174,14 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func playRecording(_ sender: UIButton) {
         let recordingURL = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        try! AVAudioSession.sharedInstance().setActive(true)
-        
         do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
             if audioPlayer == nil {
-                audioPlayer = try AVAudioPlayer(contentsOf: recordingURL)
+                /*audioPlayer = try AVAudioPlayer(contentsOf: recordingURL, fileTypeHint: AVFileTypeAppleM4A)*/
+                let recordingData = try Data(contentsOf: recordingURL)
+                audioPlayer = try AVAudioPlayer(data: recordingData, fileTypeHint: AVFileTypeAppleM4A)
                 audioPlayer.prepareToPlay()
                 audioPlayer.play()
             } else {
@@ -192,7 +194,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func pauseRecording(_ sender: UIButton) {
-        if audioPlayer.isPlaying {
+        if audioPlayer != nil && audioPlayer.isPlaying {
             audioPlayer.pause()
         }
     }
