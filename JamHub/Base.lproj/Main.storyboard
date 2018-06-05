@@ -885,6 +885,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="beginSessionButton" destination="6Cl-lr-UuE" id="tIZ-Bd-NtP"/>
                         <outlet property="genreLabel" destination="Gbz-xj-hhw" id="Bz2-AX-gHy"/>
                         <outlet property="genreTextField" destination="8Uq-Sp-i1N" id="ZuJ-SS-BNA"/>
                         <outlet property="locationLabel" destination="tFm-qa-aaa" id="Eoy-vk-sml"/>

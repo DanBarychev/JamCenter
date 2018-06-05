@@ -65,6 +65,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             //Get Session Musicians
             getMusicians(sessionID: sessionID)
             
+            //See what to do with the current user
             if let userID = Auth.auth().currentUser?.uid {
                 getMusician(musicianID: userID) { (musician) in
                     if let musician = musician {

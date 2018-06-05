@@ -53,13 +53,12 @@ class MySessionsViewController: UITableViewController {
     
 
     func getData() {
-        //Start clean
-        sessions.removeAll()
+        sessions.removeAll()  //Start clean
         
         let uid = Auth.auth().currentUser?.uid
+        let allSessionsRef = Database.database().reference().child("all sessions")
         
-        Database.database().reference().child("all sessions").observe(.childAdded, with: {(snapshot) in
-            
+        allSessionsRef.observe(.childAdded, with: {(snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let newSession = Session()
                 

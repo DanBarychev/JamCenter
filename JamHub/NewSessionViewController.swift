@@ -13,6 +13,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     // MARK: Properties
     
+    @IBOutlet weak var beginSessionButton: UIBarButtonItem!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var genreLabel: UILabel!
@@ -35,6 +36,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        beginSessionButton.isEnabled = false
+        
         musicianTableView.delegate = self
         musicianTableView.dataSource = self
 
@@ -45,8 +48,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         pickerView.delegate = self
         genreTextField.inputView = pickerView
         
+        // Find the current user's musician profile
         getData { (musician) in
-            self.currentUserMusician = musician!
+            self.currentUserMusician = musician ?? Musician()
         }
     }
     
@@ -115,6 +119,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         else if textField == locationTextField {
             locationLabel.text = "Location: " + locationTextField.text!
         }
+        
+        checkFieldCompletion()
     }
     
     // MARK: PickerView
@@ -133,12 +139,22 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genreTextField.text = genreOptions[row]
         genreLabel.text = "Genre: " + genreOptions[row]
+        
+        checkFieldCompletion()
+    }
+    
+    func checkFieldCompletion() -> Void {
+        if titleTextField.text != "" && locationTextField.text != ""
+                                        && genreTextField.text != "" {
+            beginSessionButton.isEnabled = true
+        }
     }
     
     // MARK: Download Musicians From Firebase
     func getData(completionHandler: @escaping MusicianClosure) {
-        Database.database().reference().child("users").observe(.childAdded, with: {(snapshot) in
-            
+        let usersRef = Database.database().reference().child("users")
+        
+        usersRef.observe(.childAdded, with: {(snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let sessionMusician = Musician()
                 
