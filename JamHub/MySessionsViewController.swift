@@ -103,6 +103,7 @@ class MySessionsViewController: UITableViewController {
     }
     
     @IBAction func unwindToMySessions(sender: UIStoryboardSegue) {
+        getData()
     }
 
 }
