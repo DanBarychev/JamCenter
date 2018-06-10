@@ -13,8 +13,7 @@ import Firebase
 class MySessionsViewController: UITableViewController {
     
     var sessions = [Session]()
-    typealias MusicianArrayClosure = ([Musician]?) -> Void
-    typealias MusicianClosure = (Musician?) -> Void
+    typealias isParticipantClosure = (Bool?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +39,10 @@ class MySessionsViewController: UITableViewController {
         cell.genreLabel?.text = session.genre
         
         if !(session.isActive ?? false) {
-            cell.activeLabel.isHidden = true
-            cell.activeImageView.isHidden = true
+            cell.activeLabel.text = "Inactive"
+            cell.activeImageView.image = UIImage(named: "CircleIconGrey")
         }
+        
         if session.hostUID != Auth.auth().currentUser?.uid {
             cell.roleLabel.text = "Participant"
             cell.roleImageView.image = UIImage(named: "CircleIconBlue")
@@ -62,28 +62,53 @@ class MySessionsViewController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let newSession = Session()
                 
+                guard let userUID = uid, let sessionID = dictionary["ID"] as? String else {
+                    return
+                }
+                
                 newSession.hostUID = dictionary["hostUID"] as? String
                 
-                if newSession.hostUID == uid {
-                    newSession.name = dictionary["name"] as? String
-                    newSession.genre = dictionary["genre"] as? String
-                    newSession.location = dictionary["location"] as? String
-                    newSession.host = dictionary["host"] as? String
-                    newSession.hostImageURL = dictionary["hostImageURL"] as? String
-                    newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
-                    newSession.code = dictionary["code"] as? String
-                    newSession.ID = dictionary["ID"] as? String
-                    
-                    newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
-
-                    self.sessions.append(newSession)
-                    
-                    DispatchQueue.main.async(execute: {
-                        self.tableView.reloadData()
-                    })
+                self.musicianIsParticipant(sessionID: sessionID, musicianID: userUID) { (isParticipant) in
+                    if let isParticipant = isParticipant {
+                        if newSession.hostUID == uid || isParticipant {
+                            newSession.name = dictionary["name"] as? String
+                            newSession.genre = dictionary["genre"] as? String
+                            newSession.location = dictionary["location"] as? String
+                            newSession.host = dictionary["host"] as? String
+                            newSession.hostImageURL = dictionary["hostImageURL"] as? String
+                            newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
+                            newSession.code = dictionary["code"] as? String
+                            newSession.ID = sessionID
+                            
+                            newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
+                            
+                            self.sessions.append(newSession)
+                            
+                            DispatchQueue.main.async(execute: {
+                                self.tableView.reloadData()
+                            })
+                        }
+                    }
                 }
             }
         }, withCancel: nil)
+    }
+    
+    func musicianIsParticipant(sessionID: String, musicianID: String, completionHandler: @escaping isParticipantClosure) {
+        let ref = Database.database().reference()
+        let sessionKey = ref.child("all sessions").child(sessionID)
+        let sessionMusiciansKey = sessionKey.child("musicians")
+        
+        sessionMusiciansKey.observe(.childAdded, with: {(snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                
+                let sessionMusicianID = dictionary["musicianID"] as? String
+                
+                if musicianID == sessionMusicianID {
+                    completionHandler(true)
+                }
+            }
+        })
     }
     
     // MARK: - Navigation
