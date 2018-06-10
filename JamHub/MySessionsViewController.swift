@@ -23,8 +23,28 @@ class MySessionsViewController: UITableViewController {
         
         getData()
         
+        self.tableView.addSubview(self.myRefreshControl)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
     }
+    
+    // MARK: Refresh Control
+    
+    lazy var myRefreshControl: UIRefreshControl = {
+        let myRefreshControl = UIRefreshControl()
+        myRefreshControl.addTarget(self, action:
+            #selector(MySessionsViewController.handleRefresh(_:)),
+                                   for: UIControlEvents.valueChanged)
+        
+        return myRefreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
+    // MARK: Table View Properites
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
@@ -51,6 +71,7 @@ class MySessionsViewController: UITableViewController {
         return cell
     }
     
+    // MARK: Firebase Functions
 
     func getData() {
         sessions.removeAll()  //Start clean
@@ -111,7 +132,7 @@ class MySessionsViewController: UITableViewController {
         })
     }
     
-    // MARK: - Navigation
+    // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToCurrentJamFromMySessions" {

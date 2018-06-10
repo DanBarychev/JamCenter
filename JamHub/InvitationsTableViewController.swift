@@ -23,9 +23,27 @@ class InvitationsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         getData()
+        
+        self.tableView.addSubview(self.myRefreshControl)
+    }
+    
+    // MARK: Refresh Control
+    
+    lazy var myRefreshControl: UIRefreshControl = {
+        let myRefreshControl = UIRefreshControl()
+        myRefreshControl.addTarget(self, action:
+            #selector(MySessionsViewController.handleRefresh(_:)),
+                                   for: UIControlEvents.valueChanged)
+        
+        return myRefreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
     }
 
-    // MARK: - Table view data source
+    // MARK: Table View Properties
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
@@ -54,8 +72,6 @@ class InvitationsTableViewController: UITableViewController {
     // MARK: Firebase Functions
     
     func getData() {
-        print("Getting data")
-        
         sessions.removeAll()
         
         let ref = Database.database().reference()

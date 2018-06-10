@@ -23,9 +23,27 @@ class CurrentJamsViewController: UITableViewController {
         self.tableView.dataSource = self
         
         getData()
+        
+        self.tableView.addSubview(self.myRefreshControl)
+    }
+    
+    // MARK: Refresh Control
+    
+    lazy var myRefreshControl: UIRefreshControl = {
+        let myRefreshControl = UIRefreshControl()
+        myRefreshControl.addTarget(self, action:
+            #selector(MySessionsViewController.handleRefresh(_:)),
+                                   for: UIControlEvents.valueChanged)
+        
+        return myRefreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
     }
 
-    // MARK: - Table view data source
+    // MARK: Table View Properties
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
@@ -48,6 +66,8 @@ class CurrentJamsViewController: UITableViewController {
     }
     
     func getData() {
+        sessions.removeAll()
+        
         Database.database().reference().child("all sessions").observe(.childAdded, with: {(snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -72,7 +92,6 @@ class CurrentJamsViewController: UITableViewController {
                     self.tableView.reloadData()
                 })
             }
-            
         }, withCancel: nil)
     }
     
