@@ -24,6 +24,7 @@
 		D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */; };
 		D67EF51F1ECE42FA00CA73B1 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF51E1ECE42FA00CA73B1 /* Session.swift */; };
 		D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */; };
+		D6C6712E20CF1AFD00468562 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */; };
 		D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */; };
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
 		D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */; };
@@ -103,6 +104,7 @@
 		D67EF51C1ECE063F00CA73B1 /* JamTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JamTableViewCell.swift; sourceTree = "<group>"; };
 		D67EF51E1ECE42FA00CA73B1 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAudioViewController.swift; sourceTree = "<group>"; };
+		D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamViewController.swift; sourceTree = "<group>"; };
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */,
 				D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */,
 				D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */,
+				D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
 				D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */,
 				D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */,
@@ -614,6 +617,7 @@
 				D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */,
 				D67EF51D1ECE063F00CA73B1 /* JamTableViewCell.swift in Sources */,
 				D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */,
+				D6C6712E20CF1AFD00468562 /* ProfileSettingsTableViewController.swift in Sources */,
 				D6D7E15C1F3801B600473399 /* InvitationTableViewCell.swift in Sources */,
 				D67EF5151ECDFFE600CA73B1 /* ProfileViewController.swift in Sources */,
 				D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */,

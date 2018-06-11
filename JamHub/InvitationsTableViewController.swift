@@ -18,8 +18,6 @@ class InvitationsTableViewController: UITableViewController {
     typealias HasInvitationsClosure = (Bool?) -> Void
 
     override func viewDidAppear(_ animated: Bool) {
-        print("Invitations View Appeared")
-        
         super.viewDidLoad()
 
         getData()
