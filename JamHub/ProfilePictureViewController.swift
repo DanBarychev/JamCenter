@@ -20,11 +20,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
 
         imagePicker.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -44,9 +39,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
                         return
                     }
                     else {
-                        /*if let profileImageURL = storageRef.downloadURL()?.absoluteString {
-                            self.userDataUpdateWithProfileImage(profileImageLink: profileImageURL)
-                        }*/
                         storageRef.downloadURL { (url, error) in
                             guard let profileImageURL = url?.absoluteString else {
                                 // Uh-oh, an error occurred!
@@ -107,5 +99,4 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
             }
         })
     }
-    
 }

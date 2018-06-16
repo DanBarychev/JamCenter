@@ -12,7 +12,7 @@ import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK Properties
+    // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -61,10 +61,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.nameLabel.text = (dictionary["name"] as! String)
                 let genres = dictionary["genres"] as! String
                 let instruments = dictionary["instruments"] as! String
-                let profilePictureURL = dictionary["profileImageURL"] as! String
                 let lastSession = dictionary["lastSession"] as! String
                 let numSessions = dictionary["numSessions"] as! String
-                self.setCurrentProfilePicture(profileImageURL: profilePictureURL)
+                if let profileImageURL = dictionary["profileImageURL"] as? String {
+                    self.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
+                }
                 
                 self.properties[0] = "Genres: " + genres
                 self.properties[1] = "Instruments: " + instruments
@@ -76,25 +77,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         })
-    }
-    
-    func setCurrentProfilePicture(profileImageURL: String) {
-        let url = NSURL(string: profileImageURL)
-        URLSession.shared.dataTask(with: url! as URL, completionHandler: {(data, response, error) in
-            
-            if error != nil {
-                print(error!)
-                return
-            }
-                
-            //Image download was successful
-            else {
-                print("Successful Image Download")
-                 DispatchQueue.main.async {
-                    self.profileImageView.image = UIImage(data: data!)
-                }
-            }
-        }).resume()
     }
     
     // MARK: Logout
