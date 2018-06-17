@@ -13,7 +13,6 @@ public class Session {
     var genre: String?
     var location: String?
     var host: String?
-    var hostImageURL: String?
     var audioRecordingURL: String?
     var code: String?
     var ID: String?

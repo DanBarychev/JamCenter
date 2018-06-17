@@ -1565,7 +1565,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhJ-GR-H4D">
-                                                    <rect key="frame" x="16" y="23" width="137" height="21"/>
+                                                    <rect key="frame" x="16" y="17" width="137" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1573,7 +1573,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bhJ-GR-H4D" firstAttribute="leading" secondItem="6A6-SB-9Wz" secondAttribute="leadingMargin" id="2Y5-Pq-o5R"/>
-                                                <constraint firstItem="bhJ-GR-H4D" firstAttribute="bottom" secondItem="6A6-SB-9Wz" secondAttribute="bottomMargin" id="erb-L9-olU"/>
+                                                <constraint firstItem="bhJ-GR-H4D" firstAttribute="bottom" secondItem="6A6-SB-9Wz" secondAttribute="bottomMargin" constant="-6" id="erb-L9-olU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1652,6 +1652,9 @@
                                                 <constraint firstItem="lF2-f3-pey" firstAttribute="leading" secondItem="tFc-3e-XL2" secondAttribute="leadingMargin" id="NwJ-tm-sme"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="C0L-Ip-82w" appends="YES" id="8Zt-3x-NWW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1667,7 +1670,6 @@
                                 <segue destination="IQb-Lo-ODJ" kind="unwind" unwindAction="unwindToProfileViewWithSender:" id="jn0-qc-vtY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Tb3-Vl-Taj"/>
                     </navigationItem>
                     <connections>
                         <outlet property="genresLabel" destination="5MH-uv-Wcj" id="6YF-qC-iuX"/>
@@ -1681,6 +1683,11 @@
                 <tapGestureRecognizer id="2So-eq-spF">
                     <connections>
                         <action selector="profileImageSettingTapped:" destination="93l-r3-Yuf" id="xeK-um-6lc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="C0L-Ip-82w">
+                    <connections>
+                        <action selector="deleteAccountTapped:" destination="93l-r3-Yuf" id="w6Y-Er-nEP"/>
                     </connections>
                 </tapGestureRecognizer>
                 <exit id="IQb-Lo-ODJ" userLabel="Exit" sceneMemberID="exit"/>
@@ -1783,7 +1790,7 @@
         <!--Edit Setting-->
         <scene sceneID="ZYI-2N-juX">
             <objects>
-                <viewController id="5Oo-Nt-rC3" sceneMemberID="viewController">
+                <viewController id="5Oo-Nt-rC3" customClass="EditSettingViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d44-IS-XxK"/>
                         <viewControllerLayoutGuide type="bottom" id="C83-in-YOP"/>
@@ -1796,7 +1803,7 @@
                                 <rect key="frame" x="16" y="318" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curent Setting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZH-qM-Ehc">
                                 <rect key="frame" x="132" y="273" width="111" height="21"/>
@@ -1820,8 +1827,17 @@
                                 <segue destination="kUv-qP-4en" kind="unwind" unwindAction="unwindToProfileSettingsViewWithSender:" id="hax-wj-Myf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="G7t-4m-W4o"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="G7t-4m-W4o">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="5Oo-Nt-rC3" id="ZbN-17-Hjp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="G7t-4m-W4o" id="s0E-2d-KzS"/>
+                        <outlet property="settingLabel" destination="dZH-qM-Ehc" id="XYs-gM-8lM"/>
+                        <outlet property="settingTextField" destination="C7T-Gx-fjg" id="mHF-7F-mb6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdu-nU-Voo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kUv-qP-4en" userLabel="Exit" sceneMemberID="exit"/>

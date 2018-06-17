@@ -96,7 +96,6 @@ class MySessionsViewController: UITableViewController {
                             newSession.genre = dictionary["genre"] as? String
                             newSession.location = dictionary["location"] as? String
                             newSession.host = dictionary["host"] as? String
-                            newSession.hostImageURL = dictionary["hostImageURL"] as? String
                             newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
                             newSession.code = dictionary["code"] as? String
                             newSession.ID = sessionID

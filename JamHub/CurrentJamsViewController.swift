@@ -15,6 +15,7 @@ class CurrentJamsViewController: UITableViewController {
     var sessions = [Session]()
     typealias MusicianArrayClosure = ([Musician]?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
+    typealias HostImageURLClosure = (String?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,8 +57,12 @@ class CurrentJamsViewController: UITableViewController {
         
         cell.nameLabel?.text = session.name
         cell.genreLabel?.text = session.genre
-        if let hostImageURL = session.hostImageURL {
-            cell.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+        if let hostUID = session.hostUID {
+            self.getHostImageURL(hostUID: hostUID) { (hostImageURL) in
+                if let hostImageURL = hostImageURL {
+                    cell.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+                }
+            }
         }
         cell.hostImageView.layer.cornerRadius = cell.hostImageView.frame.size.width / 2
         cell.hostImageView.clipsToBounds = true
@@ -77,7 +82,6 @@ class CurrentJamsViewController: UITableViewController {
                 newSession.genre = dictionary["genre"] as? String
                 newSession.location = dictionary["location"] as? String
                 newSession.host = dictionary["host"] as? String
-                newSession.hostImageURL = dictionary["hostImageURL"] as? String
                 newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
                 newSession.code = dictionary["code"] as? String
                 newSession.ID = dictionary["ID"] as? String
@@ -93,6 +97,18 @@ class CurrentJamsViewController: UITableViewController {
                 })
             }
         }, withCancel: nil)
+    }
+    
+    func getHostImageURL(hostUID: String, completionHandler: @escaping HostImageURLClosure) {
+        Database.database().reference().child("users").child(hostUID).observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+
+                if let profileImageURL = dictionary["profileImageURL"] as? String {
+                    completionHandler(profileImageURL)
+                }
+            }
+        })
     }
     
     // MARK: Navigation

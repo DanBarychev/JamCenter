@@ -55,7 +55,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         if let currentJamSession = currentSession {
             navigationItem.title = currentJamSession.name
             hostNameLabel.text = currentJamSession.host
-            setCurrentProfilePicture(profileImageURL: currentJamSession.hostImageURL ?? "gs://jamhub-54eec.appspot.com/profile_images/9B93A0B2-5A36-4607-BC48-BA3F2E6D31FF.jpg")
             locationLabel.text = currentJamSession.location
             genreLabel.text = currentJamSession.genre
             sessionCode = currentJamSession.code ?? "unavailable"
@@ -110,23 +109,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func setCurrentProfilePicture(profileImageURL: String) {
-        let url = NSURL(string: profileImageURL)
-        URLSession.shared.dataTask(with: url! as URL, completionHandler: {(data, response, error) in
-            
-            if error != nil {
-                print(error!)
-                return
-            }
-            else {
-                print("Successful Image Download")
-                DispatchQueue.main.async {
-                    self.hostImageView.image = UIImage(data: data!)
-                }
-            }
-        }).resume()
-    }
-    
     func requestSessionCode() {
         let alertController = UIAlertController(title: "Session Code", message: "Please input the session code", preferredStyle: .alert)
         
@@ -179,6 +161,13 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 if let musicianID = dictionary["musicianID"] as? String {
                     self.getMusician(musicianID: musicianID) { (musician) in
                         if let musician = musician {
+                            // If we have found the host, set the host image
+                            if musicianID == self.sessionHostUID {
+                                if let hostImageURL = musician.profileImageURL {
+                                    self.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+                                }
+                            }
+                            
                             self.musicians.append(musician)
                             
                             DispatchQueue.main.async {

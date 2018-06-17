@@ -16,6 +16,7 @@ class InvitationsTableViewController: UITableViewController {
     typealias SessionClosure = (Session?) -> Void
     typealias MusicianArrayClosure = ([Musician]?) -> Void
     typealias HasInvitationsClosure = (Bool?) -> Void
+    typealias HostImageURLClosure = (String?) -> Void
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidLoad()
@@ -57,10 +58,13 @@ class InvitationsTableViewController: UITableViewController {
         if let sessionHost = session.host {
             cell.messageLabel.text = "\(sessionHost) has invited you"
         }
-        if let hostImageURL = session.hostImageURL {
-            cell.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+        if let hostUID = session.hostUID {
+            self.getHostImageURL(hostUID: hostUID) { (hostImageURL) in
+                if let hostImageURL = hostImageURL {
+                    cell.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+                }
+            }
         }
-
         cell.hostImageView.layer.cornerRadius = cell.hostImageView.frame.size.width / 2
         cell.hostImageView.clipsToBounds = true
 
@@ -128,7 +132,6 @@ class InvitationsTableViewController: UITableViewController {
                 session.genre = dictionary["genre"] as? String
                 session.location = dictionary["location"] as? String
                 session.host = dictionary["host"] as? String
-                session.hostImageURL = dictionary["hostImageURL"] as? String
                 session.audioRecordingURL = dictionary["audioRecordingURL"] as? String
                 session.code = dictionary["code"] as? String
                 session.ID = sessionID
@@ -136,6 +139,18 @@ class InvitationsTableViewController: UITableViewController {
                 session.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
                 completionHandler(session)
+            }
+        })
+    }
+    
+    func getHostImageURL(hostUID: String, completionHandler: @escaping HostImageURLClosure) {
+        Database.database().reference().child("users").child(hostUID).observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                
+                if let profileImageURL = dictionary["profileImageURL"] as? String {
+                    completionHandler(profileImageURL)
+                }
             }
         })
     }

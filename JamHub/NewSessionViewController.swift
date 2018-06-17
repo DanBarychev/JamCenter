@@ -114,10 +114,10 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == titleTextField {
-          titleLabel.text = "Title: " + titleTextField.text!
+          titleLabel.text = "Title: " + (titleTextField.text ?? "")
         }
         else if textField == locationTextField {
-            locationLabel.text = "Location: " + locationTextField.text!
+            locationLabel.text = "Location: " + (locationTextField.text ?? "")
         }
         
         checkFieldCompletion()
@@ -223,15 +223,13 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let allSessionsRef = ref.child("all sessions")
         let allSessionsKey = allSessionsRef.childByAutoId()
         let values = ["name": name, "genre": genre, "location": location, "host": userName,
-                      "hostImageURL": userImageURL.absoluteString, "code": sessionCode,
-                      "ID": allSessionsKey.key, "hostUID": uid ?? "",
+                      "code": sessionCode, "ID": allSessionsKey.key, "hostUID": uid ?? "",
                       "isActive": "true"]
         
         mySession.name = name
         mySession.genre = genre
         mySession.location = location
         mySession.host = userName
-        mySession.hostImageURL = userImageURL.absoluteString
         mySession.code = sessionCode
         mySession.ID = allSessionsKey.key
         mySession.hostUID = uid ?? ""
