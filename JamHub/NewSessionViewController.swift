@@ -124,6 +124,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     // MARK: PickerView
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -26,6 +26,8 @@
 		D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */; };
 		D6C6712E20CF1AFD00468562 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */; };
 		D6C6713020D1DEE500468562 /* EditSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */; };
+		D6C6713220DEE0E900468562 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713120DEE0E900468562 /* LocationViewController.swift */; };
+		D6C6713620E090C300468562 /* countriesToCities.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C6713520E090C200468562 /* countriesToCities.json */; };
 		D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */; };
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
 		D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */; };
@@ -107,6 +109,8 @@
 		D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAudioViewController.swift; sourceTree = "<group>"; };
 		D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingViewController.swift; sourceTree = "<group>"; };
+		D6C6713120DEE0E900468562 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		D6C6713520E090C200468562 /* countriesToCities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countriesToCities.json; sourceTree = "<group>"; };
 		D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamViewController.swift; sourceTree = "<group>"; };
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
@@ -265,12 +269,14 @@
 				D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
 				D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */,
+				D6C6713120DEE0E900468562 /* LocationViewController.swift */,
 				D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */,
 				D67EF5181ECE015A00CA73B1 /* LoginViewController.swift */,
 				D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */,
 				D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */,
 				D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */,
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
+				D6C6713520E090C200468562 /* countriesToCities.json */,
 				D6FE852C1ECCBD7A0020CEE6 /* Info.plist */,
 				D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */,
 				D6D16C221F09D4980079314B /* Helpers */,
@@ -417,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */,
+				D6C6713620E090C300468562 /* countriesToCities.json in Resources */,
 				D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */,
 				D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */,
 				D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */,
@@ -600,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6C6713220DEE0E900468562 /* LocationViewController.swift in Sources */,
 				D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */,
 				D67EF5191ECE015A00CA73B1 /* LoginViewController.swift in Sources */,
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,
