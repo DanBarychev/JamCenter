@@ -28,6 +28,9 @@
 		D6C6713020D1DEE500468562 /* EditSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */; };
 		D6C6713220DEE0E900468562 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713120DEE0E900468562 /* LocationViewController.swift */; };
 		D6C6713620E090C300468562 /* countriesToCities.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C6713520E090C200468562 /* countriesToCities.json */; };
+		D6C6713820ED7CDB00468562 /* SelectCountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */; };
+		D6C6713A20ED7D2100468562 /* SelectCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */; };
+		D6C6713C20ED839D00468562 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713B20ED839D00468562 /* LocationTableViewCell.swift */; };
 		D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */; };
 		D6D16C361F0C30760079314B /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C351F0C30760079314B /* Musician.swift */; };
 		D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */; };
@@ -111,6 +114,9 @@
 		D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingViewController.swift; sourceTree = "<group>"; };
 		D6C6713120DEE0E900468562 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D6C6713520E090C200468562 /* countriesToCities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countriesToCities.json; sourceTree = "<group>"; };
+		D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryTableViewController.swift; sourceTree = "<group>"; };
+		D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityTableViewController.swift; sourceTree = "<group>"; };
+		D6C6713B20ED839D00468562 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		D6D16C311F0AF0DF0079314B /* CurrentJamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamViewController.swift; sourceTree = "<group>"; };
 		D6D16C351F0C30760079314B /* Musician.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
@@ -270,6 +276,9 @@
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
 				D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */,
 				D6C6713120DEE0E900468562 /* LocationViewController.swift */,
+				D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */,
+				D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */,
+				D6C6713B20ED839D00468562 /* LocationTableViewCell.swift */,
 				D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */,
 				D67EF5181ECE015A00CA73B1 /* LoginViewController.swift */,
 				D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */,
@@ -613,8 +622,10 @@
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,
 				D6E56EB91F12B7E90021AE95 /* LivestreamViewController.swift in Sources */,
 				D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */,
+				D6C6713A20ED7D2100468562 /* SelectCityTableViewController.swift in Sources */,
 				D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */,
 				D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */,
+				D6C6713820ED7CDB00468562 /* SelectCountryTableViewController.swift in Sources */,
 				D6D16C361F0C30760079314B /* Musician.swift in Sources */,
 				D6FA3BCD1F36ACE3004E8B8F /* SongTableViewCell.swift in Sources */,
 				D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */,
@@ -637,6 +648,7 @@
 				D6D16C321F0AF0DF0079314B /* CurrentJamViewController.swift in Sources */,
 				D6DF31751F15D17D0070366A /* MyActiveSessionViewController.swift in Sources */,
 				D6F92FEE1ED213AE00B3533F /* NewSessionViewController.swift in Sources */,
+				D6C6713C20ED839D00468562 /* LocationTableViewCell.swift in Sources */,
 				D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */,
 				D6DF31771F15D5C10070366A /* MyLivestreamViewController.swift in Sources */,
 				D6FA3BC71F3671F1004E8B8F /* MySongsTableViewController.swift in Sources */,

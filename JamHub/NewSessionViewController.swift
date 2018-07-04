@@ -213,8 +213,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let sessionCode = createSessionCode()
         
         guard let name = titleTextField.text, let genre = genreTextField.text,
-                let userName = Auth.auth().currentUser?.displayName, let location = locationTextField.text,
-                    let userImageURL = Auth.auth().currentUser?.photoURL
+                let userName = Auth.auth().currentUser?.displayName, let location = locationTextField.text
             else {
                 return
         }

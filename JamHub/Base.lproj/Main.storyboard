@@ -1173,7 +1173,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeR-06-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YOa-se-gIp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7928.8000000000002" y="-1042.128935532234"/>
+            <point key="canvasLocation" x="9807.2000000000007" y="-1042.128935532234"/>
         </scene>
         <!--My Livestream View Controller-->
         <scene sceneID="yaU-Ms-VVX">
@@ -1218,7 +1218,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InZ-Gt-2Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Nqw-ES-ltI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6990" y="-1701"/>
+            <point key="canvasLocation" x="8868" y="-1701.4992503748126"/>
         </scene>
         <!--Current Jams-->
         <scene sceneID="Ktk-w9-Ce0">
@@ -2110,7 +2110,7 @@
                     <navigationItem key="navigationItem" title="Add Profile Picture" id="mCg-oL-62f">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="4pU-br-gza">
                             <connections>
-                                <segue destination="dBn-d3-guG" kind="show" id="D21-8z-ZdV"/>
+                                <segue destination="LvZ-gi-u0a" kind="show" id="kMP-PF-Ccq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2677,7 +2677,7 @@
                     <navigationItem key="navigationItem" title="Additional Information" id="9Rr-jk-COo">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="ApI-3W-hdy">
                             <connections>
-                                <segue destination="iUh-aa-YjT" kind="unwind" unwindAction="unwindToProfilePictureScreenWithSender:" id="AsU-3i-4sf"/>
+                                <segue destination="iUh-aa-YjT" kind="unwind" unwindAction="unwindToSelectCityWithSender:" id="n6T-ZW-9yo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Finish" id="JoR-8P-29q">
@@ -3038,11 +3038,7 @@
                                 <segue destination="Sns-Br-6cW" kind="unwind" unwindAction="unwindToProfilePictureScreenWithSender:" id="Pj2-Gu-C7X"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="qGa-wl-dVC">
-                            <connections>
-                                <segue destination="OL0-tw-pKI" kind="show" id="dl2-Db-wtM"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="qGa-wl-dVC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cityPicker" destination="91U-SQ-2Nt" id="vq3-S0-FU6"/>
@@ -3308,7 +3304,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kt-wJ-9dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7224.8000000000002" y="-1042.128935532234"/>
+            <point key="canvasLocation" x="9103.2000000000007" y="-1042.128935532234"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qLP-CD-r1c">
@@ -3326,7 +3322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aC-f7-pSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6286" y="-1700"/>
+            <point key="canvasLocation" x="8164" y="-1700.5997001499252"/>
         </scene>
         <!--Invitations-->
         <scene sceneID="JCX-bx-bbq">
@@ -3455,6 +3451,94 @@
             </objects>
             <point key="canvasLocation" x="4756" y="2407"/>
         </scene>
+        <!--Select Country-->
+        <scene sceneID="lz1-b1-Orj">
+            <objects>
+                <tableViewController id="gO0-m5-auA" customClass="SelectCountryTableViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UBz-fM-WzK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" id="RI7-mX-bUb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RI7-mX-bUb" id="pQN-oG-GWQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gO0-m5-auA" id="KEZ-6j-3zx"/>
+                            <outlet property="delegate" destination="gO0-m5-auA" id="pdz-lY-BkN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Country" id="fCh-xl-JGk">
+                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="2dO-A0-JhL">
+                            <connections>
+                                <segue destination="1is-KM-32m" kind="unwind" unwindAction="unwindToProfilePictureScreenWithSender:" id="8eb-2f-gC2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="hvz-CP-x4v">
+                            <connections>
+                                <segue destination="M2M-q9-M2F" kind="show" id="Mm0-wQ-0B2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nextButton" destination="hvz-CP-x4v" id="1sF-eS-683"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcR-KR-YMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1is-KM-32m" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-401" y="-1558"/>
+        </scene>
+        <!--Select City-->
+        <scene sceneID="aMt-Ff-8o4">
+            <objects>
+                <tableViewController id="nVn-6Q-Dyy" customClass="SelectCityTableViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v3m-fB-AFR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" id="ukn-I3-KcG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ukn-I3-KcG" id="Jq5-0C-OrD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nVn-6Q-Dyy" id="BgN-I7-5kB"/>
+                            <outlet property="delegate" destination="nVn-6Q-Dyy" id="VSX-if-s00"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select City" id="sa1-FY-pr3">
+                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="33Y-Bx-qdX">
+                            <connections>
+                                <segue destination="a1m-WE-aCH" kind="unwind" unwindAction="unwindToSelectCountryWithSender:" id="3NB-OS-KEd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="sFD-yi-SJv">
+                            <connections>
+                                <segue destination="OL0-tw-pKI" kind="show" id="l1r-gf-3FA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nextButton" destination="sFD-yi-SJv" id="MH2-km-1Nd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4p-gg-7vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="a1m-WE-aCH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="-1561"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mt5-dQ-w9F">
             <objects>
@@ -3472,6 +3556,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zff-TG-sVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-686" y="-806"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QIQ-8U-blI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LvZ-gi-u0a" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vlv-fy-uXE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gO0-m5-auA" kind="relationship" relationship="rootViewController" id="eog-5i-hnm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e1j-AT-MGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1105" y="-1558"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y5D-Us-deY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M2M-q9-M2F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dXG-4e-Nxl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nVn-6Q-Dyy" kind="relationship" relationship="rootViewController" id="jj0-PY-dck"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYg-aB-81U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="-1561"/>
         </scene>
     </scenes>
     <resources>
@@ -3558,6 +3678,6 @@
         <segue reference="LXJ-ao-gQL"/>
         <segue reference="akC-yi-f1u"/>
         <segue reference="T3c-77-A8K"/>
-        <segue reference="GEB-aJ-cdI"/>
+        <segue reference="cVa-b4-raN"/>
     </inferredMetricsTieBreakers>
 </document>
