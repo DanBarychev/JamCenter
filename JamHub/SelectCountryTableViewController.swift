@@ -12,6 +12,7 @@ import Firebase
 class SelectCountryTableViewController: UITableViewController {
     
     var countries = [String]()
+    var selectedCountry = String()
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -35,9 +36,9 @@ class SelectCountryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCountry = countries[indexPath.row]
+        selectedCountry = countries[indexPath.row]
         
-        uploadSelection(selectedCountry: selectedCountry)
+        uploadSelection()
     }
     
     // MARK: Location Data Retrieval
@@ -62,21 +63,23 @@ class SelectCountryTableViewController: UITableViewController {
     
     // MARK: Upload Data
     
-    func uploadSelection(selectedCountry: String) {
-        let ref = Database.database().reference()
-        let uid = Auth.auth().currentUser?.uid
-        let userRef = ref.child("users").child(uid!)
-        let values = ["location": selectedCountry]
-        
-        userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print (error!)
-                return
-            }
-            else {
-                self.nextButton.isEnabled = true
-            }
-        })
+    func uploadSelection() {
+        if selectedCountry != "" {
+            let ref = Database.database().reference()
+            let uid = Auth.auth().currentUser?.uid
+            let userRef = ref.child("users").child(uid!)
+            let values = ["location": selectedCountry]
+            
+            userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print (error!)
+                    return
+                }
+                else {
+                    self.nextButton.isEnabled = true
+                }
+            })
+        }
     }
     
     // MARK: Navigation
@@ -86,7 +89,11 @@ class SelectCountryTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "GoToCitySelector" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! SelectCityTableViewController
+            
+            newViewController.selectedCountry = selectedCountry
+        }
     }
 }

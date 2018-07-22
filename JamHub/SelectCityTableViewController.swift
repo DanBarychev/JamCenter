@@ -13,13 +13,14 @@ class SelectCityTableViewController: UITableViewController {
 
     var cities = [String]()
     var countryCityDict = NSDictionary()
+    var selectedCountry: String?
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nextButton.isEnabled = false
-        countryCityDict = getCityOptions()
+        cities = getCityOptions()
     }
 
     // MARK: Table view data source
@@ -29,7 +30,7 @@ class SelectCityTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: "CountryCell") as UITableViewCell?)!
+        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: "CityCell") as UITableViewCell?)!
         cell.textLabel?.text = cities[indexPath.row]
         
         return cell
@@ -43,9 +44,7 @@ class SelectCityTableViewController: UITableViewController {
 
     // MARK: Location Data Retrieval
     
-    func getCityOptions() -> NSDictionary {
-        var countries = [String]()
-        
+    func getCityOptions() -> [String] {
         if let path = Bundle.main.path(forResource: "countriesToCities", ofType: "json") {
             do {
                 let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -57,7 +56,9 @@ class SelectCityTableViewController: UITableViewController {
             } catch {}
         }
         
-        return countryCityDict
+        let cities = countryCityDict[selectedCountry as Any] as! [String]
+        
+        return cities
     }
     
     // MARK: Upload Data
@@ -66,7 +67,12 @@ class SelectCityTableViewController: UITableViewController {
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
         let userRef = ref.child("users").child(uid!)
-        let values = ["location": selectedCity]
+        
+        guard let selectedCountry = selectedCountry else {
+            return
+        }
+        
+        let values = ["location": "\(selectedCity), \(selectedCountry)"]
         
         userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
             if error != nil {
@@ -82,11 +88,5 @@ class SelectCityTableViewController: UITableViewController {
     // MARK: Navigation
     
     @IBAction func unwindToSelectCity(sender: UIStoryboardSegue) {
-    }
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 }
