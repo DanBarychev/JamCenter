@@ -3493,6 +3493,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="hvz-CP-x4v" id="1sF-eS-683"/>
+                        <outlet property="searchBar" destination="HLU-fC-tRV" id="iG2-yn-89u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcR-KR-YMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3542,6 +3543,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="sFD-yi-SJv" id="MH2-km-1Nd"/>
+                        <outlet property="searchBar" destination="nn4-or-gXQ" id="8wU-l8-Oxx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4p-gg-7vk" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,34 +9,105 @@
 import UIKit
 import Firebase
 
-class SelectCountryTableViewController: UITableViewController {
+class SelectCountryTableViewController: UITableViewController, UISearchBarDelegate {
     
     var countries = [String]()
+    var countriesFiltered = [String]()
     var selectedCountry = String()
+    var searchActive = false
+    
     @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
 
         nextButton.isEnabled = false
         countries = getCountryOptions()
+        countriesFiltered = countries
+    }
+    
+    // MARK: Search bar data source
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        /*countriesFiltered = countries.filter({ (country) -> Bool in
+            let isMatch = country.lowercased().contains(searchText.lowercased())
+            
+            return isMatch
+        })
+        if(countriesFiltered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()*/
+        if searchText.count == 0 {
+            searchActive = false;
+            self.tableView.reloadData()
+        } else {
+            countriesFiltered = countries.filter({ (text) -> Bool in
+                let tmp: NSString = text as NSString
+                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                return range.location != NSNotFound
+            })
+            if(countriesFiltered.count == 0){
+                searchActive = false;
+            } else {
+                searchActive = true;
+            }
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        if searchActive {
+            return countriesFiltered.count
+        } else {
+            return countries.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: "CountryCell") as UITableViewCell?)!
-        cell.textLabel?.text = countries[indexPath.row]
+        
+        if searchActive {
+            cell.textLabel?.text = countriesFiltered[indexPath.row]
+        } else {
+            cell.textLabel?.text = countries[indexPath.row]
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCountry = countries[indexPath.row]
+        if searchActive {
+            selectedCountry = countriesFiltered[indexPath.row]
+        } else {
+            selectedCountry = countries[indexPath.row]
+        }
         
         uploadSelection()
     }

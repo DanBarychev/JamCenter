@@ -15,6 +15,7 @@ class SelectCityTableViewController: UITableViewController {
     var countryCityDict = NSDictionary()
     var selectedCountry: String?
     @IBOutlet weak var nextButton: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
