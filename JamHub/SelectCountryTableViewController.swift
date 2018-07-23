@@ -23,35 +23,16 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
         super.viewDidLoad()
         
         searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
 
         nextButton.isEnabled = false
         countries = getCountryOptions()
-        countriesFiltered = countries
     }
     
     // MARK: Search bar data source
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchActive = false;
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        /*countriesFiltered = countries.filter({ (country) -> Bool in
+        countriesFiltered = countries.filter({ (country) -> Bool in
             let isMatch = country.lowercased().contains(searchText.lowercased())
             
             return isMatch
@@ -61,23 +42,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
         } else {
             searchActive = true;
         }
-        self.tableView.reloadData()*/
-        if searchText.count == 0 {
-            searchActive = false;
-            self.tableView.reloadData()
-        } else {
-            countriesFiltered = countries.filter({ (text) -> Bool in
-                let tmp: NSString = text as NSString
-                let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-                return range.location != NSNotFound
-            })
-            if(countriesFiltered.count == 0){
-                searchActive = false;
-            } else {
-                searchActive = true;
-            }
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 
     // MARK: Table view data source
@@ -91,7 +56,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: "CountryCell") as UITableViewCell?)!
+        let cell = (self.tableView.dequeueReusableCell(withIdentifier: "CountryCell") as UITableViewCell?)!
         
         if searchActive {
             cell.textLabel?.text = countriesFiltered[indexPath.row]
@@ -115,7 +80,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     // MARK: Location Data Retrieval
     
     func getCountryOptions() -> [String] {
-        var countries = [String]()
+        var allCountries = [String]()
         
         if let path = Bundle.main.path(forResource: "countriesToCities", ofType: "json") {
             do {
@@ -124,12 +89,12 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
                     let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
                     
                     let countriesArray = (jsonResult as AnyObject).allKeys as! [String]
-                    countries = countriesArray.sorted()
+                    allCountries = countriesArray.sorted()
                 } catch {}
             } catch {}
         }
         
-        return countries
+        return allCountries
     }
     
     // MARK: Upload Data
