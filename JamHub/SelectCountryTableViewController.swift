@@ -74,7 +74,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
             selectedCountry = countries[indexPath.row]
         }
         
-        uploadSelection()
+        self.nextButton.isEnabled = true
     }
     
     // MARK: Location Data Retrieval
@@ -95,27 +95,6 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
         }
         
         return allCountries
-    }
-    
-    // MARK: Upload Data
-    
-    func uploadSelection() {
-        if selectedCountry != "" {
-            let ref = Database.database().reference()
-            let uid = Auth.auth().currentUser?.uid
-            let userRef = ref.child("users").child(uid!)
-            let values = ["location": selectedCountry]
-            
-            userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print (error!)
-                    return
-                }
-                else {
-                    self.nextButton.isEnabled = true
-                }
-            })
-        }
     }
     
     // MARK: Navigation

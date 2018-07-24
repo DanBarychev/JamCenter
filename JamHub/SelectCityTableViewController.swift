@@ -9,36 +9,72 @@
 import UIKit
 import Firebase
 
-class SelectCityTableViewController: UITableViewController {
+class SelectCityTableViewController: UITableViewController, UISearchBarDelegate {
 
     var cities = [String]()
-    var countryCityDict = NSDictionary()
+    var citiesFiltered = [String]()
     var selectedCountry: String?
+    var searchActive = false
+    
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
 
         nextButton.isEnabled = false
         cities = getCityOptions()
+    }
+    
+    // MARK: Search bar data source
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        citiesFiltered = cities.filter({ (city) -> Bool in
+            let isMatch = city.lowercased().contains(searchText.lowercased())
+            
+            return isMatch
+        })
+        if(citiesFiltered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
     }
 
     // MARK: Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        if searchActive {
+            return citiesFiltered.count
+        } else {
+            return cities.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = (self.tableView.dequeueReusableCell(withIdentifier: "CityCell") as UITableViewCell?)!
-        cell.textLabel?.text = cities[indexPath.row]
+        
+        if searchActive {
+            cell.textLabel?.text = citiesFiltered[indexPath.row]
+        } else {
+            cell.textLabel?.text = cities[indexPath.row]
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCity = cities[indexPath.row]
+        var selectedCity = String()
+        
+        if searchActive {
+            selectedCity = citiesFiltered[indexPath.row]
+        } else {
+            selectedCity = cities[indexPath.row]
+        }
         
         uploadSelection(selectedCity: selectedCity)
     }
@@ -46,20 +82,22 @@ class SelectCityTableViewController: UITableViewController {
     // MARK: Location Data Retrieval
     
     func getCityOptions() -> [String] {
+        var allCities = [String]()
+        
         if let path = Bundle.main.path(forResource: "countriesToCities", ofType: "json") {
             do {
                 let jsonData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 do {
                     let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
                     
-                    countryCityDict = jsonResult as! NSDictionary
+                    let countryCityDict = jsonResult as! NSDictionary
+                    
+                    allCities = countryCityDict[selectedCountry as Any] as! [String]
                 } catch {}
             } catch {}
         }
         
-        let cities = countryCityDict[selectedCountry as Any] as! [String]
-        
-        return cities
+        return allCities
     }
     
     // MARK: Upload Data
