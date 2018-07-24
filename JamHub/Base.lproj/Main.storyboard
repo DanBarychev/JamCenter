@@ -2979,79 +2979,6 @@
             </objects>
             <point key="canvasLocation" x="-2159" y="-806"/>
         </scene>
-        <!--Add Location-->
-        <scene sceneID="jvp-Ln-XAO">
-            <objects>
-                <viewController id="7Jy-TL-pxR" customClass="LocationViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="c9v-Pr-niG"/>
-                        <viewControllerLayoutGuide type="bottom" id="dxg-48-k0C"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2Yq-2K-3za">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5m-WF-h7Y">
-                                <rect key="frame" x="16" y="178" width="170" height="405"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91U-SQ-2Nt">
-                                <rect key="frame" x="188" y="178" width="170" height="405"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pj-h7-iFh">
-                                <rect key="frame" x="256" y="149" width="34" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mf-GR-Z9w">
-                                <rect key="frame" x="62" y="591" width="251" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Select">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectButtonPressed:" destination="7Jy-TL-pxR" eventType="touchUpInside" id="BuR-at-ijD"/>
-                                </connections>
-                            </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZ1-Mc-5VH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lM-rP-2cG">
-                                <rect key="frame" x="62" y="149" width="67" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add Location" id="4rl-28-Wqe">
-                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="jas-7A-XjK">
-                            <connections>
-                                <segue destination="Sns-Br-6cW" kind="unwind" unwindAction="unwindToProfilePictureScreenWithSender:" id="Pj2-Gu-C7X"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="qGa-wl-dVC"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="cityPicker" destination="91U-SQ-2Nt" id="vq3-S0-FU6"/>
-                        <outlet property="countryPicker" destination="N5m-WF-h7Y" id="ZYI-HI-FC7"/>
-                        <outlet property="nextButton" destination="qGa-wl-dVC" id="JxX-D9-pZS"/>
-                        <outlet property="selectButton" destination="4Mf-GR-Z9w" id="PAb-29-je1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jSU-fj-Xmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Sns-Br-6cW" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="-806.44677661169419"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hpj-n8-WXS">
             <objects>
@@ -3550,24 +3477,6 @@
                 <exit id="a1m-WE-aCH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1242" y="-1561"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Mt5-dQ-w9F">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dBn-d3-guG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yu7-ui-dwM">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7Jy-TL-pxR" kind="relationship" relationship="rootViewController" id="LjW-u3-LMO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zff-TG-sVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-686" y="-806"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QIQ-8U-blI">
