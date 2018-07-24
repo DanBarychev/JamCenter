@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     let cellReuseIdentifier = "ProfileTableViewCell"
     
-    var properties = ["Genres: ", "Instruments: ", "Last Session: ", "Number of Sessions: "]
+    var properties = ["Location: ", "Genres: ", "Instruments: ", "Last Session: ", "Number of Sessions: "]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +77,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 self.nameLabel.text = (dictionary["name"] as! String)
+                let location = dictionary["location"] as! String
                 let genres = dictionary["genres"] as! String
                 let instruments = dictionary["instruments"] as! String
                 let lastSession = dictionary["lastSession"] as! String
@@ -85,10 +86,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
                 }
                 
-                self.properties[0] = "Genres: " + genres
-                self.properties[1] = "Instruments: " + instruments
-                self.properties[2] = "Last Session: " + lastSession
-                self.properties[3] = "Number of Sessions: " + numSessions
+                self.properties[0] = "Location: " + location
+                self.properties[1] = "Genres: " + genres
+                self.properties[2] = "Instruments: " + instruments
+                self.properties[3] = "Last Session: " + lastSession
+                self.properties[4] = "Number of Sessions: " + numSessions
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

@@ -155,7 +155,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 self.nameLabel.text = dictionary["name"] as? String
                 self.genresLabel.text = dictionary["genres"] as? String
                 self.instrumentsLabel.text = dictionary["instruments"] as? String
-                self.locationLabel.text = "Temporary Location Text"
+                self.locationLabel.text = dictionary["location"] as? String
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     self.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
                 }
