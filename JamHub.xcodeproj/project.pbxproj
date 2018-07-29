@@ -11,7 +11,6 @@
 		9D1CA2F24B1701497C9BEAA5 /* libPods-JamHub-JamHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */; };
 		CED77756B68C120706C8C2A6 /* libPods-JamHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 539501567A4D4ABEEDEC209A /* libPods-JamHub.a */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
-		D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
 		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
 		D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */; };
@@ -94,7 +93,6 @@
 		AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.release.xcconfig"; sourceTree = "<group>"; };
 		D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSDKLiveVideo.swift; sourceTree = "<group>"; };
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
 		D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrentSessionViewController.swift; sourceTree = "<group>"; };
 		D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMusicianProfileViewController.swift; sourceTree = "<group>"; };
@@ -205,14 +203,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		D6DF317A1F15DBFA0070366A /* FBSDKLiveVideo */ = {
-			isa = PBXGroup;
-			children = (
-				D60DCB811F2EE03B007E4010 /* FBSDKLiveVideo.swift */,
-			);
-			path = FBSDKLiveVideo;
-			sourceTree = "<group>";
-		};
 		D6FE85141ECCBD7A0020CEE6 = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +228,6 @@
 		D6FE851F1ECCBD7A0020CEE6 /* JamHub */ = {
 			isa = PBXGroup;
 			children = (
-				D6DF317A1F15DBFA0070366A /* FBSDKLiveVideo */,
 				D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */,
 				D67EF51E1ECE42FA00CA73B1 /* Session.swift */,
 				D6D16C351F0C30760079314B /* Musician.swift */,
@@ -610,7 +599,6 @@
 				D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */,
 				D67EF5191ECE015A00CA73B1 /* LoginViewController.swift in Sources */,
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,
-				D60DCB821F2EE03B007E4010 /* FBSDKLiveVideo.swift in Sources */,
 				D6C6713A20ED7D2100468562 /* SelectCityTableViewController.swift in Sources */,
 				D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */,
 				D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */,
