@@ -117,7 +117,7 @@
 		D6D16C391F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionMusicianTableViewCell.swift; sourceTree = "<group>"; };
 		D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentJamMusicianTableViewCell.swift; sourceTree = "<group>"; };
 		D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationTableViewCell.swift; sourceTree = "<group>"; };
-		D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "facebook-live-ios-sample-Bridging-Header.h"; sourceTree = "<group>"; };
+		D6DF31311F148E020070366A /* facebook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "facebook-Bridging-Header.h"; sourceTree = "<group>"; };
 		D6DF31741F15D17D0070366A /* MyActiveSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActiveSessionViewController.swift; sourceTree = "<group>"; };
 		D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 				D66FECFB210E2CDE003AC643 /* EditCityTableViewController.swift */,
 				D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */,
 				D67EF5181ECE015A00CA73B1 /* LoginViewController.swift */,
-				D6DF31311F148E020070366A /* facebook-live-ios-sample-Bridging-Header.h */,
+				D6DF31311F148E020070366A /* facebook-Bridging-Header.h */,
 				D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */,
 				D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */,
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
@@ -838,7 +838,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamhubapplication.JamHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-live-ios-sample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 			};
@@ -887,7 +887,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamhubapplication.JamHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-live-ios-sample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "JamHub/facebook-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/VideoCore\"/**";
 			};

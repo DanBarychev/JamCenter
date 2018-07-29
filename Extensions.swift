@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 

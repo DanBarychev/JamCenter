@@ -5,4 +5,3 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <VideoCore/VCSimpleSession.h>
