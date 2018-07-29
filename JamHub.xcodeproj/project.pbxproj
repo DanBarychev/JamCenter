@@ -26,7 +26,6 @@
 		D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */; };
 		D6C6712E20CF1AFD00468562 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */; };
 		D6C6713020D1DEE500468562 /* EditSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */; };
-		D6C6713220DEE0E900468562 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713120DEE0E900468562 /* LocationViewController.swift */; };
 		D6C6713620E090C300468562 /* countriesToCities.json in Resources */ = {isa = PBXBuildFile; fileRef = D6C6713520E090C200468562 /* countriesToCities.json */; };
 		D6C6713820ED7CDB00468562 /* SelectCountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */; };
 		D6C6713A20ED7D2100468562 /* SelectCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */; };
@@ -112,7 +111,6 @@
 		D6AF456C1F1DAFA2005B0658 /* MyAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAudioViewController.swift; sourceTree = "<group>"; };
 		D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingViewController.swift; sourceTree = "<group>"; };
-		D6C6713120DEE0E900468562 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D6C6713520E090C200468562 /* countriesToCities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countriesToCities.json; sourceTree = "<group>"; };
 		D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryTableViewController.swift; sourceTree = "<group>"; };
 		D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityTableViewController.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
 				D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */,
-				D6C6713120DEE0E900468562 /* LocationViewController.swift */,
 				D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */,
 				D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */,
 				D6C6713B20ED839D00468562 /* LocationTableViewCell.swift */,
@@ -616,7 +613,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6C6713220DEE0E900468562 /* LocationViewController.swift in Sources */,
 				D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */,
 				D67EF5191ECE015A00CA73B1 /* LoginViewController.swift in Sources */,
 				D6D16C3A1F0C4CE70079314B /* NewSessionMusicianTableViewCell.swift in Sources */,

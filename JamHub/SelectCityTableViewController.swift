@@ -5,6 +5,7 @@
 //  Created by Daniel Barychev on 7/4/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.
 //
+//  getCityOptions() adapted from https://github.com/salvonos/CityPicker/blob/master/Pod/Classes/CityPickerClass.swift
 
 import UIKit
 import Firebase
