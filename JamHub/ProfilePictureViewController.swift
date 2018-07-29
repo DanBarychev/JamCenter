@@ -17,13 +17,16 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2
+        self.imageView.clipsToBounds = true
 
         imagePicker.delegate = self
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             imageView.image = pickedImage
         }
         
@@ -41,7 +44,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
                     else {
                         storageRef.downloadURL { (url, error) in
                             guard let profileImageURL = url?.absoluteString else {
-                                // Uh-oh, an error occurred!
                                 return
                             }
                             self.userDataUpdateWithProfileImage(profileImageLink: profileImageURL)

@@ -51,7 +51,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profileImageView.contentMode = .scaleAspectFit
+            profileImageView.contentMode = .scaleAspectFill
             profileImageView.image = pickedImage
         }
         

@@ -107,7 +107,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToCitySelector" {
             let nav = segue.destination as! UINavigationController
-            let newViewController = nav.topViewController as! EditCityTableViewController
+            let newViewController = nav.topViewController as! SelectCityTableViewController
             
             newViewController.selectedCountry = selectedCountry
         }
