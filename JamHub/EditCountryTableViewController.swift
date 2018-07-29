@@ -1,8 +1,8 @@
 //
-//  SelectCountryTableViewController.swift
+//  EditCountryTableViewController.swift
 //  JamHub
 //
-//  Created by Daniel Barychev on 7/4/18.
+//  Created by Daniel Barychev on 7/29/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.
 //
 //  getCountryOptions() adapted from https://github.com/salvonos/CityPicker/blob/master/Pod/Classes/CityPickerClass.swift
@@ -10,26 +10,26 @@
 import UIKit
 import Firebase
 
-class SelectCountryTableViewController: UITableViewController, UISearchBarDelegate {
+class EditCountryTableViewController: UITableViewController, UISearchBarDelegate {
     
     var countries = [String]()
     var countriesFiltered = [String]()
     var selectedCountry = String()
     var searchActive = false
-    
+
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
-
+        
         nextButton.isEnabled = false
         countries = getCountryOptions()
     }
-    
+
     // MARK: Search bar data source
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -45,9 +45,9 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
         }
         self.tableView.reloadData()
     }
-
+    
     // MARK: Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {
             return countriesFiltered.count
@@ -57,7 +57,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (self.tableView.dequeueReusableCell(withIdentifier: "CountryCell") as UITableViewCell?)!
+        let cell = (self.tableView.dequeueReusableCell(withIdentifier: "EditCountryCell") as UITableViewCell?)!
         
         if searchActive {
             cell.textLabel?.text = countriesFiltered[indexPath.row]
@@ -100,12 +100,12 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     
     // MARK: Navigation
     
-    @IBAction func unwindToSelectCountry(sender: UIStoryboardSegue) {
+    @IBAction func unwindToEditCountry(sender: UIStoryboardSegue) {
     }
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToCitySelector" {
+        if segue.identifier == "GoToEditCity" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! EditCityTableViewController
             

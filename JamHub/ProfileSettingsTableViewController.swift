@@ -99,9 +99,6 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
             if segue.identifier == "EditName" {
                 settingName = "Name"
                 settingVal = nameLabel.text ?? ""
-            } else if segue.identifier == "EditLocation" {
-                settingName = "Location"
-                settingVal = locationLabel.text ?? ""
             } else if segue.identifier == "EditInstruments" {
                 settingName = "Instruments"
                 settingVal = instrumentsLabel.text ?? ""

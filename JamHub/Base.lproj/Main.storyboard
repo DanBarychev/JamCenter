@@ -1456,7 +1456,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="do8-9S-IKB" kind="show" identifier="EditLocation" id="fpk-qV-Qp8"/>
+                                            <segue destination="gG2-1k-xbv" kind="show" id="sTT-xi-mKF"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="b2b-15-Ucp">
@@ -3378,6 +3378,106 @@
             </objects>
             <point key="canvasLocation" x="4756" y="2407"/>
         </scene>
+        <!--Edit Country-->
+        <scene sceneID="vLo-Q7-KEq">
+            <objects>
+                <tableViewController id="kul-RX-rRJ" customClass="EditCountryTableViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OYP-En-Ou5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="8tv-qa-6nR">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditCountryCell" id="NOl-16-UrH">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NOl-16-UrH" id="d5v-3V-Y9K">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kul-RX-rRJ" id="P0e-4j-eYM"/>
+                            <outlet property="delegate" destination="kul-RX-rRJ" id="6tp-Oz-t0C"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit Country" id="70H-dR-BS6">
+                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="5XZ-QM-CX5">
+                            <connections>
+                                <segue destination="4sR-tf-sUF" kind="unwind" unwindAction="unwindToProfileSettingsViewWithSender:" id="Qdu-Tf-DxZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="9be-EM-fQJ">
+                            <connections>
+                                <segue destination="R3J-bx-PTD" kind="show" identifier="GoToEditCity" id="mHy-Zp-i8W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nextButton" destination="9be-EM-fQJ" id="RqI-GF-ZcU"/>
+                        <outlet property="searchBar" destination="8tv-qa-6nR" id="YpF-9a-t1e"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ita-cW-KZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4sR-tf-sUF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6233" y="2407"/>
+        </scene>
+        <!--Edit City-->
+        <scene sceneID="MXO-ls-nib">
+            <objects>
+                <tableViewController id="fLx-3m-Xi9" customClass="EditCityTableViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="POf-a3-0sg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="A0y-HB-kuj">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditCityCell" id="90M-9v-eE0">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="90M-9v-eE0" id="cFZ-ac-qds">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fLx-3m-Xi9" id="saG-Hk-2oF"/>
+                            <outlet property="delegate" destination="fLx-3m-Xi9" id="7Ee-Gj-dZ1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit City" id="WJV-uo-POg">
+                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="Mgh-pA-W4K">
+                            <connections>
+                                <segue destination="tz2-Lh-Y1O" kind="unwind" unwindAction="unwindToEditCountryWithSender:" id="Bh7-Eh-Jww"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="ZNj-R5-6ko">
+                            <connections>
+                                <segue destination="tz2-Lh-Y1O" kind="unwind" unwindAction="unwindToProfileSettingsViewWithSender:" id="ug3-k5-id8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="ZNj-R5-6ko" id="3On-To-GsK"/>
+                        <outlet property="searchBar" destination="A0y-HB-kuj" id="NgK-Gw-6NG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4J4-fd-vGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tz2-Lh-Y1O" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="7690" y="2407"/>
+        </scene>
         <!--Select Country-->
         <scene sceneID="lz1-b1-Orj">
             <objects>
@@ -3514,6 +3614,42 @@
             </objects>
             <point key="canvasLocation" x="516" y="-1561"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ooh-lO-qUM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gG2-1k-xbv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qxk-09-9IX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kul-RX-rRJ" kind="relationship" relationship="rootViewController" id="HZx-qV-0eA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8o-n8-63q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5513" y="2407"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ArF-5n-J9L">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R3J-bx-PTD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kqR-tZ-3ew">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fLx-3m-Xi9" kind="relationship" relationship="rootViewController" id="ifF-cK-B4y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="der-2J-0MH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6959" y="2407"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackIcon" width="25" height="25"/>
@@ -3596,7 +3732,7 @@
         <image name="ViolinIconBlue" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LXJ-ao-gQL"/>
+        <segue reference="IHQ-Dr-r3t"/>
         <segue reference="akC-yi-f1u"/>
         <segue reference="T3c-77-A8K"/>
         <segue reference="cVa-b4-raN"/>
