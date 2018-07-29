@@ -15,7 +15,9 @@ class CurrentJamsViewController: UITableViewController {
     var sessions = [Session]()
     typealias MusicianArrayClosure = ([Musician]?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
+    typealias UserLocationClosure = (String?) -> Void
     typealias HostImageURLClosure = (String?) -> Void
+    typealias HostLocationClosure = (String?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,15 +90,43 @@ class CurrentJamsViewController: UITableViewController {
                 newSession.hostUID = dictionary["hostUID"] as? String
                 newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
-                if newSession.isActive ?? false {
-                  self.sessions.append(newSession)
+                guard let hostUID = newSession.hostUID else {
+                    return
                 }
                 
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                })
+                self.getUserLocation { (userLocation) in
+                    if let userLocation = userLocation {
+                        self.getHostLocation(hostUID: hostUID) { (hostLocation) in
+                            if let hostLocation = hostLocation {
+                                if userLocation == hostLocation && (newSession.isActive ?? false) {
+                                    self.sessions.append(newSession)
+                                    
+                                    DispatchQueue.main.async(execute: {
+                                        self.tableView.reloadData()
+                                    })
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }, withCancel: nil)
+    }
+    
+    func getUserLocation(completionHandler: @escaping UserLocationClosure) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                if let userLocation = dictionary["location"] as? String {
+                    completionHandler(userLocation)
+                }
+            }
+        })
     }
     
     func getHostImageURL(hostUID: String, completionHandler: @escaping HostImageURLClosure) {
@@ -106,6 +136,18 @@ class CurrentJamsViewController: UITableViewController {
 
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     completionHandler(profileImageURL)
+                }
+            }
+        })
+    }
+    
+    func getHostLocation(hostUID: String, completionHandler: @escaping HostLocationClosure) {
+        Database.database().reference().child("users").child(hostUID).observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                
+                if let hostLocation = dictionary["location"] as? String {
+                    completionHandler(hostLocation)
                 }
             }
         })
