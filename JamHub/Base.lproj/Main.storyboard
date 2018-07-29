@@ -241,9 +241,6 @@
                                     <constraint firstAttribute="width" constant="50" id="8bp-Ow-ZMn"/>
                                 </constraints>
                                 <state key="normal" image="VideoIconWhite"/>
-                                <connections>
-                                    <segue destination="FcP-Dz-iRb" kind="show" identifier="GoToLivestream" id="pkj-EE-Ah7"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTo-1f-T8z">
                                 <rect key="frame" x="-261" y="388" width="50" height="50"/>
@@ -580,48 +577,6 @@
             </objects>
             <point key="canvasLocation" x="7928.8000000000002" y="-361.16941529235385"/>
         </scene>
-        <!--Video-->
-        <scene sceneID="sKu-1d-kDI">
-            <objects>
-                <viewController id="xeY-nA-vQK" customClass="LivestreamViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aCK-86-1d9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Npu-Ri-BCF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="La3-iR-bRz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Session Host has not Added a Livestream" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzh-bZ-ZHf">
-                                <rect key="frame" x="79" y="307" width="217" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Vzh-bZ-ZHf" firstAttribute="top" secondItem="aCK-86-1d9" secondAttribute="bottom" constant="243" id="PWT-7n-2Va"/>
-                            <constraint firstItem="Vzh-bZ-ZHf" firstAttribute="centerY" secondItem="La3-iR-bRz" secondAttribute="centerY" id="deT-7n-f9X"/>
-                            <constraint firstItem="Vzh-bZ-ZHf" firstAttribute="centerX" secondItem="La3-iR-bRz" secondAttribute="centerX" id="uUP-hu-ShT"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Video" id="eZC-ua-aTB">
-                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="fA2-4a-UF8">
-                            <connections>
-                                <segue destination="SEy-at-Qbc" kind="unwind" unwindAction="unwindToActiveSessionWithSender:" id="iQe-Lh-cU7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="noLivestreamLabel" destination="Vzh-bZ-ZHf" id="gTq-aN-gX8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kFY-BU-RHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="SEy-at-Qbc" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="6990" y="310"/>
-        </scene>
         <!--My Sessions-->
         <scene sceneID="Uk7-oH-ZEJ">
             <objects>
@@ -942,9 +897,6 @@
                                 <rect key="frame" x="65" y="215" width="50" height="50"/>
                                 <state key="normal" image="VideoIconWhite"/>
                                 <state key="selected" image="VideoIconBlue"/>
-                                <connections>
-                                    <segue destination="WGh-rm-Apd" kind="show" identifier="GoToMyLivestream" id="TUi-aF-ImJ"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CircleIconWhite" translatesAutoresizingMaskIntoConstraints="NO" id="aTo-0A-GYj">
                                 <rect key="frame" x="205" y="192" width="138" height="138"/>
@@ -1174,51 +1126,6 @@
                 <exit id="YOa-se-gIp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="9807.2000000000007" y="-1042.128935532234"/>
-        </scene>
-        <!--My Livestream View Controller-->
-        <scene sceneID="yaU-Ms-VVX">
-            <objects>
-                <viewController id="cCp-yc-szH" customClass="MyLivestreamViewController" customModule="JamHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zif-4o-nJt"/>
-                        <viewControllerLayoutGuide type="bottom" id="d3j-3e-6bC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ygs-LX-R9M">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ekp-I8-EZ2">
-                                <rect key="frame" x="162" y="516" width="50" height="50"/>
-                                <state key="normal" image="PlayIcon"/>
-                                <state key="selected" image="StopIconRed"/>
-                                <connections>
-                                    <action selector="recordButtonTapped:" destination="cCp-yc-szH" eventType="touchUpInside" id="98L-eV-FZC"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="d3j-3e-6bC" firstAttribute="top" secondItem="Ekp-I8-EZ2" secondAttribute="bottom" constant="8" symbolic="YES" id="CI6-rs-iDt"/>
-                            <constraint firstItem="Ekp-I8-EZ2" firstAttribute="centerX" secondItem="ygs-LX-R9M" secondAttribute="centerX" id="Ei7-mZ-ltv"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="jbF-iL-Shw">
-                        <barButtonItem key="leftBarButtonItem" image="BackIcon" id="tYM-Uj-VJf">
-                            <connections>
-                                <segue destination="Nqw-ES-ltI" kind="unwind" unwindAction="unwindToMyActiveSessionWithSender:" id="o0v-06-5jy"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="recordButton" destination="Ekp-I8-EZ2" id="gV8-fO-4Ka"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="InZ-Gt-2Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Nqw-ES-ltI" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="8868" y="-1701.4992503748126"/>
         </scene>
         <!--Current Jams-->
         <scene sceneID="Ktk-w9-Ce0">
@@ -3143,24 +3050,6 @@
             <point key="canvasLocation" x="4041" y="1003"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="jJH-yP-hAZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FcP-Dz-iRb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YD9-Rd-yAu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xeY-nA-vQK" kind="relationship" relationship="rootViewController" id="GRR-vo-gcc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="igw-LM-FVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6286" y="310"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="hNa-10-ll6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jUr-tF-N0s" sceneMemberID="viewController">
@@ -3231,24 +3120,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kt-wJ-9dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9103.2000000000007" y="-1042.128935532234"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qLP-CD-r1c">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WGh-rm-Apd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ouf-i1-R5n">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cCp-yc-szH" kind="relationship" relationship="rootViewController" id="fme-Tq-4jC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0aC-f7-pSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8164" y="-1700.5997001499252"/>
         </scene>
         <!--Invitations-->
         <scene sceneID="JCX-bx-bbq">
@@ -3697,7 +3568,6 @@
         <image name="PauseIconBlue" width="50" height="50"/>
         <image name="PianoIcon" width="50" height="50"/>
         <image name="PianoIconBlue" width="25" height="25"/>
-        <image name="PlayIcon" width="50" height="50"/>
         <image name="PlayIconHollow" width="50" height="50"/>
         <image name="PlayIconHollowBlue" width="50" height="50"/>
         <image name="PopIcon" width="50" height="50"/>
@@ -3716,7 +3586,6 @@
         <image name="SettingsIcon" width="25" height="25"/>
         <image name="SheetMusicIconBlue" width="50" height="50"/>
         <image name="SheetMusicIconWhite" width="50" height="50"/>
-        <image name="StopIconRed" width="50" height="50"/>
         <image name="TromboneIcon" width="25" height="25"/>
         <image name="TromboneIconBlue" width="25" height="25"/>
         <image name="TrumpetBackground" width="474" height="960"/>
