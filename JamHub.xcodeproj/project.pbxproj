@@ -41,7 +41,6 @@
 		D6E56EB91F12B7E90021AE95 /* LivestreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EB81F12B7E90021AE95 /* LivestreamViewController.swift */; };
 		D6E56EBB1F12B80B0021AE95 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */; };
 		D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */; };
-		D6EB494F1F083FCB00F82CDE /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */; };
 		D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */; };
 		D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */; };
 		D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */; };
@@ -128,7 +127,6 @@
 		D6E56EB81F12B7E90021AE95 /* LivestreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamViewController.swift; sourceTree = "<group>"; };
 		D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
-		D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
 		D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInformationViewController.swift; sourceTree = "<group>"; };
 		D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -270,7 +268,6 @@
 				D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */,
 				D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */,
 				D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */,
-				D6EB494E1F083FCB00F82CDE /* ProfileTableViewCell.swift */,
 				D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */,
 				D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
@@ -633,7 +630,6 @@
 				D67EF5131ECDFFA100CA73B1 /* MySessionsViewController.swift in Sources */,
 				D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */,
 				D6FA3BC91F36728E004E8B8F /* MySongTableViewCell.swift in Sources */,
-				D6EB494F1F083FCB00F82CDE /* ProfileTableViewCell.swift in Sources */,
 				D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */,
 				D67EF5171ECE013900CA73B1 /* RegisterViewController.swift in Sources */,
 				D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */,
