@@ -40,7 +40,7 @@ class MyActiveSessionViewController: UIViewController {
                 endSessionButton.isHidden = true
             }
             
-            endSessionButton.layer.cornerRadius = 15
+            endSessionButton.layer.cornerRadius = 25
             endSessionButton.layer.borderWidth = 2
             endSessionButton.layer.borderColor = UIColor.white.cgColor
         }

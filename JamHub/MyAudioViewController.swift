@@ -46,6 +46,9 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         pauseButton.isHidden = true
         recordingLabel.isHidden = true
         uploadRecordingButton.isHidden = true
+        uploadRecordingButton.layer.cornerRadius = 25
+        uploadRecordingButton.layer.borderWidth = 2
+        uploadRecordingButton.layer.borderColor = UIColor.black.cgColor
         
         recordingSession = AVAudioSession.sharedInstance()
         

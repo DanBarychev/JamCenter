@@ -542,7 +542,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3y-Zb-a39" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cKE-2M-Cb3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7928.8000000000002" y="-361.16941529235385"/>
+            <point key="canvasLocation" x="7940" y="112"/>
         </scene>
         <!--My Sessions-->
         <scene sceneID="Uk7-oH-ZEJ">
@@ -898,19 +898,8 @@
                                     <segue destination="iwP-pg-9hz" kind="show" identifier="GoToMySongs" id="ci6-La-3Va"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjT-1e-0Q8">
-                                <rect key="frame" x="91" y="568" width="192" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="End Session">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="endSessionTapped:" destination="Tgc-oy-lvQ" eventType="touchUpInside" id="eyP-ia-plv"/>
-                                    <segue destination="tkx-eR-KKg" kind="unwind" unwindAction="unwindToMySessionsWithSender:" id="NV1-bD-xXr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dx-hr-sax">
-                                <rect key="frame" x="73.5" y="273" width="33" height="15"/>
+                                <rect key="frame" x="74" y="273" width="33" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -933,6 +922,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjT-1e-0Q8">
+                                <rect key="frame" x="75" y="540" width="224" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sNE-bE-TFC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="End Session">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="endSessionTapped:" destination="Tgc-oy-lvQ" eventType="touchUpInside" id="eyP-ia-plv"/>
+                                    <segue destination="tkx-eR-KKg" kind="unwind" unwindAction="unwindToMySessionsWithSender:" id="NV1-bD-xXr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -943,22 +946,23 @@
                             <constraint firstItem="AGE-V2-Xuf" firstAttribute="baseline" secondItem="AZQ-sO-1Dv" secondAttribute="baseline" id="FGV-3m-2GZ"/>
                             <constraint firstItem="0dx-hr-sax" firstAttribute="centerX" secondItem="AWH-RO-fsy" secondAttribute="centerX" id="Frf-Ne-mFW"/>
                             <constraint firstItem="AWH-RO-fsy" firstAttribute="leading" secondItem="RPM-1d-ag7" secondAttribute="leadingMargin" constant="49" id="GIT-mS-fkE"/>
+                            <constraint firstItem="mjT-1e-0Q8" firstAttribute="centerX" secondItem="fRN-C4-tjn" secondAttribute="centerX" id="HVn-lj-vit"/>
                             <constraint firstItem="Nxp-oY-Dux" firstAttribute="top" secondItem="0xz-TC-j5E" secondAttribute="top" id="ISk-OV-Rs6"/>
                             <constraint firstItem="AWH-RO-fsy" firstAttribute="top" secondItem="kfD-FO-CE4" secondAttribute="top" id="IeU-2I-Uau"/>
-                            <constraint firstItem="fRN-C4-tjn" firstAttribute="centerX" secondItem="mjT-1e-0Q8" secondAttribute="centerX" id="KzA-l7-3cD"/>
                             <constraint firstItem="VGh-2H-01f" firstAttribute="centerX" secondItem="kfD-FO-CE4" secondAttribute="centerX" id="L1B-gU-1e7"/>
                             <constraint firstItem="0xz-TC-j5E" firstAttribute="top" secondItem="osv-K1-P6t" secondAttribute="bottom" constant="18" id="Nzz-gJ-TQb"/>
                             <constraint firstItem="osv-K1-P6t" firstAttribute="centerX" secondItem="AWH-RO-fsy" secondAttribute="centerX" id="PVh-O5-QN7"/>
-                            <constraint firstItem="mjT-1e-0Q8" firstAttribute="leading" secondItem="RPM-1d-ag7" secondAttribute="leadingMargin" constant="75" id="Qz6-lk-wEQ"/>
                             <constraint firstItem="0dx-hr-sax" firstAttribute="top" secondItem="AWH-RO-fsy" secondAttribute="bottom" constant="8" symbolic="YES" id="WHW-3Q-TNT"/>
                             <constraint firstItem="fRN-C4-tjn" firstAttribute="leading" secondItem="RPM-1d-ag7" secondAttribute="leading" id="bc6-DI-fmy"/>
                             <constraint firstItem="fRN-C4-tjn" firstAttribute="bottom" secondItem="dSP-z7-NGR" secondAttribute="top" id="cWx-cN-7e7"/>
                             <constraint firstItem="AWH-RO-fsy" firstAttribute="top" secondItem="WcG-LA-gaO" secondAttribute="bottom" constant="151" id="e4e-KN-FRP"/>
                             <constraint firstItem="aTo-0A-GYj" firstAttribute="top" secondItem="osv-K1-P6t" secondAttribute="top" id="fMi-Kg-gNT"/>
                             <constraint firstItem="msg-B7-wez" firstAttribute="top" secondItem="osv-K1-P6t" secondAttribute="bottom" constant="43" id="fUZ-gO-ums"/>
+                            <constraint firstItem="mjT-1e-0Q8" firstAttribute="trailing" secondItem="kfD-FO-CE4" secondAttribute="trailing" id="g2q-z5-jsQ"/>
                             <constraint firstItem="msg-B7-wez" firstAttribute="leading" secondItem="AWH-RO-fsy" secondAttribute="leading" id="gj0-qV-s04"/>
                             <constraint firstItem="AZQ-sO-1Dv" firstAttribute="centerX" secondItem="8ht-5R-J4H" secondAttribute="centerX" id="imN-iT-hLW"/>
                             <constraint firstItem="msg-B7-wez" firstAttribute="top" secondItem="AWH-RO-fsy" secondAttribute="bottom" constant="108" id="j2p-ye-3BA"/>
+                            <constraint firstItem="dSP-z7-NGR" firstAttribute="top" secondItem="mjT-1e-0Q8" secondAttribute="bottom" constant="28" id="k4P-QN-Nha"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kfD-FO-CE4" secondAttribute="trailing" constant="60" id="kCC-Tl-TNE"/>
                             <constraint firstItem="8ht-5R-J4H" firstAttribute="top" secondItem="kfD-FO-CE4" secondAttribute="bottom" constant="108" id="kjR-cM-EV4"/>
                             <constraint firstItem="AGE-V2-Xuf" firstAttribute="top" secondItem="msg-B7-wez" secondAttribute="bottom" constant="8" symbolic="YES" id="qjQ-vF-EA6"/>
@@ -966,7 +970,6 @@
                             <constraint firstItem="AGE-V2-Xuf" firstAttribute="centerX" secondItem="msg-B7-wez" secondAttribute="centerX" id="rlM-DM-CAL"/>
                             <constraint firstItem="0xz-TC-j5E" firstAttribute="leading" secondItem="osv-K1-P6t" secondAttribute="leading" id="xWI-Tm-MD3"/>
                             <constraint firstItem="Nxp-oY-Dux" firstAttribute="leading" secondItem="aTo-0A-GYj" secondAttribute="leading" id="xZy-Oc-6vf"/>
-                            <constraint firstItem="dSP-z7-NGR" firstAttribute="top" secondItem="mjT-1e-0Q8" secondAttribute="bottom" constant="20" id="zgn-fl-1Wa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Session Title" id="bFK-e7-lVD">
@@ -997,12 +1000,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
                                 <rect key="frame" x="162" y="218" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3TI-1B-RBV"/>
-                                    <constraint firstAttribute="width" constant="50" id="79L-uO-Kn9"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Record" image="MicrophoneRecordIcon"/>
                                 <state key="selected" image="MicrophoneRecordIconBlue"/>
                                 <state key="highlighted" image="MicrophoneRecordIconBlue"/>
@@ -1017,11 +1017,9 @@
                                     <action selector="playRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="Dst-Vf-iZE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
                                 <rect key="frame" x="134" y="626" width="107" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="tTB-jA-iSr"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.019891490399700618" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1035,45 +1033,33 @@
                                     <action selector="pauseRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="VHa-PH-Eb2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
                                 <rect key="frame" x="84" y="286" width="206" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="A8E-wt-CC6"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
-                                <rect key="frame" x="113" y="566" width="149" height="30"/>
-                                <state key="normal" title="Upload Recording"/>
-                                <connections>
-                                    <action selector="uploadRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="GtX-1I-8lT"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
-                                <rect key="frame" x="16" y="487" width="343" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
+                                <rect key="frame" x="16" y="439" width="343" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
+                                <rect key="frame" x="75" y="540" width="224" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Upload Recording">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="GtX-1I-8lT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5LH-oM-MMC" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="68" id="1fS-dn-XIr"/>
-                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="centerX" secondItem="lY6-by-X0N" secondAttribute="centerX" id="7Or-y3-wQ6"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="centerX" secondItem="dbI-Rc-FxX" secondAttribute="centerX" id="7mj-oW-wPx"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="trailing" secondItem="YnD-Hn-R56" secondAttribute="trailingMargin" id="DqR-KJ-TDd"/>
-                            <constraint firstItem="5LH-oM-MMC" firstAttribute="top" secondItem="hBr-4h-7nh" secondAttribute="bottom" constant="18" id="O9c-Bn-lOC"/>
-                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="dbI-Rc-FxX" secondAttribute="bottom" constant="22" id="VNN-BT-6Bs"/>
-                            <constraint firstItem="OVB-TB-jMU" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" id="cm6-Lp-rVw"/>
-                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="90" id="e5o-8W-CQm"/>
-                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="97" id="iDy-Qq-Hbh"/>
-                            <constraint firstItem="5LH-oM-MMC" firstAttribute="centerX" secondItem="OVB-TB-jMU" secondAttribute="centerX" id="kDF-Tf-VeA"/>
-                            <constraint firstItem="hBr-4h-7nh" firstAttribute="centerX" secondItem="5LH-oM-MMC" secondAttribute="centerX" id="mRa-8W-ou5"/>
-                            <constraint firstItem="hBr-4h-7nh" firstAttribute="top" secondItem="IJ4-xu-i14" secondAttribute="bottom" constant="154" id="mVD-50-gtw"/>
-                            <constraint firstItem="lY6-by-X0N" firstAttribute="top" secondItem="hA1-uw-kfA" secondAttribute="bottom" constant="8" id="op9-KZ-2kb"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="OXc-gL-SZL">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="OMh-li-Evt">
@@ -1095,7 +1081,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeR-06-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="YOa-se-gIp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="9807.2000000000007" y="-1042.128935532234"/>
+            <point key="canvasLocation" x="7940" y="-671"/>
         </scene>
         <!--Current Jams-->
         <scene sceneID="Ktk-w9-Ce0">
@@ -3089,7 +3075,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kt-wJ-9dk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9103.2000000000007" y="-1042.128935532234"/>
+            <point key="canvasLocation" x="7225" y="-670"/>
         </scene>
         <!--Invitations-->
         <scene sceneID="JCX-bx-bbq">
@@ -3126,7 +3112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppT-0a-2pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7224.8000000000002" y="-361.16941529235385"/>
+            <point key="canvasLocation" x="7225" y="112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xzC-Rc-6Xm">
