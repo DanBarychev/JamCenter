@@ -21,6 +21,8 @@ class MyActiveSessionViewController: UIViewController {
     var sessionID = String()
     var sessionHostUID = String()
     var sessionCode = String()
+    var sessionLocation = String()
+    var sessionMusicians = [Musician]()
     
     @IBOutlet weak var endSessionButton: UIButton!
     
@@ -32,6 +34,8 @@ class MyActiveSessionViewController: UIViewController {
             sessionID = session.ID ?? ""
             sessionHostUID = session.hostUID ?? ""
             sessionCode = session.code ?? "Code Unavailable"
+            sessionLocation = session.location ?? "Unknown"
+            sessionMusicians = session.musicians ?? []
             if !(session.isActive ?? false) {
                 endSessionButton.isHidden = true
             }
