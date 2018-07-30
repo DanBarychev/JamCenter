@@ -3,7 +3,7 @@
 
 target 'JamHub' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  #use_frameworks!
+  use_frameworks!
 
   # Pods for JamHub
 
@@ -11,8 +11,9 @@ target 'JamHub' do
   pod 'Firebase/Database’
   pod 'Firebase/Auth’
   pod 'Firebase/Storage’
-  pod 'FBSDKShareKit'
-  pod 'FBSDKLoginKit'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
   pod 'Canvas', '~> 0.1'
 
   target 'JamHubTests' do

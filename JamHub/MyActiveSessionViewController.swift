@@ -11,6 +11,7 @@
 
 import UIKit
 import Firebase
+import FacebookShare
 
 class MyActiveSessionViewController: UIViewController {
     
@@ -87,6 +88,11 @@ class MyActiveSessionViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func shareTapped(_ sender: UIButton) {
+        let content = LinkShareContent(url: URL(string: "https://developers.facebook.com")!)
+        do {
+            try ShareDialog.show(from: self, content: content)
+        } catch {
+        }
     }
     
     @IBAction func getCodeTapped(_ sender: UIButton) {

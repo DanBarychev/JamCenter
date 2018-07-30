@@ -179,6 +179,7 @@ FBSDK_EXTERN Class fbsdkdfl_ASIdentifierManagerClass(void);
 #pragma mark - SafariServices Classes
 
 FBSDK_EXTERN Class fbsdkdfl_SFSafariViewControllerClass(void);
+FBSDK_EXTERN Class fbsdkdfl_SFAuthenticationSessionClass(void);
 
 #pragma mark - Accounts Constants
 
@@ -226,3 +227,8 @@ FBSDK_EXTERN CFStringRef fbsdkdfl_UTTypeCopyPreferredTagWithClass(CFStringRef in
 FBSDK_EXTERN CFStringRef fbsdkdfl_kUTTagClassMIMEType(void);
 FBSDK_EXTERN CFStringRef fbsdkdfl_kUTTypeJPEG(void);
 FBSDK_EXTERN CFStringRef fbsdkdfl_kUTTypePNG(void);
+
+#pragma mark - WebKit Classes
+
+FBSDK_EXTERN Class fbsdkdfl_WKWebViewClass(void);
+FBSDK_EXTERN Class fbsdkdfl_WKUserScriptClass(void);

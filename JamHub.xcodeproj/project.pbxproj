@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8624A979F8D2EBB0DAF1E3ED /* libPods-JamHub-JamHubUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FD213435B78818AC6490B20 /* libPods-JamHub-JamHubUITests.a */; };
-		9D1CA2F24B1701497C9BEAA5 /* libPods-JamHub-JamHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */; };
-		CED77756B68C120706C8C2A6 /* libPods-JamHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 539501567A4D4ABEEDEC209A /* libPods-JamHub.a */; };
+		14FCB65278010459839BB6BA /* Pods_JamHub_JamHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */; };
+		7D15AB9A948060B83A9BE6C1 /* Pods_JamHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591346670CC83740E5858C03 /* Pods_JamHub.framework */; };
+		8BDAFDCFAEC44B335BECCB2D /* Pods_JamHub_JamHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
 		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
@@ -84,9 +84,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3FD213435B78818AC6490B20 /* libPods-JamHub-JamHubUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		539501567A4D4ABEEDEC209A /* libPods-JamHub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		591346670CC83740E5858C03 /* Pods_JamHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.debug.xcconfig"; sourceTree = "<group>"; };
 		AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +139,8 @@
 		D6FE853C1ECCBD7B0020CEE6 /* JamHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHubUITests.swift; sourceTree = "<group>"; };
 		D6FE85421ECCBD7B0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamHub-JamHubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub_JamHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub_JamHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED77756B68C120706C8C2A6 /* libPods-JamHub.a in Frameworks */,
+				7D15AB9A948060B83A9BE6C1 /* Pods_JamHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D1CA2F24B1701497C9BEAA5 /* libPods-JamHub-JamHubTests.a in Frameworks */,
+				8BDAFDCFAEC44B335BECCB2D /* Pods_JamHub_JamHubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8624A979F8D2EBB0DAF1E3ED /* libPods-JamHub-JamHubUITests.a in Frameworks */,
+				14FCB65278010459839BB6BA /* Pods_JamHub_JamHubUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,9 +174,9 @@
 		12C3266D3188235E2AFB67B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				539501567A4D4ABEEDEC209A /* libPods-JamHub.a */,
-				FB96E63D8694F6442418BF7B /* libPods-JamHub-JamHubTests.a */,
-				3FD213435B78818AC6490B20 /* libPods-JamHub-JamHubUITests.a */,
+				591346670CC83740E5858C03 /* Pods_JamHub.framework */,
+				F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */,
+				F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -460,9 +460,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -493,9 +514,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -580,9 +622,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Canvas.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
