@@ -86,6 +86,9 @@ class MyActiveSessionViewController: UIViewController {
     
     // MARK: Actions
     
+    @IBAction func shareTapped(_ sender: UIButton) {
+    }
+    
     @IBAction func getCodeTapped(_ sender: UIButton) {
         let codeAlert = UIAlertController(title: sessionCode, message: "", preferredStyle: UIAlertControllerStyle.alert)
         codeAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
