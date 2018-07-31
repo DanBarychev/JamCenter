@@ -76,7 +76,74 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User logged out of Facebook account")
+    }
+    
+    func handleFacebookLogin() {
+        guard let authenticationToken = AccessToken.current?.authenticationToken else { return }
+        let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            print("Succesfully authenticated with Firebase.")
+            
+            //Handle saving user into Firebase
+            self.handleFacebookUser()
+            
+            self.performSegue(withIdentifier: "Login", sender: nil)
+        }
+    }
+    
+    func handleFacebookUser() {
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture.type(large)"]).start { (connection, result, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            // In the case of a successful Graph Request we want to print out the result
+            if let resultDict = result as? [String: AnyObject] {
+                print(resultDict)
+                
+                guard let uid = Auth.auth().currentUser?.uid,
+                    let name = resultDict["name"] as? String, let email = resultDict["email"] as? String
+                else {
+                    return
+                }
+                
+                /*
+                let profilePictureDict = resultDict["profilePictureURL"] as? [String: AnyObject],
+                let profilePictureURL = profilePictureDict["url"] as? String */
+                
+                self.saveFacebookUser(uid: uid, name: name, email: email, profilePictureURL: "")
+            }
+        }
+    }
+    
+    func saveFacebookUser(uid: String, name: String, email: String, profilePictureURL: String) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
+        changeRequest?.commitChanges { (error) in
+            if error != nil {
+                print(error!)
+            } else {
+                print("Change request successful")
+            }
+        }
+        
+        let ref = Database.database().reference()
+        let usersRef = ref.child("users").child(uid)
+        let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
+        usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            else {
+                print("User Successfully Saved Into Database")
+            }
+        })
     }
     
     // Firebase Login
@@ -102,20 +169,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 self.performSegue(withIdentifier: "Login", sender: nil)
             }
         })
-    }
-    
-    func handleFacebookLogin() {
-        guard let authenticationToken = AccessToken.current?.authenticationToken else { return }
-        let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            print("Succesfully authenticated with Firebase.")
-            self.performSegue(withIdentifier: "Login", sender: nil)
-            //Handle saving user into Firebase
-        }
     }
     
     // MARK: Navigation

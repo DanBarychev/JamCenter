@@ -76,21 +76,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.nameLabel.text = (dictionary["name"] as! String)
-                let location = dictionary["location"] as! String
-                let genres = dictionary["genres"] as! String
-                let instruments = dictionary["instruments"] as! String
-                let lastSession = dictionary["lastSession"] as! String
-                let numSessions = dictionary["numSessions"] as! String
+                self.nameLabel.text = (dictionary["name"] as? String)
+                let location = dictionary["location"] as? String
+                let genres = dictionary["genres"] as? String
+                let instruments = dictionary["instruments"] as? String
+                let lastSession = dictionary["lastSession"] as? String
+                let numSessions = dictionary["numSessions"] as? String
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     self.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
                 }
                 
-                self.properties[0] = "Location: " + location
-                self.properties[1] = "Genres: " + genres
-                self.properties[2] = "Instruments: " + instruments
-                self.properties[3] = "Last Session: " + lastSession
-                self.properties[4] = "Number of Sessions: " + numSessions
+                self.properties[0] = "Location: " + (location ?? "")
+                self.properties[1] = "Genres: " + (genres ?? "")
+                self.properties[2] = "Instruments: " + (instruments ?? "")
+                self.properties[3] = "Last Session: " + (lastSession ?? "")
+                self.properties[4] = "Number of Sessions: " + (numSessions ?? "0")
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
