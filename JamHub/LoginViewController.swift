@@ -71,7 +71,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             print(error.localizedDescription)
             return
         }
-        // ...
+        
+        handleFacebookLogin()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -80,7 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     // Firebase Login
     
-    func handleLogin() {
+    func handleStandardLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
             else {
                 //invalid entry
@@ -101,16 +102,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 self.performSegue(withIdentifier: "Login", sender: nil)
             }
         })
-        
+    }
+    
+    func handleFacebookLogin() {
+        guard let authenticationToken = AccessToken.current?.authenticationToken else { return }
+        let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            print("Succesfully authenticated with Firebase.")
+            self.performSegue(withIdentifier: "Login", sender: nil)
+            //Handle saving user into Firebase
+        }
     }
     
     // MARK: Navigation
     @IBAction func unwindToLoginScreen(sender: UIStoryboardSegue) {
     }
 
+    
     // MARK: Actions
     @IBAction func login(_ sender: UIButton) {
-        handleLogin()
+        handleStandardLogin()
     }
     
 
