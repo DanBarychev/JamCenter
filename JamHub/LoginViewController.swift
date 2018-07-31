@@ -106,16 +106,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 print(resultDict)
                 
                 guard let uid = Auth.auth().currentUser?.uid,
-                    let name = resultDict["name"] as? String, let email = resultDict["email"] as? String
+                    let name = resultDict["name"] as? String, let email = resultDict["email"] as? String,
+                    let profilePictureDict = resultDict["picture"] as? [String: AnyObject],
+                    let profilePictureDataDict = profilePictureDict["data"] as? [String: AnyObject],
+                    let profilePictureURL = profilePictureDataDict["url"] as? String
                 else {
                     return
                 }
                 
-                /*
-                let profilePictureDict = resultDict["profilePictureURL"] as? [String: AnyObject],
-                let profilePictureURL = profilePictureDict["url"] as? String */
-                
-                self.saveFacebookUser(uid: uid, name: name, email: email, profilePictureURL: "")
+                self.saveFacebookUser(uid: uid, name: name, email: email, profilePictureURL: profilePictureURL)
             }
         }
     }
