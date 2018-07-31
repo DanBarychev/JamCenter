@@ -8,8 +8,11 @@
 
 import UIKit
 import Firebase
+import FacebookCore
+import FacebookLogin
+import FBSDKLoginKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
     
     // MARK: Properties
     
@@ -33,6 +36,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginButton.layer.borderColor = UIColor.white.cgColor
         noAccountButton.layer.borderColor = UIColor.white.cgColor
+        
+        let facebookLoginButton = FBSDKLoginButton()
+        facebookLoginButton.delegate = self
+        view.addSubview(facebookLoginButton)
+        
+        facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        facebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        facebookLoginButton.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor, constant: -70).isActive = true
+        facebookLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -130).isActive = true
+        facebookLoginButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        facebookLoginButton.readPermissions = ["email","public_profile"]
     }
     
     // MARK: UITextFieldDelegate
@@ -48,6 +63,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
     }
+    
+    // Facebook Login
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        // ...
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("User logged out of Facebook account")
+    }
+    
+    // Firebase Login
     
     func handleLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
