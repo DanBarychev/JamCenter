@@ -51,7 +51,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
+        /*Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            // [START_EXCLUDE]
+            self.hideSpinner {
+                guard let email = authResult?.user.email, error == nil else {
+                    self.showMessagePrompt(error!.localizedDescription)
+                    return
+                }
+                print("\(email) created")
+                self.navigationController!.popViewController(animated: true)
+            }
+            // [END_EXCLUDE]
+        }*/
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if error != nil {
                 print(error!)
                 
@@ -60,7 +73,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 self.present(registrationAlert, animated: true, completion: nil)
             }
             
-            guard let uid = user?.uid else {
+            guard let uid = authResult?.user.uid else {
                 return
             }
             
@@ -75,13 +88,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
                     else {
-                        if let profileImageURL = metadata?.downloadURL()?.absoluteString {
+                        storageRef.downloadURL { (url, error) in
+                            guard let profileImageURL = url?.absoluteString else {
+                                return
+                            }
+                            
                             self.finishRegistrationWithUserData(uid: uid, name: name, email: email, profileImageLink: profileImageURL)
                         }
                     }
                 })
             }
-        })
+        }
     }
     
     func finishRegistrationWithUserData(uid: String, name: String, email: String, profileImageLink: String) {
