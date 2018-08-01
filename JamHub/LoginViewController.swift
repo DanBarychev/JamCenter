@@ -16,6 +16,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     // MARK: Properties
     
+    typealias userExistsClosure = (Bool?) -> Void
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -120,27 +122,50 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     }
     
     func saveFacebookUser(uid: String, name: String, email: String, profilePictureURL: String) {
-        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-        changeRequest?.displayName = name
-        changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
-        changeRequest?.commitChanges { (error) in
-            if error != nil {
-                print(error!)
-            } else {
-                print("Change request successful")
+        self.userExists(uid: uid) { (userExists) in
+            if let userExists = userExists {
+                if !userExists {
+                    print("USER DOESNT EXIST")
+                    print(uid)
+                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    changeRequest?.displayName = name
+                    changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
+                    changeRequest?.commitChanges { (error) in
+                        if error != nil {
+                            print(error!)
+                        } else {
+                            print("Change request successful")
+                        }
+                    }
+                    
+                    let ref = Database.database().reference()
+                    let usersRef = ref.child("users").child(uid)
+                    let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
+                    usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                        if error != nil {
+                            print(error!)
+                            return
+                        }
+                        else {
+                            print("User Successfully Saved Into Database")
+                        }
+                    })
+                }
             }
         }
-        
+    }
+    
+    func userExists(uid: String, completionHandler: @escaping userExistsClosure) {
         let ref = Database.database().reference()
-        let usersRef = ref.child("users").child(uid)
-        let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
-        usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            else {
-                print("User Successfully Saved Into Database")
+        let allUsersRef = ref.child("users")
+        
+        allUsersRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild(uid){
+                print("User Exists")
+                completionHandler(true)
+            } else{
+                print("User Doesn't Exist")
+                completionHandler(false)
             }
         })
     }
