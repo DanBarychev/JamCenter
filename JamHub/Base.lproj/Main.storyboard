@@ -1799,6 +1799,7 @@
                         <outlet property="noAccountButton" destination="Mxd-0s-byL" id="PCa-ec-3ad"/>
                         <outlet property="passwordTextField" destination="804-RL-81U" id="S4s-LF-RpL"/>
                         <segue destination="w9z-V0-Wkt" kind="show" identifier="Login" id="GEB-aJ-cdI"/>
+                        <segue destination="LvZ-gi-u0a" kind="show" identifier="GoToCountrySelectorFromLogin" id="6Wg-RF-Skk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D30-u1-dls" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1973,7 +1974,7 @@
                     <navigationItem key="navigationItem" title="Add Profile Picture" id="mCg-oL-62f">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="4pU-br-gza">
                             <connections>
-                                <segue destination="LvZ-gi-u0a" kind="show" id="kMP-PF-Ccq"/>
+                                <segue destination="LvZ-gi-u0a" kind="show" identifier="GoToCountrySelectorFromProfilePicture" id="kMP-PF-Ccq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3345,6 +3346,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="2dO-A0-JhL" id="Rwh-hV-fuB"/>
                         <outlet property="nextButton" destination="hvz-CP-x4v" id="1sF-eS-683"/>
                         <outlet property="searchBar" destination="HLU-fC-tRV" id="iG2-yn-89u"/>
                     </connections>
@@ -3556,6 +3558,7 @@
         <image name="ViolinIconBlue" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kMP-PF-Ccq"/>
         <segue reference="IHQ-Dr-r3t"/>
         <segue reference="akC-yi-f1u"/>
         <segue reference="T3c-77-A8K"/>

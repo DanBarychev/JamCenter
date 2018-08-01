@@ -16,7 +16,9 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     var countriesFiltered = [String]()
     var selectedCountry = String()
     var searchActive = false
+    var loginType: String?
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -28,6 +30,12 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
 
         nextButton.isEnabled = false
         countries = getCountryOptions()
+        
+        if loginType == "Facebook" {
+            backButton.isEnabled = false
+        } else {
+            backButton.isEnabled = true
+        }
     }
     
     // MARK: Search bar data source

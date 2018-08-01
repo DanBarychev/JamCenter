@@ -58,11 +58,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-
-    // MARK: Navigation
-    
-    @IBAction func unwindToProfilePictureScreen(sender: UIStoryboardSegue) {
-    }
     
     // MARK: Actions
     
@@ -100,5 +95,20 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
                 print("User Data Successfully Updated")
             }
         })
+    }
+    
+    // MARK: Navigation
+    
+    @IBAction func unwindToProfilePictureScreen(sender: UIStoryboardSegue) {
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToCountrySelectorFromProfilePicture" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! SelectCountryTableViewController
+            
+            newViewController.loginType = "Standard"
+        }
     }
 }

@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     func textFieldDidEndEditing(_ textField: UITextField) {
     }
     
-    // Facebook Login
+    // MARK: Facebook Login
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
@@ -88,16 +88,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 print(error)
                 return
             }
-            print("Succesfully authenticated with Firebase.")
+            print("Facebook Login successfully authenticated with Firebase.")
             
-            //Handle saving user into Firebase
-            self.handleFacebookUser()
+            guard let uid = Auth.auth().currentUser?.uid else {
+                return
+            }
             
-            self.performSegue(withIdentifier: "Login", sender: nil)
+            //If the user doesn't exist yet, save him/her
+            self.userExists(uid: uid) { (userExists) in
+                if let userExists = userExists {
+                    if !userExists {
+                        self.handleFacebookUser(uid: uid)
+                    } else {
+                        self.performSegue(withIdentifier: "Login", sender: nil)
+                    }
+                }
+            }
         }
     }
     
-    func handleFacebookUser() {
+    func handleFacebookUser(uid: String) {
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture.type(large)"]).start { (connection, result, error) in
             if let error = error {
                 print(error)
@@ -107,8 +117,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             if let resultDict = result as? [String: AnyObject] {
                 print(resultDict)
                 
-                guard let uid = Auth.auth().currentUser?.uid,
-                    let name = resultDict["name"] as? String, let email = resultDict["email"] as? String,
+                guard let name = resultDict["name"] as? String, let email = resultDict["email"] as? String,
                     let profilePictureDict = resultDict["picture"] as? [String: AnyObject],
                     let profilePictureDataDict = profilePictureDict["data"] as? [String: AnyObject],
                     let profilePictureURL = profilePictureDataDict["url"] as? String
@@ -122,37 +131,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     }
     
     func saveFacebookUser(uid: String, name: String, email: String, profilePictureURL: String) {
-        self.userExists(uid: uid) { (userExists) in
-            if let userExists = userExists {
-                if !userExists {
-                    print("USER DOESNT EXIST")
-                    print(uid)
-                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                    changeRequest?.displayName = name
-                    changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
-                    changeRequest?.commitChanges { (error) in
-                        if error != nil {
-                            print(error!)
-                        } else {
-                            print("Change request successful")
-                        }
-                    }
-                    
-                    let ref = Database.database().reference()
-                    let usersRef = ref.child("users").child(uid)
-                    let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
-                    usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                        if error != nil {
-                            print(error!)
-                            return
-                        }
-                        else {
-                            print("User Successfully Saved Into Database")
-                        }
-                    })
-                }
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
+        changeRequest?.commitChanges { (error) in
+            if error != nil {
+                print(error!)
+            } else {
+                print("Change request successful")
             }
         }
+        
+        let ref = Database.database().reference()
+        let usersRef = ref.child("users").child(uid)
+        let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
+        usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            else {
+                print("User Successfully Saved Into Database")
+                
+                self.performSegue(withIdentifier: "GoToCountrySelectorFromLogin", sender: nil)
+            }
+        })
     }
     
     func userExists(uid: String, completionHandler: @escaping userExistsClosure) {
@@ -170,7 +173,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         })
     }
     
-    // Firebase Login
+    // MARK: Firebase Login
     
     func handleStandardLogin() {
         guard let email = emailTextField.text, let password = passwordTextField.text
@@ -195,15 +198,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         })
     }
     
-    // MARK: Navigation
-    @IBAction func unwindToLoginScreen(sender: UIStoryboardSegue) {
-    }
-
-    
     // MARK: Actions
+    
     @IBAction func login(_ sender: UIButton) {
         handleStandardLogin()
     }
     
-
+    // MARK: Navigation
+    
+    @IBAction func unwindToLoginScreen(sender: UIStoryboardSegue) {
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToCountrySelectorFromLogin" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! SelectCountryTableViewController
+            
+            newViewController.loginType = "Facebook"
+        }
+    }
 }
