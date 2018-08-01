@@ -12,7 +12,7 @@ import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var noAccountButton: UIButton!
     
@@ -30,26 +31,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        facebookLoginButton.layer.cornerRadius = 20
         loginButton.layer.cornerRadius = 20
         noAccountButton.layer.cornerRadius = 20
         
+        facebookLoginButton.layer.borderWidth = 2.0
         loginButton.layer.borderWidth = 2.0
         noAccountButton.layer.borderWidth = 2.0
         
+        facebookLoginButton.layer.borderColor = self.view.tintColor.cgColor
         loginButton.layer.borderColor = UIColor.white.cgColor
         noAccountButton.layer.borderColor = UIColor.white.cgColor
-        
-        let facebookLoginButton = FBSDKLoginButton()
-        facebookLoginButton.delegate = self
-        view.addSubview(facebookLoginButton)
-        
-        facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
-        facebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        facebookLoginButton.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor, constant: -70).isActive = true
-        facebookLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -130).isActive = true
-        facebookLoginButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        facebookLoginButton.readPermissions = ["email","public_profile"]
     }
     
     // MARK: UITextFieldDelegate
@@ -67,18 +59,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     }
     
     // MARK: Facebook Login
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        handleFacebookLogin()
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-    }
     
     func handleFacebookLogin() {
         guard let authenticationToken = AccessToken.current?.authenticationToken else { return }
@@ -113,7 +93,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                 print(error)
                 return
             }
-            // In the case of a successful Graph Request we want to print out the result
+            
             if let resultDict = result as? [String: AnyObject] {
                 print(resultDict)
                 
@@ -135,8 +115,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         changeRequest?.displayName = name
         changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
         changeRequest?.commitChanges { (error) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
             } else {
                 print("Change request successful")
             }
@@ -146,8 +126,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         let usersRef = ref.child("users").child(uid)
         let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 return
             }
             else {
@@ -183,8 +163,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         }
         
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
+                
                 let loginAlert = UIAlertController(title: "Invalid Login", message: "Incorrect Email or Password", preferredStyle: UIAlertControllerStyle.alert)
                 loginAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(loginAlert, animated: true, completion: nil)
@@ -203,6 +184,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     @IBAction func login(_ sender: UIButton) {
         handleStandardLogin()
     }
+    
+    @IBAction func facebookLogin(_ sender: UIButton) {
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (result) in
+            switch result {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                print("Succesfully logged in into Facebook.")
+                
+                self.handleFacebookLogin()
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("Facebook login cancelled")
+            }
+        }
+    }
+    
     
     // MARK: Navigation
     

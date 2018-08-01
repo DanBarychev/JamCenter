@@ -46,6 +46,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
             
             return isMatch
         })
+        
         if(countriesFiltered.count == 0){
             searchActive = false;
         } else {

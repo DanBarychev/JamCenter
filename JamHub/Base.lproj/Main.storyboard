@@ -1738,6 +1738,17 @@
                                             <segue destination="9Mn-fy-g5C" kind="show" id="NPe-Jr-snL"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-6w-AaP">
+                                        <rect key="frame" x="62" y="425" width="251" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Facebook Login">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="facebookLogin:" destination="jEQ-xE-Bqx" eventType="touchUpInside" id="Rnq-qE-NCO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1795,6 +1806,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="aU9-hu-bNR" id="l8Y-H6-ST9"/>
+                        <outlet property="facebookLoginButton" destination="o3f-6w-AaP" id="Krh-qK-fjf"/>
                         <outlet property="loginButton" destination="Vir-If-qb1" id="7I5-pV-5Se"/>
                         <outlet property="noAccountButton" destination="Mxd-0s-byL" id="PCa-ec-3ad"/>
                         <outlet property="passwordTextField" destination="804-RL-81U" id="S4s-LF-RpL"/>
@@ -3558,7 +3570,7 @@
         <image name="ViolinIconBlue" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kMP-PF-Ccq"/>
+        <segue reference="6Wg-RF-Skk"/>
         <segue reference="IHQ-Dr-r3t"/>
         <segue reference="akC-yi-f1u"/>
         <segue reference="T3c-77-A8K"/>
