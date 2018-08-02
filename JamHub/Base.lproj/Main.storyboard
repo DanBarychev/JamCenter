@@ -815,7 +815,7 @@
                         <outlet property="musicianTableView" destination="Oim-oZ-ozj" id="zrV-Ea-E8g"/>
                         <outlet property="titleLabel" destination="lFs-xl-RFg" id="ypp-kw-J37"/>
                         <outlet property="titleTextField" destination="yeJ-pr-UlC" id="b3q-ZL-2rn"/>
-                        <segue destination="gIN-Y6-fhL" kind="show" identifier="GoToMyActiveSession" id="Na4-Pr-XTM"/>
+                        <segue destination="C7x-iN-Qi6" kind="show" identifier="GoToCurrentJamFromNewSession" id="smI-YV-PxM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHw-Lh-q6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1540,6 +1540,7 @@
                         <outlet property="locationLabel" destination="YOd-Tu-COs" id="acp-N3-bZl"/>
                         <outlet property="nameLabel" destination="K4f-we-PlN" id="GVz-zl-DFE"/>
                         <outlet property="profileImageView" destination="gTv-Ln-Hd4" id="vc7-dJ-lnS"/>
+                        <segue destination="IQb-Lo-ODJ" kind="unwind" identifier="UnwindToLoginFromSettings" unwindAction="unwindToLoginScreenWithSender:" id="7Zp-fH-t7o"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VT-zX-z6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3572,8 +3573,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="6Wg-RF-Skk"/>
         <segue reference="IHQ-Dr-r3t"/>
-        <segue reference="akC-yi-f1u"/>
-        <segue reference="T3c-77-A8K"/>
+        <segue reference="smI-YV-PxM"/>
         <segue reference="GEB-aJ-cdI"/>
     </inferredMetricsTieBreakers>
 </document>

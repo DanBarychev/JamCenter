@@ -198,11 +198,11 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToMyActiveSession" {
+        if segue.identifier == "GoToCurrentJamFromNewSession" {
             let nav = segue.destination as! UINavigationController
-            let newViewController = nav.topViewController as! MyActiveSessionViewController
+            let newViewController = nav.topViewController as! CurrentJamViewController
             
-            newViewController.mySession = overallSession
+            newViewController.currentSession = overallSession
         }
     }
     
@@ -347,6 +347,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         createSession { (resultSession) in
             self.overallSession = resultSession ?? Session()
         }
-        performSegue(withIdentifier: "GoToMyActiveSession", sender: nil)
+        performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
     }
 }

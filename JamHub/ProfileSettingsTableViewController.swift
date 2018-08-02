@@ -210,9 +210,9 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 print(error)
             } else {
                 print ("User successfully deleted")
+                
+                self.performSegue(withIdentifier: "UnwindToLoginFromSettings", sender: nil)
             }
         }
-        
-        
     }
 }
