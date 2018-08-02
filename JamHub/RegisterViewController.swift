@@ -51,22 +51,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 return
         }
         
-        /*Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            // [START_EXCLUDE]
-            self.hideSpinner {
-                guard let email = authResult?.user.email, error == nil else {
-                    self.showMessagePrompt(error!.localizedDescription)
-                    return
-                }
-                print("\(email) created")
-                self.navigationController!.popViewController(animated: true)
-            }
-            // [END_EXCLUDE]
-        }*/
+        let spinner = UIViewController.showSpinner(onView: self.view)
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if error != nil {
                 print(error!)
+                
+                UIViewController.removeSpinner(spinner: spinner)
                 
                 let registrationAlert = UIAlertController(title: "Invalid Registration", message: "There Was An Error With The Submission", preferredStyle: UIAlertControllerStyle.alert)
                 registrationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -93,7 +84,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                                 return
                             }
                             
-                            self.finishRegistrationWithUserData(uid: uid, name: name, email: email, profileImageLink: profileImageURL)
+                            self.finishRegistrationWithUserData(uid: uid, name: name, email: email,
+                                                                profileImageLink: profileImageURL, spinner: spinner)
                         }
                     }
                 })
@@ -101,14 +93,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func finishRegistrationWithUserData(uid: String, name: String, email: String, profileImageLink: String) {
+    func finishRegistrationWithUserData(uid: String, name: String, email: String, profileImageLink: String, spinner: UIView) {
         // Set the user display name and photoURL
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
         changeRequest?.photoURL = NSURL(string: profileImageLink)! as URL
         changeRequest?.commitChanges { (error) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
             } else {
                 print("Change request successful")
             }
@@ -118,12 +110,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         let usersRef = ref.child("users").child(uid)
         let values = ["name": name, "email": email, "profileImageURL": profileImageLink, "numSessions": "0", "lastSession": ""]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
+                UIViewController.removeSpinner(spinner: spinner)
+                
                 return
             }
             else {
                 print("User Successfully Saved Into Database")
+                UIViewController.removeSpinner(spinner: spinner)
                 
                 self.performSegue(withIdentifier: "SetupProfilePicture", sender: nil)
             }
