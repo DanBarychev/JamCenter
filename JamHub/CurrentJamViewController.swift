@@ -62,14 +62,23 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             sessionID = currentJamSession.ID ?? "unavailable"
             sessionHostUID = currentJamSession.hostUID ?? "unavailable"
             
-            //Get Session Musicians
-            getMusicians(sessionID: sessionID)
-            
             //See what to do with the current user
             if let userID = Auth.auth().currentUser?.uid {
                 getMusician(musicianID: userID) { (musician) in
                     if let musician = musician {
                         self.currentUserMusician = musician
+                        
+                        if let hostImageURL = musician.profileImageURL {
+                            self.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
+                        }
+                        
+                        if self.origin == "NewSession" {
+                            self.musicians = [musician]
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
                     }
                 }
                 
@@ -79,6 +88,11 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 } else {
                     checkMusicianParticipation(musicianID: userID)
                 }
+            }
+            
+            if origin != "NewSession" {
+                //Get Session Musicians
+                getMusicians(sessionID: sessionID)
             }
         }
     }
@@ -162,13 +176,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 if let musicianID = dictionary["musicianID"] as? String {
                     self.getMusician(musicianID: musicianID) { (musician) in
                         if let musician = musician {
-                            // If we have found the host, set the host image
-                            if musicianID == self.sessionHostUID {
-                                if let hostImageURL = musician.profileImageURL {
-                                    self.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
-                                }
-                            }
-                            
                             self.musicians.append(musician)
                             
                             DispatchQueue.main.async {
