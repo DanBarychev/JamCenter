@@ -61,9 +61,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Facebook Login
     
     func handleFacebookLogin() {
+        let spinner = UIViewController.showSpinner(onView: self.view)
+        
         guard let authenticationToken = AccessToken.current?.authenticationToken else { return }
         let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
-        Auth.auth().signIn(with: credential) { (user, error) in
+        
+        Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
                 print(error)
                 return
@@ -78,8 +81,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.userExists(uid: uid) { (userExists) in
                 if let userExists = userExists {
                     if !userExists {
-                        self.handleFacebookUser(uid: uid)
+                        self.handleFacebookUser(uid: uid, spinner: spinner)
                     } else {
+                        UIViewController.removeSpinner(spinner: spinner)
                         self.performSegue(withIdentifier: "Login", sender: nil)
                     }
                 }
@@ -87,7 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func handleFacebookUser(uid: String) {
+    func handleFacebookUser(uid: String, spinner: UIView) {
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture.type(large)"]).start { (connection, result, error) in
             if let error = error {
                 print(error)
@@ -105,12 +109,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 
-                self.saveFacebookUser(uid: uid, name: name, email: email, profilePictureURL: profilePictureURL)
+                self.saveFacebookUser(uid: uid, name: name, email: email, profilePictureURL: profilePictureURL, spinner: spinner)
             }
         }
     }
     
-    func saveFacebookUser(uid: String, name: String, email: String, profilePictureURL: String) {
+    func saveFacebookUser(uid: String, name: String, email: String, profilePictureURL: String, spinner: UIView) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = name
         changeRequest?.photoURL = NSURL(string: profilePictureURL)! as URL
@@ -132,6 +136,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 print("User Successfully Saved Into Database")
+                UIViewController.removeSpinner(spinner: spinner)
                 
                 self.performSegue(withIdentifier: "GoToCountrySelectorFromLogin", sender: nil)
             }
@@ -162,9 +167,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
         }
         
+        let spinner = UIViewController.showSpinner(onView: self.view)
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
                 print(error)
+                
+                UIViewController.removeSpinner(spinner: spinner)
                 
                 let loginAlert = UIAlertController(title: "Invalid Login", message: "Incorrect Email or Password", preferredStyle: UIAlertControllerStyle.alert)
                 loginAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -174,6 +182,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 print("User Successfully Logged In")
+                UIViewController.removeSpinner(spinner: spinner)
+                
                 self.performSegue(withIdentifier: "Login", sender: nil)
             }
         })
