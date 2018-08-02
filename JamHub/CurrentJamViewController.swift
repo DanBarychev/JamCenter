@@ -12,6 +12,7 @@ import Firebase
 class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var currentSession: Session?
+    var origin: String?
     var musicians = [Musician]()
     var invitees = [Musician]()
     var sessionCode = String()
@@ -398,7 +399,14 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
         
-        dismiss(animated: true, completion: nil)
+        if origin == "MySessions" || origin == "NewSession" {
+            self.performSegue(withIdentifier: "UnwindToMySessionsFromCurrentJam", sender: nil)
+        } else if origin == "CurrentJams" {
+            self.performSegue(withIdentifier: "UnwindToCurrentJamsFromCurrentJam", sender: nil)
+        } else if origin == "Invitations" {
+            self.performSegue(withIdentifier: "UnwindToInvitationsFromCurrentJam", sender: nil)
+        }
+        
     }
     
     @IBAction func manageJamSession(_ sender: Any) {

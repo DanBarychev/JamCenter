@@ -180,8 +180,12 @@ class InvitationsTableViewController: UITableViewController {
                 let indexPath = tableView.indexPath(for: selectedJamCell)!
                 let selectedJam = sessions.reversed()[indexPath.row]
                 newViewController.currentSession = selectedJam
+                newViewController.origin = "Invitations"
             }
         }
+    }
+    
+    @IBAction func unwindToInvitations(sender: UIStoryboardSegue) {
     }
 
 }

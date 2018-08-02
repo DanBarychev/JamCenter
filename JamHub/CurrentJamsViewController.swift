@@ -165,6 +165,7 @@ class CurrentJamsViewController: UITableViewController {
                 let indexPath = tableView.indexPath(for: selectedJamCell)!
                 let selectedJam = sessions.reversed()[indexPath.row]
                 newViewController.currentSession = selectedJam
+                newViewController.origin = "CurrentJams"
             }
         }
     }

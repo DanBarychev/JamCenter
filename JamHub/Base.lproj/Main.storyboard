@@ -196,9 +196,13 @@
                         <outlet property="tableView" destination="yJF-TS-VgW" id="aEg-gw-BWd"/>
                         <segue destination="wAr-BM-GZ5" kind="show" identifier="JoinSession" id="a5x-c0-bTW"/>
                         <segue destination="gIN-Y6-fhL" kind="show" identifier="GoToMyActiveSessionFromCurrentJam" id="akC-yi-f1u"/>
+                        <segue destination="YEN-oz-KPl" kind="unwind" identifier="UnwindToCurrentJamsFromCurrentJam" unwindAction="unwindToCurrentJamsWithSender:" id="srF-PI-Q0T"/>
+                        <segue destination="YEN-oz-KPl" kind="unwind" identifier="UnwindToMySessionsFromCurrentJam" unwindAction="unwindToMySessionsWithSender:" id="bAS-qe-nYr"/>
+                        <segue destination="YEN-oz-KPl" kind="unwind" identifier="UnwindToInvitationsFromCurrentJam" unwindAction="unwindToInvitationsWithSender:" id="yHm-FT-3xB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXv-dz-Imm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YEN-oz-KPl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4040.8000000000002" y="301.79910044977515"/>
         </scene>
@@ -975,7 +979,7 @@
                     <navigationItem key="navigationItem" title="Session Title" id="bFK-e7-lVD">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="yWy-Jq-LHP">
                             <connections>
-                                <segue destination="tkx-eR-KKg" kind="unwind" unwindAction="unwindToMySessionsWithSender:" id="bbI-fO-KE0"/>
+                                <segue destination="tkx-eR-KKg" kind="unwind" unwindAction="unwindToCurrentJamWithSender:" id="LyZ-ZH-1tn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3573,7 +3577,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="6Wg-RF-Skk"/>
         <segue reference="IHQ-Dr-r3t"/>
-        <segue reference="smI-YV-PxM"/>
+        <segue reference="G2p-Ba-fkW"/>
         <segue reference="GEB-aJ-cdI"/>
     </inferredMetricsTieBreakers>
 </document>

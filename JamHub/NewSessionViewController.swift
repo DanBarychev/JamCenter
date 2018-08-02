@@ -195,17 +195,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         return sessionCode
     }
     
-    // MARK: Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToCurrentJamFromNewSession" {
-            let nav = segue.destination as! UINavigationController
-            let newViewController = nav.topViewController as! CurrentJamViewController
-            
-            newViewController.currentSession = overallSession
-        }
-    }
-    
     // MARK: Actions
     private func createSession(completionHandler: @escaping CurrentSessionClosure) {
         let mySession = Session()
@@ -348,5 +337,18 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             self.overallSession = resultSession ?? Session()
         }
         performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
+    }
+    
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToCurrentJamFromNewSession" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! CurrentJamViewController
+            
+            newViewController.currentSession = overallSession
+            newViewController.origin = "NewSession"
+        }
     }
 }
