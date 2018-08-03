@@ -11,6 +11,8 @@ import Firebase
 
 class ProfileSettingsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    typealias deletedUserFromMusiciansClosure = (Bool?) -> Void
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var instrumentsLabel: UILabel!
@@ -166,7 +168,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
     
     // MARK: Firebase Data Upload
     
-    private func userDataUpdateWithProfileImage(profileImageLink: String) {
+    func userDataUpdateWithProfileImage(profileImageLink: String) {
         // Update the user photoURL
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.photoURL = NSURL(string: profileImageLink)! as URL
@@ -192,11 +194,17 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
         })
     }
     
-    private func deleteUser() {
+    // MARK: User Deletion
+    
+    func deleteUser() {
         // Delete the user's data node
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
+        
+        // Delete the user's sessions and delete the user from other sessions
+        filterUserFromSessions(uid: uid)
+        
         let ref = Database.database().reference()
         let userRef = ref.child("users").child(uid)
         
@@ -214,5 +222,65 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 self.performSegue(withIdentifier: "UnwindToLoginFromSettings", sender: nil)
             }
         }
+    }
+    
+    func filterUserFromSessions(uid: String) {
+        let allSessionsRef = Database.database().reference().child("all sessions")
+        
+        allSessionsRef.observe(.childAdded, with: {(snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                
+                guard let hostUID = dictionary["hostUID"] as? String, let sessionID = dictionary["ID"] as? String
+                    else {
+                        return
+                }
+            
+                // If the user is the host, delete the session
+                if uid == hostUID {
+                    allSessionsRef.child(sessionID).removeValue()
+                } else {
+                    self.deleteUserFromSessionMusicians(uid: uid, sessionID: sessionID) { (userMusicianDeleted) in
+                        if let userMusicianDeleted = userMusicianDeleted {
+                            self.deleteUserFromSessionInvitees(uid: uid, sessionID: sessionID)
+                        }
+                    }
+                }
+            }
+        }, withCancel: nil)
+    }
+    
+    func deleteUserFromSessionMusicians(uid: String, sessionID: String,
+                                        completionHandler: @escaping deletedUserFromMusiciansClosure) {
+        let allSessionsRef = Database.database().reference().child("all sessions")
+        let sessionMusiciansRef = allSessionsRef.child(sessionID).child("musicians")
+        
+        sessionMusiciansRef.observe(.childAdded, with: {(snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                guard let musicianID = dictionary["musicianID"] as? String else {
+                    return
+                }
+                
+                if uid == musicianID {
+                    sessionMusiciansRef.child(snapshot.key).removeValue()
+                }
+            }
+        })
+    }
+    
+    func deleteUserFromSessionInvitees(uid: String, sessionID: String) {
+        let allSessionsRef = Database.database().reference().child("all sessions")
+        let sessionInviteesRef = allSessionsRef.child(sessionID).child("Invitees")
+        
+        sessionInviteesRef.observe(.childAdded, with: {(snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                guard let musicianID = dictionary["musicianID"] as? String else {
+                    return
+                }
+                
+                if uid == musicianID {
+                    sessionInviteesRef.child(snapshot.key).removeValue()
+                }
+            }
+        })
     }
 }
