@@ -39,7 +39,7 @@ class MySessionsViewController: UITableViewController {
         return myRefreshControl
     }()
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         getData()
         refreshControl.endRefreshing()
     }
@@ -73,7 +73,7 @@ class MySessionsViewController: UITableViewController {
     
     // MARK: Firebase Functions
 
-    func getData() {
+    @objc func getData() {
         sessions.removeAll()  //Start clean
         
         let uid = Auth.auth().currentUser?.uid

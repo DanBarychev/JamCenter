@@ -67,6 +67,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SwiftVideoBackground (3.0.0)
 
 DEPENDENCIES:
   - Canvas (~> 0.1)
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - SwiftVideoBackground (~> 3.0)
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -98,7 +100,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SwiftVideoBackground: 15c69b74458ad57f123c52f55a5bf6865eaf4eae
 
-PODFILE CHECKSUM: 0698c9fc066ca762aebbdaf2b0836f5d1263363d
+PODFILE CHECKSUM: a5df2013867f14549d362f2177844dbaa8dcd5ee
 
 COCOAPODS: 1.4.0

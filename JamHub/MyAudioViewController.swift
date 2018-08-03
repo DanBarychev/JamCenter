@@ -119,7 +119,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    func recordTapped() {
+    @objc func recordTapped() {
         if audioRecorder == nil {
             playButton.isHidden = true
             pauseButton.isHidden = true
@@ -146,7 +146,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(MyAudioViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         seconds += 1
         recordingClockLabel.text = timeString(time: TimeInterval(seconds))
     }
@@ -184,7 +184,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
             if audioPlayer == nil {
                 /*audioPlayer = try AVAudioPlayer(contentsOf: recordingURL, fileTypeHint: AVFileTypeAppleM4A)*/
                 let recordingData = try Data(contentsOf: recordingURL)
-                audioPlayer = try AVAudioPlayer(data: recordingData, fileTypeHint: AVFileTypeAppleM4A)
+                audioPlayer = try AVAudioPlayer(data: recordingData, fileTypeHint: AVFileType.m4a.rawValue)
                 audioPlayer.prepareToPlay()
                 audioPlayer.play()
             } else {

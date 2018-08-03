@@ -11,6 +11,7 @@ import Firebase
 import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
+import SwiftVideoBackground
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -42,6 +43,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         facebookLoginButton.layer.borderColor = self.view.tintColor.cgColor
         loginButton.layer.borderColor = UIColor.white.cgColor
         noAccountButton.layer.borderColor = UIColor.white.cgColor
+        
+        try? VideoBackground.shared.play(view: view, videoName: "MonkVideo", videoType: "mp4")
     }
     
     // MARK: UITextFieldDelegate
