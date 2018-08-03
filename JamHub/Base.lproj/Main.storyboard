@@ -1614,6 +1614,16 @@
                     <view key="view" contentMode="scaleToFill" id="BAB-63-rJN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muw-pj-r3P">
+                                <rect key="frame" x="16" y="72" width="343" height="538"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">JamHub is an open source application under the MIT license so I welcome any and all contributions and use of its code at https://github.com/DanBarychev/JamHub. This application itself makes use of the Facebook SDK, Google Firebase, and a city selector JSON from https://github.com/salvonos/CityPicker.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Permissions" id="HAb-1a-ZfZ">
@@ -1640,6 +1650,16 @@
                     <view key="view" contentMode="scaleToFill" id="P0j-jh-BBE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45W-hw-VgR">
+                                <rect key="frame" x="16" y="72" width="343" height="538"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Please send any reports of bugs or other issues with the JamHub service to dbaryche@andrew.cmu.edu. I will try to address them all as soon as I can</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Report a Problem" id="wdH-fT-Qog">
@@ -3577,7 +3597,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="6Wg-RF-Skk"/>
         <segue reference="IHQ-Dr-r3t"/>
-        <segue reference="G2p-Ba-fkW"/>
+        <segue reference="smI-YV-PxM"/>
         <segue reference="GEB-aJ-cdI"/>
     </inferredMetricsTieBreakers>
 </document>
