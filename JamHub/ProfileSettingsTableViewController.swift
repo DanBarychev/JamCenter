@@ -240,7 +240,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                     allSessionsRef.child(sessionID).removeValue()
                 } else {
                     self.deleteUserFromSessionMusicians(uid: uid, sessionID: sessionID) { (userMusicianDeleted) in
-                        if let userMusicianDeleted = userMusicianDeleted {
+                        if let _ = userMusicianDeleted {
                             self.deleteUserFromSessionInvitees(uid: uid, sessionID: sessionID)
                         }
                     }
@@ -262,14 +262,17 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 
                 if uid == musicianID {
                     sessionMusiciansRef.child(snapshot.key).removeValue()
+                    completionHandler(true)
                 }
             }
         })
+        
+        completionHandler(false)
     }
     
     func deleteUserFromSessionInvitees(uid: String, sessionID: String) {
         let allSessionsRef = Database.database().reference().child("all sessions")
-        let sessionInviteesRef = allSessionsRef.child(sessionID).child("Invitees")
+        let sessionInviteesRef = allSessionsRef.child(sessionID).child("invitees")
         
         sessionInviteesRef.observe(.childAdded, with: {(snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
