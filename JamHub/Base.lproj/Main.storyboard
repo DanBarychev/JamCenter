@@ -1747,8 +1747,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izq-FN-99T">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColtraneStill" translatesAutoresizingMaskIntoConstraints="NO" id="tqH-U6-X2j">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tqH-U6-X2j">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxd-0s-byL">
                                         <rect key="frame" x="62" y="565" width="251" height="41"/>
@@ -1760,7 +1761,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="9Mn-fy-g5C" kind="show" id="NPe-Jr-snL"/>
+                                            <segue destination="9Mn-fy-g5C" kind="show" id="lg1-rd-Phz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-6w-AaP">
@@ -1858,8 +1859,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbD-kZ-gvo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EllingtonStill" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-fX-sSc">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rMd-fX-sSc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDz-IJ-QZD">
                                         <rect key="frame" x="62" y="552" width="251" height="41"/>
@@ -3531,12 +3533,10 @@
         <image name="ClarinetIconBlue" width="25" height="25"/>
         <image name="ClassicalIcon" width="50" height="50"/>
         <image name="ClassicalIconBlue" width="25" height="25"/>
-        <image name="ColtraneStill" width="474" height="960"/>
         <image name="CountryIcon" width="50" height="50"/>
         <image name="CountryIconBlue" width="25" height="25"/>
         <image name="DrumIcon" width="25" height="25"/>
         <image name="DrumIconBlue" width="25" height="25"/>
-        <image name="EllingtonStill" width="474" height="960"/>
         <image name="FacebookIcon" width="50" height="50"/>
         <image name="FluteIcon" width="25" height="25"/>
         <image name="FluteIconBlue" width="25" height="25"/>
