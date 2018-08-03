@@ -130,7 +130,7 @@ public class VideoBackground {
 
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = view.bounds
-        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        playerLayer.videoGravity = .resizeAspectFill
         playerLayer.zPosition = -1
         view.layer.insertSublayer(playerLayer, at: 0)
 

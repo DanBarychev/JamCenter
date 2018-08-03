@@ -25,6 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var noAccountButton: UIButton!
+    @IBOutlet weak var loginView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.borderColor = UIColor.white.cgColor
         noAccountButton.layer.borderColor = UIColor.white.cgColor
         
-        try? VideoBackground.shared.play(view: view, videoName: "MonkVideo", videoType: "mp4")
+        do {
+            try VideoBackground.shared.play(view: loginView, videoName: "Bridge", videoType: "mp4")
+        } catch {
+            print("Couldn't play video")
+        }
     }
     
     // MARK: UITextFieldDelegate

@@ -14,7 +14,8 @@
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
 		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
 		D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */; };
-		D66D36542114FD6A00401D98 /* MonkVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D66D36532114FD6900401D98 /* MonkVideo.mp4 */; };
+		D66D365B21150F7F00401D98 /* Bridge.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D66D365921150F7E00401D98 /* Bridge.mp4 */; };
+		D66D365C21150F7F00401D98 /* River.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D66D365A21150F7F00401D98 /* River.mp4 */; };
 		D66FECFA210E2CB8003AC643 /* EditCountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FECF9210E2CB8003AC643 /* EditCountryTableViewController.swift */; };
 		D66FECFC210E2CDE003AC643 /* EditCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FECFB210E2CDE003AC643 /* EditCityTableViewController.swift */; };
 		D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */; };
@@ -96,7 +97,8 @@
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
 		D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrentSessionViewController.swift; sourceTree = "<group>"; };
 		D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMusicianProfileViewController.swift; sourceTree = "<group>"; };
-		D66D36532114FD6900401D98 /* MonkVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = MonkVideo.mp4; path = "../../../JamHub Icons/MonkVideo.mp4"; sourceTree = "<group>"; };
+		D66D365921150F7E00401D98 /* Bridge.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bridge.mp4; sourceTree = "<group>"; };
+		D66D365A21150F7F00401D98 /* River.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = River.mp4; sourceTree = "<group>"; };
 		D66FECF9210E2CB8003AC643 /* EditCountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountryTableViewController.swift; sourceTree = "<group>"; };
 		D66FECFB210E2CDE003AC643 /* EditCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCityTableViewController.swift; sourceTree = "<group>"; };
 		D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJamsViewController.swift; sourceTree = "<group>"; };
@@ -262,10 +264,11 @@
 				D66FECF9210E2CB8003AC643 /* EditCountryTableViewController.swift */,
 				D66FECFB210E2CDE003AC643 /* EditCityTableViewController.swift */,
 				D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */,
+				D66D365921150F7E00401D98 /* Bridge.mp4 */,
+				D66D365A21150F7F00401D98 /* River.mp4 */,
 				D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */,
 				D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */,
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
-				D66D36532114FD6900401D98 /* MonkVideo.mp4 */,
 				D6C6713520E090C200468562 /* countriesToCities.json */,
 				D6FE852C1ECCBD7A0020CEE6 /* Info.plist */,
 				D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */,
@@ -415,10 +418,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D66D365B21150F7F00401D98 /* Bridge.mp4 in Resources */,
 				D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */,
 				D6C6713620E090C300468562 /* countriesToCities.json in Resources */,
-				D66D36542114FD6A00401D98 /* MonkVideo.mp4 in Resources */,
 				D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */,
+				D66D365C21150F7F00401D98 /* River.mp4 in Resources */,
 				D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */,
 				D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */,
 			);

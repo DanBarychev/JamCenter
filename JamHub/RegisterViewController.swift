@@ -9,6 +9,7 @@
 
 import UIKit
 import Firebase
+import SwiftVideoBackground
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
@@ -18,7 +19,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
-
+    @IBOutlet weak var registerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         registerButton.layer.cornerRadius = 20
         registerButton.layer.borderWidth = 2
         registerButton.layer.borderColor = UIColor.white.cgColor
+        
+        do {
+            try VideoBackground.shared.play(view: registerView, videoName: "River", videoType: "mp4")
+        } catch {
+            print("Couldn't play video")
+        }
     }
 
     // MARK: UITextFieldDelegate

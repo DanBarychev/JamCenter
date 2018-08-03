@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,16 +21,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JamHubBackground" translatesAutoresizingMaskIntoConstraints="NO" id="BM7-iZ-rSI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JamHubBackgroundBlack" translatesAutoresizingMaskIntoConstraints="NO" id="W07-Td-ksg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BM7-iZ-rSI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="A6u-0T-KJ3"/>
-                            <constraint firstItem="BM7-iZ-rSI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="GPt-fi-uIS"/>
-                            <constraint firstAttribute="trailing" secondItem="BM7-iZ-rSI" secondAttribute="trailing" id="g5W-qr-dWJ"/>
-                            <constraint firstItem="BM7-iZ-rSI" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="nEi-BG-qFC"/>
+                            <constraint firstAttribute="trailing" secondItem="W07-Td-ksg" secondAttribute="trailing" id="0Ao-bn-Cdt"/>
+                            <constraint firstItem="W07-Td-ksg" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="B8m-zK-Uze"/>
+                            <constraint firstItem="W07-Td-ksg" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Q4V-PQ-lw2"/>
+                            <constraint firstItem="W07-Td-ksg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="xLD-rD-tSL"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="JamHubBackground" width="750" height="1334"/>
+        <image name="JamHubBackgroundBlack" width="750" height="1334"/>
     </resources>
 </document>
