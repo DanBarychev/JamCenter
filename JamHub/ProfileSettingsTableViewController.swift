@@ -236,6 +236,7 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 }
             
                 // If the user is the host, delete the session
+                // Otherwise, delete the user from the musician and invitee lists
                 if uid == hostUID {
                     allSessionsRef.child(sessionID).removeValue()
                 } else {

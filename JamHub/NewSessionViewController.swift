@@ -335,8 +335,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         print("Beginning Session !!!!!")
         createSession { (resultSession) in
             self.overallSession = resultSession ?? Session()
+            
+            self.performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
         }
-        performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
     }
     
     
