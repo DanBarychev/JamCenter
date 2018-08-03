@@ -1764,9 +1764,11 @@
                                             <segue destination="9Mn-fy-g5C" kind="show" id="lg1-rd-Phz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-6w-AaP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3f-6w-AaP">
                                         <rect key="frame" x="62" y="425" width="251" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="sTe-1Q-UJb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Facebook Login">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1775,14 +1777,25 @@
                                             <action selector="facebookLogin:" destination="jEQ-xE-Bqx" eventType="touchUpInside" id="Rnq-qE-NCO"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JamHub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apb-ZM-emu">
+                                        <rect key="frame" x="104" y="92" width="167" height="56"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Mxd-0s-byL" firstAttribute="top" secondItem="o3f-6w-AaP" secondAttribute="bottom" constant="99" id="JJh-gU-yDF"/>
+                                    <constraint firstItem="o3f-6w-AaP" firstAttribute="trailing" secondItem="Mxd-0s-byL" secondAttribute="trailing" id="QiI-nk-Tvr"/>
                                     <constraint firstItem="tqH-U6-X2j" firstAttribute="leading" secondItem="Izq-FN-99T" secondAttribute="leading" id="V8H-vJ-Gv2"/>
+                                    <constraint firstItem="Apb-ZM-emu" firstAttribute="centerX" secondItem="o3f-6w-AaP" secondAttribute="centerX" id="ZY4-u3-B8u"/>
+                                    <constraint firstItem="Apb-ZM-emu" firstAttribute="top" secondItem="Izq-FN-99T" secondAttribute="top" constant="92" id="m91-OG-Hhe"/>
                                     <constraint firstAttribute="trailing" secondItem="tqH-U6-X2j" secondAttribute="trailing" id="nvp-2a-gcX"/>
                                     <constraint firstAttribute="bottom" secondItem="Mxd-0s-byL" secondAttribute="bottom" constant="61" id="oj8-6C-iLT"/>
                                     <constraint firstItem="tqH-U6-X2j" firstAttribute="centerX" secondItem="Mxd-0s-byL" secondAttribute="centerX" id="pjy-jG-EDz"/>
                                     <constraint firstItem="Mxd-0s-byL" firstAttribute="leading" secondItem="Izq-FN-99T" secondAttribute="leading" constant="62" id="rV2-gf-Muw"/>
+                                    <constraint firstItem="o3f-6w-AaP" firstAttribute="leading" secondItem="Mxd-0s-byL" secondAttribute="leading" id="s17-MH-LOp"/>
                                     <constraint firstAttribute="bottom" secondItem="tqH-U6-X2j" secondAttribute="bottom" id="u14-tW-VQ5"/>
                                     <constraint firstItem="tqH-U6-X2j" firstAttribute="top" secondItem="Izq-FN-99T" secondAttribute="top" id="w6w-rM-3Jf"/>
                                 </constraints>
@@ -1876,6 +1889,12 @@
                                             <action selector="register:" destination="9Mn-fy-g5C" eventType="touchUpInside" id="tLY-3Y-dh4"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JamHub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81V-Jf-Hpy">
+                                        <rect key="frame" x="104" y="93" width="167" height="56"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1885,6 +1904,8 @@
                                     <constraint firstItem="rMd-fX-sSc" firstAttribute="centerX" secondItem="rDz-IJ-QZD" secondAttribute="centerX" id="Dx5-zS-oKt"/>
                                     <constraint firstItem="rDz-IJ-QZD" firstAttribute="leading" secondItem="rbD-kZ-gvo" secondAttribute="leading" constant="62" id="M64-M8-a8C"/>
                                     <constraint firstAttribute="trailing" secondItem="rMd-fX-sSc" secondAttribute="trailing" id="fNT-dB-AaT"/>
+                                    <constraint firstItem="81V-Jf-Hpy" firstAttribute="centerX" secondItem="rDz-IJ-QZD" secondAttribute="centerX" id="jqM-wm-nAT"/>
+                                    <constraint firstItem="81V-Jf-Hpy" firstAttribute="top" secondItem="rbD-kZ-gvo" secondAttribute="top" constant="93" id="mON-fc-L70"/>
                                     <constraint firstAttribute="bottom" secondItem="rMd-fX-sSc" secondAttribute="bottom" id="x6l-ru-MbG"/>
                                 </constraints>
                             </view>
