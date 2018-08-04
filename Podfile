@@ -14,7 +14,6 @@ target 'JamHub' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
-  pod 'SwiftVideoBackground', '~> 3.0'
   pod 'Canvas', '~> 0.1'
 
   target 'JamHubTests' do

@@ -5,13 +5,13 @@
 //  Created by Daniel Barychev on 5/18/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.
 //
+//  Background photo by Edward Castro
 
 import UIKit
 import Firebase
 import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
-import SwiftVideoBackground
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -25,7 +25,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var facebookLoginButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var noAccountButton: UIButton!
-    @IBOutlet weak var loginView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +43,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         facebookLoginButton.layer.borderColor = self.view.tintColor.cgColor
         loginButton.layer.borderColor = UIColor.white.cgColor
         noAccountButton.layer.borderColor = UIColor.white.cgColor
-        
-        do {
-            try VideoBackground.shared.play(view: loginView, videoName: "Bridge", videoType: "mp4")
-        } catch {
-            print("Couldn't play video")
-        }
     }
     
     // MARK: UITextFieldDelegate
