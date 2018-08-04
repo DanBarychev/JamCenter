@@ -151,7 +151,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
     }
     
-    // MARK: Download Musicians From Firebase
+    // MARK: Firebase Download
+    
     func getData(completionHandler: @escaping MusicianClosure) {
         let usersRef = Database.database().reference().child("users")
         
@@ -181,6 +182,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             }
         }, withCancel: nil)
     }
+    
+    // MARK: Session Code
     
     func createSessionCode() -> String {
         let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" as NSString

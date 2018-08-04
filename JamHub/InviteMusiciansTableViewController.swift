@@ -7,33 +7,125 @@
 //
 
 import UIKit
+import Firebase
 
 class InviteMusiciansTableViewController: UITableViewController {
 
+    // MARK: Properties
+    
+    var musicians = [Musician]()
+    var selectedMusicians = [Musician]()
+    var selectedMusicianNames = [String]()
+    
+    typealias CurrentSessionClosure = (Session?) -> Void
+    typealias MusicianClosure = (Musician?) -> Void
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getData()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    // number of rows in table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return musicians.count
     }
-
-    /*
+    
+    // create a cell for each table view row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InviteMusiciansCell", for: indexPath) as! InviteMusiciansTableViewCell
+        
+        // set the text from the data model
+        let musician = musicians[indexPath.row]
+        
+        cell.nameLabel.text = musician.name
+        cell.instrumentsLabel.text = musician.instruments
+        if let profileImageURL = musician.profileImageURL {
+            cell.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
+        }
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
+        cell.profileImageView.clipsToBounds = true
+        
         return cell
     }
-    */
+    
+    // When we select a musician
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! InviteMusiciansTableViewCell
+        
+        let musician = musicians[indexPath.row]
+        
+        if let musicianName = musician.name {
+            if cell.okIcon.isHidden {
+                cell.okIcon.isHidden = false
+                
+                selectedMusicianNames.append(musicianName)
+                selectedMusicians.append(musician)
+            } else {
+                cell.okIcon.isHidden = true
+                
+                if let index = selectedMusicianNames.index(of: musicianName) {
+                    selectedMusicianNames.remove(at: index)
+                    selectedMusicians.remove(at: index)
+                }
+                
+            }
+        }
+    }
+    
+    // MARK: Firebase Download
+    
+    func getData() {
+        let usersRef = Database.database().reference().child("users")
+        
+        usersRef.observe(.childAdded, with: {(snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let sessionMusician = Musician()
+                
+                sessionMusician.uid = snapshot.key
+                sessionMusician.name = dictionary["name"] as? String
+                sessionMusician.genres = dictionary["genres"] as? String
+                sessionMusician.instruments = dictionary["instruments"] as? String
+                sessionMusician.profileImageURL = dictionary["profileImageURL"] as? String
+                sessionMusician.city = dictionary["city"] as? String
+                sessionMusician.country = dictionary["country"] as? String
+                sessionMusician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
+                
+                //We don't want to add the current user
+                if sessionMusician.uid != Auth.auth().currentUser?.uid {
+                    self.musicians.append(sessionMusician)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }, withCancel: nil)
+    }
+    
+    // MARK: Invite Sending
+    
+    func sendInvites(musicians: [Musician], session: Session) {
+        let ref = Database.database().reference()
+        for musician in musicians {
+            let uid = musician.uid
+            let musicianInvitationsRef = ref.child("users").child(uid!).child("invitations")
+            let musicianInvitationsKey = musicianInvitationsRef.childByAutoId()
+            
+            let values = ["sessionID": session.ID as Any]
+            
+            musicianInvitationsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                } else {
+                    if let musicianName = musician.name {
+                        print("Invitation sent to \(musicianName)")
+                    }
+                }
+            })
+        }
+    }
 }
