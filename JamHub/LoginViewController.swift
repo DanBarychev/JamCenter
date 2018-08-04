@@ -43,6 +43,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         facebookLoginButton.layer.borderColor = self.view.tintColor.cgColor
         loginButton.layer.borderColor = UIColor.white.cgColor
         noAccountButton.layer.borderColor = UIColor.white.cgColor
+        
+        facebookLoginButton.layer.backgroundColor = self.view.tintColor.cgColor
     }
     
     // MARK: UITextFieldDelegate
