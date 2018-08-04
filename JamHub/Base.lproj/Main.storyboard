@@ -773,7 +773,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-IP-7dt">
                                 <rect key="frame" x="176" y="273" width="22" height="22"/>
                                 <connections>
-                                    <segue destination="7Zd-fz-kfm" kind="show" id="qvw-f2-d9d"/>
+                                    <action selector="inviteMusiciansTapped:" destination="j0g-e2-atm" eventType="touchUpInside" id="rLK-V7-SvL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -829,6 +829,7 @@
                         <outlet property="titleLabel" destination="lFs-xl-RFg" id="ypp-kw-J37"/>
                         <outlet property="titleTextField" destination="yeJ-pr-UlC" id="b3q-ZL-2rn"/>
                         <segue destination="C7x-iN-Qi6" kind="show" identifier="GoToCurrentJamFromNewSession" id="smI-YV-PxM"/>
+                        <segue destination="7Zd-fz-kfm" kind="show" identifier="GoToInviteMusiciansFromNewSession" id="caz-vU-FRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHw-Lh-q6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3295,11 +3296,15 @@
                     <navigationItem key="navigationItem" title="Invite Musicians" id="y4y-wf-Dn0">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="Rgf-uz-cNL">
                             <connections>
-                                <segue destination="3lu-R9-R2T" kind="unwind" unwindAction="unwindToNewSessionWithSender:" id="vFb-ra-51o"/>
+                                <action selector="backButtonTapped:" destination="lrr-1I-3NV" id="FCD-LV-hOX"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Invite" id="kTo-db-6ja"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3lu-R9-R2T" kind="unwind" identifier="UnwindToNewSessionFromInviteMusicians" unwindAction="unwindToNewSessionWithSender:" id="WRj-Cf-Gpc"/>
+                        <segue destination="3lu-R9-R2T" kind="unwind" unwindAction="unwindToCurrentJamWithSender:" id="pa5-PH-d7p"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5k-gn-ybd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3lu-R9-R2T" userLabel="Exit" sceneMemberID="exit"/>

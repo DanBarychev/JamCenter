@@ -16,6 +16,7 @@ class InviteMusiciansTableViewController: UITableViewController {
     var musicians = [Musician]()
     var selectedMusicians = [Musician]()
     var selectedMusicianNames = [String]()
+    var origin: String?
     
     typealias CurrentSessionClosure = (Session?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
@@ -128,4 +129,13 @@ class InviteMusiciansTableViewController: UITableViewController {
             })
         }
     }
+    
+    // MARK: Actions
+    
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        if origin == "NewSession" {
+            self.performSegue(withIdentifier: "UnwindToNewSessionFromInviteMusicians", sender: nil)
+        }
+    }
+    
 }

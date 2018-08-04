@@ -200,6 +200,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     // MARK: Actions
+    
     private func createSession(completionHandler: @escaping CurrentSessionClosure) {
         let mySession = Session()
         
@@ -344,6 +345,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
     }
     
+    @IBAction func inviteMusiciansTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "GoToInviteMusiciansFromNewSession", sender: nil)
+    }
     
     // MARK: Navigation
     
@@ -353,6 +357,11 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             let newViewController = nav.topViewController as! CurrentJamViewController
             
             newViewController.currentSession = overallSession
+            newViewController.origin = "NewSession"
+        } else if segue.identifier == "GoToInviteMusiciansFromNewSession" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! InviteMusiciansTableViewController
+            
             newViewController.origin = "NewSession"
         }
     }
