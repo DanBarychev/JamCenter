@@ -46,6 +46,11 @@ class EditCountryTableViewController: UITableViewController, UISearchBarDelegate
         self.tableView.reloadData()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Hide Keyboard
+        searchBar.resignFirstResponder()
+    }
+    
     // MARK: Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
