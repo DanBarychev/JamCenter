@@ -10,8 +10,6 @@ import UIKit
 
 class CurrentJamMusicianTableViewCell: UITableViewCell {
 
-    // MARK: Properties
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var instrumentsLabel: UILabel!

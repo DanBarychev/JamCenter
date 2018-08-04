@@ -164,8 +164,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
                 sessionMusician.genres = dictionary["genres"] as? String
                 sessionMusician.instruments = dictionary["instruments"] as? String
                 sessionMusician.profileImageURL = dictionary["profileImageURL"] as? String
+                sessionMusician.city = dictionary["city"] as? String
+                sessionMusician.country = dictionary["country"] as? String
                 sessionMusician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
-                sessionMusician.lastSession = dictionary["lastSession"] as? String
                 
                 //We don't want to add the current user
                 if sessionMusician.uid != Auth.auth().currentUser?.uid {

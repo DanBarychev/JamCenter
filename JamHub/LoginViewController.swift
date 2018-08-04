@@ -131,7 +131,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let ref = Database.database().reference()
         let usersRef = ref.child("users").child(uid)
-        let values = ["name": name, "email": email, "profileImageURL": profilePictureURL]
+        let values = ["name": name, "email": email, "profileImageURL": profilePictureURL,
+                      "numSessions": "0"]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
             if let error = error {
                 print(error)

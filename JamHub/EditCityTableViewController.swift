@@ -112,7 +112,7 @@ class EditCityTableViewController: UITableViewController, UISearchBarDelegate {
             return
         }
         
-        let values = ["location": "\(selectedCity), \(selectedCountry)"]
+        let values = ["country": selectedCountry, "city": selectedCity]
         
         userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
             if error != nil {

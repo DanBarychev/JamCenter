@@ -13,8 +13,6 @@ import Firebase
 class CurrentJamsViewController: UITableViewController {
     
     var sessions = [Session]()
-    typealias MusicianArrayClosure = ([Musician]?) -> Void
-    typealias MusicianClosure = (Musician?) -> Void
     typealias UserLocationClosure = (String?) -> Void
     typealias HostImageURLClosure = (String?) -> Void
     typealias HostLocationClosure = (String?) -> Void
@@ -122,7 +120,8 @@ class CurrentJamsViewController: UITableViewController {
             (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                if let userLocation = dictionary["location"] as? String {
+                if let userCity = dictionary["city"] as? String, let userCountry = dictionary["country"] as? String {
+                    let userLocation = "\(userCity), \(userCountry)"
                     completionHandler(userLocation)
                 }
             }
@@ -146,7 +145,8 @@ class CurrentJamsViewController: UITableViewController {
             (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 
-                if let hostLocation = dictionary["location"] as? String {
+                if let hostCity = dictionary["city"] as? String, let hostCountry = dictionary["country"] as? String {
+                    let hostLocation = "\(hostCity), \(hostCountry)"
                     completionHandler(hostLocation)
                 }
             }

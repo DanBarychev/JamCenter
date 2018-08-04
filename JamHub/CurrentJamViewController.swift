@@ -35,8 +35,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Loading session view")
-        
         manageButton.isEnabled = false
         
         tableView.delegate = self
@@ -58,9 +56,9 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             hostNameLabel.text = currentJamSession.host
             locationLabel.text = currentJamSession.location
             genreLabel.text = currentJamSession.genre
-            sessionCode = currentJamSession.code ?? "unavailable"
-            sessionID = currentJamSession.ID ?? "unavailable"
-            sessionHostUID = currentJamSession.hostUID ?? "unavailable"
+            sessionCode = currentJamSession.code ?? ""
+            sessionID = currentJamSession.ID ?? ""
+            sessionHostUID = currentJamSession.hostUID ?? ""
             
             //See what to do with the current user
             if let userID = Auth.auth().currentUser?.uid {
@@ -211,8 +209,9 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 musician.genres = dictionary["genres"] as? String
                 musician.instruments = dictionary["instruments"] as? String
                 musician.profileImageURL = dictionary["profileImageURL"] as? String
+                musician.city = dictionary["city"] as? String
+                musician.country = dictionary["country"] as? String
                 musician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
-                musician.lastSession = dictionary["lastSession"] as? String
                 
                 completionHandler(musician)
             }

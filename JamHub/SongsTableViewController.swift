@@ -45,27 +45,6 @@ class SongsTableViewController: UITableViewController {
         
         return cell
     }
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! SongTableViewCell
-        
-        let musician = musicians[indexPath.row]
-        
-        if cell.okIcon.isHidden {
-            cell.okIcon.isHidden = false
-            
-            selectedMusicianNames.append(musician.name!)
-            selectedMusicians.append(musician)
-        } else {
-            cell.okIcon.isHidden = true
-            
-            if let index = selectedMusicianNames.index(of: musician.name!) {
-                selectedMusicianNames.remove(at: index)
-                selectedMusicians.remove(at: index)
-            }
-            
-        }
-    } */
     
     // MARK: Firebase Operations
     

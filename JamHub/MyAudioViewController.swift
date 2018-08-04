@@ -182,7 +182,6 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
             try AVAudioSession.sharedInstance().setActive(true)
             
             if audioPlayer == nil {
-                /*audioPlayer = try AVAudioPlayer(contentsOf: recordingURL, fileTypeHint: AVFileTypeAppleM4A)*/
                 let recordingData = try Data(contentsOf: recordingURL)
                 audioPlayer = try AVAudioPlayer(data: recordingData, fileTypeHint: AVFileType.m4a.rawValue)
                 audioPlayer.prepareToPlay()

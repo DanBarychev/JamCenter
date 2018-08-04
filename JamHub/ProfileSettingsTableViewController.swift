@@ -154,10 +154,13 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 self.nameLabel.text = dictionary["name"] as? String
                 self.genresLabel.text = dictionary["genres"] as? String
                 self.instrumentsLabel.text = dictionary["instruments"] as? String
-                self.locationLabel.text = dictionary["location"] as? String
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     self.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
                 }
+                
+                let city = dictionary["city"] as? String
+                let country = dictionary["country"] as? String
+                self.locationLabel.text = "\(city ?? ""), \(country ?? "")"
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

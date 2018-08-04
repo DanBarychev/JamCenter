@@ -14,7 +14,8 @@ class Musician {
     var instruments: String?
     var genres: String?
     var profileImageURL: String?
+    var city: String?
+    var country: String?
     var numSessions: Int?
-    var lastSession: String?
     var invitations: [String]?
 }
