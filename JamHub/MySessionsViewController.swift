@@ -13,6 +13,7 @@ import Firebase
 class MySessionsViewController: UITableViewController {
     
     var sessions = [Session]()
+    var unwinding: Bool?
     typealias isParticipantClosure = (Bool?) -> Void
 
     override func viewDidLoad() {
@@ -21,7 +22,9 @@ class MySessionsViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        getData()
+        if !(unwinding ?? false) {
+            getData()
+        }
         
         self.tableView.addSubview(self.myRefreshControl)
         

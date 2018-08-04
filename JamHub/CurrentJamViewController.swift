@@ -370,8 +370,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             let newViewController = nav.topViewController as! ActiveCurrentSessionViewController
             
             newViewController.currentSession = currentSession
-        }
-        else if segue.identifier == "ViewMusician" {
+        } else if segue.identifier == "ViewMusician" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! OtherMusicianProfileViewController
             
@@ -381,12 +380,15 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 let selectedMusician = musicians[indexPath.row]
                 newViewController.selectedMusician = selectedMusician
             }
-        }
-        else if segue.identifier == "GoToMyActiveSessionFromCurrentJam" {
+        } else if segue.identifier == "GoToMyActiveSessionFromCurrentJam" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! MyActiveSessionViewController
             
             newViewController.mySession = currentSession
+        } else if segue.identifier == "UnwindToMySessionsFromCurrentJam" {
+            let newViewController = segue.destination as! MySessionsViewController
+            
+            newViewController.unwinding = true
         }
     }
     
@@ -407,10 +409,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
-        let ref = Database.database().reference()
-        
-        ref.removeAllObservers()
-        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
         
         if origin == "MySessions" || origin == "NewSession" {
