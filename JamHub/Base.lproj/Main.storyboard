@@ -1273,7 +1273,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="3TM-Sq-Bah">
-                            <color key="tintColor" red="1" green="0.12946888109999999" blue="0.10401432369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="logout:" destination="EYx-6Z-zUP" id="OMO-Nf-rCe"/>
                                 <segue destination="P4a-fS-qwX" kind="unwind" unwindAction="unwindToLoginScreenWithSender:" id="Kwv-cu-e1v"/>
