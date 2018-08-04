@@ -13,7 +13,6 @@ import Firebase
 class MySessionsViewController: UITableViewController {
     
     var sessions = [Session]()
-    var unwinding: Bool?
     typealias isParticipantClosure = (Bool?) -> Void
 
     override func viewDidLoad() {
@@ -22,13 +21,9 @@ class MySessionsViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        if !(unwinding ?? false) {
-            getData()
-        }
+        getData()
         
         self.tableView.addSubview(self.myRefreshControl)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
     }
     
     // MARK: Refresh Control
@@ -77,6 +72,7 @@ class MySessionsViewController: UITableViewController {
     // MARK: Firebase Functions
 
     @objc func getData() {
+        print("GET DATA")
         sessions.removeAll()  //Start clean
         
         let uid = Auth.auth().currentUser?.uid

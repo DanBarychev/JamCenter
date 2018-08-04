@@ -385,10 +385,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             let newViewController = nav.topViewController as! MyActiveSessionViewController
             
             newViewController.mySession = currentSession
-        } else if segue.identifier == "UnwindToMySessionsFromCurrentJam" {
-            let newViewController = segue.destination as! MySessionsViewController
-            
-            newViewController.unwinding = true
         }
     }
     
@@ -409,8 +405,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
-        
         if origin == "MySessions" || origin == "NewSession" {
             self.performSegue(withIdentifier: "UnwindToMySessionsFromCurrentJam", sender: nil)
         } else if origin == "CurrentJams" {
