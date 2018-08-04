@@ -94,6 +94,8 @@ class SelectCityTableViewController: UITableViewController, UISearchBarDelegate 
                     let countryCityDict = jsonResult as! NSDictionary
                     
                     allCities = countryCityDict[selectedCountry as Any] as! [String]
+                    // Filter out any duplicates
+                    allCities = Array(Set(allCities))
                 } catch {}
             } catch {}
         }

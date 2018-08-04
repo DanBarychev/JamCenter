@@ -91,6 +91,8 @@ class EditCountryTableViewController: UITableViewController, UISearchBarDelegate
                     
                     let countriesArray = (jsonResult as AnyObject).allKeys as! [String]
                     allCountries = countriesArray.sorted()
+                    // Filter out any duplicates
+                    allCountries = Array(Set(allCountries))
                 } catch {}
             } catch {}
         }
