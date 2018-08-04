@@ -353,4 +353,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             newViewController.origin = "NewSession"
         }
     }
+    
+    @IBAction func unwindToNewSession(sender: UIStoryboardSegue) {
+    }
 }
