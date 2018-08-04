@@ -39,21 +39,15 @@ class ProfileViewController: UIViewController {
             (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                self.nameLabel.text = (dictionary["name"] as? String)
-                let city = dictionary["city"] as? String
-                let country = dictionary["country"] as? String
-                let genres = dictionary["genres"] as? String
-                let instruments = dictionary["instruments"] as? String
-                let numSessions = dictionary["numSessions"] as? String
+                self.nameLabel.text = dictionary["name"] as? String
+                self.cityLabel.text = dictionary["city"] as? String
+                self.countryLabel.text = dictionary["country"] as? String
+                self.genresLabel.text = dictionary["genres"] as? String
+                self.instrumentsLabel.text = dictionary["instruments"] as? String
+                self.numSessionsLabel.text = dictionary["numSessions"] as? String
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     self.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
                 }
-                
-                self.instrumentsLabel.text = instruments
-                self.genresLabel.text = genres
-                self.cityLabel.text = city
-                self.countryLabel.text = country
-                self.numSessionsLabel.text = numSessions
             }
         })
     }

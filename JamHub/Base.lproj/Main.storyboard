@@ -3299,11 +3299,16 @@
                                 <action selector="backButtonTapped:" destination="lrr-1I-3NV" id="FCD-LV-hOX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Invite" id="kTo-db-6ja"/>
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="kTo-db-6ja">
+                            <connections>
+                                <action selector="topRightReturnTapped:" destination="lrr-1I-3NV" id="IZF-bh-4ld"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="topRightReturnButton" destination="kTo-db-6ja" id="weI-Fq-WKx"/>
                         <segue destination="3lu-R9-R2T" kind="unwind" identifier="UnwindToNewSessionFromInviteMusicians" unwindAction="unwindToNewSessionWithSender:" id="WRj-Cf-Gpc"/>
-                        <segue destination="3lu-R9-R2T" kind="unwind" unwindAction="unwindToCurrentJamWithSender:" id="pa5-PH-d7p"/>
+                        <segue destination="3lu-R9-R2T" kind="unwind" identifier="UnwindToCurrentJamFromInviteMusicians" unwindAction="unwindToCurrentJamWithSender:" id="pa5-PH-d7p"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5k-gn-ybd" userLabel="First Responder" sceneMemberID="firstResponder"/>

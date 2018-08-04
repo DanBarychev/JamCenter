@@ -20,18 +20,17 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     @IBOutlet weak var genreTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
-    
     @IBOutlet weak var musicianTableView: UITableView!
+    
     var overallSession = Session()
-    var musicians = [Musician]()
-    var selectedMusicians = [Musician]()
-    var selectedMusicianNames = [String]()
+    var invitedMusicians: [Musician]?
+    var invitedMusicianNames: [String]?
+    var currentUserMusician = Musician()
     
     var genreOptions = ["Rock", "Rap/Hip-Hop", "Jazz/Blues", "Pop", "Country", "Classical"]
     
-    typealias CurrentSessionClosure = (Session?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
-    var currentUserMusician = Musician()
+    typealias CreateSessionClosure = (Session?) -> Void
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +47,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         pickerView.delegate = self
         genreTextField.inputView = pickerView
         
-        // Find the current user's musician profile
-        getData { (musician) in
+        getUser { (musician) in
             self.currentUserMusician = musician ?? Musician()
         }
     }
@@ -58,16 +56,23 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return musicians.count
+        if let invitedMusicians = invitedMusicians {
+            return invitedMusicians.count
+        } else {
+            return 0
+        }
     }
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewSessionMusicianCell", for: indexPath) as! NewSessionMusicianTableViewCell
         
-        // set the text from the data model
-        let musician = musicians[indexPath.row]
+        var musician = Musician()
+        if let invitedMusicians = invitedMusicians {
+            musician = invitedMusicians[indexPath.row]
+        }
         
+        // set the text from the data model
         cell.nameLabel.text = musician.name
         cell.instrumentsLabel.text = musician.instruments
         if let profileImageURL = musician.profileImageURL {
@@ -77,30 +82,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         cell.profileImageView.clipsToBounds = true
         
         return cell
-    }
-    
-    // When we select a musician
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! NewSessionMusicianTableViewCell
-        
-        let musician = musicians[indexPath.row]
-        
-        if let musicianName = musician.name {
-            if cell.okIcon.isHidden {
-                cell.okIcon.isHidden = false
-                
-                selectedMusicianNames.append(musicianName)
-                selectedMusicians.append(musician)
-            } else {
-                cell.okIcon.isHidden = true
-                
-                if let index = selectedMusicianNames.index(of: musicianName) {
-                    selectedMusicianNames.remove(at: index)
-                    selectedMusicians.remove(at: index)
-                }
-                
-            }
-        }
     }
     
     // MARK: UITextFieldDelegate
@@ -151,36 +132,26 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
     }
     
-    // MARK: Firebase Download
+    // MARK: Firebase User Download
     
-    func getData(completionHandler: @escaping MusicianClosure) {
-        let usersRef = Database.database().reference().child("users")
-        
-        usersRef.observe(.childAdded, with: {(snapshot) in
+    func getUser(completionHandler: @escaping MusicianClosure) {
+        let uid = Auth.auth().currentUser?.uid
+        Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: {
+            (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let sessionMusician = Musician()
+                let userMusician = Musician()
                 
-                sessionMusician.uid = snapshot.key
-                sessionMusician.name = dictionary["name"] as? String
-                sessionMusician.genres = dictionary["genres"] as? String
-                sessionMusician.instruments = dictionary["instruments"] as? String
-                sessionMusician.profileImageURL = dictionary["profileImageURL"] as? String
-                sessionMusician.city = dictionary["city"] as? String
-                sessionMusician.country = dictionary["country"] as? String
-                sessionMusician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
+                userMusician.name = dictionary["name"] as? String
+                userMusician.city = dictionary["city"] as? String
+                userMusician.country = dictionary["country"] as? String
+                userMusician.genres = dictionary["genres"] as? String
+                userMusician.instruments = dictionary["instruments"] as? String
+                userMusician.numSessions = Int((dictionary["numSessions"] as? String) ?? "0")
+                userMusician.profileImageURL = dictionary["profileImageURL"] as? String
                 
-                //We don't want to add the current user
-                if sessionMusician.uid != Auth.auth().currentUser?.uid {
-                    self.musicians.append(sessionMusician)
-                } else {
-                    completionHandler(sessionMusician)
-                }
-                
-                DispatchQueue.main.async {
-                    self.musicianTableView.reloadData()
-                }
+                completionHandler(userMusician)
             }
-        }, withCancel: nil)
+        })
     }
     
     // MARK: Session Code
@@ -201,7 +172,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     // MARK: Actions
     
-    private func createSession(completionHandler: @escaping CurrentSessionClosure) {
+    private func createSession(completionHandler: @escaping CreateSessionClosure) {
         let mySession = Session()
         
         let sessionCode = createSessionCode()
@@ -244,31 +215,33 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         overallSession.musicians?.append(currentUserMusician)
         
         //Send invites and add invitees to the invitees list
-        sendInvites(musicians: selectedMusicians, session: mySession)
-        
-        for musician in selectedMusicians {
-            let allSessionsMusiciansKey = allSessionsKey.child("invitees").childByAutoId()
+        if let invitedMusicians = invitedMusicians {
+            sendInvites(musicians: invitedMusicians, session: mySession)
             
-            guard let musicianID = musician.uid
-                else {
-                    return
+            for musician in invitedMusicians {
+                let allSessionsMusiciansKey = allSessionsKey.child("invitees").childByAutoId()
+                
+                guard let musicianID = musician.uid
+                    else {
+                        return
+                }
+                
+                let musicianValues = ["musicianID": musicianID]
+                
+                allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    } else {
+                        if let musicianName = musician.name {
+                            print("\(musicianName) added to invitees list")
+                        }
+                    }
+                })
             }
             
-            let musicianValues = ["musicianID": musicianID]
-            
-            allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error!)
-                    return
-                } else {
-                    if let musicianName = musician.name {
-                        print("\(musicianName) added to invitees list")
-                    }
-                }
-            })
+            completionHandler(mySession)
         }
-        
-        completionHandler(mySession)
     }
     
     func addCurrentUserToSession(allSessionsKey: DatabaseReference, session: Session) {
@@ -363,9 +336,14 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             let newViewController = nav.topViewController as! InviteMusiciansTableViewController
             
             newViewController.origin = "NewSession"
+            newViewController.alreadySelectedMusicians = invitedMusicians
+            newViewController.alreadySelectedMusicianNames = invitedMusicianNames
         }
     }
     
     @IBAction func unwindToNewSession(sender: UIStoryboardSegue) {
+        DispatchQueue.main.async(execute: {
+            self.musicianTableView.reloadData()
+        })
     }
 }

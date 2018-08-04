@@ -16,15 +16,36 @@ class InviteMusiciansTableViewController: UITableViewController {
     var musicians = [Musician]()
     var selectedMusicians = [Musician]()
     var selectedMusicianNames = [String]()
+    var alreadySelectedMusicianNames: [String]?
+    var alreadySelectedMusicians: [Musician]?
     var origin: String?
+    
+    @IBOutlet weak var topRightReturnButton: UIBarButtonItem!
     
     typealias CurrentSessionClosure = (Session?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if origin == "NewSession" {
+            topRightReturnButton.title = "Done"
+        } else if origin == "CurrentJam" {
+            topRightReturnButton.title = "Invite"
+        }
+        
         getData()
+        
+        if let alreadySelectedMusicians = alreadySelectedMusicians,
+            let alreadySelectedMusicianNames = alreadySelectedMusicianNames {
+            for musician in alreadySelectedMusicians {
+                selectedMusicians.append(musician)
+            }
+            
+            for musicianName in alreadySelectedMusicianNames {
+                selectedMusicianNames.append(musicianName)
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -49,6 +70,12 @@ class InviteMusiciansTableViewController: UITableViewController {
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
         cell.profileImageView.clipsToBounds = true
         
+        if let musicianName = musician.name {
+            if selectedMusicianNames.contains(musicianName) {
+                cell.okIcon.isHidden = false
+            }
+        }
+        
         return cell
     }
     
@@ -71,7 +98,6 @@ class InviteMusiciansTableViewController: UITableViewController {
                     selectedMusicianNames.remove(at: index)
                     selectedMusicians.remove(at: index)
                 }
-                
             }
         }
     }
@@ -108,14 +134,14 @@ class InviteMusiciansTableViewController: UITableViewController {
     
     // MARK: Invite Sending
     
-    func sendInvites(musicians: [Musician], session: Session) {
+    func sendInvites(musicians: [Musician], sessionID: String) {
         let ref = Database.database().reference()
         for musician in musicians {
             let uid = musician.uid
             let musicianInvitationsRef = ref.child("users").child(uid!).child("invitations")
             let musicianInvitationsKey = musicianInvitationsRef.childByAutoId()
             
-            let values = ["sessionID": session.ID as Any]
+            let values = ["sessionID": sessionID]
             
             musicianInvitationsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if error != nil {
@@ -133,8 +159,26 @@ class InviteMusiciansTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func topRightReturnTapped(_ sender: UIBarButtonItem) {
         if origin == "NewSession" {
             self.performSegue(withIdentifier: "UnwindToNewSessionFromInviteMusicians", sender: nil)
+        } else if origin == "CurrentJam" {
+            self.performSegue(withIdentifier: "UnwindToCurrentJamFromInviteMusicians", sender: nil)
+        }
+    }
+    
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UnwindToNewSessionFromInviteMusicians" {
+            let newViewController = segue.destination as! NewSessionViewController
+            
+            newViewController.invitedMusicians = selectedMusicians
+            newViewController.invitedMusicianNames = selectedMusicianNames
         }
     }
     
