@@ -69,10 +69,26 @@ class MySessionsViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let sessionID = sessions.reversed()[indexPath.row].ID else {
+                return
+            }
+            
+            print("SessionID: \(sessionID)")
+            
+            // The reverse index accounts for us using a reversed sessions array
+            let reverseIndex = sessions.count - indexPath.row - 1
+            
+            sessions.remove(at: reverseIndex)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            deleteSession(sessionID: sessionID)
+        }
+    }
+    
     // MARK: Firebase Functions
 
-    @objc func getData() {
-        print("GET DATA")
+    func getData() {
         sessions.removeAll()  //Start clean
         
         let uid = Auth.auth().currentUser?.uid
@@ -128,6 +144,13 @@ class MySessionsViewController: UITableViewController {
                 }
             }
         })
+    }
+    
+    func deleteSession(sessionID: String) {
+        let ref = Database.database().reference()
+        let sessionRef = ref.child("all sessions").child(sessionID)
+        
+        sessionRef.removeValue()
     }
     
     // MARK: Navigation

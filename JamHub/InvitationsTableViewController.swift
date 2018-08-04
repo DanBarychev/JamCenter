@@ -89,11 +89,8 @@ class InvitationsTableViewController: UITableViewController {
                 if userHasInvitations {
                     let invitationsRef = userRef.child("invitations")
                     invitationsRef.observe(.childAdded, with: { (snapshot) in
-                        print("Observing....")
                         if let dictionary = snapshot.value as? [String: AnyObject] {
-                            let sessionID = dictionary["sessionID"] as? String
-                            
-                            if let sessionID = sessionID {
+                            if let sessionID = dictionary["sessionID"] as? String {
                                 self.getSession(sessionID: sessionID) { (session) in
                                     if let session = session {
                                         self.sessions.append(session)
@@ -120,7 +117,6 @@ class InvitationsTableViewController: UITableViewController {
     }
     
     func getSession(sessionID: String, completionHandler: @escaping SessionClosure) {
-        print("Getting session")
         let session = Session()
         
         let ref = Database.database().reference()
