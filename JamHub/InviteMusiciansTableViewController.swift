@@ -178,8 +178,10 @@ class InviteMusiciansTableViewController: UITableViewController {
         
         let ref = Database.database().reference()
         for musician in musicians {
-            let uid = musician.uid
-            let musicianInvitationsRef = ref.child("users").child(uid!).child("invitations")
+            guard let uid = musician.uid else {
+                return
+            }
+            let musicianInvitationsRef = ref.child("users").child(uid).child("invitations")
             let musicianInvitationsKey = musicianInvitationsRef.childByAutoId()
             
             let values = ["sessionID": sessionID]
@@ -188,6 +190,37 @@ class InviteMusiciansTableViewController: UITableViewController {
                 if let error = error {
                     print(error)
                     return
+                }
+            })
+        }
+    }
+    
+    func addToSessionInvitees(musicians: [Musician]) {
+        guard let sessionID = currentSession?.ID else {
+            return
+        }
+        
+        let allSessionsRef = Database.database().reference().child("all sessions")
+        let inviteesRef = allSessionsRef.child(sessionID).child("invitees")
+        
+        for musician in musicians {
+            let inviteeKey = inviteesRef.childByAutoId()
+            
+            guard let musicianID = musician.uid
+                else {
+                    return
+            }
+            
+            let musicianValues = ["musicianID": musicianID]
+            
+            inviteeKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error!)
+                    return
+                } else {
+                    if let musicianName = musician.name {
+                        print("\(musicianName) added to invitees list")
+                    }
                 }
             })
         }
@@ -204,6 +237,7 @@ class InviteMusiciansTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "UnwindToNewSessionFromInviteMusicians", sender: nil)
         } else if origin == "CurrentJam" {
             sendInvites(musicians: selectedMusicians)
+            addToSessionInvitees(musicians: selectedMusicians)
             self.performSegue(withIdentifier: "UnwindToCurrentJamFromInviteMusicians", sender: nil)
         }
     }
