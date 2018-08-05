@@ -141,6 +141,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let userMusician = Musician()
                 
+                userMusician.uid = uid
                 userMusician.name = dictionary["name"] as? String
                 userMusician.city = dictionary["city"] as? String
                 userMusician.country = dictionary["country"] as? String

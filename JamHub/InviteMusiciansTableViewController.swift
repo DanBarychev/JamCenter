@@ -18,6 +18,7 @@ class InviteMusiciansTableViewController: UITableViewController {
     var selectedMusicianNames = [String]()
     var alreadySelectedMusicianNames: [String]?
     var alreadySelectedMusicians: [Musician]?
+    var sessionID: String?
     var origin: String?
     
     @IBOutlet weak var topRightReturnButton: UIBarButtonItem!
@@ -134,7 +135,11 @@ class InviteMusiciansTableViewController: UITableViewController {
     
     // MARK: Invite Sending
     
-    func sendInvites(musicians: [Musician], sessionID: String) {
+    func sendInvites(musicians: [Musician]) {
+        guard let sessionID = sessionID else {
+            return
+        }
+        
         let ref = Database.database().reference()
         for musician in musicians {
             let uid = musician.uid
@@ -144,13 +149,9 @@ class InviteMusiciansTableViewController: UITableViewController {
             let values = ["sessionID": sessionID]
             
             musicianInvitationsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error!)
+                if let error = error {
+                    print(error)
                     return
-                } else {
-                    if let musicianName = musician.name {
-                        print("Invitation sent to \(musicianName)")
-                    }
                 }
             })
         }
@@ -166,10 +167,10 @@ class InviteMusiciansTableViewController: UITableViewController {
         if origin == "NewSession" {
             self.performSegue(withIdentifier: "UnwindToNewSessionFromInviteMusicians", sender: nil)
         } else if origin == "CurrentJam" {
+            sendInvites(musicians: selectedMusicians)
             self.performSegue(withIdentifier: "UnwindToCurrentJamFromInviteMusicians", sender: nil)
         }
     }
-    
     
     // MARK: Navigation
     

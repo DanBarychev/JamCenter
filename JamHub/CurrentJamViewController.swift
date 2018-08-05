@@ -360,7 +360,37 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         
         userKey.removeAllObservers()
     }
-
+    
+    // MARK: Actions
+    
+    @IBAction func joinSession(_ sender: Any) {
+        if joinSessionButton.currentTitle == "Join Session" {
+            requestSessionCode()
+        } else if joinSessionButton.currentTitle == "Accept Invitation" {
+            joinSessionFromInvitation()
+        } else {
+            performSegue(withIdentifier: "JoinSession", sender: nil)
+        }
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        print("Back BUTTON TAPPED")
+        if origin == "MySessions" || origin == "NewSession" {
+            self.performSegue(withIdentifier: "UnwindToMySessionsFromCurrentJam", sender: nil)
+        } else if origin == "CurrentJams" {
+            self.performSegue(withIdentifier: "UnwindToCurrentJamsFromCurrentJam", sender: nil)
+        } else if origin == "Invitations" {
+            self.performSegue(withIdentifier: "UnwindToInvitationsFromCurrentJam", sender: nil)
+        }
+    }
+    
+    @IBAction func inviteMusicianTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "GoToInviteMusiciansFromCurrentJam", sender: nil)
+    }
+    
+    @IBAction func manageJamSession(_ sender: Any) {
+        performSegue(withIdentifier: "GoToMyActiveSessionFromCurrentJam", sender: nil)
+    }
     
     // MARK: Navigation
     
@@ -385,37 +415,16 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             let newViewController = nav.topViewController as! MyActiveSessionViewController
             
             newViewController.mySession = currentSession
+        } else if segue.identifier == "GoToInviteMusiciansFromCurrentJam" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! InviteMusiciansTableViewController
+            
+            newViewController.origin = "CurrentJam"
+            newViewController.sessionID = currentSession?.ID
         }
     }
     
     @IBAction func unwindToCurrentJam(sender: UIStoryboardSegue) {
         setupJamSesion()
-    }
-    
-    // MARK: Actions
-    
-    @IBAction func joinSession(_ sender: Any) {
-        if joinSessionButton.currentTitle == "Join Session" {
-            requestSessionCode()
-        } else if joinSessionButton.currentTitle == "Accept Invitation" {
-            joinSessionFromInvitation()
-        } else {
-            performSegue(withIdentifier: "JoinSession", sender: nil)
-        }
-    }
-    
-    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
-        if origin == "MySessions" || origin == "NewSession" {
-            self.performSegue(withIdentifier: "UnwindToMySessionsFromCurrentJam", sender: nil)
-        } else if origin == "CurrentJams" {
-            self.performSegue(withIdentifier: "UnwindToCurrentJamsFromCurrentJam", sender: nil)
-        } else if origin == "Invitations" {
-            self.performSegue(withIdentifier: "UnwindToInvitationsFromCurrentJam", sender: nil)
-        }
-        
-    }
-    
-    @IBAction func manageJamSession(_ sender: Any) {
-        performSegue(withIdentifier: "GoToMyActiveSessionFromCurrentJam", sender: nil)
     }
 }
