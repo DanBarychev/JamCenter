@@ -24,7 +24,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     var overallSession = Session()
     var invitedMusicians: [Musician]?
-    var invitedMusicianNames: [String]?
+    var invitedMusicianUIDs: [String]?
     var currentUserMusician = Musician()
     
     var genreOptions = ["Rock", "Rap/Hip-Hop", "Jazz/Blues", "Pop", "Country", "Classical"]
@@ -338,7 +338,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             
             newViewController.origin = "NewSession"
             newViewController.alreadySelectedMusicians = invitedMusicians
-            newViewController.alreadySelectedMusicianNames = invitedMusicianNames
+            newViewController.alreadySelectedMusicianUIDs = invitedMusicianUIDs
         }
     }
     

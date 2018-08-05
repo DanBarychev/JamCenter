@@ -14,4 +14,5 @@ class InviteMusiciansTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var instrumentsLabel: UILabel!
     @IBOutlet weak var okIcon: UIImageView!
+    @IBOutlet weak var invitationSentCover: UILabel!
 }

@@ -15,16 +15,17 @@ class InviteMusiciansTableViewController: UITableViewController {
     
     var musicians = [Musician]()
     var selectedMusicians = [Musician]()
-    var selectedMusicianNames = [String]()
-    var alreadySelectedMusicianNames: [String]?
+    var selectedMusicianUIDs = [String]()
+    var alreadySelectedMusicianUIDs: [String]?
     var alreadySelectedMusicians: [Musician]?
-    var sessionID: String?
+    var currentSession: Session?
     var origin: String?
     
     @IBOutlet weak var topRightReturnButton: UIBarButtonItem!
     
     typealias CurrentSessionClosure = (Session?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
+    typealias IsInvitedClosure = (Bool?) -> Void
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +36,18 @@ class InviteMusiciansTableViewController: UITableViewController {
             topRightReturnButton.title = "Invite"
         }
         
-        getData()
-        
         if let alreadySelectedMusicians = alreadySelectedMusicians,
-            let alreadySelectedMusicianNames = alreadySelectedMusicianNames {
+            let alreadySelectedMusicianUIDs = alreadySelectedMusicianUIDs {
             for musician in alreadySelectedMusicians {
                 selectedMusicians.append(musician)
             }
             
-            for musicianName in alreadySelectedMusicianNames {
-                selectedMusicianNames.append(musicianName)
+            for musicianUID in alreadySelectedMusicianUIDs {
+                selectedMusicianUIDs.append(musicianUID)
             }
         }
+        
+        getData()
     }
 
     // MARK: - Table view data source
@@ -63,17 +64,28 @@ class InviteMusiciansTableViewController: UITableViewController {
         // set the text from the data model
         let musician = musicians[indexPath.row]
         
-        cell.nameLabel.text = musician.name
-        cell.instrumentsLabel.text = musician.instruments
-        if let profileImageURL = musician.profileImageURL {
-            cell.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
+        guard let musicianUID = musician.uid else {
+            return cell
         }
-        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
-        cell.profileImageView.clipsToBounds = true
         
-        if let musicianName = musician.name {
-            if selectedMusicianNames.contains(musicianName) {
-                cell.okIcon.isHidden = false
+        self.checkIfAlreadyInvited(musicianUID: musicianUID) { (isAlreadyInvited) in
+            if let isAlreadyInvited = isAlreadyInvited {
+                if isAlreadyInvited {
+                    cell.invitationSentCover.isHidden = false
+                    cell.isUserInteractionEnabled = false
+                }
+                
+                cell.nameLabel.text = musician.name
+                cell.instrumentsLabel.text = musician.instruments
+                if let profileImageURL = musician.profileImageURL {
+                    cell.profileImageView.loadImageUsingCacheWithURLString(urlString: profileImageURL)
+                }
+                cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
+                cell.profileImageView.clipsToBounds = true
+                
+                if self.selectedMusicianUIDs.contains(musicianUID) {
+                    cell.okIcon.isHidden = false
+                }
             }
         }
         
@@ -86,18 +98,20 @@ class InviteMusiciansTableViewController: UITableViewController {
         
         let musician = musicians[indexPath.row]
         
-        if let musicianName = musician.name {
-            if cell.okIcon.isHidden {
-                cell.okIcon.isHidden = false
-                
-                selectedMusicianNames.append(musicianName)
-                selectedMusicians.append(musician)
-            } else {
-                cell.okIcon.isHidden = true
-                
-                if let index = selectedMusicianNames.index(of: musicianName) {
-                    selectedMusicianNames.remove(at: index)
-                    selectedMusicians.remove(at: index)
+        if let musicianUID = musician.uid {
+            if cell.invitationSentCover.isHidden {
+                if cell.okIcon.isHidden {
+                    cell.okIcon.isHidden = false
+                    
+                    selectedMusicianUIDs.append(musicianUID)
+                    selectedMusicians.append(musician)
+                } else {
+                    cell.okIcon.isHidden = true
+                    
+                    if let index = selectedMusicianUIDs.index(of: musicianUID) {
+                        selectedMusicianUIDs.remove(at: index)
+                        selectedMusicians.remove(at: index)
+                    }
                 }
             }
         }
@@ -133,10 +147,32 @@ class InviteMusiciansTableViewController: UITableViewController {
         }, withCancel: nil)
     }
     
+    func checkIfAlreadyInvited(musicianUID: String, completionHandler: @escaping IsInvitedClosure) {
+        guard let currentSession = currentSession, let sessionID = currentSession.ID else {
+            completionHandler(false)
+            return
+        }
+        
+        let sessionsRef = Database.database().reference().child("all sessions")
+        let inviteesRef = sessionsRef.child(sessionID).child("invitees")
+        
+        inviteesRef.observe(.childAdded, with: {(snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                
+                if let inviteeMusicianID = dictionary["musicianID"] as? String {
+                    if musicianUID == inviteeMusicianID {
+                        completionHandler(true)
+                    }
+                }
+            }
+        })
+        
+        completionHandler(false)
+    }
     // MARK: Invite Sending
     
     func sendInvites(musicians: [Musician]) {
-        guard let sessionID = sessionID else {
+        guard let sessionID = currentSession?.ID else {
             return
         }
         
@@ -179,7 +215,7 @@ class InviteMusiciansTableViewController: UITableViewController {
             let newViewController = segue.destination as! NewSessionViewController
             
             newViewController.invitedMusicians = selectedMusicians
-            newViewController.invitedMusicianNames = selectedMusicianNames
+            newViewController.invitedMusicianUIDs = selectedMusicianUIDs
         }
     }
     

@@ -420,7 +420,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             let newViewController = nav.topViewController as! InviteMusiciansTableViewController
             
             newViewController.origin = "CurrentJam"
-            newViewController.sessionID = currentSession?.ID
+            newViewController.currentSession = currentSession
         }
     }
     

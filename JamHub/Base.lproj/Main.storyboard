@@ -3237,6 +3237,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-n6-bJs">
+                                            <rect key="frame" x="16" y="12" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="FLR-n6-bJs" secondAttribute="height" multiplier="1:1" id="L4v-So-8mW"/>
+                                                <constraint firstAttribute="height" constant="50" id="dsq-ID-Ode"/>
+                                                <constraint firstAttribute="width" constant="50" id="fuK-Q8-jwu"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Musician Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvW-Ho-xfR">
                                             <rect key="frame" x="74" y="12" width="145" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -3255,19 +3263,22 @@
                                                 <constraint firstAttribute="width" secondItem="rz5-mi-cJI" secondAttribute="height" multiplier="1:1" id="XeR-Zj-tYU"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-n6-bJs">
-                                            <rect key="frame" x="16" y="12" width="50" height="50"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="FLR-n6-bJs" secondAttribute="height" multiplier="1:1" id="L4v-So-8mW"/>
-                                                <constraint firstAttribute="height" constant="50" id="dsq-ID-Ode"/>
-                                                <constraint firstAttribute="width" constant="50" id="fuK-Q8-jwu"/>
-                                            </constraints>
-                                        </imageView>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitation Sent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQa-hr-EH7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="xQa-hr-EH7" firstAttribute="leading" secondItem="jiw-Qt-I6C" secondAttribute="leading" id="0bJ-vw-quR"/>
                                         <constraint firstItem="vvW-Ho-xfR" firstAttribute="leading" secondItem="FLR-n6-bJs" secondAttribute="trailing" constant="8" symbolic="YES" id="1QP-3E-6m1"/>
                                         <constraint firstItem="FLR-n6-bJs" firstAttribute="leading" secondItem="jiw-Qt-I6C" secondAttribute="leadingMargin" id="2Uq-CF-92F"/>
                                         <constraint firstItem="vvW-Ho-xfR" firstAttribute="leading" secondItem="g72-gQ-6Bt" secondAttribute="leading" id="4x8-he-D44"/>
+                                        <constraint firstAttribute="trailing" secondItem="xQa-hr-EH7" secondAttribute="trailing" id="F36-48-wBu"/>
+                                        <constraint firstItem="xQa-hr-EH7" firstAttribute="top" secondItem="jiw-Qt-I6C" secondAttribute="top" id="INc-qH-WU6"/>
+                                        <constraint firstItem="xQa-hr-EH7" firstAttribute="centerY" secondItem="FLR-n6-bJs" secondAttribute="centerY" id="Jaf-G8-ltF"/>
                                         <constraint firstItem="FLR-n6-bJs" firstAttribute="centerY" secondItem="jiw-Qt-I6C" secondAttribute="centerY" id="PQR-7r-oOM"/>
                                         <constraint firstItem="FLR-n6-bJs" firstAttribute="top" secondItem="vvW-Ho-xfR" secondAttribute="top" id="byw-y3-l8e"/>
                                         <constraint firstItem="FLR-n6-bJs" firstAttribute="centerY" secondItem="rz5-mi-cJI" secondAttribute="centerY" id="hvI-Wo-3aj"/>
@@ -3278,6 +3289,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="instrumentsLabel" destination="g72-gQ-6Bt" id="jVb-ma-eSR"/>
+                                    <outlet property="invitationSentCover" destination="xQa-hr-EH7" id="Vqg-Yp-bBd"/>
                                     <outlet property="nameLabel" destination="vvW-Ho-xfR" id="SrG-la-XnN"/>
                                     <outlet property="okIcon" destination="rz5-mi-cJI" id="Jgt-mC-SPh"/>
                                     <outlet property="profileImageView" destination="FLR-n6-bJs" id="YX6-LK-APb"/>
