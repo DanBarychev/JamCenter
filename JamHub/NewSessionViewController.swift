@@ -47,9 +47,16 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         pickerView.delegate = self
         genreTextField.inputView = pickerView
         
-        getUser { (musician) in
+        /*getUser { (musician) in
             self.currentUserMusician = musician ?? Musician()
-        }
+        }*/
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // Remove observer
+        Database.database().reference().removeAllObservers()
     }
     
     // MARK: Table View
@@ -208,14 +215,20 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             }
             else {
                 print("Session made public")
+                
+                //Add the current user to musicians list
+                //self.addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
+                self.overallSession.musicians?.append(self.currentUserMusician)
+                completionHandler(mySession)
             }
         })
         
         //Add the current user to musicians list
-        addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
-        overallSession.musicians?.append(currentUserMusician)
+        //addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
+        //overallSession.musicians?.append(currentUserMusician)
         
         //Send invites and add invitees to the invitees list
+        /*
         if let invitedMusicians = invitedMusicians {
             sendInvites(musicians: invitedMusicians, session: mySession)
             
@@ -242,7 +255,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             }
             
             completionHandler(mySession)
-        }
+        }*/
+        
+        //completionHandler(mySession)
     }
     
     func addCurrentUserToSession(allSessionsKey: DatabaseReference, session: Session) {
@@ -315,7 +330,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         createSession { (resultSession) in
             self.overallSession = resultSession ?? Session()
             
-            self.performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
+            //self.performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

@@ -142,6 +142,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vo5-Xq-bIa">
                                 <rect key="frame" x="337" y="415" width="22" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="inviteMusicianTapped:" destination="CJ6-ae-TDR" eventType="touchUpInside" id="ySp-iv-vGO"/>
                                 </connections>
@@ -196,6 +200,7 @@
                         <outlet property="genreLabel" destination="j4a-NX-pfx" id="Uyy-by-l2Y"/>
                         <outlet property="hostImageView" destination="BWr-Pz-jsk" id="13d-id-8aX"/>
                         <outlet property="hostNameLabel" destination="MVF-QQ-NaG" id="tn1-m7-26F"/>
+                        <outlet property="inviteMusiciansButton" destination="vo5-Xq-bIa" id="tfk-zT-wVp"/>
                         <outlet property="joinSessionButton" destination="45R-Ch-Z5I" id="SIc-9v-22E"/>
                         <outlet property="locationLabel" destination="4Fo-Qs-clT" id="gpD-eN-66h"/>
                         <outlet property="manageButton" destination="T8Z-Z0-oMV" id="Kwr-81-udG"/>
@@ -768,6 +773,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-IP-7dt">
                                 <rect key="frame" x="337" y="272" width="22" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="inviteMusiciansTapped:" destination="j0g-e2-atm" eventType="touchUpInside" id="rLK-V7-SvL"/>
                                 </connections>
@@ -3858,10 +3864,10 @@
         <image name="ViolinIconBlue" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sBD-hS-rO1"/>
-        <segue reference="6Wg-RF-Skk"/>
+        <segue reference="caz-vU-FRB"/>
+        <segue reference="kMP-PF-Ccq"/>
         <segue reference="IHQ-Dr-r3t"/>
         <segue reference="smI-YV-PxM"/>
-        <segue reference="GEB-aJ-cdI"/>
+        <segue reference="cVa-b4-raN"/>
     </inferredMetricsTieBreakers>
 </document>

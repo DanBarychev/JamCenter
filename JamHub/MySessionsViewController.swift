@@ -26,6 +26,13 @@ class MySessionsViewController: UITableViewController {
         self.tableView.addSubview(self.myRefreshControl)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // Remove observer
+        Database.database().reference().removeAllObservers()
+    }
+    
     // MARK: Refresh Control
     
     lazy var myRefreshControl: UIRefreshControl = {
@@ -71,7 +78,9 @@ class MySessionsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let sessionID = sessions.reversed()[indexPath.row].ID else {
+            let session = sessions.reversed()[indexPath.row]
+            
+            guard let sessionID = session.ID , let sessionHostUID = session.hostUID else {
                 return
             }
             
@@ -82,7 +91,12 @@ class MySessionsViewController: UITableViewController {
             
             sessions.remove(at: reverseIndex)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            deleteSession(sessionID: sessionID)
+            
+            if sessionHostUID == Auth.auth().currentUser?.uid {
+                deleteSession(sessionID: sessionID)
+            } else {
+                // TODO: Remove user from session musicians list
+            }
         }
     }
     
@@ -94,36 +108,42 @@ class MySessionsViewController: UITableViewController {
         let uid = Auth.auth().currentUser?.uid
         let allSessionsRef = Database.database().reference().child("all sessions")
         
-        allSessionsRef.observe(.childAdded, with: {(snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let newSession = Session()
-                
-                guard let userUID = uid, let sessionID = dictionary["ID"] as? String else {
-                    return
-                }
-                
-                newSession.hostUID = dictionary["hostUID"] as? String
-                
-                self.musicianIsParticipant(sessionID: sessionID, musicianID: userUID) { (isParticipant) in
-                    if let isParticipant = isParticipant {
-                        if newSession.hostUID == uid || isParticipant {
-                            newSession.name = dictionary["name"] as? String
-                            newSession.genre = dictionary["genre"] as? String
-                            newSession.location = dictionary["location"] as? String
-                            newSession.host = dictionary["host"] as? String
-                            newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
-                            newSession.code = dictionary["code"] as? String
-                            newSession.ID = sessionID
-                            
-                            newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
-                            
-                            self.sessions.append(newSession)
-                            
-                            DispatchQueue.main.async(execute: {
-                                self.tableView.reloadData()
-                            })
-                        }
+        allSessionsRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                if let dictionary = child.value as? [String: AnyObject] {
+                    let newSession = Session()
+                    
+                    guard let sessionID = dictionary["ID"] as? String, let userUID = uid else {
+                        return
                     }
+                    
+                    newSession.hostUID = dictionary["hostUID"] as? String
+                    
+                    self.musicianIsParticipant(sessionID: sessionID, musicianID: userUID) { (isParticipant) in
+                         if let isParticipant = isParticipant {
+                             if newSession.hostUID == uid || isParticipant {
+                                newSession.name = dictionary["name"] as? String
+                                newSession.genre = dictionary["genre"] as? String
+                                newSession.location = dictionary["location"] as? String
+                                newSession.host = dictionary["host"] as? String
+                                newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
+                                newSession.code = dictionary["code"] as? String
+                                newSession.ID = sessionID
+                                
+                                newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
+
+                                if newSession.hostUID == uid {
+                                    self.sessions.append(newSession)
+                                } else {
+                                    self.sessions.insert(newSession, at: 0)
+                                }
+                                
+                                DispatchQueue.main.async(execute: {
+                                    self.tableView.reloadData()
+                                })
+                             }
+                         }
+                     }
                 }
             }
         }, withCancel: nil)
@@ -134,16 +154,20 @@ class MySessionsViewController: UITableViewController {
         let sessionKey = ref.child("all sessions").child(sessionID)
         let sessionMusiciansKey = sessionKey.child("musicians")
         
-        sessionMusiciansKey.observe(.childAdded, with: {(snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                
-                let sessionMusicianID = dictionary["musicianID"] as? String
-                
-                if musicianID == sessionMusicianID {
-                    completionHandler(true)
+        sessionMusiciansKey.observeSingleEvent(of: .value, with: {(snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                if let dictionary = child.value as? [String: AnyObject] {
+                    
+                    let sessionMusicianID = dictionary["musicianID"] as? String
+                    
+                    if musicianID == sessionMusicianID {
+                        completionHandler(true)
+                    }
                 }
             }
         })
+        
+        completionHandler(false)
     }
     
     func deleteSession(sessionID: String) {
@@ -171,6 +195,14 @@ class MySessionsViewController: UITableViewController {
     }
     
     @IBAction func unwindToMySessions(sender: UIStoryboardSegue) {
+        /*if let sourceViewController = sender.source as? CurrentJamViewController,
+            let currentSession = sourceViewController.currentSession {
+            
+            sessions.append(currentSession)
+            DispatchQueue.main.async(execute: {
+                self.tableView.reloadData()
+            })
+        }*/
     }
 
 }

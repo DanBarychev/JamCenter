@@ -25,6 +25,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var manageButton: UIBarButtonItem!
+    @IBOutlet weak var inviteMusiciansButton: UIButton!
     @IBOutlet weak var joinSessionButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +37,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         
         manageButton.isEnabled = false
+        inviteMusiciansButton.isHidden = true
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,7 +49,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
         
-        setupJamSesion()
+        //setupJamSesion()
     }
     
     func setupJamSesion() {
@@ -83,6 +85,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 if currentJamSession.hostUID == userID {
                     manageButton.isEnabled = true
+                    inviteMusiciansButton.isHidden = false
                     self.joinSessionButton.setTitle("View Media", for: UIControlState.normal)
                 } else {
                     checkMusicianParticipation(musicianID: userID)
@@ -167,8 +170,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         print("Getting musicians")
         self.musicians.removeAll()
         
-        let ref = Database.database().reference()
-        let musiciansRef = ref.child("all sessions").child(sessionID).child("musicians")
+        let allSessionsRef = Database.database().reference().child("all sessions")
+        let musiciansRef = allSessionsRef.child(sessionID).child("musicians")
         
         musiciansRef.observe(.childAdded, with: {(musicianSnapshot) in
             if let dictionary = musicianSnapshot.value as? [String: AnyObject] {
@@ -193,7 +196,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         })
         
-        musiciansRef.removeAllObservers()
+        allSessionsRef.removeAllObservers()
     }
     
     func getMusician(musicianID: String, completionHandler: @escaping MusicianClosure) {
