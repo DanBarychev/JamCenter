@@ -68,7 +68,10 @@ class MySessionsViewController: UITableViewController {
             cell.activeImageView.image = UIImage(named: "CircleIconGrey")
         }
         
-        if session.hostUID != Auth.auth().currentUser?.uid {
+        if session.hostUID == Auth.auth().currentUser?.uid {
+            cell.roleLabel.text = "Host"
+            cell.roleImageView.image = UIImage(named: "CircleIconRed")
+        } else {
             cell.roleLabel.text = "Participant"
             cell.roleImageView.image = UIImage(named: "CircleIconBlue")
         }
@@ -195,14 +198,7 @@ class MySessionsViewController: UITableViewController {
     }
     
     @IBAction func unwindToMySessions(sender: UIStoryboardSegue) {
-        /*if let sourceViewController = sender.source as? CurrentJamViewController,
-            let currentSession = sourceViewController.currentSession {
-            
-            sessions.append(currentSession)
-            DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-            })
-        }*/
+        getData()
     }
 
 }
