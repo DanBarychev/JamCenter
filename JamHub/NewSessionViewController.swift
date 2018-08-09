@@ -47,9 +47,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         pickerView.delegate = self
         genreTextField.inputView = pickerView
         
-        /*getUser { (musician) in
+        getUser { (musician) in
             self.currentUserMusician = musician ?? Musician()
-        }*/
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -218,14 +218,14 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
                 
                 //Add the current user to musicians list
                 //self.addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
-                self.overallSession.musicians?.append(self.currentUserMusician)
-                completionHandler(mySession)
+                //self.overallSession.musicians?.append(self.currentUserMusician)
+                //completionHandler(mySession)
             }
         })
         
         //Add the current user to musicians list
-        //addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
-        //overallSession.musicians?.append(currentUserMusician)
+        addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
+        overallSession.musicians?.append(currentUserMusician)
         
         //Send invites and add invitees to the invitees list
         /*
@@ -257,7 +257,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             completionHandler(mySession)
         }*/
         
-        //completionHandler(mySession)
+        completionHandler(mySession)
     }
     
     func addCurrentUserToSession(allSessionsKey: DatabaseReference, session: Session) {
@@ -281,7 +281,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
                     print("\(musicianName) added to session")
                 }
                 
-                self.updateCurrentUserSessionInformation(session: session)
+                //self.updateCurrentUserSessionInformation(session: session)
             }
         })
     }

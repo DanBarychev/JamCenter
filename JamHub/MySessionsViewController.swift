@@ -116,37 +116,41 @@ class MySessionsViewController: UITableViewController {
                 if let dictionary = child.value as? [String: AnyObject] {
                     let newSession = Session()
                     
-                    guard let sessionID = dictionary["ID"] as? String, let userUID = uid else {
+                    guard let sessionID = dictionary["ID"] as? String, let hostUID = dictionary["hostUID"] as? String else {
                         return
                     }
                     
-                    newSession.hostUID = dictionary["hostUID"] as? String
+                    let isHost = (hostUID == uid)
+                    var isParticipant = false
                     
-                    self.musicianIsParticipant(sessionID: sessionID, musicianID: userUID) { (isParticipant) in
-                         if let isParticipant = isParticipant {
-                             if newSession.hostUID == uid || isParticipant {
-                                newSession.name = dictionary["name"] as? String
-                                newSession.genre = dictionary["genre"] as? String
-                                newSession.location = dictionary["location"] as? String
-                                newSession.host = dictionary["host"] as? String
-                                newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
-                                newSession.code = dictionary["code"] as? String
-                                newSession.ID = sessionID
-                                
-                                newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
-
-                                if newSession.hostUID == uid {
-                                    self.sessions.append(newSession)
-                                } else {
-                                    self.sessions.insert(newSession, at: 0)
+                    if let musicianSnapshot = dictionary["musicians"] as? [String: AnyObject] {
+                        for (_, value) in musicianSnapshot {
+                            if let valueDict = value as? [String: AnyObject], let musicianID = valueDict["musicianID"] as? String {
+                                if musicianID == uid {
+                                    isParticipant = true
                                 }
-                                
-                                DispatchQueue.main.async(execute: {
-                                    self.tableView.reloadData()
-                                })
-                             }
-                         }
-                     }
+                            }
+                        }
+                    }
+                    
+                    if isHost || isParticipant {
+                        newSession.name = dictionary["name"] as? String
+                        newSession.genre = dictionary["genre"] as? String
+                        newSession.location = dictionary["location"] as? String
+                        newSession.host = dictionary["host"] as? String
+                        newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
+                        newSession.code = dictionary["code"] as? String
+                        newSession.hostUID = hostUID
+                        newSession.ID = sessionID
+                        
+                        newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
+                        
+                        self.sessions.append(newSession)
+                        
+                        DispatchQueue.main.async(execute: {
+                            self.tableView.reloadData()
+                        })
+                    }
                 }
             }
         }, withCancel: nil)
