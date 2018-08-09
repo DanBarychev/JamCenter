@@ -49,7 +49,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
         
-        //setupJamSesion()
+        setupJamSesion()
     }
     
     func setupJamSesion() {
