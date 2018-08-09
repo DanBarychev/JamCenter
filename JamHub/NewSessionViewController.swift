@@ -228,7 +228,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         overallSession.musicians?.append(currentUserMusician)
         
         //Send invites and add invitees to the invitees list
-        /*
         if let invitedMusicians = invitedMusicians {
             sendInvites(musicians: invitedMusicians, session: mySession)
             
@@ -253,9 +252,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
                     }
                 })
             }
-            
-            completionHandler(mySession)
-        }*/
+        }
         
         completionHandler(mySession)
     }
@@ -281,7 +278,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
                     print("\(musicianName) added to session")
                 }
                 
-                //self.updateCurrentUserSessionInformation(session: session)
+                self.updateCurrentUserSessionInformation(session: session)
             }
         })
     }
