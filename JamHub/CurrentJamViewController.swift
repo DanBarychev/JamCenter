@@ -377,7 +377,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
-        print("Back BUTTON TAPPED")
         if origin == "MySessions" || origin == "NewSession" {
             self.performSegue(withIdentifier: "UnwindToMySessionsFromCurrentJam", sender: nil)
         } else if origin == "CurrentJams" {

@@ -39,7 +39,7 @@ class CurrentJamsViewController: UITableViewController {
         return myRefreshControl
     }()
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         getData()
         refreshControl.endRefreshing()
     }
@@ -74,7 +74,6 @@ class CurrentJamsViewController: UITableViewController {
         sessions.removeAll()
         
         Database.database().reference().child("all sessions").observe(.childAdded, with: {(snapshot) in
-            
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let newSession = Session()
                 
@@ -123,6 +122,7 @@ class CurrentJamsViewController: UITableViewController {
                 if let userCity = dictionary["city"] as? String, let userCountry = dictionary["country"] as? String {
                     let userLocation = "\(userCity), \(userCountry)"
                     completionHandler(userLocation)
+                    Database.database().reference().removeAllObservers()
                 }
             }
         })
@@ -135,6 +135,7 @@ class CurrentJamsViewController: UITableViewController {
 
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     completionHandler(profileImageURL)
+                    Database.database().reference().removeAllObservers()
                 }
             }
         })
@@ -148,6 +149,7 @@ class CurrentJamsViewController: UITableViewController {
                 if let hostCity = dictionary["city"] as? String, let hostCountry = dictionary["country"] as? String {
                     let hostLocation = "\(hostCity), \(hostCountry)"
                     completionHandler(hostLocation)
+                    Database.database().reference().removeAllObservers()
                 }
             }
         })

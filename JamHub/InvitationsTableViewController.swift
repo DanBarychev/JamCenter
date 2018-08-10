@@ -37,7 +37,7 @@ class InvitationsTableViewController: UITableViewController {
         return myRefreshControl
     }()
     
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         getData()
         refreshControl.endRefreshing()
     }
