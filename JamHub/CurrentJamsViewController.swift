@@ -13,6 +13,7 @@ import Firebase
 class CurrentJamsViewController: UITableViewController {
     
     var sessions = [Session]()
+    var userLocation = String()
     typealias UserLocationClosure = (String?) -> Void
     typealias HostImageURLClosure = (String?) -> Void
     typealias HostLocationClosure = (String?) -> Void
@@ -22,6 +23,12 @@ class CurrentJamsViewController: UITableViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.getUserLocation { (userLocationResult) in
+            if let userLocationResult = userLocationResult {
+                self.userLocation = userLocationResult
+            }
+        }
         
         getData()
         
@@ -71,6 +78,7 @@ class CurrentJamsViewController: UITableViewController {
     }
     
     func getData() {
+        Database.database().reference().removeAllObservers()
         sessions.removeAll()
         
         Database.database().reference().child("all sessions").observe(.childAdded, with: {(snapshot) in
@@ -85,26 +93,19 @@ class CurrentJamsViewController: UITableViewController {
                 newSession.code = dictionary["code"] as? String
                 newSession.ID = dictionary["ID"] as? String
                 newSession.hostUID = dictionary["hostUID"] as? String
+                newSession.hostLocation = dictionary["hostLocation"] as? String
                 newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
-                guard let hostUID = newSession.hostUID else {
+                guard let hostLocation = newSession.hostLocation else {
                     return
                 }
                 
-                self.getUserLocation { (userLocation) in
-                    if let userLocation = userLocation {
-                        self.getHostLocation(hostUID: hostUID) { (hostLocation) in
-                            if let hostLocation = hostLocation {
-                                if userLocation == hostLocation && (newSession.isActive ?? false) {
-                                    self.sessions.append(newSession)
-                                    
-                                    DispatchQueue.main.async(execute: {
-                                        self.tableView.reloadData()
-                                    })
-                                }
-                            }
-                        }
-                    }
+                if self.userLocation == hostLocation && (newSession.isActive ?? false) {
+                    self.sessions.append(newSession)
+                    
+                    DispatchQueue.main.async(execute: {
+                        self.tableView.reloadData()
+                    })
                 }
             }
         }, withCancel: nil)

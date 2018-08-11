@@ -132,6 +132,7 @@ class InvitationsTableViewController: UITableViewController {
                 session.code = dictionary["code"] as? String
                 session.ID = sessionID
                 session.hostUID = dictionary["hostUID"] as? String
+                session.hostLocation = dictionary["hostLocation"] as? String
                 session.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
                 
                 completionHandler(session)

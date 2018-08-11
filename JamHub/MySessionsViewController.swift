@@ -140,6 +140,7 @@ class MySessionsViewController: UITableViewController {
                         newSession.host = dictionary["host"] as? String
                         newSession.audioRecordingURL = dictionary["audioRecordingURL"] as? String
                         newSession.code = dictionary["code"] as? String
+                        newSession.hostLocation = dictionary["hostLocation"] as? String
                         newSession.hostUID = hostUID
                         newSession.ID = sessionID
                         
@@ -156,6 +157,8 @@ class MySessionsViewController: UITableViewController {
         }, withCancel: nil)
     }
     
+    // TODO: Modify to fit current querying structure
+    /*
     func musicianIsParticipant(sessionID: String, musicianID: String, completionHandler: @escaping isParticipantClosure) {
         let ref = Database.database().reference()
         let sessionKey = ref.child("all sessions").child(sessionID)
@@ -175,7 +178,7 @@ class MySessionsViewController: UITableViewController {
         })
         
         completionHandler(false)
-    }
+    }*/
     
     func deleteSession(sessionID: String) {
         let ref = Database.database().reference()

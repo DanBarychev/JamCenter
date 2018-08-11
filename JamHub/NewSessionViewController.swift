@@ -186,10 +186,13 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let sessionCode = createSessionCode()
         
         guard let name = titleTextField.text, let genre = genreTextField.text,
-                let userName = Auth.auth().currentUser?.displayName, let location = locationTextField.text
+                let userName = Auth.auth().currentUser?.displayName, let location = locationTextField.text,
+                let userCity = currentUserMusician.city, let userCountry = currentUserMusician.country
             else {
                 return
         }
+        
+        let userLocation = "\(userCity), \(userCountry)"
         
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
@@ -197,7 +200,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         let allSessionsKey = allSessionsRef.childByAutoId()
         let values = ["name": name, "genre": genre, "location": location, "host": userName,
                       "code": sessionCode, "ID": allSessionsKey.key, "hostUID": uid ?? "",
-                      "isActive": "true"]
+                      "hostLocation": userLocation, "isActive": "true"]
         
         mySession.name = name
         mySession.genre = genre
@@ -206,20 +209,16 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         mySession.code = sessionCode
         mySession.ID = allSessionsKey.key
         mySession.hostUID = uid ?? ""
+        mySession.hostLocation = userLocation
         mySession.isActive = true
         
         allSessionsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print (error!)
+            if let error = error {
+                print (error)
                 return
             }
             else {
                 print("Session made public")
-                
-                //Add the current user to musicians list
-                //self.addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
-                //self.overallSession.musicians?.append(self.currentUserMusician)
-                //completionHandler(mySession)
             }
         })
         
