@@ -83,11 +83,10 @@ class MySessionsViewController: UITableViewController {
         if editingStyle == .delete {
             let session = sessions.reversed()[indexPath.row]
             
-            guard let sessionID = session.ID , let sessionHostUID = session.hostUID else {
+            guard let sessionID = session.ID , let sessionHostUID = session.hostUID,
+                let uid = Auth.auth().currentUser?.uid else {
                 return
             }
-            
-            print("SessionID: \(sessionID)")
             
             // The reverse index accounts for us using a reversed sessions array
             let reverseIndex = sessions.count - indexPath.row - 1
@@ -95,10 +94,10 @@ class MySessionsViewController: UITableViewController {
             sessions.remove(at: reverseIndex)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            if sessionHostUID == Auth.auth().currentUser?.uid {
+            if sessionHostUID == uid {
                 deleteSession(sessionID: sessionID)
             } else {
-                // TODO: Remove user from session musicians list
+                deleteUserFromSession(uid: uid, sessionID: sessionID)
             }
         }
     }
@@ -167,6 +166,23 @@ class MySessionsViewController: UITableViewController {
         let sessionRef = ref.child("all sessions").child(sessionID)
         
         sessionRef.removeValue()
+    }
+    
+    func deleteUserFromSession(uid: String, sessionID: String) {
+        let ref = Database.database().reference()
+        let sessionRef = ref.child("all sessions").child(sessionID).child("musicians")
+        
+        sessionRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                if let dictionary = child.value as? [String: AnyObject] {
+                    let musicianID = dictionary["musicianID"] as? String
+                    
+                    if uid == musicianID {
+                        sessionRef.child(child.key).removeValue()
+                    }
+                }
+            }
+        }, withCancel: nil)
     }
     
     // MARK: Navigation

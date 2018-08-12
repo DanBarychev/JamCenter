@@ -61,7 +61,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     // MARK: Table View
     
-    // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let invitedMusicians = invitedMusicians {
             return invitedMusicians.count
@@ -70,7 +69,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         }
     }
     
-    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewSessionMusicianCell", for: indexPath) as! NewSessionMusicianTableViewCell
         
@@ -79,7 +77,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             musician = invitedMusicians[indexPath.row]
         }
         
-        // set the text from the data model
         cell.nameLabel.text = musician.name
         cell.instrumentsLabel.text = musician.instruments
         if let profileImageURL = musician.profileImageURL {
