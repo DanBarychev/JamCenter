@@ -75,8 +75,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                     if let musician = musician {
                         self.currentUserMusician = musician
                         
-                        // If we come from NewSession, the user is the only musician
-                        if self.origin == "NewSession" {
+                        // If we come from SetTime, the user is the only musician
+                        if self.origin == "SetTime" {
                             if let hostImageURL = musician.profileImageURL {
                                 self.hostImageView.loadImageUsingCacheWithURLString(urlString: hostImageURL)
                             }
@@ -100,7 +100,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             // Get all session musicians if we don't come from NewSession
-            if origin != "NewSession" {
+            if origin != "SetTime" {
                 getMusicians(sessionID: sessionID)
             }
         }
@@ -384,7 +384,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
-        if origin == "MySessions" || origin == "NewSession" {
+        if origin == "MySessions" || origin == "SetTime" {
             self.performSegue(withIdentifier: "UnwindToMySessionsFromCurrentJam", sender: nil)
         } else if origin == "CurrentJams" {
             self.performSegue(withIdentifier: "UnwindToCurrentJamsFromCurrentJam", sender: nil)

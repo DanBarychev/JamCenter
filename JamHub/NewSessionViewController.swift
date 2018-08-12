@@ -12,8 +12,8 @@ import Firebase
 class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Properties
-    
-    @IBOutlet weak var beginSessionButton: UIBarButtonItem!
+
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var genreLabel: UILabel!
@@ -35,7 +35,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        beginSessionButton.isEnabled = false
+        nextButton.isEnabled = false
         
         musicianTableView.delegate = self
         musicianTableView.dataSource = self
@@ -132,7 +132,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     func checkFieldCompletion() -> Void {
         if titleTextField.text != "" && locationTextField.text != ""
                                         && genreTextField.text != "" {
-            beginSessionButton.isEnabled = true
+            nextButton.isEnabled = true
         }
     }
     
@@ -159,172 +159,13 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         })
     }
     
-    // MARK: Session Code
-    
-    func createSessionCode() -> String {
-        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" as NSString
-        var sessionCode = ""
-        
-        //Session code is 6 characters long
-        for _ in 0 ..< 6 {
-            let rand = arc4random_uniform(UInt32(characters.length))
-            var nextChar = characters.character(at: Int(rand))
-            sessionCode += NSString(characters: &nextChar, length: 1) as String
-        }
-        
-        return sessionCode
-    }
-    
-    // MARK: Actions
-    
-    private func createSession(completionHandler: @escaping CreateSessionClosure) {
-        let mySession = Session()
-        
-        let sessionCode = createSessionCode()
-        
-        guard let name = titleTextField.text, let genre = genreTextField.text,
-                let userName = Auth.auth().currentUser?.displayName, let location = locationTextField.text,
-                let userCity = currentUserMusician.city, let userCountry = currentUserMusician.country
-            else {
-                return
-        }
-        
-        let userLocation = "\(userCity), \(userCountry)"
-        
-        let ref = Database.database().reference()
-        let uid = Auth.auth().currentUser?.uid
-        let allSessionsRef = ref.child("all sessions")
-        let allSessionsKey = allSessionsRef.childByAutoId()
-        let values = ["name": name, "genre": genre, "location": location, "host": userName,
-                      "code": sessionCode, "ID": allSessionsKey.key, "hostUID": uid ?? "",
-                      "hostLocation": userLocation, "isActive": "true"]
-        
-        mySession.name = name
-        mySession.genre = genre
-        mySession.location = location
-        mySession.host = userName
-        mySession.code = sessionCode
-        mySession.ID = allSessionsKey.key
-        mySession.hostUID = uid ?? ""
-        mySession.hostLocation = userLocation
-        mySession.isActive = true
-        
-        allSessionsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if let error = error {
-                print (error)
-                return
-            }
-            else {
-                print("Session made public")
-            }
-        })
-        
-        //Add the current user to musicians list
-        addCurrentUserToSession(allSessionsKey: allSessionsKey, session: mySession)
+    @IBAction func nextButtonTapped(_ sender: UIBarButtonItem) {
+        overallSession.name = titleTextField.text
+        overallSession.genre = genreTextField.text
+        overallSession.location = locationTextField.text
         overallSession.musicians?.append(currentUserMusician)
         
-        //Send invites and add invitees to the invitees list
-        if let invitedMusicians = invitedMusicians {
-            sendInvites(musicians: invitedMusicians, session: mySession)
-            
-            for musician in invitedMusicians {
-                let allSessionsMusiciansKey = allSessionsKey.child("invitees").childByAutoId()
-                
-                guard let musicianID = musician.uid
-                    else {
-                        return
-                }
-                
-                let musicianValues = ["musicianID": musicianID]
-                
-                allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    } else {
-                        if let musicianName = musician.name {
-                            print("\(musicianName) added to invitees list")
-                        }
-                    }
-                })
-            }
-        }
-        
-        completionHandler(mySession)
-    }
-    
-    func addCurrentUserToSession(allSessionsKey: DatabaseReference, session: Session) {
-        let allSessionsMusiciansKey = allSessionsKey.child("musicians").childByAutoId()
-        
-        let musician = currentUserMusician
-        
-        guard let musicianID = musician.uid
-            else {
-                return
-        }
-        
-        let musicianValues = ["musicianID": musicianID]
-        
-        allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
-                return
-            } else {
-                if let musicianName = musician.name {
-                    print("\(musicianName) added to session")
-                }
-                
-                self.updateCurrentUserSessionInformation(session: session)
-            }
-        })
-    }
-    
-    func updateCurrentUserSessionInformation(session: Session) {
-        let ref = Database.database().reference()
-        let uid = Auth.auth().currentUser?.uid
-        let userKey = ref.child("users").child(uid!)
-        
-        let values = ["lastSession": session.name as Any, "numSessions": String(currentUserMusician.numSessions! + 1)]
-        
-        userKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
-                return
-            } else {
-                print("User session info updated")
-            }
-        })
-    }
-    
-    func sendInvites(musicians: [Musician], session: Session) {
-        let ref = Database.database().reference()
-        for musician in musicians {
-            let uid = musician.uid
-            let musicianInvitationsRef = ref.child("users").child(uid!).child("invitations")
-            let musicianInvitationsKey = musicianInvitationsRef.childByAutoId()
-            
-            let values = ["sessionID": session.ID as Any]
-            
-            musicianInvitationsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error!)
-                    return
-                } else {
-                    if let musicianName = musician.name {
-                       print("Invitation sent to \(musicianName)")
-                    }
-                }
-            })
-        }
-    }
-    
-    @IBAction func beginSession(_ sender: UIBarButtonItem) {
-        print("Beginning Session !!!!!")
-        createSession { (resultSession) in
-            self.overallSession = resultSession ?? Session()
-            
-            self.performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
-        }
+        self.performSegue(withIdentifier: "GoToSetTimeFromNewSession", sender: nil)
     }
     
     @IBAction func inviteMusiciansTapped(_ sender: UIButton) {
@@ -334,12 +175,13 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToCurrentJamFromNewSession" {
+        if segue.identifier == "GoToSetTimeFromNewSession" {
             let nav = segue.destination as! UINavigationController
-            let newViewController = nav.topViewController as! CurrentJamViewController
+            let newViewController = nav.topViewController as! SetTimeViewController
             
-            newViewController.currentSession = overallSession
-            newViewController.origin = "NewSession"
+            newViewController.newSession = overallSession
+            newViewController.invitedMusicians = invitedMusicians
+            newViewController.currentUserMusician = currentUserMusician
         } else if segue.identifier == "GoToInviteMusiciansFromNewSession" {
             let nav = segue.destination as! UINavigationController
             let newViewController = nav.topViewController as! InviteMusiciansTableViewController
