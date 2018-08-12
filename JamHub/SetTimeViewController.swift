@@ -16,6 +16,8 @@ class SetTimeViewController: UIViewController {
     var invitedMusicians: [Musician]?
     var currentUserMusician: Musician?
     
+    @IBOutlet weak var timePicker: UIDatePicker!
+    
     typealias MusicianClosure = (Musician?) -> Void
     typealias SessionCreatedClosure = (Bool?) -> Void
 
@@ -54,18 +56,24 @@ class SetTimeViewController: UIViewController {
         
         let userLocation = "\(userCity), \(userCountry)"
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        let startTime = timePicker.date
+        let startTimeFormatted = dateFormatter.string(from: startTime)
+        
         let ref = Database.database().reference()
         let allSessionsRef = ref.child("all sessions")
         let sessionKey = allSessionsRef.childByAutoId()
         let values = ["name": name, "genre": genre, "location": location, "host": userName,
                       "code": sessionCode, "ID": sessionKey.key, "hostUID": uid,
-                      "hostLocation": userLocation, "isActive": "true"]
+                      "hostLocation": userLocation, "startTime": startTimeFormatted, "isActive": "true"]
         
         newSession?.host = userName
         newSession?.code = sessionCode
         newSession?.ID = sessionKey.key
         newSession?.hostUID = uid
         newSession?.hostLocation = userLocation
+        newSession?.startTime = startTimeFormatted
         newSession?.isActive = true
         
         sessionKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
@@ -176,7 +184,6 @@ class SetTimeViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func beginSession(_ sender: UIBarButtonItem) {
-        print("Beginning Session !!!!!")
         createSession { (sessionCreated) in
             self.performSegue(withIdentifier: "GoToCurrentJamFromSetTime", sender: nil)
         }

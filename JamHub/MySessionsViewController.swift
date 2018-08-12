@@ -132,6 +132,7 @@ class MySessionsViewController: UITableViewController {
                         newSession.code = dictionary["code"] as? String
                         newSession.hostLocation = dictionary["hostLocation"] as? String
                         newSession.hostUID = hostUID
+                        newSession.startTime = dictionary["startTime"] as? String
                         newSession.ID = sessionID
                         
                         newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")

@@ -20,6 +20,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     var sessionHostUID = String()
     var currentUserMusician = Musician()
     
+    @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var hostNameLabel: UILabel!
     @IBOutlet weak var hostImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -49,6 +50,10 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
         
+        startTimeLabel.layer.cornerRadius = 12
+        startTimeLabel.layer.borderWidth = 1
+        startTimeLabel.layer.borderColor = UIColor.black.cgColor
+        
         setupJamSesion()
     }
     
@@ -62,6 +67,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     func setupJamSesion() {
         if let currentJamSession = currentSession {
             navigationItem.title = currentJamSession.name
+            startTimeLabel.text = currentJamSession.startTime
             hostNameLabel.text = currentJamSession.host
             locationLabel.text = currentJamSession.location
             genreLabel.text = currentJamSession.genre
