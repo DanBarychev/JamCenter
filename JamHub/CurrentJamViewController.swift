@@ -52,6 +52,13 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         setupJamSesion()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // Remove observer
+        Database.database().reference().removeAllObservers()
+    }
+    
     func setupJamSesion() {
         if let currentJamSession = currentSession {
             navigationItem.title = currentJamSession.name

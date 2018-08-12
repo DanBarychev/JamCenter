@@ -327,7 +327,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             self.overallSession = resultSession ?? Session()
             
             self.performSegue(withIdentifier: "GoToCurrentJamFromNewSession", sender: nil)
-            //self.dismiss(animated: true, completion: nil)
         }
     }
     

@@ -154,7 +154,7 @@ class InvitationsTableViewController: UITableViewController {
     
     //Needed if we just accepted the last one and no longer have the invitations key
     func checkIfUserHasInvitations(userRef: DatabaseReference, completionHandler: @escaping HasInvitationsClosure) {
-        userRef.observe(.value, with: {(snapshot) in
+        userRef.observeSingleEvent(of: .value, with: {(snapshot) in
             if snapshot.hasChild("invitations") {
                 print("Has invitations")
                 completionHandler(true)

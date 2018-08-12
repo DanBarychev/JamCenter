@@ -24,11 +24,13 @@ class CurrentJamsViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.getUserLocation { (userLocationResult) in
+        /*self.getUserLocation { (userLocationResult) in
             if let userLocationResult = userLocationResult {
                 self.userLocation = userLocationResult
             }
-        }
+        }*/
+        
+        userLocation = "Philadelphia, United States"
         
         getData()
         
@@ -78,7 +80,6 @@ class CurrentJamsViewController: UITableViewController {
     }
     
     func getData() {
-        Database.database().reference().removeAllObservers()
         sessions.removeAll()
         
         Database.database().reference().child("all sessions").observe(.childAdded, with: {(snapshot) in
@@ -136,20 +137,6 @@ class CurrentJamsViewController: UITableViewController {
 
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     completionHandler(profileImageURL)
-                    Database.database().reference().removeAllObservers()
-                }
-            }
-        })
-    }
-    
-    func getHostLocation(hostUID: String, completionHandler: @escaping HostLocationClosure) {
-        Database.database().reference().child("users").child(hostUID).observeSingleEvent(of: .value, with: {
-            (snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                
-                if let hostCity = dictionary["city"] as? String, let hostCountry = dictionary["country"] as? String {
-                    let hostLocation = "\(hostCity), \(hostCountry)"
-                    completionHandler(hostLocation)
                     Database.database().reference().removeAllObservers()
                 }
             }
