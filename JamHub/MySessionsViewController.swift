@@ -116,22 +116,13 @@ class MySessionsViewController: UITableViewController {
                 if let dictionary = child.value as? [String: AnyObject] {
                     let newSession = Session()
                     
-                    guard let sessionID = dictionary["ID"] as? String, let hostUID = dictionary["hostUID"] as? String else {
+                    guard let sessionID = dictionary["ID"] as? String, let hostUID = dictionary["hostUID"] as? String,
+                        let uid = uid else {
                         return
                     }
                     
                     let isHost = (hostUID == uid)
-                    var isParticipant = false
-                    
-                    if let musicianSnapshot = dictionary["musicians"] as? [String: AnyObject] {
-                        for (_, value) in musicianSnapshot {
-                            if let valueDict = value as? [String: AnyObject], let musicianID = valueDict["musicianID"] as? String {
-                                if musicianID == uid {
-                                    isParticipant = true
-                                }
-                            }
-                        }
-                    }
+                    let isParticipant = self.musicianIsParticipant(uid: uid, dictionary: dictionary)
                     
                     if isHost || isParticipant {
                         newSession.name = dictionary["name"] as? String
@@ -157,28 +148,19 @@ class MySessionsViewController: UITableViewController {
         }, withCancel: nil)
     }
     
-    // TODO: Modify to fit current querying structure
-    /*
-    func musicianIsParticipant(sessionID: String, musicianID: String, completionHandler: @escaping isParticipantClosure) {
-        let ref = Database.database().reference()
-        let sessionKey = ref.child("all sessions").child(sessionID)
-        let sessionMusiciansKey = sessionKey.child("musicians")
-        
-        sessionMusiciansKey.observeSingleEvent(of: .value, with: {(snapshot) in
-            for child in snapshot.children.allObjects as! [DataSnapshot] {
-                if let dictionary = child.value as? [String: AnyObject] {
-                    
-                    let sessionMusicianID = dictionary["musicianID"] as? String
-                    
-                    if musicianID == sessionMusicianID {
-                        completionHandler(true)
+    func musicianIsParticipant(uid: String, dictionary: [String: AnyObject]) -> Bool {
+        if let musicianSnapshot = dictionary["musicians"] as? [String: AnyObject] {
+            for (_, value) in musicianSnapshot {
+                if let valueDict = value as? [String: AnyObject], let musicianID = valueDict["musicianID"] as? String {
+                    if musicianID == uid {
+                        return true
                     }
                 }
             }
-        })
+        }
         
-        completionHandler(false)
-    }*/
+        return false
+    }
     
     func deleteSession(sessionID: String) {
         let ref = Database.database().reference()
