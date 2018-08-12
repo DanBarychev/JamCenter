@@ -50,7 +50,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         joinSessionButton.layer.borderWidth = 2
         joinSessionButton.layer.borderColor = UIColor.black.cgColor
         
-        startTimeLabel.layer.cornerRadius = 12
+        startTimeLabel.layer.cornerRadius = 8
         startTimeLabel.layer.borderWidth = 1
         startTimeLabel.layer.borderColor = UIColor.black.cgColor
         
