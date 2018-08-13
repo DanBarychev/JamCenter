@@ -11,15 +11,19 @@ import UIKit
 class MySongTableViewCell: UITableViewCell {
 
     @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var artistComposerLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
     
     @IBAction func searchForSong(_ sender: UIButton) {
         let songTitleFormatted = songLabel.text?.replacingOccurrences(of: " ", with: "+")
         
-        if let songTitleFormatted = songTitleFormatted {
-            if let searchURL = URL(string: "http://www.google.com/search?q=\(songTitleFormatted)") {
+        let artistComposerTitleFormatted = artistComposerLabel.text?.replacingOccurrences(of: " ", with: "+")
+        
+        if let songTitleFormatted = songTitleFormatted, let artistComposerTitleFormatted = artistComposerTitleFormatted {
+            if let searchURL = URL(string: "http://www.google.com/search?q=\(songTitleFormatted)+\(artistComposerTitleFormatted)") {
                 UIApplication.shared.open(searchURL, options: [:], completionHandler: nil)
             }
         }
     }
+    
 }

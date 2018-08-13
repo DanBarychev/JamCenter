@@ -12,18 +12,14 @@ import Firebase
 class SongsTableViewController: UITableViewController {
     
     var mySession: Session?
-    var songs = [String]()
+    var songs = [Song]()
     var sessionID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let session = mySession {
-            sessionID = session.ID ?? ""
-            
-            if let sessionSongs = session.songs {
-                songs = sessionSongs
-            }
+        if let session = mySession, let unwrappedSessionID = session.ID {
+            sessionID = unwrappedSessionID
         }
         
         getData()
@@ -41,7 +37,8 @@ class SongsTableViewController: UITableViewController {
         
         let song = songs[indexPath.row]
         
-        cell.songLabel?.text = song
+        cell.songLabel?.text = song.title
+        cell.artistComposerLabel?.text = song.artist
         
         return cell
     }
@@ -54,11 +51,15 @@ class SongsTableViewController: UITableViewController {
         
         sessionSongsRef.observe(.childAdded, with: {(snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let song = dictionary["song"] as? String
+                let currentSong = Song()
                 
-                if let song = song {
-                    self.songs.append(song)
-                }
+                let songTitle = dictionary["songTitle"] as? String
+                let songArtist = dictionary["songArtist"] as? String
+                
+                currentSong.title = songTitle
+                currentSong.artist = songArtist
+                
+                self.songs.append(currentSong)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

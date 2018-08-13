@@ -12,18 +12,14 @@ import Firebase
 class MySongsTableViewController: UITableViewController {
     
     var mySession: Session?
-    var songs = [String]()
+    var songs = [Song]()
     var sessionID = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let session = mySession {
-            sessionID = session.ID ?? ""
-            
-            if let sessionSongs = session.songs {
-                songs = sessionSongs
-            }
+        if let session = mySession, let unwrappedSessionID = session.ID {
+            sessionID = unwrappedSessionID
         }
         
         getData()
@@ -41,7 +37,8 @@ class MySongsTableViewController: UITableViewController {
         
         let song = songs[indexPath.row]
         
-        cell.songLabel?.text = song
+        cell.songLabel?.text = song.title
+        cell.artistComposerLabel?.text = song.artist
         
         return cell
     }
@@ -72,11 +69,15 @@ class MySongsTableViewController: UITableViewController {
         
         sessionSongsRef.observe(.childAdded, with: {(snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let song = dictionary["song"] as? String
+                let currentSong = Song()
                 
-                if let song = song {
-                  self.songs.append(song)
-                }
+                let songTitle = dictionary["songTitle"] as? String
+                let songArtist = dictionary["songArtist"] as? String
+                
+                currentSong.title = songTitle
+                currentSong.artist = songArtist
+                
+                self.songs.append(currentSong)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -86,36 +87,32 @@ class MySongsTableViewController: UITableViewController {
         }, withCancel: nil)
     }
     
-    func addSongToSession(song: String) {
+    func addSongToSession(songTitle: String, songArtist: String) {
         let ref = Database.database().reference()
         let sessionSongsRef = ref.child("all sessions").child(sessionID).child("songs")
         let sessionSongKey = sessionSongsRef.childByAutoId()
         
-        let values = ["song": song]
+        let values = ["songTitle": songTitle, "songArtist": songArtist]
         
         sessionSongKey.updateChildValues(values) { (error, ref) in
             if error != nil {
                 print(error!)
             } else {
-                print("\(song) successfully added to session")
+                print("\(songTitle) successfully added to session")
             }
         }
     }
     
-    func removeSongFromSession(songToDelete: String) {
+    func removeSongFromSession(songToDelete: Song) {
         let ref = Database.database().reference()
         let sessionSongsRef = ref.child("all sessions").child(sessionID).child("songs")
         
         sessionSongsRef.observe(.childAdded, with: {(snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let song = dictionary["song"] as? String
+                let songTitle = dictionary["songTitle"] as? String
                 
-                if let song = song {
-                    if songToDelete == song {
-                        let songKey = snapshot.key
-                        
-                        sessionSongsRef.child(songKey).removeValue()
-                    }
+                if songToDelete.title == songTitle {
+                    sessionSongsRef.child(snapshot.key).removeValue()
                 }
                 
                 DispatchQueue.main.async {
@@ -129,20 +126,20 @@ class MySongsTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func addSong(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Add Song", message: "Enter the title below", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add Song", message: "Enter the information below", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "Done", style: .default) { (_) in
             if let field = alertController.textFields?[0] {
                 
-                if let songTitle = field.text {
-                  self.addSongToSession(song: songTitle)
+                if let songTitle = field.text, let field2 = alertController.textFields?[1],
+                    let songArtist = field2.text {
+                    
+                    self.addSongToSession(songTitle: songTitle, songArtist: songArtist)
                 }
                 
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
-            } else {
-                // user did not fill field
             }
         }
         
@@ -150,6 +147,10 @@ class MySongsTableViewController: UITableViewController {
         
         alertController.addTextField { (textField) in
             textField.placeholder = "Song Title"
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Artist/Composer"
         }
         
         alertController.addAction(confirmAction)

@@ -11,6 +11,7 @@
 		7D15AB9A948060B83A9BE6C1 /* Pods_JamHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591346670CC83740E5858C03 /* Pods_JamHub.framework */; };
 		8BDAFDCFAEC44B335BECCB2D /* Pods_JamHub_JamHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */; };
 		D60357BC21208EE300CE1CEF /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60357BB21208EE300CE1CEF /* SetTimeViewController.swift */; };
+		D60357BE21212B8700CE1CEF /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60357BD21212B8700CE1CEF /* Song.swift */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
 		D633E7F821162BA5008FA1A1 /* InviteMusiciansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633E7F721162BA5008FA1A1 /* InviteMusiciansTableViewController.swift */; };
@@ -95,6 +96,7 @@
 		AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.release.xcconfig"; sourceTree = "<group>"; };
 		D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D60357BB21208EE300CE1CEF /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
+		D60357BD21212B8700CE1CEF /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
 		D633E7F721162BA5008FA1A1 /* InviteMusiciansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteMusiciansTableViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */,
 				D67EF51E1ECE42FA00CA73B1 /* Session.swift */,
 				D6D16C351F0C30760079314B /* Musician.swift */,
+				D60357BD21212B8700CE1CEF /* Song.swift */,
 				D67EF5121ECDFFA100CA73B1 /* MySessionsViewController.swift */,
 				D67EF51A1ECE063000CA73B1 /* SessionTableViewCell.swift */,
 				D6F92FED1ED213AE00B3533F /* NewSessionViewController.swift */,
@@ -695,6 +698,7 @@
 				D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */,
 				D6AF456D1F1DAFA2005B0658 /* MyAudioViewController.swift in Sources */,
 				D67EF5131ECDFFA100CA73B1 /* MySessionsViewController.swift in Sources */,
+				D60357BE21212B8700CE1CEF /* Song.swift in Sources */,
 				D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */,
 				D6FA3BC91F36728E004E8B8F /* MySongTableViewCell.swift in Sources */,
 				D6D16C3C1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift in Sources */,
