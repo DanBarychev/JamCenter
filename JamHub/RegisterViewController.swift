@@ -6,7 +6,7 @@
 //  Copyright © 2017 Daniel Barychev. All rights reserved.
 //
 //  Back Icon from https://icons8.com/icon/39815/Go-Back
-//  Background photo by Tim Savage
+//  Background photo by Tim Savage from Pexels.com
 
 import UIKit
 import Firebase

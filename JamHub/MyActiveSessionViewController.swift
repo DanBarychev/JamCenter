@@ -92,7 +92,7 @@ class MyActiveSessionViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func shareTapped(_ sender: UIButton) {
-        let content = LinkShareContent(url: URL(string: "https://developers.facebook.com")!)
+        let content = LinkShareContent(url: URL(string: "http://www.jamhubapp.com")!)
         do {
             try ShareDialog.show(from: self, content: content)
         } catch {
@@ -107,8 +107,6 @@ class MyActiveSessionViewController: UIViewController {
     
     @IBAction func endSessionTapped(_ sender: UIButton) {
         endSession()
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMySessions"), object: nil)
     }
     
     

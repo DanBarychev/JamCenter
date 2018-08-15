@@ -60,11 +60,13 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
                     if allowed {
                         self.recordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
                     } else {
+                        print("Failed second guard")
                         self.displayRecordError()
                     }
                 }
             }
         } catch {
+            print("Failed first guard")
             displayRecordError()
         }
         

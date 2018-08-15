@@ -63,7 +63,7 @@ class AudioViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(MyAudioViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
-    func updateTimer() {
+    @objc func updateTimer() {
         if audioPlayer != nil && audioPlayer.isPlaying {
             seconds += 1
             recordingClockLabel.text = timeString(time: TimeInterval(seconds))

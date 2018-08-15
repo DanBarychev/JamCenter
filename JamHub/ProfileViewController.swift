@@ -34,8 +34,11 @@ class ProfileViewController: UIViewController {
     // MARK: Firebase Download
     
     func getData() {
-        let uid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {
             (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {

@@ -57,8 +57,12 @@ class SetTimeViewController: UIViewController {
         let userLocation = "\(userCity), \(userCountry)"
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
         let startTime = timePicker.date
+        
+        dateFormatter.dateFormat = "MM-dd-yyyy h:mm a"
+        let startTimeRaw = dateFormatter.string(from: startTime)
+        
+        dateFormatter.dateFormat = "h:mm a"
         let startTimeFormatted = dateFormatter.string(from: startTime)
         
         let ref = Database.database().reference()
@@ -66,7 +70,8 @@ class SetTimeViewController: UIViewController {
         let sessionKey = allSessionsRef.childByAutoId()
         let values = ["name": name, "genre": genre, "location": location, "host": userName,
                       "code": sessionCode, "ID": sessionKey.key, "hostUID": uid,
-                      "hostLocation": userLocation, "startTime": startTimeFormatted, "isActive": "true"]
+                      "hostLocation": userLocation, "startDate": startTimeRaw,
+                      "startTime": startTimeFormatted, "isActive": "true"]
         
         newSession?.host = userName
         newSession?.code = sessionCode
@@ -74,6 +79,7 @@ class SetTimeViewController: UIViewController {
         newSession?.hostUID = uid
         newSession?.hostLocation = userLocation
         newSession?.startTime = startTimeFormatted
+        newSession?.startDate = startTimeRaw
         newSession?.isActive = true
         
         sessionKey.updateChildValues(values, withCompletionBlock: { (error, ref) in

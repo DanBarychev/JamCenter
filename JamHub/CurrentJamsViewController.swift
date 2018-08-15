@@ -97,7 +97,8 @@ class CurrentJamsViewController: UITableViewController {
                 newSession.hostUID = dictionary["hostUID"] as? String
                 newSession.hostLocation = dictionary["hostLocation"] as? String
                 newSession.startTime = dictionary["startTime"] as? String
-                newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "false")
+                
+                self.checkSessionExpiry(session: newSession, sessionDictionary: dictionary)
                 
                 guard let hostLocation = newSession.hostLocation else {
                     return
@@ -112,6 +113,35 @@ class CurrentJamsViewController: UITableViewController {
                 }
             }
         }, withCancel: nil)
+    }
+    
+    func checkSessionExpiry(session: Session, sessionDictionary: [String: AnyObject]) {
+        guard let sessionActive = Bool((sessionDictionary["isActive"] as? String) ?? "false") else {
+            return
+        }
+        
+        if sessionActive {
+            if let dictionaryStartDate = sessionDictionary["startDate"] as? String {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM-dd-yyyy h:mm a"
+                guard let startDate = dateFormatter.date(from: dictionaryStartDate) else {
+                    return
+                }
+                let currentDate = NSDate()
+                let sessionLifetime = currentDate.timeIntervalSince(startDate)
+                
+                let minute:TimeInterval = 60.0
+                let hour:TimeInterval = 60.0 * minute
+                let day:TimeInterval = 24 * hour
+                
+                print("Session Lifetime: \(sessionLifetime)")
+                print("Day: \(day)")
+                
+                session.isActive = (sessionLifetime <= day)
+            }
+        } else {
+            session.isActive = false
+        }
     }
     
     func getUserLocation(completionHandler: @escaping UserLocationClosure) {

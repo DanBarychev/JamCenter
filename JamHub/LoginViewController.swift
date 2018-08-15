@@ -5,7 +5,7 @@
 //  Created by Daniel Barychev on 5/18/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.
 //
-//  Background photo by Edward Castro
+//  Background photo by Edward Castro from Pexels.com
 
 import UIKit
 import Firebase

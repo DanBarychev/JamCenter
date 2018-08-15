@@ -19,6 +19,7 @@ public class Session {
     var hostUID: String?
     var hostLocation: String?
     var startTime: String?
+    var startDate: String?
     var musicians: [Musician]?
     var invitees: [Musician]?
     var songs: [String]?
