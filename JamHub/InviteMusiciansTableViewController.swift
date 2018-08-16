@@ -9,19 +9,22 @@
 import UIKit
 import Firebase
 
-class InviteMusiciansTableViewController: UITableViewController {
+class InviteMusiciansTableViewController: UITableViewController, UISearchBarDelegate{
 
     // MARK: Properties
     
     var musicians = [Musician]()
+    var musiciansFiltered = [Musician]()
     var selectedMusicians = [Musician]()
     var selectedMusicianUIDs = [String]()
+    var searchActive = false
     var alreadySelectedMusicianUIDs: [String]?
     var alreadySelectedMusicians: [Musician]?
     var currentSession: Session?
     var origin: String?
     
     @IBOutlet weak var topRightReturnButton: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     typealias CurrentSessionClosure = (Session?) -> Void
     typealias MusicianClosure = (Musician?) -> Void
@@ -29,6 +32,9 @@ class InviteMusiciansTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         if origin == "NewSession" {
             topRightReturnButton.title = "Done"
@@ -48,21 +54,72 @@ class InviteMusiciansTableViewController: UITableViewController {
         }
         
         getData()
+        
+        self.tableView.addSubview(self.myRefreshControl)
+    }
+    
+    // MARK: Refresh Control
+    
+    lazy var myRefreshControl: UIRefreshControl = {
+        let myRefreshControl = UIRefreshControl()
+        myRefreshControl.addTarget(self, action:
+            #selector(MySessionsViewController.handleRefresh(_:)),
+                                   for: UIControlEvents.valueChanged)
+        
+        return myRefreshControl
+    }()
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getData()
+        refreshControl.endRefreshing()
+    }
+    
+    // MARK: Search bar data source
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        musiciansFiltered = musicians.filter({ (musician) -> Bool in
+            var isMatch = false
+            
+            if let musicianName = musician.name {
+                isMatch = musicianName.lowercased().contains(searchText.lowercased())
+            }
+        
+            return isMatch
+        })
+        
+        if(musiciansFiltered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Hide Keyboard
+        searchBar.resignFirstResponder()
     }
 
-    // MARK: - Table view data source
+    // MARK: Table view data source
 
     // number of rows in table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return musicians.count
+        if searchActive {
+            return musiciansFiltered.count
+        } else {
+            return musicians.count
+        }
     }
     
     // create a cell for each table view row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InviteMusiciansCell", for: indexPath) as! InviteMusiciansTableViewCell
         
-        // set the text from the data model
-        let musician = musicians[indexPath.row]
+        var musician = musicians[indexPath.row]
+        
+        if searchActive {
+            musician = musiciansFiltered[indexPath.row]
+        }
         
         guard let musicianUID = musician.uid else {
             return cell
@@ -96,7 +153,11 @@ class InviteMusiciansTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! InviteMusiciansTableViewCell
         
-        let musician = musicians[indexPath.row]
+        var musician = musicians[indexPath.row]
+        
+        if searchActive {
+            musician = musiciansFiltered[indexPath.row]
+        }
         
         if let musicianUID = musician.uid {
             if cell.invitationSentCover.isHidden {
@@ -120,6 +181,8 @@ class InviteMusiciansTableViewController: UITableViewController {
     // MARK: Firebase Download
     
     func getData() {
+        musicians.removeAll()
+        
         let usersRef = Database.database().reference().child("users")
         
         usersRef.observe(.childAdded, with: {(snapshot) in

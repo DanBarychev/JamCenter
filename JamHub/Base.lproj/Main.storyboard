@@ -3299,9 +3299,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="ktq-vX-ddX">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InviteMusiciansCell" rowHeight="75" id="PAR-GF-gbF" customClass="InviteMusiciansTableViewCell" customModule="JamHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PAR-GF-gbF" id="jiw-Qt-I6C">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
@@ -3384,6 +3389,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="ktq-vX-ddX" id="dyT-DT-ubB"/>
                         <outlet property="topRightReturnButton" destination="kTo-db-6ja" id="weI-Fq-WKx"/>
                         <segue destination="3lu-R9-R2T" kind="unwind" identifier="UnwindToNewSessionFromInviteMusicians" unwindAction="unwindToNewSessionWithSender:" id="WRj-Cf-Gpc"/>
                         <segue destination="3lu-R9-R2T" kind="unwind" identifier="UnwindToCurrentJamFromInviteMusicians" unwindAction="unwindToCurrentJamWithSender:" id="pa5-PH-d7p"/>

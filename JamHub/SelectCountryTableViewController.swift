@@ -12,6 +12,8 @@ import Firebase
 
 class SelectCountryTableViewController: UITableViewController, UISearchBarDelegate {
     
+    // MARK: Properties
+    
     var countries = [String]()
     var countriesFiltered = [String]()
     var selectedCountry = String()
