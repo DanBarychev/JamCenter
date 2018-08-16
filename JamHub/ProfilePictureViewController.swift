@@ -25,8 +25,8 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleToFill
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
         }
         
