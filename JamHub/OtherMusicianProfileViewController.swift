@@ -18,6 +18,7 @@ class OtherMusicianProfileViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var numSessionsLabel: UILabel!
     
+    var origin: String?
     var selectedMusician: Musician?
     
     override func viewDidLoad() {
@@ -39,4 +40,19 @@ class OtherMusicianProfileViewController: UIViewController {
             numSessionsLabel.text = String(musician.numSessions ?? 0)
         }
     }
+    
+    // MARK: Actions
+    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        guard let origin = origin else {
+            return
+        }
+        
+        if origin == "NewSession" {
+            performSegue(withIdentifier: "UnwindToNewSessionFromOtherMusician", sender: nil)
+        } else {
+            performSegue(withIdentifier: "UnwindToCurrentJamFromOtherMusician", sender: nil)
+        }
+    }
+    
 }

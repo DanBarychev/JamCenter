@@ -424,6 +424,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
                 let indexPath = tableView.indexPath(for: selectedJamCell)!
                 let selectedMusician = musicians[indexPath.row]
                 newViewController.selectedMusician = selectedMusician
+                newViewController.origin = "CurrentJam"
             }
         } else if segue.identifier == "GoToMyActiveSessionFromCurrentJam" {
             let nav = segue.destination as! UINavigationController

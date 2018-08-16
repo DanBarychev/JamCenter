@@ -189,6 +189,17 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
             newViewController.origin = "NewSession"
             newViewController.alreadySelectedMusicians = invitedMusicians
             newViewController.alreadySelectedMusicianUIDs = invitedMusicianUIDs
+        } else if segue.identifier == "ViewMusicianFromNewSession" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! OtherMusicianProfileViewController
+            
+            if let selectedMusicianCell = sender as? NewSessionMusicianTableViewCell
+            {
+                let indexPath = musicianTableView.indexPath(for: selectedMusicianCell)!
+                
+                newViewController.selectedMusician = invitedMusicians?[indexPath.row]
+                newViewController.origin = "NewSession"
+            }
         }
     }
     

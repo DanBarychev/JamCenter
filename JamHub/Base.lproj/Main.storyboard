@@ -776,11 +776,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oim-oZ-ozj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oim-oZ-ozj">
                                 <rect key="frame" x="16" y="302" width="343" height="345"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewSessionMusicianCell" id="k9Q-Yh-C9x" customClass="NewSessionMusicianTableViewCell" customModule="JamHub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewSessionMusicianCell" id="k9Q-Yh-C9x" customClass="NewSessionMusicianTableViewCell" customModule="JamHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k9Q-Yh-C9x" id="DXx-9f-LRg">
@@ -820,6 +820,7 @@
                                             <outlet property="instrumentsLabel" destination="HNt-ni-w7B" id="epr-sm-keq"/>
                                             <outlet property="nameLabel" destination="VGf-sw-s50" id="UY4-hA-AO5"/>
                                             <outlet property="profileImageView" destination="K0d-mR-qDl" id="xyg-95-f2f"/>
+                                            <segue destination="hgH-WR-NYh" kind="show" identifier="ViewMusicianFromNewSession" id="SNS-D1-S2v"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3240,7 +3241,7 @@
                     <navigationItem key="navigationItem" id="XSX-Xg-L9z">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="pc1-Tt-O8Q">
                             <connections>
-                                <segue destination="T4F-JK-GN9" kind="unwind" unwindAction="unwindToCurrentJamWithSender:" id="cez-LA-8SO"/>
+                                <action selector="backButtonPressed:" destination="e2O-L9-BCd" id="5UU-NL-1K1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3252,6 +3253,8 @@
                         <outlet property="nameLabel" destination="SQV-yX-wmj" id="br7-K4-S09"/>
                         <outlet property="numSessionsLabel" destination="rFL-Ng-JRR" id="Q3a-CR-fWm"/>
                         <outlet property="profileImageView" destination="qEi-qn-bLG" id="YLh-rn-Frb"/>
+                        <segue destination="T4F-JK-GN9" kind="unwind" identifier="UnwindToCurrentJamFromOtherMusician" unwindAction="unwindToCurrentJamWithSender:" id="pib-60-Z8l"/>
+                        <segue destination="T4F-JK-GN9" kind="unwind" identifier="UnwindToNewSessionFromOtherMusician" unwindAction="unwindToNewSessionWithSender:" id="5cM-Cj-v0T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iq-DK-glS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4044,6 +4047,7 @@
         <segue reference="caz-vU-FRB"/>
         <segue reference="kMP-PF-Ccq"/>
         <segue reference="IHQ-Dr-r3t"/>
+        <segue reference="SNS-D1-S2v"/>
         <segue reference="T3c-77-A8K"/>
         <segue reference="cVa-b4-raN"/>
     </inferredMetricsTieBreakers>
