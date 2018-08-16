@@ -609,9 +609,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="1cV-tp-g56">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Hosting"/>
+                                <segment title="Participating"/>
+                            </segments>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="indexChanged:" destination="4jp-YL-GPz" eventType="valueChanged" id="maN-1W-cSP"/>
+                            </connections>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionTableViewCell" rowHeight="75" id="iwm-2R-Rdp" customClass="SessionTableViewCell" customModule="JamHub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iwm-2R-Rdp" id="C16-TR-S0U">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
@@ -702,6 +714,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="1cV-tp-g56" id="Mkj-3Z-dI3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSn-JN-Vur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4022,7 +4037,7 @@
         <segue reference="sBD-hS-rO1"/>
         <segue reference="kMP-PF-Ccq"/>
         <segue reference="IHQ-Dr-r3t"/>
-        <segue reference="G2p-Ba-fkW"/>
+        <segue reference="T3c-77-A8K"/>
         <segue reference="cVa-b4-raN"/>
     </inferredMetricsTieBreakers>
 </document>

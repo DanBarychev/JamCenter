@@ -12,7 +12,9 @@ import Firebase
 
 class MySessionsViewController: UITableViewController {
     
-    var sessions = [Session]()
+    var hostSessions = [Session]()
+    var participantSessions = [Session]()
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     typealias isParticipantClosure = (Bool?) -> Void
 
     override func viewDidLoad() {
@@ -20,6 +22,10 @@ class MySessionsViewController: UITableViewController {
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.segmentedControl.layer.cornerRadius = 0
+        self.segmentedControl.layer.borderColor = UIColor.black.cgColor
+        self.segmentedControl.layer.borderWidth = 1.5
         
         getData()
         
@@ -52,13 +58,23 @@ class MySessionsViewController: UITableViewController {
     // MARK: Table View Properites
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions.count
+        if segmentedControl.selectedSegmentIndex == 0 {
+            return hostSessions.count
+        } else {
+            return participantSessions.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionTableViewCell", for: indexPath) as! SessionTableViewCell
         
-        let session = sessions.reversed()[indexPath.row]
+        var session = Session()
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            session = hostSessions.reversed()[indexPath.row]
+        } else {
+            session = participantSessions.reversed()[indexPath.row]
+        }
         
         cell.nameLabel?.text = session.name
         cell.genreLabel?.text = session.genre
@@ -81,7 +97,13 @@ class MySessionsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let session = sessions.reversed()[indexPath.row]
+            var session = Session()
+            
+            if segmentedControl.selectedSegmentIndex == 0 {
+                session = hostSessions.reversed()[indexPath.row]
+            } else {
+                session = participantSessions.reversed()[indexPath.row]
+            }
             
             guard let sessionID = session.ID , let sessionHostUID = session.hostUID,
                 let uid = Auth.auth().currentUser?.uid else {
@@ -89,9 +111,16 @@ class MySessionsViewController: UITableViewController {
             }
             
             // The reverse index accounts for us using a reversed sessions array
-            let reverseIndex = sessions.count - indexPath.row - 1
+            if segmentedControl.selectedSegmentIndex == 0 {
+                let reverseIndex = hostSessions.count - indexPath.row - 1
+                
+                hostSessions.remove(at: reverseIndex)
+            } else {
+                let reverseIndex = participantSessions.count - indexPath.row - 1
+                
+                participantSessions.remove(at: reverseIndex)
+            }
             
-            sessions.remove(at: reverseIndex)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             if sessionHostUID == uid {
@@ -105,7 +134,8 @@ class MySessionsViewController: UITableViewController {
     // MARK: Firebase Functions
 
     func getData() {
-        sessions.removeAll()  //Start clean
+        hostSessions.removeAll()
+        participantSessions.removeAll()
         
         let uid = Auth.auth().currentUser?.uid
         let allSessionsRef = Database.database().reference().child("all sessions")
@@ -138,7 +168,11 @@ class MySessionsViewController: UITableViewController {
                         
                         newSession.isActive = Bool((dictionary["isActive"] as? String) ?? "true")
                         
-                        self.sessions.append(newSession)
+                        if isHost {
+                            self.hostSessions.append(newSession)
+                        } else {
+                            self.participantSessions.append(newSession)
+                        }
                         
                         DispatchQueue.main.async(execute: {
                             self.tableView.reloadData()
@@ -187,6 +221,12 @@ class MySessionsViewController: UITableViewController {
         }, withCancel: nil)
     }
     
+    // MARK: Actions
+    
+    @IBAction func indexChanged(_ sender: UISegmentedControl) {
+        self.tableView.reloadData()
+    }
+    
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -197,8 +237,13 @@ class MySessionsViewController: UITableViewController {
             if let selectedJamCell = sender as? SessionTableViewCell
             {
                 let indexPath = tableView.indexPath(for: selectedJamCell)!
-                let selectedJam = sessions.reversed()[indexPath.row]
-                newViewController.currentSession = selectedJam
+                
+                if segmentedControl.selectedSegmentIndex == 0 {
+                    newViewController.currentSession = hostSessions.reversed()[indexPath.row]
+                } else {
+                    newViewController.currentSession = participantSessions.reversed()[indexPath.row]
+                }
+                
                 newViewController.origin = "MySessions"
             }
         }

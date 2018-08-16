@@ -92,10 +92,10 @@ class InvitationsTableViewController: UITableViewController {
                         if let dictionary = snapshot.value as? [String: AnyObject] {
                             if let sessionID = dictionary["sessionID"] as? String {
                                 self.getSession(sessionID: sessionID) { (session) in
-                                    if let session = session {
-                                        self.sessions.append(session)
-                                        
-                                        print("Just appended a session")
+                                    if let session = session, let sessionIsActive = session.isActive {
+                                        if sessionIsActive {
+                                            self.sessions.append(session)
+                                        }
                                         
                                         DispatchQueue.main.async {
                                             self.tableView.reloadData()
@@ -154,7 +154,7 @@ class InvitationsTableViewController: UITableViewController {
         })
     }
     
-    //Needed if we just accepted the last one and no longer have the invitations key
+    // Needed if we just accepted the last one and no longer have the invitations key
     func checkIfUserHasInvitations(userRef: DatabaseReference, completionHandler: @escaping HasInvitationsClosure) {
         userRef.observeSingleEvent(of: .value, with: {(snapshot) in
             if snapshot.hasChild("invitations") {
