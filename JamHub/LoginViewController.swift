@@ -178,7 +178,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 UIViewController.removeSpinner(spinner: spinner)
                 
-                let loginAlert = UIAlertController(title: "Invalid Login", message: "Incorrect Email or Password", preferredStyle: UIAlertControllerStyle.alert)
+                let loginAlert = UIAlertController(title: "Invalid Login", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 loginAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(loginAlert, animated: true, completion: nil)
                 

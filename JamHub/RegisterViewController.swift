@@ -48,19 +48,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func handleRegister() {
         guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text
             else {
-                //invalid entry
                 return
         }
         
         let spinner = UIViewController.showSpinner(onView: self.view)
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 
                 UIViewController.removeSpinner(spinner: spinner)
                 
-                let registrationAlert = UIAlertController(title: "Invalid Registration", message: "There Was An Error With The Submission", preferredStyle: UIAlertControllerStyle.alert)
+                let registrationAlert = UIAlertController(title: "Invalid Registration", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 registrationAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(registrationAlert, animated: true, completion: nil)
             }
