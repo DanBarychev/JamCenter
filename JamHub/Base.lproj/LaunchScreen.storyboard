@@ -28,7 +28,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JamHubLogoTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="54g-E7-tUM">
-                                <rect key="frame" x="62" y="60" width="250" height="250"/>
+                                <rect key="frame" x="12" y="0.0" width="350" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="54g-E7-tUM" secondAttribute="height" multiplier="1:1" id="d7a-vh-2uY"/>
                                 </constraints>
@@ -38,8 +38,8 @@
                         <constraints>
                             <constraint firstItem="hHk-df-Ffv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="3A3-lt-ktZ"/>
                             <constraint firstAttribute="trailing" secondItem="hHk-df-Ffv" secondAttribute="trailing" id="9oT-Z0-am1"/>
-                            <constraint firstItem="54g-E7-tUM" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="40" id="WvS-47-mIh"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="54g-E7-tUM" secondAttribute="bottom" constant="357" id="mvO-jU-beT"/>
+                            <constraint firstItem="54g-E7-tUM" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="WvS-47-mIh"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="54g-E7-tUM" secondAttribute="bottom" constant="317" id="mvO-jU-beT"/>
                             <constraint firstItem="hHk-df-Ffv" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="rgJ-vi-39H"/>
                             <constraint firstItem="hHk-df-Ffv" firstAttribute="centerX" secondItem="54g-E7-tUM" secondAttribute="centerX" id="spv-UX-Dhr"/>
                             <constraint firstItem="hHk-df-Ffv" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="yp5-aj-9I6"/>
