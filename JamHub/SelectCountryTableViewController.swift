@@ -106,9 +106,9 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
                     let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
                     
                     let countriesArray = (jsonResult as AnyObject).allKeys as! [String]
-                    allCountries = countriesArray.sorted()
-                    // Filter out any duplicates
-                    allCountries = Array(Set(allCountries))
+                    // Filter out any duplicates and sort
+                    allCountries = Array(Set(countriesArray))
+                    allCountries = allCountries.sorted()
                 } catch {}
             } catch {}
         }

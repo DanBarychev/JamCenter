@@ -99,8 +99,10 @@ class SelectCityTableViewController: UITableViewController, UISearchBarDelegate 
                     let countryCityDict = jsonResult as! NSDictionary
                     
                     allCities = countryCityDict[selectedCountry as Any] as! [String]
-                    // Filter out any duplicates
+                    
+                    // Filter out any duplicates and sort
                     allCities = Array(Set(allCities))
+                    allCities = allCities.sorted()
                 } catch {}
             } catch {}
         }
