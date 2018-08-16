@@ -79,7 +79,14 @@ class MySessionsViewController: UITableViewController {
         cell.nameLabel?.text = session.name
         cell.genreLabel?.text = session.genre
         
-        if !(session.isActive ?? false) {
+        guard let sessionIsActive = session.isActive else {
+            return cell
+        }
+        
+        if sessionIsActive {
+            cell.activeLabel.text = "Active"
+            cell.activeImageView.image = UIImage(named: "CircleIconGreen")
+        } else {
             cell.activeLabel.text = "Inactive"
             cell.activeImageView.image = UIImage(named: "CircleIconGrey")
         }
