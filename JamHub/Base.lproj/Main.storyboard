@@ -265,16 +265,16 @@
                                 <rect key="frame" x="-257" y="446" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="An5-7p-IRJ"/>
-                                    <constraint firstAttribute="width" constant="42" id="tZ2-C9-hkY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="tZ2-C9-hkY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTo-1f-T8z">
-                                <rect key="frame" x="-261" y="388" width="50" height="50"/>
+                                <rect key="frame" x="-288" y="388" width="104" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="zxQ-v7-px7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="zxQ-v7-px7"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="RecordIconWhite"/>
                             </button>
@@ -369,13 +369,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-et-wGz">
-                                <rect key="frame" x="77" y="234" width="220" height="48"/>
+                                <rect key="frame" x="96" y="234" width="183" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Host has not Added a Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1I-Xs-5IT">
-                                <rect key="frame" x="31" y="323" width="312" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Recording Added" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1I-Xs-5IT">
+                                <rect key="frame" x="108" y="323" width="158.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -417,9 +417,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dfr-et-wGz" firstAttribute="centerX" secondItem="1U5-IY-meI" secondAttribute="centerX" id="264-N8-Urh"/>
-                            <constraint firstItem="aAY-Zk-3cY" firstAttribute="trailing" secondItem="dfr-et-wGz" secondAttribute="trailing" id="2At-rS-7Yr"/>
+                            <constraint firstItem="aAY-Zk-3cY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dfr-et-wGz" secondAttribute="trailing" id="2At-rS-7Yr"/>
+                            <constraint firstItem="aAY-Zk-3cY" firstAttribute="leading" secondItem="Tfv-Nw-6y7" secondAttribute="trailing" constant="35" id="BbN-7r-PWE"/>
                             <constraint firstItem="E1I-Xs-5IT" firstAttribute="centerX" secondItem="dfr-et-wGz" secondAttribute="centerX" id="Lkm-St-qiM"/>
-                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" constant="61" id="Phj-A1-RU2"/>
+                            <constraint firstItem="dfr-et-wGz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1U5-IY-meI" secondAttribute="leadingMargin" id="Phj-A1-RU2"/>
                             <constraint firstItem="mLE-a4-yIp" firstAttribute="top" secondItem="Tfv-Nw-6y7" secondAttribute="top" id="SeD-jx-fdi"/>
                             <constraint firstItem="E1I-Xs-5IT" firstAttribute="centerX" secondItem="Tfv-Nw-6y7" secondAttribute="centerX" id="SxS-UG-2fk"/>
                             <constraint firstItem="mLE-a4-yIp" firstAttribute="top" secondItem="E1I-Xs-5IT" secondAttribute="bottom" constant="66" id="VLd-I7-Na8"/>
@@ -775,11 +776,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oim-oZ-ozj">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oim-oZ-ozj">
                                 <rect key="frame" x="16" y="302" width="343" height="345"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewSessionMusicianCell" id="k9Q-Yh-C9x" customClass="NewSessionMusicianTableViewCell" customModule="JamHub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewSessionMusicianCell" id="k9Q-Yh-C9x" customClass="NewSessionMusicianTableViewCell" customModule="JamHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k9Q-Yh-C9x" id="DXx-9f-LRg">
@@ -1141,7 +1142,7 @@
                     <navigationItem key="navigationItem" title="Audio" id="OXc-gL-SZL">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="OMh-li-Evt">
                             <connections>
-                                <segue destination="YOa-se-gIp" kind="unwind" unwindAction="unwindToMyActiveSessionWithSender:" id="8BJ-4x-WBS"/>
+                                <action selector="backButtonPressed:" destination="YQY-e6-bZA" id="Z1U-Mi-g2H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1153,6 +1154,7 @@
                         <outlet property="recordingLabel" destination="lY6-by-X0N" id="zQ8-S1-Q2e"/>
                         <outlet property="tapMicrophoneLabel" destination="5LH-oM-MMC" id="i4s-1F-7tP"/>
                         <outlet property="uploadRecordingButton" destination="dbI-Rc-FxX" id="w3y-PB-vc4"/>
+                        <segue destination="YOa-se-gIp" kind="unwind" identifier="UnwindToMyActiveSessionFromMyAudio" unwindAction="unwindToMyActiveSessionWithSender:" id="9jF-1V-DaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeR-06-gX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4039,7 +4041,7 @@
         <image name="ViolinIconBlue" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sBD-hS-rO1"/>
+        <segue reference="caz-vU-FRB"/>
         <segue reference="kMP-PF-Ccq"/>
         <segue reference="IHQ-Dr-r3t"/>
         <segue reference="T3c-77-A8K"/>

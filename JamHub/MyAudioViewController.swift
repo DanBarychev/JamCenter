@@ -174,6 +174,28 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         self.present(loginAlert, animated: true, completion: nil)
     }
     
+    // MARK: Firebase Database Update
+    
+    private func userDataUpdateWithRecording(recordingLink: String, spinner: UIView) {
+        let values = ["audioRecordingURL": recordingLink]
+        
+        let ref = Database.database().reference()
+        let allSessionsKey = ref.child("all sessions").child(sessionID)
+        
+        allSessionsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if let error = error {
+                print (error)
+                UIViewController.removeSpinner(spinner: spinner)
+                return
+            }
+            else {
+                // Upload succeeded, set local value
+                self.mySession?.audioRecordingURL = recordingLink
+                UIViewController.removeSpinner(spinner: spinner)
+            }
+        })
+    }
+    
     // MARK: Actions
     
     @IBAction func playRecording(_ sender: UIButton) {
@@ -208,49 +230,42 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         let storageRef = Storage.storage().reference().child("session_audio").child("\(recordingName).m4a")
         let recordingURL = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         do {
+            let spinner = UIViewController.showSpinner(onView: self.view)
             let recordingData = try Data(contentsOf: recordingURL)
             
             storageRef.putData(recordingData, metadata: nil, completion:
                 {(metadata, error) in
                     
-                    if error != nil {
-                        print(error!)
+                    if let error = error {
+                        print(error)
+                        UIViewController.removeSpinner(spinner: spinner)
                         return
                     }
                     else {
-                        /*if let recordingFirebaseURL = metadata?.downloadURL()?.absoluteString {
-                            self.userDataUpdateWithRecording(recordingLink: recordingFirebaseURL)
-                        }*/
                         storageRef.downloadURL { (url, error) in
                             guard let recordingFirebaseURL = url?.absoluteString else {
-                                // Uh-oh, an error occurred!
+                                UIViewController.removeSpinner(spinner: spinner)
                                 return
                             }
-                            self.userDataUpdateWithRecording(recordingLink: recordingFirebaseURL)
+                            self.userDataUpdateWithRecording(recordingLink: recordingFirebaseURL, spinner: spinner)
                         }
                     }
             })
         } catch {
-            print("Unable to store recording")
         }
     }
     
-    // MARK: Firebase Database Update
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "UnwindToMyActiveSessionFromMyAudio", sender: nil)
+    }
     
-    private func userDataUpdateWithRecording(recordingLink: String) {
-        let values = ["audioRecordingURL": recordingLink]
-        
-        let ref = Database.database().reference()
-        let allSessionsKey = ref.child("all sessions").child(sessionID)
-        
-        allSessionsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print (error!)
-                return
-            }
-            else {
-                print("Public Copy of Session Updated with Recording")
-            }
-        })
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UnwindToMyActiveSessionFromMyAudio" {
+            let newViewController = segue.destination as! MyActiveSessionViewController
+            
+            newViewController.mySession = mySession
+        }
     }
 }
