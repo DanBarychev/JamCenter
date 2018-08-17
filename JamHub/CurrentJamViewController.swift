@@ -11,6 +11,8 @@ import Firebase
 
 class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: Properties
+    
     var currentSession: Session?
     var origin: String?
     var musicians = [Musician]()
@@ -64,6 +66,8 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         Database.database().reference().removeAllObservers()
     }
     
+    // MARK: Session Setup Through Firebase
+    
     func setupJamSesion() {
         if let currentJamSession = currentSession {
             navigationItem.title = currentJamSession.name
@@ -114,18 +118,15 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
 
     // MARK: Table View
     
-    // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return musicians.count
     }
     
-    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(musicians)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentJamMusicianCell", for: indexPath) as! CurrentJamMusicianTableViewCell
-        
-        // set the text from the data model
+
         let musician = musicians[indexPath.row]
         
         cell.nameLabel.text = musician.name
@@ -144,14 +145,12 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let confirmAction = UIAlertAction(title: "Join", style: .default) { (_) in
             if let field = alertController.textFields?[0] {
-                // store your data
                 if field.text == self.sessionCode {
                     self.joinSessionFromCode()
                 } else {
                     self.presentIncorrectCodeAlert()
                 }
             } else {
-                // user did not fill field
             }
         }
         
@@ -177,7 +176,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: Firebase functions
+    // MARK: Firebase Functions
     
     func getMusicians(sessionID: String) {
         print("Getting musicians")

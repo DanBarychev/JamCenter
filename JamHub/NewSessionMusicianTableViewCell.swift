@@ -9,9 +9,6 @@
 import UIKit
 
 class NewSessionMusicianTableViewCell: UITableViewCell {
-
-    // MARK: Properties
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var instrumentsLabel: UILabel!

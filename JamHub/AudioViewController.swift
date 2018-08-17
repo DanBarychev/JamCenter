@@ -51,6 +51,8 @@ class AudioViewController: UIViewController {
         }
     }
     
+    // MARK: Error Handling
+    
     func displayPlayError() {
         let loginAlert = UIAlertController(title: "Unable to Play", message: "Please try again", preferredStyle: UIAlertControllerStyle.alert)
         loginAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))

@@ -11,6 +11,8 @@ import Firebase
 
 class SongsTableViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var mySession: Session?
     var songs = [Song]()
     var sessionID = String()
@@ -25,10 +27,9 @@ class SongsTableViewController: UITableViewController {
         getData()
     }
     
-    // MARK: - Table view data source
+    // MARK: Table View Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return songs.count
     }
     
@@ -43,7 +44,7 @@ class SongsTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: Firebase Operations
+    // MARK: Firebase Functions
     
     func getData() {
         let ref = Database.database().reference()

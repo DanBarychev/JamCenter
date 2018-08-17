@@ -12,6 +12,7 @@ import Firebase
 class SetTimeViewController: UIViewController {
     
     // MARK: Properties
+    
     var newSession: Session?
     var invitedMusicians: [Musician]?
     var currentUserMusician: Musician?

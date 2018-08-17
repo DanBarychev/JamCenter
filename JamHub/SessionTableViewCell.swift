@@ -10,9 +10,6 @@
 import UIKit
 
 class SessionTableViewCell: UITableViewCell {
-    
-    // MARK: Properties
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var activeLabel: UILabel!

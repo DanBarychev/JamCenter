@@ -12,6 +12,8 @@ import Firebase
 
 class InvitationsTableViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var sessions = [Session]()
     typealias SessionClosure = (Session?) -> Void
     typealias MusicianArrayClosure = ([Musician]?) -> Void
@@ -101,7 +103,6 @@ class InvitationsTableViewController: UITableViewController {
                                             self.tableView.reloadData()
                                         }
                                     } else {
-                                        print("Session is nil!")
                                     }
                                 }
                             }
@@ -166,9 +167,8 @@ class InvitationsTableViewController: UITableViewController {
         })
     }
     
-    // MARK: - Navigation
+    // MARK: Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToCurrentJamFromInvitation" {
             let nav = segue.destination as! UINavigationController

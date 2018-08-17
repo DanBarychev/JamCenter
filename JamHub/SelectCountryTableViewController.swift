@@ -40,7 +40,7 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
         }
     }
     
-    // MARK: Search bar data source
+    // MARK: Search Bar Data Source
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         countriesFiltered = countries.filter({ (country) -> Bool in
@@ -58,11 +58,10 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Hide Keyboard
         searchBar.resignFirstResponder()
     }
 
-    // MARK: Table view data source
+    // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {
@@ -121,7 +120,6 @@ class SelectCountryTableViewController: UITableViewController, UISearchBarDelega
     @IBAction func unwindToSelectCountry(sender: UIStoryboardSegue) {
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToCitySelector" {
             let nav = segue.destination as! UINavigationController

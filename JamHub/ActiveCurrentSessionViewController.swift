@@ -13,6 +13,7 @@ import UIKit
 
 class ActiveCurrentSessionViewController: UIViewController {
     
+    // MARK: Properties
     var currentSession: Session?
 
     override func viewDidLoad() {

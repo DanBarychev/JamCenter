@@ -74,7 +74,7 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
         refreshControl.endRefreshing()
     }
     
-    // MARK: Search bar data source
+    // MARK: Search Bar Data Source
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         musiciansFiltered = musicians.filter({ (musician) -> Bool in
@@ -100,7 +100,7 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
         searchBar.resignFirstResponder()
     }
 
-    // MARK: Table view data source
+    // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {

@@ -12,6 +12,8 @@ import Firebase
 
 class SelectCityTableViewController: UITableViewController, UISearchBarDelegate {
 
+    // MARK: Properties
+    
     var cities = [String]()
     var citiesFiltered = [String]()
     var selectedCountry: String?
@@ -30,7 +32,7 @@ class SelectCityTableViewController: UITableViewController, UISearchBarDelegate 
         cities = getCityOptions()
     }
     
-    // MARK: Search bar data source
+    // MARK: Search Bar Data Source
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         citiesFiltered = cities.filter({ (city) -> Bool in
@@ -47,11 +49,10 @@ class SelectCityTableViewController: UITableViewController, UISearchBarDelegate 
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Hide Keyboard
         searchBar.resignFirstResponder()
     }
 
-    // MARK: Table view data source
+    // MARK: Table View Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {

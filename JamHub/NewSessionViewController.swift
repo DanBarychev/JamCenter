@@ -59,7 +59,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
         Database.database().reference().removeAllObservers()
     }
     
-    // MARK: Table View
+    // MARK: Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let invitedMusicians = invitedMusicians {
@@ -89,6 +89,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     }
     
     // MARK: UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

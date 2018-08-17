@@ -34,7 +34,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard
         textField.resignFirstResponder()
         return true
     }
@@ -44,6 +43,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
     }
+    
+    // MARK: Firebase Functions
     
     func handleRegister() {
         guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text
@@ -68,7 +69,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            //Generic Profile Photo Upload
+            // Generic profile photo upload
             let imageName = NSUUID().uuidString
             let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
             

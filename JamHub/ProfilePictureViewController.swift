@@ -11,8 +11,9 @@ import Firebase
 
 class ProfilePictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet var imageView: UIImageView!
+    // MARK: Properties
     
+    @IBOutlet var imageView: UIImageView!
     let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
@@ -30,7 +31,7 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
             imageView.image = pickedImage
         }
         
-        //PROFILE IMAGE UPLOAD
+        // Profile image upload
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
         
@@ -102,7 +103,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
     @IBAction func unwindToProfilePictureScreen(sender: UIStoryboardSegue) {
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToCountrySelectorFromProfilePicture" {
             let nav = segue.destination as! UINavigationController

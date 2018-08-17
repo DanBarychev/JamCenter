@@ -89,10 +89,8 @@ class AdditionalInformationViewController: UIViewController {
                 return
             }
             else {
-                print("User Data Successfully Updated")
-                
+                // User data successfully updated
                 self.performSegue(withIdentifier: "Register", sender: nil)
-                
             }
         })
     }
@@ -139,11 +137,11 @@ extension AdditionalInformationViewController: UICollectionViewDelegate {
         if collectionView == genresCollectionView {
             let genreCellName = genresCellIds[indexPath.row]
             let genreName = genreCellName.replacingOccurrences(of: " Cell", with: "")
-            genres = [genreName]
+            genres = [genreName] // For now, we'll only allow one genre to be initially picked
         } else {
             let instrumentCellName = instrumentsCellIds[indexPath.row]
             let instrumentName = instrumentCellName.replacingOccurrences(of: " Cell", with: "")
-            instruments = [instrumentName]
+            instruments = [instrumentName] // For now, we'll only allow one instrument to be initially picked
         }
         
     }

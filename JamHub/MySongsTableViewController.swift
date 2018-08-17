@@ -11,6 +11,8 @@ import Firebase
 
 class MySongsTableViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var mySession: Session?
     var songs = [Song]()
     var sessionID = String()
@@ -25,13 +27,12 @@ class MySongsTableViewController: UITableViewController {
         getData()
     }
 
-    // MARK: - Table view data source
+    // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songs.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MySongCell", for: indexPath) as! MySongTableViewCell
         
@@ -50,18 +51,10 @@ class MySongsTableViewController: UITableViewController {
             removeSongFromSession(songToDelete: songToDelete)
             songs.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    // MARK: Firebase Operations
+    // MARK: Firebase Functions
     
     func getData() {
         let ref = Database.database().reference()

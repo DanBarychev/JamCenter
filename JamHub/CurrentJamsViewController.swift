@@ -12,6 +12,8 @@ import Firebase
 
 class CurrentJamsViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var sessions = [Session]()
     var userLocation = String()
     typealias UserLocationClosure = (String?) -> Void
@@ -29,8 +31,6 @@ class CurrentJamsViewController: UITableViewController {
                 self.userLocation = userLocationResult
             }
         }
-        
-        //userLocation = "Philadelphia, United States"
         
         getData()
         
@@ -53,7 +53,7 @@ class CurrentJamsViewController: UITableViewController {
         refreshControl.endRefreshing()
     }
 
-    // MARK: Table View Properties
+    // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
@@ -79,6 +79,8 @@ class CurrentJamsViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: Firebase Functions
     
     func getData() {
         sessions.removeAll()
@@ -151,7 +153,6 @@ class CurrentJamsViewController: UITableViewController {
         
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: {
             (snapshot) in
-            
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 if let userCity = dictionary["city"] as? String, let userCountry = dictionary["country"] as? String {
                     let userLocation = "\(userCity), \(userCountry)"
@@ -166,7 +167,6 @@ class CurrentJamsViewController: UITableViewController {
         Database.database().reference().child("users").child(hostUID).observeSingleEvent(of: .value, with: {
             (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-
                 if let profileImageURL = dictionary["profileImageURL"] as? String {
                     completionHandler(profileImageURL)
                     Database.database().reference().removeAllObservers()

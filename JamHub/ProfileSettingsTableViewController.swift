@@ -11,6 +11,8 @@ import Firebase
 
 class ProfileSettingsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // MARK: Properties
+    
     typealias deletedUserFromMusiciansClosure = (Bool?) -> Void
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -85,37 +87,6 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
-
-    // MARK: Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditName" || segue.identifier == "EditLocation"
-            || segue.identifier == "EditInstruments" || segue.identifier == "EditGenres" {
-            let nav = segue.destination as! UINavigationController
-            let editSettingViewController = nav.topViewController as! EditSettingViewController
-            
-            var settingName = String()
-            var settingVal = String()
-            
-            if segue.identifier == "EditName" {
-                settingName = "Name"
-                settingVal = nameLabel.text ?? ""
-            } else if segue.identifier == "EditInstruments" {
-                settingName = "Instruments"
-                settingVal = instrumentsLabel.text ?? ""
-            } else if segue.identifier == "EditGenres" {
-                settingName = "Genres"
-                settingVal = genresLabel.text ?? ""
-            }
-            
-            editSettingViewController.settingName = settingName
-            editSettingViewController.settingVal = settingVal
-        }
-    }
-    
-    @IBAction func unwindToProfileSettingsView(sender: UIStoryboardSegue) {
-        getData()
     }
     
     // MARK: Actions
@@ -289,5 +260,36 @@ class ProfileSettingsTableViewController: UITableViewController, UIImagePickerCo
                 }
             }
         })
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditName" || segue.identifier == "EditLocation"
+            || segue.identifier == "EditInstruments" || segue.identifier == "EditGenres" {
+            let nav = segue.destination as! UINavigationController
+            let editSettingViewController = nav.topViewController as! EditSettingViewController
+            
+            var settingName = String()
+            var settingVal = String()
+            
+            if segue.identifier == "EditName" {
+                settingName = "Name"
+                settingVal = nameLabel.text ?? ""
+            } else if segue.identifier == "EditInstruments" {
+                settingName = "Instruments"
+                settingVal = instrumentsLabel.text ?? ""
+            } else if segue.identifier == "EditGenres" {
+                settingName = "Genres"
+                settingVal = genresLabel.text ?? ""
+            }
+            
+            editSettingViewController.settingName = settingName
+            editSettingViewController.settingVal = settingVal
+        }
+    }
+    
+    @IBAction func unwindToProfileSettingsView(sender: UIStoryboardSegue) {
+        getData()
     }
 }

@@ -12,6 +12,8 @@ import Firebase
 
 class MySessionsViewController: UITableViewController {
     
+    // MARK: Properties
+    
     var hostSessions = [Session]()
     var participantSessions = [Session]()
     @IBOutlet weak var segmentedControl: UISegmentedControl!

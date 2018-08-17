@@ -12,6 +12,8 @@ import Firebase
 
 class EditCountryTableViewController: UITableViewController, UISearchBarDelegate {
     
+    // MARK: Properties
+    
     var countries = [String]()
     var countriesFiltered = [String]()
     var selectedCountry = String()
@@ -47,11 +49,10 @@ class EditCountryTableViewController: UITableViewController, UISearchBarDelegate
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Hide Keyboard
         searchBar.resignFirstResponder()
     }
     
-    // MARK: Table view data source
+    // MARK: Table View Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {
@@ -110,7 +111,6 @@ class EditCountryTableViewController: UITableViewController, UISearchBarDelegate
     @IBAction func unwindToEditCountry(sender: UIStoryboardSegue) {
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToEditCity" {
             let nav = segue.destination as! UINavigationController

@@ -46,47 +46,22 @@ class MyActiveSessionViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: Firebase Functions
     
     func endSession() {
         let values = ["isActive": "false"]
-        
-        print("ending session")
         
         let ref = Database.database().reference()
         let allSessionsKey = ref.child("all sessions").child(sessionID)
         
         allSessionsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print (error!)
+            if let error = error {
+                print (error)
                 return
             }
             else {
-                print("Session ended on public side")
             }
         })
-    }
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToMyAudio" {
-            let nav = segue.destination as! UINavigationController
-            let newViewController = nav.topViewController as! MyAudioViewController
-            
-            newViewController.mySession = mySession
-        } else if segue.identifier == "GoToMySongs" {
-            let nav = segue.destination as! UINavigationController
-            let newViewController = nav.topViewController as! MySongsTableViewController
-            
-            newViewController.mySession = mySession
-        }
-    }
-    
-    @IBAction func unwindToMyActiveSession(sender: UIStoryboardSegue) {
     }
     
     // MARK: Actions
@@ -109,5 +84,22 @@ class MyActiveSessionViewController: UIViewController {
         endSession()
     }
     
+    // MARK: Navigation
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToMyAudio" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! MyAudioViewController
+            
+            newViewController.mySession = mySession
+        } else if segue.identifier == "GoToMySongs" {
+            let nav = segue.destination as! UINavigationController
+            let newViewController = nav.topViewController as! MySongsTableViewController
+            
+            newViewController.mySession = mySession
+        }
+    }
+    
+    @IBAction func unwindToMyActiveSession(sender: UIStoryboardSegue) {
+    }
 }

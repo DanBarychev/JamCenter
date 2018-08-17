@@ -79,6 +79,8 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    // MARK: Recording Functionality
+    
     func startRecording() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         

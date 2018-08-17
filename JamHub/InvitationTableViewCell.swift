@@ -9,7 +9,6 @@
 import UIKit
 
 class InvitationTableViewCell: UITableViewCell {
-
     @IBOutlet weak var sessionLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var hostImageView: UIImageView!

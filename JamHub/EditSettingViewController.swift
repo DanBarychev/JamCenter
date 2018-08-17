@@ -11,6 +11,8 @@ import Firebase
 
 class EditSettingViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: Properties
+    
     var settingName: String?
     var settingVal: String?
     

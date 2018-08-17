@@ -9,10 +9,11 @@
 import UIKit
 
 class SongTableViewCell: UITableViewCell {
-
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var artistComposerLabel: UILabel!
+    
+    // MARK: Google Search Functionality
     
     @IBAction func searchForSong(_ sender: UIButton) {
         let songTitleFormatted = songLabel.text?.replacingOccurrences(of: " ", with: "+")
