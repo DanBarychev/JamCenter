@@ -73,7 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(error)
                 return
             }
-            print("Facebook Login successfully authenticated with Firebase.")
+            // Facebook login successfully authenticated with Firebase
             
             guard let uid = Auth.auth().currentUser?.uid else {
                 return
@@ -124,7 +124,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let error = error {
                 print(error)
             } else {
-                print("Change request successful")
+                // Change request successful
             }
         }
         
@@ -138,7 +138,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             else {
-                print("User Successfully Saved Into Database")
+                // User successfully saved
                 UIViewController.removeSpinner(spinner: spinner)
                 
                 self.performSegue(withIdentifier: "GoToCountrySelectorFromLogin", sender: nil)
@@ -152,10 +152,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         allUsersRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(uid){
-                print("User Exists")
+                // User exists
                 completionHandler(true)
             } else{
-                print("User Doesn't Exist")
+                // User doesn't exist
                 completionHandler(false)
             }
         })
@@ -184,7 +184,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             else {
-                print("User Successfully Logged In")
+                // User successfully logged in
                 UIViewController.removeSpinner(spinner: spinner)
                 
                 self.performSegue(withIdentifier: "Login", sender: nil)
@@ -203,8 +203,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (result) in
             switch result {
             case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print("Succesfully logged in into Facebook.")
-                
                 self.handleFacebookLogin()
             case .failed(let error):
                 print(error)

@@ -179,7 +179,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: Firebase Functions
     
     func getMusicians(sessionID: String) {
-        print("Getting musicians")
         self.musicians.removeAll()
         
         let allSessionsRef = Database.database().reference().child("all sessions")
@@ -253,7 +252,7 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         })
         
         func checkIfMusicianIsInvited() {
-            print("Checking musician invitation")
+            // Checking musician invitation
             sessionInviteesKey.observe(.childAdded, with: {(snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     
@@ -272,8 +271,6 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func addMusicianToSession() {
-        print("Adding user to session")
-        
         musicians.append(currentUserMusician)
         
         DispatchQueue.main.async {
@@ -293,12 +290,12 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         let musicianValues = ["musicianID": musicianID]
         
         allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 
                 return
             } else {
-                print("Current user added to public version of session")
+                // Current user added to session
             }
         })
         
@@ -364,12 +361,12 @@ class CurrentJamViewController: UIViewController, UITableViewDelegate, UITableVi
         let values = ["numSessions": numSessions, "lastSession": lastSession]
         
         userKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 
                 return
             } else {
-                print("\(self.currentUserMusician.name ?? "The User's") information updated")
+                // Musician information updated
             }
         })
         

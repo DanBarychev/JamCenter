@@ -89,7 +89,7 @@ class SetTimeViewController: UIViewController {
                 return
             }
             else {
-                print("Session made public")
+                // Session made public
             }
         })
         
@@ -111,13 +111,11 @@ class SetTimeViewController: UIViewController {
                 let musicianValues = ["musicianID": musicianID]
                 
                 sessionInviteesKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-                    if error != nil {
-                        print(error!)
+                    if let error = error {
+                        print(error)
                         return
                     } else {
-                        if let musicianName = musician.name {
-                            print("\(musicianName) added to invitees list")
-                        }
+                        // Musician added to invitees list
                     }
                 })
             }
@@ -137,8 +135,8 @@ class SetTimeViewController: UIViewController {
         let musicianValues = ["musicianID": musicianID]
         
         allSessionsMusiciansKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 return
             } else {
                 self.updateCurrentUserSessionInformation()
@@ -157,11 +155,11 @@ class SetTimeViewController: UIViewController {
         let values = ["numSessions": String(currentUserMusician.numSessions! + 1)]
         
         userKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 return
             } else {
-                print("User session info updated")
+                // User session info updated
             }
         })
     }
@@ -176,13 +174,11 @@ class SetTimeViewController: UIViewController {
             let values = ["sessionID": sessionID]
             
             musicianInvitationsKey.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error!)
+                if let error = error {
+                    print(error)
                     return
                 } else {
-                    if let musicianName = musician.name {
-                        print("Invitation sent to \(musicianName)")
-                    }
+                    // Invitation sent to musician
                 }
             })
         }

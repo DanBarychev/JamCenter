@@ -38,7 +38,7 @@ class MySessionsViewController: UITableViewController {
         super.viewDidDisappear(animated)
         
         // Remove observer
-        Database.database().reference().removeAllObservers()
+        //Database.database().reference().removeAllObservers()
     }
     
     // MARK: Refresh Control

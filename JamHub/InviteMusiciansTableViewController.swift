@@ -280,13 +280,11 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
             let musicianValues = ["musicianID": musicianID]
             
             inviteeKey.updateChildValues(musicianValues, withCompletionBlock: { (error, ref) in
-                if error != nil {
-                    print(error!)
+                if let error = error {
+                    print(error)
                     return
                 } else {
-                    if let musicianName = musician.name {
-                        print("\(musicianName) added to invitees list")
-                    }
+                    // Musician added to invitees list
                 }
             })
         }

@@ -38,8 +38,8 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
         if let profileImage = self.imageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
             storageRef.putData(uploadData, metadata: nil, completion:
                 {(metadata, error) in
-                    if error != nil {
-                        print(error!)
+                    if let error = error {
+                        print(error)
                         return
                     }
                     else {
@@ -63,7 +63,6 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
     // MARK: Actions
     
     @IBAction func imageViewTapped(_ sender: Any) {
-        print("Image Tapped!")
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         
@@ -77,10 +76,10 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.photoURL = NSURL(string: profileImageLink)! as URL
         changeRequest?.commitChanges { (error) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
             } else {
-                print("Change request successful")
+                // Change request successful
             }
         }
         let ref = Database.database().reference()
@@ -88,12 +87,12 @@ class ProfilePictureViewController: UIViewController, UIImagePickerControllerDel
         let usersRef = ref.child("users").child(uid!)
         let values = ["profileImageURL": profileImageLink]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 return
             }
             else {
-                print("User Data Successfully Updated")
+                // User data successfully updated
             }
         })
     }

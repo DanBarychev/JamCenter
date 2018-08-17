@@ -60,22 +60,18 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
                     if allowed {
                         self.recordButton.addTarget(self, action: #selector(self.recordTapped), for: .touchUpInside)
                     } else {
-                        print("Failed second guard")
                         self.displayRecordError()
                     }
                 }
             }
         } catch {
-            print("Failed first guard")
             displayRecordError()
         }
         
         if let session = mySession {
-            print("Setting session ID")
             sessionID = session.ID ?? ""
             sessionHostUID = session.hostUID ?? ""
         } else {
-            print("Session nil!")
         }
     }
     

@@ -14,27 +14,26 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 extension UIImageView {
     func loadImageUsingCacheWithURLString(urlString: String) {
         
-        //Some whitespace before the image downloads
+        // Some whitespace before the image downloads
         self.image = nil
         
-        //See if the cache has an image
+        // See if the cache has an image
         if let cachedImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage{
             self.image = cachedImage
             return
         }
         
-        //Otherwise
+        // Otherwise
         let url = NSURL(string: urlString)
         URLSession.shared.dataTask(with: url! as URL, completionHandler: {(data, response, error) in
             
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 return
             }
                 
-                //Image download was successful
+            // Image download was successful
             else {
-                print("Successful Image Download")
                 DispatchQueue.main.async {
                     if let downloadedImage = UIImage(data: data!) {
                         imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)

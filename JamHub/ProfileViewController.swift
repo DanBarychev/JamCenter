@@ -60,7 +60,6 @@ class ProfileViewController: UIViewController {
     func handleLogout () {
         do {
             try Auth.auth().signOut()
-            print("User logged out")
         } catch let logoutError {
             print(logoutError)
         }

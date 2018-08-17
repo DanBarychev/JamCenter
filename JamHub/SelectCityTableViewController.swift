@@ -125,8 +125,8 @@ class SelectCityTableViewController: UITableViewController, UISearchBarDelegate 
         let values = ["country": selectedCountry, "city": selectedCity]
         
         userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print (error!)
+            if let error = error {
+                print (error)
                 return
             }
             else {

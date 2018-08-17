@@ -159,7 +159,6 @@ class InvitationsTableViewController: UITableViewController {
     func checkIfUserHasInvitations(userRef: DatabaseReference, completionHandler: @escaping HasInvitationsClosure) {
         userRef.observeSingleEvent(of: .value, with: {(snapshot) in
             if snapshot.hasChild("invitations") {
-                print("Has invitations")
                 completionHandler(true)
             } else {
                 completionHandler(false)

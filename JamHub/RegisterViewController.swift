@@ -75,8 +75,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             
             if let profileImage = UIImage(named: "GenericProfilePicture"), let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
                 storageRef.putData(uploadData, metadata: nil, completion: {(metadata, error) in
-                    if error != nil {
-                        print(error!)
+                    if let error = error {
+                        print(error)
                         return
                     }
                     else {
@@ -103,7 +103,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             if let error = error {
                 print(error)
             } else {
-                print("Change request successful")
+                // Change request successful
             }
         }
         
@@ -118,7 +118,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             else {
-                print("User Successfully Saved Into Database")
+                // User successfully saved
                 UIViewController.removeSpinner(spinner: spinner)
                 
                 self.performSegue(withIdentifier: "SetupProfilePicture", sender: nil)

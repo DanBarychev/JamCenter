@@ -136,9 +136,6 @@ class CurrentJamsViewController: UITableViewController {
                 let hour:TimeInterval = 60.0 * minute
                 let day:TimeInterval = 24 * hour
                 
-                print("Session Lifetime: \(sessionLifetime)")
-                print("Day: \(day)")
-                
                 session.isActive = (sessionLifetime <= day)
             }
         } else {

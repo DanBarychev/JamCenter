@@ -64,12 +64,12 @@ class EditSettingViewController: UIViewController, UITextFieldDelegate {
         let usersRef = ref.child("users").child(uid)
         let values = ["\(settingUploadName.lowercased())": settingUploadVal]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            if error != nil {
-                print(error ?? "An upload error occurred")
+            if let error = error {
+                print(error)
                 return
             }
             else {
-                print("Setting Successfully Saved Into Database")
+                // Setting successfully saved
             }
         })
     }

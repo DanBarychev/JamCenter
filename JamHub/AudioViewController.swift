@@ -33,7 +33,6 @@ class AudioViewController: UIViewController {
         super.viewDidLoad()
 
         if let session = currentSession {
-            print("In the Session")
             recordingURL = session.audioRecordingURL ?? ""
             if recordingURL == "" {
                 noRecordingLabel.isHidden = false

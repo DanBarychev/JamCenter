@@ -88,10 +88,10 @@ class MySongsTableViewController: UITableViewController {
         let values = ["songTitle": songTitle, "songArtist": songArtist]
         
         sessionSongKey.updateChildValues(values) { (error, ref) in
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
             } else {
-                print("\(songTitle) successfully added to session")
+                // Song added to session
             }
         }
     }
