@@ -34,6 +34,8 @@ import Firebase
 
 class AdditionalInformationViewController: UIViewController {
     
+    // MARK: Properties
+    
     @IBOutlet weak var genresCollectionView: UICollectionView!
     @IBOutlet weak var instrumentsCollectionView: UICollectionView!
     
@@ -55,7 +57,7 @@ class AdditionalInformationViewController: UIViewController {
         instrumentsCollectionView.dataSource = self
     }
     
-    // Upload to Firebase
+    // MARK: Firebase Upload
     
     func uploadSelections() {
         var genreSelections = ""
@@ -82,9 +84,8 @@ class AdditionalInformationViewController: UIViewController {
         let usersRef = ref.child("users").child(uid!)
         let values = ["genres": genreSelections, "instruments": instrumentSelections]
         usersRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-            
-            if error != nil {
-                print(error!)
+            if let error = error {
+                print(error)
                 return
             }
             else {
@@ -97,300 +98,13 @@ class AdditionalInformationViewController: UIViewController {
     }
     
     // MARK: Actions
-    /*
-    // Genre Icons
-    @IBAction func rockIconSelected(_ sender: UITapGestureRecognizer) {
-        if (rockIcon.isHighlighted) {
-            rockIcon.isHighlighted = false
-            
-            if let index = genres.index(of: "Rock") {
-                genres.remove(at: index)
-            }
-        } else {
-            rockIcon.isHighlighted = true
-            genres.append("Rock")
-        }
-    }
-    
-    @IBAction func jazzIconSelected(_ sender: UITapGestureRecognizer) {
-        if (jazzIcon.isHighlighted) {
-            jazzIcon.isHighlighted = false
-            
-            if let index = genres.index(of: "Jazz/Blues") {
-                genres.remove(at: index)
-            }
-        } else {
-            jazzIcon.isHighlighted = true
-            genres.append("Jazz/Blues")
-        }
-    }
-    
-    @IBAction func rapIconSelected(_ sender: UITapGestureRecognizer) {
-        if (rapIcon.isHighlighted) {
-            rapIcon.isHighlighted = false
-            
-            if let index = genres.index(of: "Rap/Hip-Hop") {
-                genres.remove(at: index)
-            }
-        } else {
-            rapIcon.isHighlighted = true
-            genres.append("Rap/Hip-Hop")
-        }
-    }
-    
-    @IBAction func popIconSelected(_ sender: UITapGestureRecognizer) {
-        if (popIcon.isHighlighted) {
-            popIcon.isHighlighted = false
-            
-            if let index = genres.index(of: "Pop") {
-                genres.remove(at: index)
-            }
-        } else {
-            popIcon.isHighlighted = true
-            genres.append("Pop")
-        }
-    }
-    
-    @IBAction func countryIconSelected(_ sender: UITapGestureRecognizer) {
-        if (countryIcon.isHighlighted) {
-            countryIcon.isHighlighted = false
-            
-            if let index = genres.index(of: "Country") {
-                genres.remove(at: index)
-            }
-        } else {
-            countryIcon.isHighlighted = true
-            genres.append("Country")
-        }
-    }
-    
-    @IBAction func classicalIconSelected(_ sender: UITapGestureRecognizer) {
-        if (classicalIcon.isHighlighted) {
-            classicalIcon.isHighlighted = false
-            
-            if let index = genres.index(of: "Classical") {
-                genres.remove(at: index)
-            }
-        } else {
-            classicalIcon.isHighlighted = true
-            genres.append("Classical")
-        }
-    }
-    
-    
-    // Instrument Icons
-    @IBAction func guitarIconSelected(_ sender: UITapGestureRecognizer) {
-        if (guitarIcon.isHighlighted) {
-            guitarIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Guitar") {
-                instruments.remove(at: index)
-            }
-        } else {
-            guitarIcon.isHighlighted = true
-            instruments.append("Guitar")
-        }
-    }
-    
-    @IBAction func bassIconSelected(_ sender: UITapGestureRecognizer) {
-        if (bassIcon.isHighlighted) {
-            bassIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Bass") {
-                instruments.remove(at: index)
-            }
-        } else {
-            bassIcon.isHighlighted = true
-            instruments.append("Bass")
-        }
-    }
-    
-    @IBAction func pianoIconSelected(_ sender: UITapGestureRecognizer) {
-        if (pianoIcon.isHighlighted) {
-            pianoIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Piano") {
-                instruments.remove(at: index)
-            }
-        } else {
-            pianoIcon.isHighlighted = true
-            instruments.append("Piano")
-        }
-    }
-    
-    @IBAction func drumsIconSelected(_ sender: UITapGestureRecognizer) {
-        if (drumsIcon.isHighlighted) {
-            drumsIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Drums") {
-                instruments.remove(at: index)
-            }
-        } else {
-            drumsIcon.isHighlighted = true
-            instruments.append("Drums")
-        }
-    }
-    
-    @IBAction func microphoneIconSelected(_ sender: UITapGestureRecognizer) {
-        if (microphoneIcon.isHighlighted) {
-            microphoneIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Vocals") {
-                instruments.remove(at: index)
-            }
-        } else {
-            microphoneIcon.isHighlighted = true
-            instruments.append("Vocals")
-        }
-    }
-    
-    @IBAction func violinIconSelected(_ sender: UITapGestureRecognizer) {
-        if (violinIcon.isHighlighted) {
-            violinIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Violin") {
-                instruments.remove(at: index)
-            }
-        } else {
-            violinIcon.isHighlighted = true
-            instruments.append("Violin")
-        }
-    }
-    
-    @IBAction func celloIconSelected(_ sender: UITapGestureRecognizer) {
-        if (celloIcon.isHighlighted) {
-            celloIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Cello") {
-                instruments.remove(at: index)
-            }
-        } else {
-            celloIcon.isHighlighted = true
-            instruments.append("Cello")
-        }
-    }
-    
-    @IBAction func clarinetIconSelected(_ sender: UITapGestureRecognizer) {
-        if (clarinetIcon.isHighlighted) {
-            clarinetIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Clarinet") {
-                instruments.remove(at: index)
-            }
-        } else {
-            clarinetIcon.isHighlighted = true
-            instruments.append("Clarinet")
-        }
-    }
-    
-    @IBAction func saxophoneIconSelected(_ sender: UITapGestureRecognizer) {
-        if (saxophoneIcon.isHighlighted) {
-            saxophoneIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Saxophone") {
-                instruments.remove(at: index)
-            }
-        } else {
-            saxophoneIcon.isHighlighted = true
-            instruments.append("Saxophone")
-        }
-    }
-    
-    @IBAction func trumpetIconSelected(_ sender: Any) {
-        if (trumpetIcon.isHighlighted) {
-            trumpetIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Trumpet") {
-                instruments.remove(at: index)
-            }
-        } else {
-            trumpetIcon.isHighlighted = true
-            instruments.append("Trumpet")
-        }
-    }
-    
-    @IBAction func tromboneIconSelected(_ sender: UITapGestureRecognizer) {
-        if (tromboneIcon.isHighlighted) {
-            tromboneIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Trombone") {
-                instruments.remove(at: index)
-            }
-        } else {
-            tromboneIcon.isHighlighted = true
-            instruments.append("Trombone")
-        }
-    }
-    
-    @IBAction func tubaIconSelected(_ sender: UITapGestureRecognizer) {
-        if (tubaIcon.isHighlighted) {
-            tubaIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Tuba") {
-                instruments.remove(at: index)
-            }
-        } else {
-            tubaIcon.isHighlighted = true
-            instruments.append("Tuba")
-        }
-    }
-    
-    @IBAction func frenchHornIconSelected(_ sender: UITapGestureRecognizer) {
-        if (frenchHornIcon.isHighlighted) {
-            frenchHornIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "French Horn") {
-                instruments.remove(at: index)
-            }
-        } else {
-            frenchHornIcon.isHighlighted = true
-            instruments.append("French Horn")
-        }
-    }
-    
-    @IBAction func fluteIconSelected(_ sender: UITapGestureRecognizer) {
-        if (fluteIcon.isHighlighted) {
-            fluteIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Flute") {
-                instruments.remove(at: index)
-            }
-        } else {
-            fluteIcon.isHighlighted = true
-            instruments.append("Flute")
-        }
-    }
-    
-    @IBAction func harmonicaIconSelected(_ sender: UITapGestureRecognizer) {
-        if (harmonicaIcon.isHighlighted) {
-            harmonicaIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Harmonica") {
-                instruments.remove(at: index)
-            }
-        } else {
-            harmonicaIcon.isHighlighted = true
-            instruments.append("Harmonica")
-        }
-    }
-    
-    @IBAction func noteIconSelected(_ sender: UITapGestureRecognizer) {
-        if (noteIcon.isHighlighted) {
-            noteIcon.isHighlighted = false
-            
-            if let index = instruments.index(of: "Other") {
-                instruments.remove(at: index)
-            }
-        } else {
-            noteIcon.isHighlighted = true
-            instruments.append("Other")
-        }
-    } */
     
     @IBAction func finishButtonSelected(_ sender: UIBarButtonItem) {
         uploadSelections()
     }
 }
+
+// MARK: Collection View
 
 extension AdditionalInformationViewController: UICollectionViewDataSource {
     func collectionView( _ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -417,16 +131,19 @@ extension AdditionalInformationViewController: UICollectionViewDelegateFlowLayou
         } else {
             return instrumentsCellSizes[indexPath.item]
         }
-        
     }
 }
 
 extension AdditionalInformationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == genresCollectionView {
-            print("User tapped on \(genresCellIds[indexPath.row])")
+            let genreCellName = genresCellIds[indexPath.row]
+            let genreName = genreCellName.replacingOccurrences(of: " Cell", with: "")
+            genres = [genreName]
         } else {
-            print("User tapped on \(instrumentsCellIds[indexPath.row])")
+            let instrumentCellName = instrumentsCellIds[indexPath.row]
+            let instrumentName = instrumentCellName.replacingOccurrences(of: " Cell", with: "")
+            instruments = [instrumentName]
         }
         
     }
