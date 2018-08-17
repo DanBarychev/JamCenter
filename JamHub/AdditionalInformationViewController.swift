@@ -34,44 +34,25 @@ import Firebase
 
 class AdditionalInformationViewController: UIViewController {
     
-    //Genre Icons
-    @IBOutlet weak var rockIcon: UIImageView!
-    @IBOutlet weak var jazzIcon: UIImageView!
-    @IBOutlet weak var rapIcon: UIImageView!
-    @IBOutlet weak var popIcon: UIImageView!
-    @IBOutlet weak var countryIcon: UIImageView!
-    @IBOutlet weak var classicalIcon: UIImageView!
-    
-    //Instrument Icons
-    @IBOutlet weak var guitarIcon: UIImageView!
-    @IBOutlet weak var bassIcon: UIImageView!
-    @IBOutlet weak var pianoIcon: UIImageView!
-    @IBOutlet weak var drumsIcon: UIImageView!
-    @IBOutlet weak var microphoneIcon: UIImageView!
-    @IBOutlet weak var violinIcon: UIImageView!
-    @IBOutlet weak var celloIcon: UIImageView!
-    @IBOutlet weak var clarinetIcon: UIImageView!
-    @IBOutlet weak var saxophoneIcon: UIImageView!
-    @IBOutlet weak var trumpetIcon: UIImageView!
-    @IBOutlet weak var tromboneIcon: UIImageView!
-    @IBOutlet weak var tubaIcon: UIImageView!
-    @IBOutlet weak var frenchHornIcon: UIImageView!
-    @IBOutlet weak var fluteIcon: UIImageView!
-    @IBOutlet weak var harmonicaIcon: UIImageView!
-    @IBOutlet weak var noteIcon: UIImageView!
+    @IBOutlet weak var genresCollectionView: UICollectionView!
+    @IBOutlet weak var instrumentsCollectionView: UICollectionView!
     
     var genres = [String]()
     var instruments = [String]()
     
+    let genresCellIds = ["Rock Cell","Jazz/Blues Cell","Rap/Hip-Hop Cell","Pop Cell", "Country Cell","Classical Cell"]
+    let genresCellSizes = Array(repeatElement(CGSize(width:80, height:80), count: 6))
+    
+    let instrumentsCellIds = ["Guitar Cell","Bass Cell","Piano Cell","Drums Cell", "Vocals Cell","Violin Cell", "Viola Cell","Clarinet Cell", "Saxophone Cell","Trumpet Cell", "Trombone Cell","Tuba Cell", "French Horn Cell","Flute Cell", "Harmonica Cell","Other Cell"]
+    let instrumentsCellSizes = Array(repeatElement(CGSize(width:75, height:75), count: 16))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        genresCollectionView.delegate = self
+        genresCollectionView.dataSource = self
+        instrumentsCollectionView.delegate = self
+        instrumentsCollectionView.dataSource = self
     }
     
     // Upload to Firebase
@@ -116,7 +97,7 @@ class AdditionalInformationViewController: UIViewController {
     }
     
     // MARK: Actions
-    
+    /*
     // Genre Icons
     @IBAction func rockIconSelected(_ sender: UITapGestureRecognizer) {
         if (rockIcon.isHighlighted) {
@@ -404,10 +385,49 @@ class AdditionalInformationViewController: UIViewController {
             noteIcon.isHighlighted = true
             instruments.append("Other")
         }
-    }
+    } */
     
     @IBAction func finishButtonSelected(_ sender: UIBarButtonItem) {
         uploadSelections()
     }
+}
+
+extension AdditionalInformationViewController: UICollectionViewDataSource {
+    func collectionView( _ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == genresCollectionView {
+            return genresCellIds.count
+        } else {
+            return instrumentsCellIds.count
+        }
+    }
     
+    func collectionView( _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == genresCollectionView {
+            return genresCollectionView.dequeueReusableCell( withReuseIdentifier: genresCellIds[indexPath.item], for: indexPath)
+        } else {
+            return instrumentsCollectionView.dequeueReusableCell( withReuseIdentifier: instrumentsCellIds[indexPath.item], for: indexPath)
+        }
+    }
+}
+
+extension AdditionalInformationViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == genresCollectionView {
+            return genresCellSizes[indexPath.item]
+        } else {
+            return instrumentsCellSizes[indexPath.item]
+        }
+        
+    }
+}
+
+extension AdditionalInformationViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == genresCollectionView {
+            print("User tapped on \(genresCellIds[indexPath.row])")
+        } else {
+            print("User tapped on \(instrumentsCellIds[indexPath.row])")
+        }
+        
+    }
 }
