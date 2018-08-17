@@ -1273,23 +1273,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMR-us-dvB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="247"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwM-p6-Jgd">
-                                <rect key="frame" x="52" y="253" width="271" height="23"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GenericProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="q1y-lC-0Xm">
-                                <rect key="frame" x="121" y="95" width="133" height="133"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="133" id="U5o-bY-BDc"/>
-                                    <constraint firstAttribute="width" constant="133" id="Yij-aa-SlV"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGe-4v-SRU">
                                 <rect key="frame" x="70" y="483" width="63" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1344,36 +1327,70 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8j-PY-j3o">
+                                <rect key="frame" x="0.0" y="64" width="375" height="247"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMR-us-dvB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="NMR-us-dvB" secondAttribute="height" multiplier="375:247" id="2Gj-gw-LL8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GenericProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="q1y-lC-0Xm">
+                                        <rect key="frame" x="121" y="35" width="133" height="133"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="133" id="68T-hy-PpN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwM-p6-Jgd">
+                                        <rect key="frame" x="52" y="189" width="271" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="BfU-fZ-eM8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NMR-us-dvB" secondAttribute="bottom" id="1ka-49-og7"/>
+                                    <constraint firstAttribute="bottom" secondItem="NwM-p6-Jgd" secondAttribute="bottom" constant="35" id="4zj-Va-M0B"/>
+                                    <constraint firstItem="NMR-us-dvB" firstAttribute="top" secondItem="C8j-PY-j3o" secondAttribute="top" id="CgJ-je-aJV"/>
+                                    <constraint firstItem="q1y-lC-0Xm" firstAttribute="top" secondItem="C8j-PY-j3o" secondAttribute="top" constant="35" id="GOr-eL-9hm"/>
+                                    <constraint firstItem="NwM-p6-Jgd" firstAttribute="leading" secondItem="C8j-PY-j3o" secondAttribute="leading" constant="52" id="Ocm-wb-02f"/>
+                                    <constraint firstItem="NwM-p6-Jgd" firstAttribute="top" secondItem="q1y-lC-0Xm" secondAttribute="bottom" constant="21" id="PNS-XU-C3O"/>
+                                    <constraint firstAttribute="trailing" secondItem="NMR-us-dvB" secondAttribute="trailing" id="awN-mD-2yr"/>
+                                    <constraint firstItem="NMR-us-dvB" firstAttribute="leading" secondItem="C8j-PY-j3o" secondAttribute="leading" id="cqw-PE-eFn"/>
+                                    <constraint firstItem="q1y-lC-0Xm" firstAttribute="centerX" secondItem="NwM-p6-Jgd" secondAttribute="centerX" id="ibS-6V-4FV"/>
+                                    <constraint firstItem="NMR-us-dvB" firstAttribute="centerX" secondItem="NwM-p6-Jgd" secondAttribute="centerX" id="wDz-I1-j9d"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iw6-EK-w0t" firstAttribute="top" secondItem="NMR-us-dvB" secondAttribute="bottom" constant="29" id="3Mh-Hh-82X"/>
-                            <constraint firstItem="WgS-PR-jJ5" firstAttribute="top" secondItem="Bgx-0b-E2f" secondAttribute="bottom" constant="8" symbolic="YES" id="47u-xx-RFh"/>
-                            <constraint firstItem="q1y-lC-0Xm" firstAttribute="centerX" secondItem="NwM-p6-Jgd" secondAttribute="centerX" id="856-RU-QUX"/>
-                            <constraint firstItem="WGe-4v-SRU" firstAttribute="baseline" secondItem="r8Y-iS-HZT" secondAttribute="baseline" id="8gy-a7-Sh3"/>
-                            <constraint firstItem="Kdn-O2-eDR" firstAttribute="top" secondItem="NMR-us-dvB" secondAttribute="bottom" constant="307" id="8hj-O7-E8m"/>
-                            <constraint firstItem="NwM-p6-Jgd" firstAttribute="top" secondItem="q1y-lC-0Xm" secondAttribute="bottom" constant="25" id="BQr-re-8PL"/>
-                            <constraint firstItem="iw6-EK-w0t" firstAttribute="centerX" secondItem="JiX-ge-Afp" secondAttribute="centerX" id="J6P-NF-gZo"/>
-                            <constraint firstItem="JiX-ge-Afp" firstAttribute="top" secondItem="iw6-EK-w0t" secondAttribute="bottom" constant="25" id="JUH-3z-TdR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IAF-HV-1oZ" secondAttribute="trailing" constant="88.5" id="KNe-MV-C41"/>
-                            <constraint firstItem="IAF-HV-1oZ" firstAttribute="top" secondItem="r8Y-iS-HZT" secondAttribute="bottom" constant="30" id="Kdj-70-oie"/>
-                            <constraint firstItem="CoC-rM-Z8B" firstAttribute="centerX" secondItem="qgR-2F-BwT" secondAttribute="centerX" id="KnG-Cm-Zt5"/>
-                            <constraint firstItem="r8Y-iS-HZT" firstAttribute="leading" secondItem="WGe-4v-SRU" secondAttribute="trailing" constant="76" id="M0e-vk-vlB"/>
-                            <constraint firstItem="WGe-4v-SRU" firstAttribute="centerX" secondItem="Bgx-0b-E2f" secondAttribute="centerX" id="QOH-wd-vnw"/>
-                            <constraint firstItem="r8Y-iS-HZT" firstAttribute="centerX" secondItem="IAF-HV-1oZ" secondAttribute="centerX" id="RIN-e2-UAL"/>
-                            <constraint firstItem="NMR-us-dvB" firstAttribute="centerX" secondItem="q1y-lC-0Xm" secondAttribute="centerX" id="UKC-aa-AlE"/>
-                            <constraint firstItem="qgR-2F-BwT" firstAttribute="centerX" secondItem="r8Y-iS-HZT" secondAttribute="centerX" id="ZKh-CB-by8"/>
-                            <constraint firstItem="Bgx-0b-E2f" firstAttribute="top" secondItem="WGe-4v-SRU" secondAttribute="bottom" constant="18" id="dSu-sT-OFo"/>
-                            <constraint firstItem="JiX-ge-Afp" firstAttribute="baseline" secondItem="qgR-2F-BwT" secondAttribute="baseline" id="doi-Rj-cug"/>
-                            <constraint firstItem="NwM-p6-Jgd" firstAttribute="leading" secondItem="eSo-uM-2E3" secondAttribute="leadingMargin" constant="36" id="eqL-go-Pmn"/>
-                            <constraint firstItem="Kdn-O2-eDR" firstAttribute="top" secondItem="WgS-PR-jJ5" secondAttribute="bottom" constant="55" id="gHB-oC-mjB"/>
-                            <constraint firstItem="iw6-EK-w0t" firstAttribute="baseline" secondItem="CoC-rM-Z8B" secondAttribute="baseline" id="ghS-XQ-56b"/>
-                            <constraint firstItem="NMR-us-dvB" firstAttribute="leading" secondItem="eSo-uM-2E3" secondAttribute="leading" id="gyO-ON-cSj"/>
-                            <constraint firstAttribute="trailing" secondItem="NMR-us-dvB" secondAttribute="trailing" id="hjK-xX-oaE"/>
-                            <constraint firstItem="Bgx-0b-E2f" firstAttribute="centerX" secondItem="WgS-PR-jJ5" secondAttribute="centerX" id="kvd-dh-2kj"/>
-                            <constraint firstItem="NMR-us-dvB" firstAttribute="top" secondItem="qWV-dY-wcb" secondAttribute="bottom" id="mOY-Io-PWr"/>
-                            <constraint firstItem="JiX-ge-Afp" firstAttribute="centerX" secondItem="WGe-4v-SRU" secondAttribute="centerX" id="spQ-Ly-eVt"/>
-                            <constraint firstItem="q1y-lC-0Xm" firstAttribute="top" secondItem="qWV-dY-wcb" secondAttribute="bottom" constant="31" id="wfD-Ia-nY8"/>
+                            <constraint firstItem="IAF-HV-1oZ" firstAttribute="top" secondItem="r8Y-iS-HZT" secondAttribute="bottom" constant="30" id="1TZ-be-igG"/>
+                            <constraint firstItem="JiX-ge-Afp" firstAttribute="baseline" secondItem="qgR-2F-BwT" secondAttribute="baseline" id="9sa-ZG-qEC"/>
+                            <constraint firstItem="Bgx-0b-E2f" firstAttribute="top" secondItem="WGe-4v-SRU" secondAttribute="bottom" constant="18" id="Cfn-JP-WaJ"/>
+                            <constraint firstItem="CoC-rM-Z8B" firstAttribute="centerX" secondItem="qgR-2F-BwT" secondAttribute="centerX" id="D04-Oi-7D8"/>
+                            <constraint firstItem="C8j-PY-j3o" firstAttribute="top" secondItem="qWV-dY-wcb" secondAttribute="bottom" id="DDi-zB-uVr"/>
+                            <constraint firstItem="WgS-PR-jJ5" firstAttribute="top" secondItem="Bgx-0b-E2f" secondAttribute="bottom" constant="8" symbolic="YES" id="E3S-M8-N92"/>
+                            <constraint firstItem="JiX-ge-Afp" firstAttribute="centerX" secondItem="WGe-4v-SRU" secondAttribute="centerX" id="INy-qh-MjV"/>
+                            <constraint firstItem="iw6-EK-w0t" firstAttribute="centerX" secondItem="JiX-ge-Afp" secondAttribute="centerX" id="IgW-n3-Wcw"/>
+                            <constraint firstItem="r8Y-iS-HZT" firstAttribute="leading" secondItem="WGe-4v-SRU" secondAttribute="trailing" constant="76" id="JL0-IW-qFy"/>
+                            <constraint firstItem="WGe-4v-SRU" firstAttribute="top" secondItem="JiX-ge-Afp" secondAttribute="bottom" constant="82" id="Q6e-9l-yaP"/>
+                            <constraint firstItem="C8j-PY-j3o" firstAttribute="leading" secondItem="eSo-uM-2E3" secondAttribute="leading" id="S3v-Yp-aa2"/>
+                            <constraint firstItem="r8Y-iS-HZT" firstAttribute="centerX" secondItem="IAF-HV-1oZ" secondAttribute="centerX" id="UT2-RJ-HBn"/>
+                            <constraint firstItem="iw6-EK-w0t" firstAttribute="leading" secondItem="eSo-uM-2E3" secondAttribute="leadingMargin" constant="41" id="Vlk-KZ-6fW"/>
+                            <constraint firstItem="r8Y-iS-HZT" firstAttribute="top" secondItem="qgR-2F-BwT" secondAttribute="bottom" constant="82" id="cxW-pE-V4e"/>
+                            <constraint firstItem="iw6-EK-w0t" firstAttribute="top" secondItem="C8j-PY-j3o" secondAttribute="bottom" constant="29" id="drm-s8-L7T"/>
+                            <constraint firstItem="qgR-2F-BwT" firstAttribute="centerX" secondItem="r8Y-iS-HZT" secondAttribute="centerX" id="ggM-PK-X2e"/>
+                            <constraint firstItem="Bgx-0b-E2f" firstAttribute="centerX" secondItem="WgS-PR-jJ5" secondAttribute="centerX" id="ldY-fB-8JD"/>
+                            <constraint firstItem="JiX-ge-Afp" firstAttribute="top" secondItem="iw6-EK-w0t" secondAttribute="bottom" constant="25" id="lsQ-Ny-E8M"/>
+                            <constraint firstItem="WGe-4v-SRU" firstAttribute="centerX" secondItem="Bgx-0b-E2f" secondAttribute="centerX" id="tBX-nr-RYD"/>
+                            <constraint firstAttribute="trailing" secondItem="C8j-PY-j3o" secondAttribute="trailing" id="tRC-7z-BfT"/>
+                            <constraint firstItem="iw6-EK-w0t" firstAttribute="baseline" secondItem="CoC-rM-Z8B" secondAttribute="baseline" id="vkV-xV-Njg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="FMS-f2-Srr">
@@ -1403,7 +1420,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QG-qS-duF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="P4a-fS-qwX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="1665"/>
+            <point key="canvasLocation" x="2244" y="1664.617691154423"/>
         </scene>
         <!--Settings-->
         <scene sceneID="oeV-Gg-LVd">
