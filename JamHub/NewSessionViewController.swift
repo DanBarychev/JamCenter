@@ -54,6 +54,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        print("View Disappeared")
         
         // Remove observer
         Database.database().reference().removeAllObservers()
