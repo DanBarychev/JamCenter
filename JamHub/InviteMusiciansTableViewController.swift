@@ -102,7 +102,6 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
 
     // MARK: Table view data source
 
-    // number of rows in table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {
             return musiciansFiltered.count
@@ -111,7 +110,6 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
         }
     }
     
-    // create a cell for each table view row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InviteMusiciansCell", for: indexPath) as! InviteMusiciansTableViewCell
         
@@ -130,6 +128,9 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
                 if isAlreadyInvited {
                     cell.invitationSentCover.isHidden = false
                     cell.isUserInteractionEnabled = false
+                } else {
+                    cell.invitationSentCover.isHidden = true
+                    cell.isUserInteractionEnabled = true
                 }
                 
                 cell.nameLabel.text = musician.name
@@ -142,6 +143,8 @@ class InviteMusiciansTableViewController: UITableViewController, UISearchBarDele
                 
                 if self.selectedMusicianUIDs.contains(musicianUID) {
                     cell.okIcon.isHidden = false
+                } else {
+                    cell.okIcon.isHidden = true
                 }
             }
         }
