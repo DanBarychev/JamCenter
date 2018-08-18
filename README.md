@@ -1,4 +1,4 @@
 # JamHub
-An app for organizing and recording jam sessions
+Jam Sessions Simplified
 
 ![CurrentSession](Screenshots/CurrentSession.png)
