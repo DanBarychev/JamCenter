@@ -106,6 +106,10 @@ extension OtherMusicianProfileViewController: UICollectionViewDelegateFlowLayout
         let numberOfCells = 4 as CGFloat
         let edgeInsets = (self.propertiesCollectionView.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
         
-        return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+        } else {
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        }
     }
 }
