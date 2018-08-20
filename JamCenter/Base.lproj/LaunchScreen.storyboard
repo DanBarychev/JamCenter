@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JamHubLogoTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="54g-E7-tUM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JamCenterLogoTransparent" translatesAutoresizingMaskIntoConstraints="NO" id="54g-E7-tUM">
                                 <rect key="frame" x="12" y="0.0" width="350" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="54g-E7-tUM" secondAttribute="height" multiplier="1:1" id="d7a-vh-2uY"/>
@@ -53,6 +53,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="JamHubLogoTransparent" width="750" height="750"/>
+        <image name="JamCenterLogoTransparent" width="750" height="750"/>
     </resources>
 </document>

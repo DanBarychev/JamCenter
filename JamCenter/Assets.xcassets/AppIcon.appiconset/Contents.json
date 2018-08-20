@@ -3,7 +3,7 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "Icon-Spotlight-41.png",
+      "filename" : "Icon-Spotlight-40.png",
       "scale" : "2x"
     },
     {
@@ -51,7 +51,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "Icon-Small-20.png",
+      "filename" : "Icon-20.png",
       "scale" : "1x"
     },
     {
@@ -75,7 +75,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Icon-Spotlight-40.png",
+      "filename" : "Icon-Spotlight-41.png",
       "scale" : "1x"
     },
     {
@@ -105,7 +105,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "JamHub-1024.png",
+      "filename" : "Icon-1024.png",
       "scale" : "1x"
     }
   ],
