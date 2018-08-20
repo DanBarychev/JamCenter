@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14FCB65278010459839BB6BA /* Pods_JamHub_JamHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */; };
-		7D15AB9A948060B83A9BE6C1 /* Pods_JamHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591346670CC83740E5858C03 /* Pods_JamHub.framework */; };
-		8BDAFDCFAEC44B335BECCB2D /* Pods_JamHub_JamHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */; };
+		2D5DB429019490676B66A407 /* Pods_JamCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D9FB145F6979C325A91CC3 /* Pods_JamCenterTests.framework */; };
+		6D0BCC9F09DF78532DC3E84D /* Pods_JamCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 623A6AC38FA67705E445104B /* Pods_JamCenterUITests.framework */; };
 		D60357BC21208EE300CE1CEF /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60357BB21208EE300CE1CEF /* SetTimeViewController.swift */; };
 		D60357BE21212B8700CE1CEF /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60357BD21212B8700CE1CEF /* Song.swift */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
@@ -54,8 +53,7 @@
 		D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85241ECCBD7A0020CEE6 /* Main.storyboard */; };
 		D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */; };
 		D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */; };
-		D6FE85361ECCBD7B0020CEE6 /* JamHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85351ECCBD7B0020CEE6 /* JamHubTests.swift */; };
-		D6FE85411ECCBD7B0020CEE6 /* JamHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */; };
+		FC06473F60CECE09FEA8A2F0 /* Pods_JamCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C59F9DEF2393AC7B9959EAA /* Pods_JamCenter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,13 +87,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		591346670CC83740E5858C03 /* Pods_JamHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.release.xcconfig"; sourceTree = "<group>"; };
-		9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.debug.xcconfig"; sourceTree = "<group>"; };
-		AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub/Pods-JamHub.release.xcconfig"; sourceTree = "<group>"; };
-		D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamHub-JamHubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		05AE6DDA81C151CAFFC5420B /* Pods-JamCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamCenterUITests/Pods-JamCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		32755847F2B6B8CC26EFE37C /* Pods-JamCenterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamCenterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamCenterTests/Pods-JamCenterTests.release.xcconfig"; sourceTree = "<group>"; };
+		3C59F9DEF2393AC7B9959EAA /* Pods_JamCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45D9FB145F6979C325A91CC3 /* Pods_JamCenterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamCenterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6119AB36AFFD8C654E518D85 /* Pods-JamCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamCenterUITests/Pods-JamCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		623A6AC38FA67705E445104B /* Pods_JamCenterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamCenterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71EFE11214D85C93F3A316BE /* Pods-JamCenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamCenter.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamCenter/Pods-JamCenter.release.xcconfig"; sourceTree = "<group>"; };
 		D60357BB21208EE300CE1CEF /* SetTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		D60357BD21212B8700CE1CEF /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -143,13 +141,9 @@
 		D6FE852A1ECCBD7A0020CEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6FE852C1ECCBD7A0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FE85311ECCBD7B0020CEE6 /* JamCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6FE85351ECCBD7B0020CEE6 /* JamHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHubTests.swift; sourceTree = "<group>"; };
-		D6FE85371ECCBD7B0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FE853C1ECCBD7B0020CEE6 /* JamCenterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamCenterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHubUITests.swift; sourceTree = "<group>"; };
-		D6FE85421ECCBD7B0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub_JamHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub_JamHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6EFCFDF5ACCBF4834B9D745 /* Pods-JamCenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamCenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamCenter/Pods-JamCenter.debug.xcconfig"; sourceTree = "<group>"; };
+		E70BB9FD9B6811A478A82684 /* Pods-JamCenterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamCenterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamCenterTests/Pods-JamCenterTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D15AB9A948060B83A9BE6C1 /* Pods_JamHub.framework in Frameworks */,
+				FC06473F60CECE09FEA8A2F0 /* Pods_JamCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BDAFDCFAEC44B335BECCB2D /* Pods_JamHub_JamHubTests.framework in Frameworks */,
+				2D5DB429019490676B66A407 /* Pods_JamCenterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14FCB65278010459839BB6BA /* Pods_JamHub_JamHubUITests.framework in Frameworks */,
+				6D0BCC9F09DF78532DC3E84D /* Pods_JamCenterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,9 +177,9 @@
 		12C3266D3188235E2AFB67B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				591346670CC83740E5858C03 /* Pods_JamHub.framework */,
-				F9ACBD3B1C769DAE6197FD5B /* Pods_JamHub_JamHubTests.framework */,
-				F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */,
+				3C59F9DEF2393AC7B9959EAA /* Pods_JamCenter.framework */,
+				45D9FB145F6979C325A91CC3 /* Pods_JamCenterTests.framework */,
+				623A6AC38FA67705E445104B /* Pods_JamCenterUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,12 +187,12 @@
 		D4E4748466359A97DA39D3F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */,
-				AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */,
-				D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */,
-				6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */,
-				4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */,
-				AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */,
+				E6EFCFDF5ACCBF4834B9D745 /* Pods-JamCenter.debug.xcconfig */,
+				71EFE11214D85C93F3A316BE /* Pods-JamCenter.release.xcconfig */,
+				E70BB9FD9B6811A478A82684 /* Pods-JamCenterTests.debug.xcconfig */,
+				32755847F2B6B8CC26EFE37C /* Pods-JamCenterTests.release.xcconfig */,
+				6119AB36AFFD8C654E518D85 /* Pods-JamCenterUITests.debug.xcconfig */,
+				05AE6DDA81C151CAFFC5420B /* Pods-JamCenterUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -216,8 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				D6FE851F1ECCBD7A0020CEE6 /* JamCenter */,
-				D6FE85341ECCBD7B0020CEE6 /* JamHubTests */,
-				D6FE853F1ECCBD7B0020CEE6 /* JamHubUITests */,
 				D6FE851E1ECCBD7A0020CEE6 /* Products */,
 				D4E4748466359A97DA39D3F8 /* Pods */,
 				12C3266D3188235E2AFB67B4 /* Frameworks */,
@@ -284,24 +276,6 @@
 				D6D16C221F09D4980079314B /* Helpers */,
 			);
 			path = JamCenter;
-			sourceTree = "<group>";
-		};
-		D6FE85341ECCBD7B0020CEE6 /* JamHubTests */ = {
-			isa = PBXGroup;
-			children = (
-				D6FE85351ECCBD7B0020CEE6 /* JamHubTests.swift */,
-				D6FE85371ECCBD7B0020CEE6 /* Info.plist */,
-			);
-			path = JamHubTests;
-			sourceTree = "<group>";
-		};
-		D6FE853F1ECCBD7B0020CEE6 /* JamHubUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */,
-				D6FE85421ECCBD7B0020CEE6 /* Info.plist */,
-			);
-			path = JamHubUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,7 +441,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamCenterTests/Pods-JamCenterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		280CBCDD34983431FC3FB5D6 /* [CP] Embed Pods Frameworks */ = {
@@ -507,7 +481,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubTests/Pods-JamHub-JamHubTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamCenterTests/Pods-JamCenterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		42BE4B9FEFB37440344691F2 /* [CP] Check Pods Manifest.lock */ = {
@@ -521,7 +495,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JamHub-JamHubTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-JamCenterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -565,7 +539,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamCenterUITests/Pods-JamCenterUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A4735A8A6071B62908E2C21 /* [CP] Copy Pods Resources */ = {
@@ -583,7 +557,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamCenter/Pods-JamCenter-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8E5CF65F7EB99179D9123C38 /* [CP] Check Pods Manifest.lock */ = {
@@ -597,7 +571,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JamHub-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-JamCenter-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -619,7 +593,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub-JamHubUITests/Pods-JamHub-JamHubUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamCenterUITests/Pods-JamCenterUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BB7554FF0DBFDA03B589C23F /* [CP] Check Pods Manifest.lock */ = {
@@ -633,7 +607,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JamHub-JamHubUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-JamCenterUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -646,7 +620,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamCenter/Pods-JamCenter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Canvas/Canvas.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -677,7 +651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamHub/Pods-JamHub-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamCenter/Pods-JamCenter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -733,7 +707,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6FE85361ECCBD7B0020CEE6 /* JamHubTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +714,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6FE85411ECCBD7B0020CEE6 /* JamHubUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +869,7 @@
 		};
 		D6FE85461ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C662731FAF84383F15FB8F1 /* Pods-JamHub.debug.xcconfig */;
+			baseConfigurationReference = E6EFCFDF5ACCBF4834B9D745 /* Pods-JamCenter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -952,7 +924,7 @@
 		};
 		D6FE85471ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEE71D54B88B6FF38DE419BA /* Pods-JamHub.release.xcconfig */;
+			baseConfigurationReference = 71EFE11214D85C93F3A316BE /* Pods-JamCenter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1007,7 +979,7 @@
 		};
 		D6FE85491ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D25F6967B574E62EDA499085 /* Pods-JamHub-JamHubTests.debug.xcconfig */;
+			baseConfigurationReference = E70BB9FD9B6811A478A82684 /* Pods-JamCenterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1024,7 +996,7 @@
 		};
 		D6FE854A1ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6257586C376280DADF639068 /* Pods-JamHub-JamHubTests.release.xcconfig */;
+			baseConfigurationReference = 32755847F2B6B8CC26EFE37C /* Pods-JamCenterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1041,7 +1013,7 @@
 		};
 		D6FE854C1ECCBD7B0020CEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A2443140C05691E44C4DA82 /* Pods-JamHub-JamHubUITests.debug.xcconfig */;
+			baseConfigurationReference = 6119AB36AFFD8C654E518D85 /* Pods-JamCenterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;
@@ -1057,7 +1029,7 @@
 		};
 		D6FE854D1ECCBD7B0020CEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE474A0F9B5DEEDD6921449E /* Pods-JamHub-JamHubUITests.release.xcconfig */;
+			baseConfigurationReference = 05AE6DDA81C151CAFFC5420B /* Pods-JamCenterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 2B35VTS4CU;

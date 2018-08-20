@@ -1,11 +1,11 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'JamHub' do
+target 'JamCenter' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for JamHub
+  # Pods for JamCenter
 
   pod 'Firebase/Core'
   pod 'Firebase/Database’
@@ -16,13 +16,13 @@ target 'JamHub' do
   pod 'FacebookShare'
   pod 'Canvas', '~> 0.1'
 
-  target 'JamHubTests' do
-      #inherit! :search_paths
+  target 'JamCenterTests' do
+    inherit! :search_paths
     # Pods for testing
   end
 
-  target 'JamHubUITests' do
-      #inherit! :search_paths
+  target 'JamCenterUITests' do
+    inherit! :search_paths
     # Pods for testing
   end
 

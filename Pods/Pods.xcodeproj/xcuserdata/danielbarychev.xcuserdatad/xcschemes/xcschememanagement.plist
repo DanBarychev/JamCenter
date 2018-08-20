@@ -74,17 +74,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JamHub-JamHubTests.xcscheme</key>
+		<key>Pods-JamCenter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JamHub-JamHubUITests.xcscheme</key>
+		<key>Pods-JamCenterTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-JamHub.xcscheme</key>
+		<key>Pods-JamCenterUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

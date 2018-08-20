@@ -67,7 +67,7 @@ class MyActiveSessionViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func shareTapped(_ sender: UIButton) {
-        let content = LinkShareContent(url: URL(string: "http://www.jamhubapp.com")!)
+        let content = LinkShareContent(url: URL(string: "http://www.jamcenterapp.com")!)
         do {
             try ShareDialog.show(from: self, content: content)
         } catch {
