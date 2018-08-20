@@ -1,4 +1,4 @@
-# JamHub
+# JamCenter
 
 ### About
 
