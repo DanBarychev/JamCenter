@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D6FE851C1ECCBD7A0020CEE6"
-               BuildableName = "JamHub.app"
-               BlueprintName = "JamHub"
-               ReferencedContainer = "container:JamHub.xcodeproj">
+               BuildableName = "JamCenter.app"
+               BlueprintName = "JamCenter"
+               ReferencedContainer = "container:JamCenter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6FE85301ECCBD7B0020CEE6"
-               BuildableName = "JamHubTests.xctest"
-               BlueprintName = "JamHubTests"
-               ReferencedContainer = "container:JamHub.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6FE853B1ECCBD7B0020CEE6"
-               BuildableName = "JamHubUITests.xctest"
-               BlueprintName = "JamHubUITests"
-               ReferencedContainer = "container:JamHub.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D6FE851C1ECCBD7A0020CEE6"
-            BuildableName = "JamHub.app"
-            BlueprintName = "JamHub"
-            ReferencedContainer = "container:JamHub.xcodeproj">
+            BuildableName = "JamCenter.app"
+            BlueprintName = "JamCenter"
+            ReferencedContainer = "container:JamCenter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D6FE851C1ECCBD7A0020CEE6"
-            BuildableName = "JamHub.app"
-            BlueprintName = "JamHub"
-            ReferencedContainer = "container:JamHub.xcodeproj">
+            BuildableName = "JamCenter.app"
+            BlueprintName = "JamCenter"
+            ReferencedContainer = "container:JamCenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D6FE851C1ECCBD7A0020CEE6"
-            BuildableName = "JamHub.app"
-            BlueprintName = "JamHub"
-            ReferencedContainer = "container:JamHub.xcodeproj">
+            BuildableName = "JamCenter.app"
+            BlueprintName = "JamCenter"
+            ReferencedContainer = "container:JamCenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

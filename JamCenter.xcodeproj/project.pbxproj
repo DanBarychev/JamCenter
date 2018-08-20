@@ -20,6 +20,7 @@
 		D65AE9C41F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */; };
 		D66FECFA210E2CB8003AC643 /* EditCountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FECF9210E2CB8003AC643 /* EditCountryTableViewController.swift */; };
 		D66FECFC210E2CDE003AC643 /* EditCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66FECFB210E2CDE003AC643 /* EditCityTableViewController.swift */; };
+		D6799565212B65050083F777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6799564212B65050083F777 /* GoogleService-Info.plist */; };
 		D67EF5111ECDFF2A00CA73B1 /* CurrentJamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */; };
 		D67EF5131ECDFFA100CA73B1 /* MySessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5121ECDFFA100CA73B1 /* MySessionsViewController.swift */; };
 		D67EF5151ECDFFE600CA73B1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */; };
@@ -45,7 +46,6 @@
 		D6E56EBD1F12B8810021AE95 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */; };
 		D6EB49551F084E8300F82CDE /* ProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */; };
 		D6EB49571F0852FA00F82CDE /* AdditionalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */; };
-		D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */; };
 		D6F92FEE1ED213AE00B3533F /* NewSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F92FED1ED213AE00B3533F /* NewSessionViewController.swift */; };
 		D6FA3BC71F3671F1004E8B8F /* MySongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA3BC61F3671F1004E8B8F /* MySongsTableViewController.swift */; };
 		D6FA3BC91F36728E004E8B8F /* MySongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FA3BC81F36728E004E8B8F /* MySongTableViewCell.swift */; };
@@ -106,6 +106,7 @@
 		D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMusicianProfileViewController.swift; sourceTree = "<group>"; };
 		D66FECF9210E2CB8003AC643 /* EditCountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCountryTableViewController.swift; sourceTree = "<group>"; };
 		D66FECFB210E2CDE003AC643 /* EditCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCityTableViewController.swift; sourceTree = "<group>"; };
+		D6799564212B65050083F777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D67EF5101ECDFF2A00CA73B1 /* CurrentJamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentJamsViewController.swift; sourceTree = "<group>"; };
 		D67EF5121ECDFFA100CA73B1 /* MySessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySessionsViewController.swift; sourceTree = "<group>"; };
 		D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -131,21 +132,20 @@
 		D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 		D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewController.swift; sourceTree = "<group>"; };
 		D6EB49561F0852FA00F82CDE /* AdditionalInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalInformationViewController.swift; sourceTree = "<group>"; };
-		D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6F92FED1ED213AE00B3533F /* NewSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSessionViewController.swift; sourceTree = "<group>"; };
 		D6FA3BC61F3671F1004E8B8F /* MySongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySongsTableViewController.swift; sourceTree = "<group>"; };
 		D6FA3BC81F36728E004E8B8F /* MySongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySongTableViewCell.swift; sourceTree = "<group>"; };
 		D6FA3BCC1F36ACE3004E8B8F /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
-		D6FE851D1ECCBD7A0020CEE6 /* JamHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FE851D1ECCBD7A0020CEE6 /* JamCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6FE85251ECCBD7A0020CEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6FE85271ECCBD7A0020CEE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6FE852A1ECCBD7A0020CEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6FE852C1ECCBD7A0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6FE85311ECCBD7B0020CEE6 /* JamHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FE85311ECCBD7B0020CEE6 /* JamCenterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamCenterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FE85351ECCBD7B0020CEE6 /* JamHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHubTests.swift; sourceTree = "<group>"; };
 		D6FE85371ECCBD7B0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6FE853C1ECCBD7B0020CEE6 /* JamHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FE853C1ECCBD7B0020CEE6 /* JamCenterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamCenterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FE85401ECCBD7B0020CEE6 /* JamHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamHubUITests.swift; sourceTree = "<group>"; };
 		D6FE85421ECCBD7B0020CEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F62CD0EAA82CD05F7E768FA3 /* Pods_JamHub_JamHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamHub_JamHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +215,7 @@
 		D6FE85141ECCBD7A0020CEE6 = {
 			isa = PBXGroup;
 			children = (
-				D6FE851F1ECCBD7A0020CEE6 /* JamHub */,
+				D6FE851F1ECCBD7A0020CEE6 /* JamCenter */,
 				D6FE85341ECCBD7B0020CEE6 /* JamHubTests */,
 				D6FE853F1ECCBD7B0020CEE6 /* JamHubUITests */,
 				D6FE851E1ECCBD7A0020CEE6 /* Products */,
@@ -227,14 +227,14 @@
 		D6FE851E1ECCBD7A0020CEE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6FE851D1ECCBD7A0020CEE6 /* JamHub.app */,
-				D6FE85311ECCBD7B0020CEE6 /* JamHubTests.xctest */,
-				D6FE853C1ECCBD7B0020CEE6 /* JamHubUITests.xctest */,
+				D6FE851D1ECCBD7A0020CEE6 /* JamCenter.app */,
+				D6FE85311ECCBD7B0020CEE6 /* JamCenterTests.xctest */,
+				D6FE853C1ECCBD7B0020CEE6 /* JamCenterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D6FE851F1ECCBD7A0020CEE6 /* JamHub */ = {
+		D6FE851F1ECCBD7A0020CEE6 /* JamCenter */ = {
 			isa = PBXGroup;
 			children = (
 				D6FE85201ECCBD7A0020CEE6 /* AppDelegate.swift */,
@@ -280,10 +280,10 @@
 				D6FE85291ECCBD7A0020CEE6 /* LaunchScreen.storyboard */,
 				D6C6713520E090C200468562 /* countriesToCities.json */,
 				D6FE852C1ECCBD7A0020CEE6 /* Info.plist */,
-				D6F92FEB1ED2000400B3533F /* GoogleService-Info.plist */,
+				D6799564212B65050083F777 /* GoogleService-Info.plist */,
 				D6D16C221F09D4980079314B /* Helpers */,
 			);
-			path = JamHub;
+			path = JamCenter;
 			sourceTree = "<group>";
 		};
 		D6FE85341ECCBD7B0020CEE6 /* JamHubTests */ = {
@@ -307,9 +307,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D6FE851C1ECCBD7A0020CEE6 /* JamHub */ = {
+		D6FE851C1ECCBD7A0020CEE6 /* JamCenter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6FE85451ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHub" */;
+			buildConfigurationList = D6FE85451ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamCenter" */;
 			buildPhases = (
 				8E5CF65F7EB99179D9123C38 /* [CP] Check Pods Manifest.lock */,
 				D6FE85191ECCBD7A0020CEE6 /* Sources */,
@@ -323,14 +323,14 @@
 			);
 			dependencies = (
 			);
-			name = JamHub;
+			name = JamCenter;
 			productName = JamHub;
-			productReference = D6FE851D1ECCBD7A0020CEE6 /* JamHub.app */;
+			productReference = D6FE851D1ECCBD7A0020CEE6 /* JamCenter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D6FE85301ECCBD7B0020CEE6 /* JamHubTests */ = {
+		D6FE85301ECCBD7B0020CEE6 /* JamCenterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6FE85481ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHubTests" */;
+			buildConfigurationList = D6FE85481ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamCenterTests" */;
 			buildPhases = (
 				42BE4B9FEFB37440344691F2 /* [CP] Check Pods Manifest.lock */,
 				D6FE852D1ECCBD7B0020CEE6 /* Sources */,
@@ -344,14 +344,14 @@
 			dependencies = (
 				D6FE85331ECCBD7B0020CEE6 /* PBXTargetDependency */,
 			);
-			name = JamHubTests;
+			name = JamCenterTests;
 			productName = JamHubTests;
-			productReference = D6FE85311ECCBD7B0020CEE6 /* JamHubTests.xctest */;
+			productReference = D6FE85311ECCBD7B0020CEE6 /* JamCenterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D6FE853B1ECCBD7B0020CEE6 /* JamHubUITests */ = {
+		D6FE853B1ECCBD7B0020CEE6 /* JamCenterUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D6FE854B1ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHubUITests" */;
+			buildConfigurationList = D6FE854B1ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamCenterUITests" */;
 			buildPhases = (
 				BB7554FF0DBFDA03B589C23F /* [CP] Check Pods Manifest.lock */,
 				D6FE85381ECCBD7B0020CEE6 /* Sources */,
@@ -365,9 +365,9 @@
 			dependencies = (
 				D6FE853E1ECCBD7B0020CEE6 /* PBXTargetDependency */,
 			);
-			name = JamHubUITests;
+			name = JamCenterUITests;
 			productName = JamHubUITests;
-			productReference = D6FE853C1ECCBD7B0020CEE6 /* JamHubUITests.xctest */;
+			productReference = D6FE853C1ECCBD7B0020CEE6 /* JamCenterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -402,7 +402,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D6FE85181ECCBD7A0020CEE6 /* Build configuration list for PBXProject "JamHub" */;
+			buildConfigurationList = D6FE85181ECCBD7A0020CEE6 /* Build configuration list for PBXProject "JamCenter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -415,9 +415,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D6FE851C1ECCBD7A0020CEE6 /* JamHub */,
-				D6FE85301ECCBD7B0020CEE6 /* JamHubTests */,
-				D6FE853B1ECCBD7B0020CEE6 /* JamHubUITests */,
+				D6FE851C1ECCBD7A0020CEE6 /* JamCenter */,
+				D6FE85301ECCBD7B0020CEE6 /* JamCenterTests */,
+				D6FE853B1ECCBD7B0020CEE6 /* JamCenterUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,7 +429,7 @@
 			files = (
 				D6FE852B1ECCBD7A0020CEE6 /* LaunchScreen.storyboard in Resources */,
 				D6C6713620E090C300468562 /* countriesToCities.json in Resources */,
-				D6F92FEC1ED2000400B3533F /* GoogleService-Info.plist in Resources */,
+				D6799565212B65050083F777 /* GoogleService-Info.plist in Resources */,
 				D6FE85281ECCBD7A0020CEE6 /* Assets.xcassets in Resources */,
 				D6FE85261ECCBD7A0020CEE6 /* Main.storyboard in Resources */,
 			);
@@ -750,12 +750,12 @@
 /* Begin PBXTargetDependency section */
 		D6FE85331ECCBD7B0020CEE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D6FE851C1ECCBD7A0020CEE6 /* JamHub */;
+			target = D6FE851C1ECCBD7A0020CEE6 /* JamCenter */;
 			targetProxy = D6FE85321ECCBD7B0020CEE6 /* PBXContainerItemProxy */;
 		};
 		D6FE853E1ECCBD7B0020CEE6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D6FE851C1ECCBD7A0020CEE6 /* JamHub */;
+			target = D6FE851C1ECCBD7A0020CEE6 /* JamCenter */;
 			targetProxy = D6FE853D1ECCBD7B0020CEE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -935,7 +935,7 @@
 					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
 					"\"${PODS_ROOT}/VideoCore\"/**",
 				);
-				INFOPLIST_FILE = JamHub/Info.plist;
+				INFOPLIST_FILE = JamCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamcenterapplication.JamCenter;
@@ -990,7 +990,7 @@
 					"\"${PODS_ROOT}/Headers/Public/nanopb\"",
 					"\"${PODS_ROOT}/VideoCore\"/**",
 				);
-				INFOPLIST_FILE = JamHub/Info.plist;
+				INFOPLIST_FILE = JamCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamcenterapplication.JamCenter;
@@ -1018,7 +1018,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamHub.app/JamHub";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamCenter.app/JamCenter";
 			};
 			name = Debug;
 		};
@@ -1035,7 +1035,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamHub.app/JamHub";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamCenter.app/JamCenter";
 			};
 			name = Release;
 		};
@@ -1074,7 +1074,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D6FE85181ECCBD7A0020CEE6 /* Build configuration list for PBXProject "JamHub" */ = {
+		D6FE85181ECCBD7A0020CEE6 /* Build configuration list for PBXProject "JamCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6FE85431ECCBD7B0020CEE6 /* Debug */,
@@ -1083,7 +1083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6FE85451ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHub" */ = {
+		D6FE85451ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamCenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6FE85461ECCBD7B0020CEE6 /* Debug */,
@@ -1092,7 +1092,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6FE85481ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHubTests" */ = {
+		D6FE85481ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamCenterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6FE85491ECCBD7B0020CEE6 /* Debug */,
@@ -1101,7 +1101,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D6FE854B1ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamHubUITests" */ = {
+		D6FE854B1ECCBD7B0020CEE6 /* Build configuration list for PBXNativeTarget "JamCenterUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D6FE854C1ECCBD7B0020CEE6 /* Debug */,
