@@ -98,4 +98,14 @@ extension OtherMusicianProfileViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return propertyCellSizes[indexPath.item]
     }
+    
+    // Center the cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let cellWidth : CGFloat = 165.0
+        
+        let numberOfCells = 4 as CGFloat
+        let edgeInsets = (self.propertiesCollectionView.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
+        
+        return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+    }
 }
