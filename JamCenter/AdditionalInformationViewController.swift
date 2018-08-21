@@ -143,6 +143,5 @@ extension AdditionalInformationViewController: UICollectionViewDelegate {
             let instrumentName = instrumentCellName.replacingOccurrences(of: " Cell", with: "")
             instruments = [instrumentName] // For now, we'll only allow one instrument to be initially picked
         }
-        
     }
 }

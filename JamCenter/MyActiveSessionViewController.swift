@@ -24,10 +24,17 @@ class MyActiveSessionViewController: UIViewController {
     var sessionLocation = String()
     var sessionMusicians = [Musician]()
     
+    let actionsCellIds = ["ShareCell", "RecordAudioCell", "AddToSonglistCell", "GetCodeCell"]
+    let actionsCellSizes = Array(repeatElement(CGSize(width:165, height:140), count: 4))
+    
+    @IBOutlet weak var actionsCollectionView: UICollectionView!
     @IBOutlet weak var endSessionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        actionsCollectionView.delegate = self
+        actionsCollectionView.dataSource = self
 
         if let session = mySession {
             navigationItem.title = session.name
@@ -101,5 +108,37 @@ class MyActiveSessionViewController: UIViewController {
     }
     
     @IBAction func unwindToMyActiveSession(sender: UIStoryboardSegue) {
+    }
+}
+
+// MARK: Collection View
+
+extension MyActiveSessionViewController: UICollectionViewDataSource {
+    func collectionView( _ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return actionsCellIds.count
+    }
+    
+    func collectionView( _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return actionsCollectionView.dequeueReusableCell(withReuseIdentifier: actionsCellIds[indexPath.item], for: indexPath)
+    }
+}
+
+extension MyActiveSessionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return actionsCellSizes[indexPath.item]
+    }
+    
+    // Center the cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let cellWidth : CGFloat = 165.0
+        
+        let numberOfCells = 4 as CGFloat
+        let edgeInsets = (self.actionsCollectionView.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+        } else {
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        }
     }
 }
