@@ -13,6 +13,7 @@
 		D60357BE21212B8700CE1CEF /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60357BD21212B8700CE1CEF /* Song.swift */; };
 		D60DCB801F2EDFBF007E4010 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */; };
 		D61DFAD51F2D5CF600CB1F66 /* InvitationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */; };
+		D62287F9212B851500D8285F /* OtherProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62287F8212B851500D8285F /* OtherProfileCollectionViewCell.swift */; };
 		D633E7F821162BA5008FA1A1 /* InviteMusiciansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633E7F721162BA5008FA1A1 /* InviteMusiciansTableViewController.swift */; };
 		D633E7FA21162EA7008FA1A1 /* InviteMusiciansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D633E7F921162EA7008FA1A1 /* InviteMusiciansTableViewCell.swift */; };
 		D65AE9C21F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */; };
@@ -98,6 +99,7 @@
 		D60357BD21212B8700CE1CEF /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D60DCB7F1F2EDFBF007E4010 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsTableViewController.swift; sourceTree = "<group>"; };
+		D62287F8212B851500D8285F /* OtherProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		D633E7F721162BA5008FA1A1 /* InviteMusiciansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteMusiciansTableViewController.swift; sourceTree = "<group>"; };
 		D633E7F921162EA7008FA1A1 /* InviteMusiciansTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteMusiciansTableViewCell.swift; sourceTree = "<group>"; };
 		D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCurrentSessionViewController.swift; sourceTree = "<group>"; };
@@ -250,18 +252,19 @@
 				D6D16C3B1F0C4EAC0079314B /* CurrentJamMusicianTableViewCell.swift */,
 				D65AE9C11F11A6730049E6D1 /* ActiveCurrentSessionViewController.swift */,
 				D65AE9C31F11B6D40049E6D1 /* OtherMusicianProfileViewController.swift */,
+				D62287F8212B851500D8285F /* OtherProfileCollectionViewCell.swift */,
 				D6E56EBA1F12B80B0021AE95 /* AudioViewController.swift */,
 				D6E56EBC1F12B8810021AE95 /* SongsTableViewController.swift */,
 				D6FA3BCC1F36ACE3004E8B8F /* SongTableViewCell.swift */,
 				D61DFAD41F2D5CF600CB1F66 /* InvitationsTableViewController.swift */,
 				D6D7E15B1F3801B600473399 /* InvitationTableViewCell.swift */,
 				D67EF5141ECDFFE600CA73B1 /* ProfileViewController.swift */,
+				D6B6D058212A5B8800328DE4 /* ProfileCollectionViewCell.swift */,
 				D6C6712D20CF1AFD00468562 /* ProfileSettingsTableViewController.swift */,
 				D6C6712F20D1DEE500468562 /* EditSettingViewController.swift */,
 				D67EF5161ECE013900CA73B1 /* RegisterViewController.swift */,
 				D67EF5181ECE015A00CA73B1 /* LoginViewController.swift */,
 				D6EB49541F084E8300F82CDE /* ProfilePictureViewController.swift */,
-				D6B6D058212A5B8800328DE4 /* ProfileCollectionViewCell.swift */,
 				D6C6713720ED7CDB00468562 /* SelectCountryTableViewController.swift */,
 				D6C6713920ED7D2100468562 /* SelectCityTableViewController.swift */,
 				D66FECF9210E2CB8003AC643 /* EditCountryTableViewController.swift */,
@@ -670,6 +673,7 @@
 				D60357BC21208EE300CE1CEF /* SetTimeViewController.swift in Sources */,
 				D6C6713820ED7CDB00468562 /* SelectCountryTableViewController.swift in Sources */,
 				D66FECFC210E2CDE003AC643 /* EditCityTableViewController.swift in Sources */,
+				D62287F9212B851500D8285F /* OtherProfileCollectionViewCell.swift in Sources */,
 				D6D16C361F0C30760079314B /* Musician.swift in Sources */,
 				D6FA3BCD1F36ACE3004E8B8F /* SongTableViewCell.swift in Sources */,
 				D67EF51B1ECE063000CA73B1 /* SessionTableViewCell.swift in Sources */,

@@ -29,7 +29,6 @@ class OtherMusicianProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
         self.profileImageView.clipsToBounds = true
         
         propertiesCollectionView.delegate = self
@@ -50,6 +49,11 @@ class OtherMusicianProfileViewController: UIViewController {
             location = "\(musicianCity),\n\(musicianCountry)"
             numSessions = String(musician.numSessions ?? 0)
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
     }
     
     // MARK: Actions
@@ -75,7 +79,7 @@ extension OtherMusicianProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView( _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = propertiesCollectionView.dequeueReusableCell( withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCollectionViewCell
+        let cell = propertiesCollectionView.dequeueReusableCell( withReuseIdentifier: "OtherProfileCell", for: indexPath) as! OtherProfileCollectionViewCell
         
         let propertyTitle = propertyTitles[indexPath.row]
         cell.nameLabel.text = propertyTitle

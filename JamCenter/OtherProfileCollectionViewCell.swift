@@ -9,5 +9,6 @@
 import UIKit
 
 class OtherProfileCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
 }
