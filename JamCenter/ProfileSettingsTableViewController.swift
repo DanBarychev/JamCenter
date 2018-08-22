@@ -1,6 +1,6 @@
 //
 //  ProfileSettingsTableViewController.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 6/11/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.

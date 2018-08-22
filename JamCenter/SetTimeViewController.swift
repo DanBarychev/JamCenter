@@ -1,6 +1,6 @@
 //
 //  SetTimeViewController.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 8/12/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.

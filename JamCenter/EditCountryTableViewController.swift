@@ -1,6 +1,6 @@
 //
 //  EditCountryTableViewController.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 7/29/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  InviteMusiciansTableViewCell.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 8/4/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.

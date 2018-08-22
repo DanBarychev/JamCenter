@@ -1,6 +1,6 @@
 //
 //  AudioViewController.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 7/9/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.

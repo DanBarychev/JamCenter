@@ -1942,9 +1942,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muw-pj-r3P">
-                                <rect key="frame" x="16" y="72" width="343" height="538"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muw-pj-r3P">
+                                <rect key="frame" x="16" y="72" width="367" height="538"/>
                                 <string key="text">JamCenter is an open source application under the MIT license so I welcome any and all contributions and use of its code at https://github.com/DanBarychev/JamCenter. This application itself makes use of the Facebook SDK, Google Firebase, and a city selector JSON from https://github.com/salvonos/CityPicker.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1952,6 +1951,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="muw-pj-r3P" firstAttribute="top" secondItem="GyD-b9-bcQ" secondAttribute="bottom" constant="8" symbolic="YES" id="SYl-4X-PDE"/>
+                            <constraint firstItem="Lb6-KU-ge7" firstAttribute="top" secondItem="muw-pj-r3P" secondAttribute="bottom" constant="8" symbolic="YES" id="SnH-22-Dia"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="muw-pj-r3P" secondAttribute="trailingMargin" id="aUj-yZ-1X9"/>
+                            <constraint firstItem="muw-pj-r3P" firstAttribute="leading" secondItem="BAB-63-rJN" secondAttribute="leadingMargin" id="oMh-vu-Mfl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Permissions" id="HAb-1a-ZfZ">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="0fp-8q-YG0">
@@ -1964,7 +1969,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiZ-d1-PwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D1k-CX-i87" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3964" y="3113"/>
+            <point key="canvasLocation" x="3964" y="3112.8935532233886"/>
         </scene>
         <!--Report a Problem-->
         <scene sceneID="rbY-ct-qG4">
@@ -1978,16 +1983,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45W-hw-VgR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45W-hw-VgR">
                                 <rect key="frame" x="16" y="72" width="343" height="538"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Please send any reports of bugs or other issues with the JamCenter service to dbaryche@andrew.cmu.edu. I will try to address them all as soon as I can</string>
+                                <string key="text">Please send any reports of bugs or other issues with the JamCenter service to dbaryche@andrew.cmu.edu. I will try to address them all as soon as I can. In the meantime, the privacy policy can be found at www.jamcenterapp.com</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="45W-hw-VgR" firstAttribute="top" secondItem="DUi-AB-Ejh" secondAttribute="bottom" constant="8" symbolic="YES" id="Xg4-0a-tOD"/>
+                            <constraint firstItem="aDd-2x-2eI" firstAttribute="top" secondItem="45W-hw-VgR" secondAttribute="bottom" constant="8" symbolic="YES" id="ZzT-1V-UWu"/>
+                            <constraint firstItem="45W-hw-VgR" firstAttribute="leading" secondItem="P0j-jh-BBE" secondAttribute="leadingMargin" id="wGO-PY-P5w"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Report a Problem" id="wdH-fT-Qog">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="gcl-eD-Fv7">
@@ -2000,7 +2009,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aB5-Ye-Krz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bwL-gk-rku" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4756" y="3113"/>
+            <point key="canvasLocation" x="4756" y="3112.8935532233886"/>
         </scene>
         <!--Edit Setting-->
         <scene sceneID="ZYI-2N-juX">

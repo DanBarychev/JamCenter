@@ -1,6 +1,6 @@
 //
 //  SongTableViewCell.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 8/5/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.

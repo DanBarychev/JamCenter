@@ -1,6 +1,6 @@
 //
 //  EditSettingViewController.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 6/13/18.
 //  Copyright © 2018 Daniel Barychev. All rights reserved.
