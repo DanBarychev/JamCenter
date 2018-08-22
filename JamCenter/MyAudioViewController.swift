@@ -24,8 +24,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
     var sessionHostUID = String()
     
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var controlsCollectionView: UICollectionView!
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var tapMicrophoneLabel: UILabel!
     @IBOutlet weak var recordingClockLabel: UILabel!
@@ -38,12 +37,17 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
     var seconds = 0
     var timer = Timer()
     var resumeTapped = false
+    
+    let controlsCellIds = ["PlayCell", "PauseCell"]
+    let controlsCellSizes = Array(repeatElement(CGSize(width:165, height:140), count: 2))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playButton.isHidden = true
-        pauseButton.isHidden = true
+        controlsCollectionView.delegate = self
+        controlsCollectionView.dataSource = self
+        
+        controlsCollectionView.isHidden = true
         recordingLabel.isHidden = true
         uploadRecordingButton.isHidden = true
         uploadRecordingButton.layer.cornerRadius = 25
@@ -106,8 +110,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder = nil
         
         if success {
-            playButton.isHidden = false
-            pauseButton.isHidden = false
+            controlsCollectionView.isHidden = false
             uploadRecordingButton.isHidden = false
             recordingLabel.isHidden = true
             tapMicrophoneLabel.text = "Tap Microphone to Record"
@@ -121,8 +124,7 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
     
     @objc func recordTapped() {
         if audioRecorder == nil {
-            playButton.isHidden = true
-            pauseButton.isHidden = true
+            controlsCollectionView.isHidden = true
             uploadRecordingButton.isHidden = true
             recordingLabel.isHidden = false
             
@@ -194,9 +196,9 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         })
     }
     
-    // MARK: Actions
+    // MARK: Controls
     
-    @IBAction func playRecording(_ sender: UIButton) {
+    func playRecording() {
         let recordingURL = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         
         do {
@@ -217,11 +219,13 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    @IBAction func pauseRecording(_ sender: UIButton) {
+    func pauseRecording() {
         if audioPlayer != nil && audioPlayer.isPlaying {
             audioPlayer.pause()
         }
     }
+    
+    // MARK: Actions
     
     @IBAction func uploadRecording(_ sender: UIButton) {
         let recordingName = NSUUID().uuidString
@@ -264,6 +268,49 @@ class MyAudioViewController: UIViewController, AVAudioRecorderDelegate {
             let newViewController = segue.destination as! MyActiveSessionViewController
             
             newViewController.mySession = mySession
+        }
+    }
+}
+
+// MARK: Collection View
+
+extension MyAudioViewController: UICollectionViewDataSource {
+    func collectionView( _ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return controlsCellIds.count
+    }
+    
+    func collectionView( _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return controlsCollectionView.dequeueReusableCell(withReuseIdentifier: controlsCellIds[indexPath.item], for: indexPath)
+    }
+}
+
+extension MyAudioViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return controlsCellSizes[indexPath.item]
+    }
+    
+    // Center the cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let cellWidth : CGFloat = 165.0
+        
+        let numberOfCells = 1 as CGFloat // There are really 2 but we use 1 here for spacing
+        let edgeInsets = (self.controlsCollectionView.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return UIEdgeInsetsMake(15, edgeInsets, 0, edgeInsets)
+        } else {
+            return UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+}
+
+extension MyAudioViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controlCellName = controlsCellIds[indexPath.row]
+        if controlCellName == "PlayCell" {
+            playRecording()
+        } else {
+            pauseRecording()
         }
     }
 }

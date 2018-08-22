@@ -1195,9 +1195,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a5T-Vu-vdR">
-                                <rect key="frame" x="16" y="302" width="343" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a5T-Vu-vdR">
+                                <rect key="frame" x="16" y="281" width="343" height="111"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f94-MW-u2w">
                                     <size key="itemSize" width="165" height="100"/>
@@ -1213,18 +1212,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-bR-cOw">
                                                     <rect key="frame" x="57" y="25" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Play" image="PlayIconHollow"/>
                                                     <state key="selected" image="PlayIconHollowBlue"/>
                                                     <state key="highlighted" image="PlayIconHollowBlue"/>
-                                                    <connections>
-                                                        <action selector="playRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="Dst-Vf-iZE"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="kbD-bR-cOw" firstAttribute="centerY" secondItem="Wr8-wM-QQS" secondAttribute="centerY" id="4Um-tf-WUt"/>
+                                            <constraint firstItem="kbD-bR-cOw" firstAttribute="leading" secondItem="Wr8-wM-QQS" secondAttribute="leadingMargin" constant="49" id="IT4-mh-JeH"/>
+                                            <constraint firstItem="kbD-bR-cOw" firstAttribute="centerX" secondItem="Wr8-wM-QQS" secondAttribute="centerX" id="Q84-hK-gc9"/>
+                                        </constraints>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PauseCell" id="CpM-Di-3xz">
                                         <rect key="frame" x="178" y="0.0" width="165" height="100"/>
@@ -1233,51 +1233,59 @@
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-0z-6CS">
                                                     <rect key="frame" x="57" y="25" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button" image="PauseIcon"/>
                                                     <state key="selected" image="PauseIconBlue"/>
-                                                    <connections>
-                                                        <action selector="pauseRecording:" destination="YQY-e6-bZA" eventType="touchUpInside" id="VHa-PH-Eb2"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="2xp-0z-6CS" firstAttribute="centerY" secondItem="CpM-Di-3xz" secondAttribute="centerY" id="mbP-HZ-TBo"/>
+                                            <constraint firstItem="2xp-0z-6CS" firstAttribute="centerX" secondItem="CpM-Di-3xz" secondAttribute="centerX" id="nKI-FH-ddS"/>
+                                            <constraint firstItem="2xp-0z-6CS" firstAttribute="leading" secondItem="CpM-Di-3xz" secondAttribute="leadingMargin" constant="49" id="vFW-2l-mfG"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
-                                <rect key="frame" x="161" y="170" width="53" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBr-4h-7nh">
+                                <rect key="frame" x="161" y="153" width="53" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="RE8-WQ-BGh"/>
+                                </constraints>
                                 <state key="normal" title="Record" image="MicrophoneRecordIcon"/>
                                 <state key="selected" image="MicrophoneRecordIconBlue"/>
                                 <state key="highlighted" image="MicrophoneRecordIconBlue"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
-                                <rect key="frame" x="134" y="626" width="107" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-by-X0N">
+                                <rect key="frame" x="-6" y="626" width="107" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="uvk-YA-EdM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.019891490399700618" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
-                                <rect key="frame" x="93" y="252" width="189" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Microphone to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LH-oM-MMC">
+                                <rect key="frame" x="93" y="233" width="189" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="paZ-TX-StS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
-                                <rect key="frame" x="16" y="438" width="343" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-TB-jMU">
+                                <rect key="frame" x="62" y="437" width="250" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
-                                <rect key="frame" x="75" y="537" width="224" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Rc-FxX">
+                                <rect key="frame" x="75" y="526" width="224" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DWK-9n-Nh8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Upload Recording">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1288,6 +1296,25 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a5T-Vu-vdR" firstAttribute="centerX" secondItem="OVB-TB-jMU" secondAttribute="centerX" id="2Hq-UP-13p"/>
+                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="59" id="3Rj-es-DAZ"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="77" id="5d6-Kt-YNT"/>
+                            <constraint firstItem="lY6-by-X0N" firstAttribute="top" secondItem="hA1-uw-kfA" secondAttribute="bottom" constant="8" id="8Hf-ml-Py6"/>
+                            <constraint firstItem="hBr-4h-7nh" firstAttribute="centerX" secondItem="5LH-oM-MMC" secondAttribute="centerX" id="Hsc-P9-6Ct"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="centerX" secondItem="a5T-Vu-vdR" secondAttribute="centerX" id="R9Q-Tk-YKq"/>
+                            <constraint firstItem="dbI-Rc-FxX" firstAttribute="top" secondItem="OVB-TB-jMU" secondAttribute="bottom" constant="48" id="Yoz-Em-wIA"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="top" secondItem="a5T-Vu-vdR" secondAttribute="bottom" constant="45" id="aG7-hD-s1a"/>
+                            <constraint firstItem="a5T-Vu-vdR" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" id="c1X-pN-o2H"/>
+                            <constraint firstItem="a5T-Vu-vdR" firstAttribute="top" secondItem="5LH-oM-MMC" secondAttribute="bottom" constant="27" id="cjb-62-0DB"/>
+                            <constraint firstItem="a5T-Vu-vdR" firstAttribute="trailing" secondItem="YnD-Hn-R56" secondAttribute="trailingMargin" id="dEP-5G-cq3"/>
+                            <constraint firstItem="5LH-oM-MMC" firstAttribute="top" secondItem="hBr-4h-7nh" secondAttribute="bottom" constant="30" id="ljb-cS-EZJ"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="46" id="pfJ-vk-Htu"/>
+                            <constraint firstItem="lY6-by-X0N" firstAttribute="leading" secondItem="YnD-Hn-R56" secondAttribute="leadingMargin" constant="-22" id="r3H-7V-XHS"/>
+                            <constraint firstItem="hBr-4h-7nh" firstAttribute="top" secondItem="IJ4-xu-i14" secondAttribute="bottom" constant="89" id="r7Z-lV-p9q"/>
+                            <constraint firstItem="OVB-TB-jMU" firstAttribute="centerX" secondItem="dbI-Rc-FxX" secondAttribute="centerX" id="yt0-n7-3gu"/>
+                            <constraint firstItem="hA1-uw-kfA" firstAttribute="top" secondItem="dbI-Rc-FxX" secondAttribute="bottom" constant="42" id="zkc-0p-rwp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="OXc-gL-SZL">
                         <barButtonItem key="leftBarButtonItem" image="BackIcon" id="OMh-li-Evt">
@@ -1297,8 +1324,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pauseButton" destination="2xp-0z-6CS" id="sJy-Tx-N1k"/>
-                        <outlet property="playButton" destination="kbD-bR-cOw" id="nHe-yD-etc"/>
+                        <outlet property="controlsCollectionView" destination="a5T-Vu-vdR" id="9vZ-Sd-JkI"/>
                         <outlet property="recordButton" destination="hBr-4h-7nh" id="4DH-dD-VMe"/>
                         <outlet property="recordingClockLabel" destination="OVB-TB-jMU" id="GZh-Rt-bjI"/>
                         <outlet property="recordingLabel" destination="lY6-by-X0N" id="zQ8-S1-Q2e"/>

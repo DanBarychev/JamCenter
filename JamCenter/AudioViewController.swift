@@ -23,7 +23,7 @@ class AudioViewController: UIViewController {
     
     var currentSession: Session?
     var recordingURL = String()
-    var audioPlayer: AVPlayer!
+    var audioPlayer: AVAudioPlayer!
     var seconds = 0
     var timer = Timer()
     var playTapped = false
@@ -85,12 +85,23 @@ class AudioViewController: UIViewController {
     @IBAction func playRecording(_ sender: UIButton) {
         let remoteURL = NSURL(string: recordingURL)! as URL
         
-        if audioPlayer == nil {
-            recordingClockLabel.text = "00:00:00"
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
             
-            audioPlayer = AVPlayer(url: remoteURL)
-            audioPlayer.volume = 1
-            audioPlayer.play()
+            if audioPlayer == nil {
+                recordingClockLabel.text = "00:00:00"
+                
+                let recordingData = try Data(contentsOf: remoteURL)
+                audioPlayer = try AVAudioPlayer(data: recordingData, fileTypeHint: AVFileType.m4a.rawValue)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            } else {
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            }
+        } catch {
+            displayPlayError()
         }
         
         if !playTapped {
