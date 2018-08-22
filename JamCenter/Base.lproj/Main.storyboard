@@ -1374,28 +1374,28 @@
                                                 <constraint firstAttribute="height" constant="50" id="wBg-Kw-ke1"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP4-aI-jAl">
-                                            <rect key="frame" x="298" y="12" width="61" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TIn-zk-0lB">
-                                            <rect key="frame" x="339" y="37" width="20" height="20"/>
+                                            <rect key="frame" x="339" y="40" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="TIn-zk-0lB" secondAttribute="height" multiplier="1:1" id="87q-Vh-bFh"/>
                                                 <constraint firstAttribute="height" constant="20" id="SS9-93-GF4"/>
                                                 <constraint firstAttribute="width" constant="20" id="c5O-Jr-EFL"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP4-aI-jAl">
+                                            <rect key="frame" x="298" y="19" width="61" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="XHi-7t-Hrz" secondAttribute="bottom" constant="24" id="37U-H5-Ntp"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XHi-7t-Hrz" secondAttribute="trailing" constant="20" symbolic="YES" id="7DU-Cr-bDC"/>
-                                        <constraint firstItem="J5z-hv-Khb" firstAttribute="top" secondItem="iP4-aI-jAl" secondAttribute="top" id="OH8-9B-Gv7"/>
+                                        <constraint firstItem="J5z-hv-Khb" firstAttribute="top" secondItem="iP4-aI-jAl" secondAttribute="top" constant="-7" id="OH8-9B-Gv7"/>
                                         <constraint firstItem="iP4-aI-jAl" firstAttribute="trailing" secondItem="mgS-Jy-SR6" secondAttribute="trailingMargin" id="TCz-UO-F6N"/>
                                         <constraint firstItem="iP4-aI-jAl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mgS-Jy-SR6" secondAttribute="leading" constant="20" symbolic="YES" id="TPc-Ap-k8i"/>
-                                        <constraint firstItem="TIn-zk-0lB" firstAttribute="top" secondItem="iP4-aI-jAl" secondAttribute="bottom" constant="8" symbolic="YES" id="WaU-9M-TLF"/>
+                                        <constraint firstItem="TIn-zk-0lB" firstAttribute="top" secondItem="iP4-aI-jAl" secondAttribute="bottom" constant="4" id="WaU-9M-TLF"/>
                                         <constraint firstItem="XHi-7t-Hrz" firstAttribute="leading" secondItem="qmA-Ga-OUy" secondAttribute="leading" id="XGs-fY-X0x"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="qmA-Ga-OUy" secondAttribute="bottom" constant="4" id="ZeL-vC-JIb"/>
                                         <constraint firstItem="iP4-aI-jAl" firstAttribute="trailing" secondItem="TIn-zk-0lB" secondAttribute="trailing" id="aRH-Ee-Rk3"/>
