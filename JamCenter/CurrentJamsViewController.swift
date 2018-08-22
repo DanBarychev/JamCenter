@@ -136,11 +136,35 @@ class CurrentJamsViewController: UITableViewController {
                 let hour:TimeInterval = 60.0 * minute
                 let day:TimeInterval = 24 * hour
                 
-                session.isActive = (sessionLifetime <= day)
+                if sessionLifetime >= day {
+                    session.isActive = false
+                    
+                    if let sessionID = session.ID {
+                        setSessionToInactive(sessionID: sessionID)
+                    }
+                } else {
+                    session.isActive = true
+                }
             }
         } else {
             session.isActive = false
         }
+    }
+    
+    func setSessionToInactive(sessionID: String) {
+        print("Setting session to inactive")
+        let ref = Database.database().reference()
+        let sessionRef = ref.child("all sessions").child(sessionID)
+        let values = ["isActive": "false"]
+        sessionRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if let error = error {
+                print(error)
+                return
+            }
+            else {
+                // Session successfully set to inactive
+            }
+        })
     }
     
     func getUserLocation(completionHandler: @escaping UserLocationClosure) {
