@@ -16,23 +16,23 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-    <key>CFBundleVersion</key>
-    <string>1.2</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb321827741886910</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>321827741886910</string>
-    <key>FacebookDisplayName</key>
-    <string>JamCenter</string>
+	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb321827741886910</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>FacebookAppID</key>
+	<string>321827741886910</string>
+	<key>FacebookDisplayName</key>
+	<string>JamCenter</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
