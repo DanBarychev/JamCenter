@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 5/18/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.
@@ -101,9 +101,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
             if let resultDict = result as? [String: AnyObject] {
-                print(resultDict)
+                /* We obtain email this way because the user may have signed up for
+                Facebook with a phone number */
+                var email = String()
+                if let resultEmail = resultDict["email"] as? String {
+                    email = resultEmail
+                }
                 
-                guard let name = resultDict["name"] as? String, let email = resultDict["email"] as? String,
+                guard let name = resultDict["name"] as? String,
                     let profilePictureDict = resultDict["picture"] as? [String: AnyObject],
                     let profilePictureDataDict = profilePictureDict["data"] as? [String: AnyObject],
                     let profilePictureURL = profilePictureDataDict["url"] as? String

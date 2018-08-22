@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  JamHub
+//  JamCenter
 //
 //  Created by Daniel Barychev on 5/17/17.
 //  Copyright © 2017 Daniel Barychev. All rights reserved.
