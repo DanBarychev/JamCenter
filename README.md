@@ -14,4 +14,4 @@
 
 ### Adding to Songlists
 
-![CurrentSession](Screenshots/CurrentSession.png)
+![CurrentSession](Screenshots/iPhoneCurrentSession.png)
