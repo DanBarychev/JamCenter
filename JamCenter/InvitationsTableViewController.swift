@@ -47,7 +47,15 @@ class InvitationsTableViewController: UITableViewController {
     // MARK: Table View Properties
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions.count
+        let sessionsCount = sessions.count
+        
+        if sessionsCount == 0 {
+            self.tableView.setEmptyMessage("No Current Invitations. When Musicians Invite You To A Session, An Invitation Will Show Up Here")
+        } else {
+            self.tableView.restore()
+        }
+        
+        return sessionsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

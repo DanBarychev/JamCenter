@@ -60,11 +60,27 @@ class MySessionsViewController: UITableViewController {
     // MARK: Table View Properites
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var correctSessionsCount = Int()
+        
         if segmentedControl.selectedSegmentIndex == 0 {
-            return hostSessions.count
+            correctSessionsCount = hostSessions.count
+            
+            if correctSessionsCount == 0 {
+                self.tableView.setEmptyMessage("You Don't Have Any Sessions. Click the Plus Button to Add One")
+            } else {
+                self.tableView.restore()
+            }
         } else {
-            return participantSessions.count
+            correctSessionsCount = participantSessions.count
+            
+            if correctSessionsCount == 0 {
+                self.tableView.setEmptyMessage("You Aren't Participating in Any Other Hosts' Sessions. Accept Invitations To Do So")
+            } else {
+                self.tableView.restore()
+            }
         }
+        
+        return correctSessionsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -260,5 +276,4 @@ class MySessionsViewController: UITableViewController {
     @IBAction func unwindToMySessions(sender: UIStoryboardSegue) {
         getData()
     }
-
 }

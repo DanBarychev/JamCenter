@@ -56,7 +56,15 @@ class CurrentJamsViewController: UITableViewController {
     // MARK: Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessions.count
+        let sessionsCount = sessions.count
+        
+        if sessionsCount == 0 {
+            self.tableView.setEmptyMessage("There Are No Currently Active Jams. Keep Checking Back Here For Updates.")
+        } else {
+            self.tableView.restore()
+        }
+        
+        return sessionsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
