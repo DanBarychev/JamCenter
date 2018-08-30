@@ -14,7 +14,7 @@ To create a session, simply press the + button in the top-right corner of the My
 
 ### Finding Sessions
 
-In the CurrentSessions page, you will see a list of currently active sessions in your location. By selecting one of these sessions, you are given detailed information on items such as exact location and other participants. If you have already been invited to the session, you can join immediately. If not, you will need to enter a code given by the session host. Remember that these sessions, like all others, will be gone one day after their listed start times.
+In the Current Jams page, you will see a list of currently active sessions in your location. By selecting one of these sessions, you are given detailed information on items such as exact location and other participants. If you have already been invited to the session, you can join immediately. If not, you will need to enter a code given by the session host. Remember that these sessions, like all others, will be gone one day after their listed start times.
 
 ![CurrentSessions](Screenshots/Small/iPhoneCurrentSessionsSmall.png)
 
@@ -25,4 +25,8 @@ On the Invitations page, you will see a list of invitations that you have been g
 ![Invitations](Screenshots/Small/iPhoneInvitationsSmall.png)
 
 ### Managing Session Media
+
+By selecting the settings button in the top-right of a session you host, you gain access to that session's media properties. This includes features like recording audio and adding to the songlist. Items in the songlist and My Sessions page can be deleted by swiping to the left.
+
+![ManageSession](Screenshots/Small/iPhoneManageSessionSmall.png) ![RecordAudio](Screenshots/Small/iPhoneRecordAudioSmall.png)
 
