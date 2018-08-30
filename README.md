@@ -1,7 +1,7 @@
 # JamCenter
 
-[![Swift](https://img.shields.io/badge/Swift-3.0+-orange.svg)](https://swift.org)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)][mitLink]
+![Swift](https://img.shields.io/badge/Swift-3.0+-orange.svg)(https://swift.org)
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ### About
 
