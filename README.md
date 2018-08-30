@@ -22,6 +22,5 @@ On the Invitations page, you will see a list of invitations that you have been g
 
 ![Invitations](Screenshots/Small/iPhoneInvitationsSmall.png)
 
-### Managing Sessions
+### Managing Session Media
 
-### Exploring Sessions
