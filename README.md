@@ -1,5 +1,8 @@
 # JamCenter
 
+[![Swift](https://img.shields.io/badge/Swift-3.0+-orange.svg)](https://swift.org)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)][mitLink]
+
 ### About
 
 JamCenter changes the way that musicians organize, share, and participate in jam sessions. Through a system of digital sessions, users can invite other musicians to their own sessions and look for other sessions in their area. By creating a session, a user can record audio, publish a song-list, and even share the session through Facebook. All sessions, by default, will become inactive one day after they begin.
