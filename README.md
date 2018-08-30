@@ -8,6 +8,10 @@ JamCenter changes the way that musicians organize, share, and participate in jam
 
 ### Creating Sessions
 
+To create a session, simply press the + button in the top-right corner of the MySessions page. This will take you a page that allows you to customize your session.
+
+![NewSession](Screenshots/Small/iPhoneNewSessionSmall.png)
+
 ### Finding Sessions
 
 ### Session Invitations
